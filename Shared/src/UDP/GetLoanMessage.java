@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * A serializable message to request a customer's credit line at a bank using UDP messaging.
  */
+@SuppressWarnings("serial")
 public class GetLoanMessage implements Serializable, IOperationMessage {
 
 

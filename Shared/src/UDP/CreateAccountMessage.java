@@ -4,6 +4,7 @@ import Data.Customer;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class CreateAccountMessage implements Serializable, IOperationMessage{
 
 

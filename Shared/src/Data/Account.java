@@ -2,6 +2,7 @@ package Data;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Account implements Serializable {
 
     private int accountNumber;

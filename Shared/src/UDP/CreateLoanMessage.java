@@ -5,6 +5,7 @@ import Data.Loan;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class CreateLoanMessage implements Serializable, IOperationMessage{
 
     private Account account;

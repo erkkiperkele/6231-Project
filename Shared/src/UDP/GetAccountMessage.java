@@ -2,6 +2,7 @@ package UDP;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class GetAccountMessage implements Serializable, IOperationMessage {
 
 
