@@ -1,0 +1,17 @@
+module dlms
+{
+	module corba
+	{
+		exception AppException{};
+	
+		interface FrontEnd
+		{
+			boolean delayPayment (in string bankId, in long loanId, in string currentDueDate, in string newDueDate) raises (AppException);
+			string printCustomerInfo(in string bankId);
+			
+			long transferLoan(in string bankId, in long loanId, in string currentBankId, in string otherBankId) raises (AppException);
+			long openAccount(in string bankId, in string firstName, in string lastName, in string emailAddress, in string phoneNumber, in string password) raises (AppException);
+			long getLoan(in string bankId, in long accountNbr, in string password, in long loanAmount) raises (AppException);
+		};
+	};
+};
