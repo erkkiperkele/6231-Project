@@ -1,8 +1,8 @@
-package UDP;
-
-import Data.Customer;
+package shared.udp;
 
 import java.io.Serializable;
+
+import shared.data.Customer;
 
 @SuppressWarnings("serial")
 public class CreateAccountMessage implements Serializable, IOperationMessage{

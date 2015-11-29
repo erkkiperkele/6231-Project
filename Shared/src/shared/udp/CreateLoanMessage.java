@@ -1,7 +1,7 @@
-package UDP;
+package shared.udp;
 
-import Data.Account;
-import Data.Loan;
+import shared.data.Account;
+import shared.data.Loan;
 
 import java.io.Serializable;
 

@@ -1,8 +1,8 @@
-package Contracts;
+package shared.contracts;
 
-import Entities.IAnswer;
-import Entities.IFailure;
-import Entities.IRequest;
+import shared.entities.IAnswer;
+import shared.entities.IFailure;
+import shared.entities.IRequest;
 
 /**
  * Responsible to reliably sequence then send messages using UDP messaging.

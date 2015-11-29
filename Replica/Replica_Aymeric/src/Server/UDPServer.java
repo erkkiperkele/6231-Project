@@ -3,7 +3,7 @@ package Server;
 import Contracts.ICustomerService;
 import Services.BankService;
 import Services.SessionService;
-import UDP.*;
+import shared.udp.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.security.auth.login.FailedLoginException;
@@ -23,7 +23,7 @@ public class UDPServer {
 
     public void startServer() {
 
-            int serverPort = Data.ServerPorts.getUDPPort(SessionService.getInstance().getBank());
+            int serverPort = shared.data.ServerPorts.getUDPPort(SessionService.getInstance().getBank());
             DatagramSocket aSocket = null;
 
         try {
@@ -122,10 +122,10 @@ public class UDPServer {
                 String.format("[UDP] Received a UDP request to get %1$s's credit line", loanMessage.getFirstName())
         );
 
-        Data.Account account = this.customerService.getAccount(loanMessage.getFirstName(), loanMessage.getLastName());
+        shared.data.Account account = this.customerService.getAccount(loanMessage.getFirstName(), loanMessage.getLastName());
 
         if (account != null) {
-            List<Data.Loan> loans = this.customerService.getLoans(account.getAccountNumber());
+            List<shared.data.Loan> loans = this.customerService.getLoans(account.getAccountNumber());
 
             currentLoanAmount = loans
                     .stream()
@@ -167,7 +167,7 @@ public class UDPServer {
 
 
         //REFACTOR: Should not cast interface to its implementation to access restricted operation
-        Data.Loan loan = ((BankService) this.customerService).getLoanWithNoCreditLineCheck(
+        shared.data.Loan loan = ((BankService) this.customerService).getLoanWithNoCreditLineCheck(
                 SessionService.getInstance().getBank(),
                 loanMessage.getAccount().getAccountNumber(),
                 loanMessage.getAccount().getOwner().getPassword(),
@@ -185,7 +185,7 @@ public class UDPServer {
 
         SessionService.getInstance().log().info(logMessage);
 
-        Serializer loanSerializer = new Serializer<Data.Loan>();
+        Serializer loanSerializer = new Serializer<shared.data.Loan>();
         byte[] serializedLoan = loanSerializer.serialize(loan);
         return serializedLoan;
     }
@@ -199,12 +199,12 @@ public class UDPServer {
                         accountMessage.getFirstName())
         );
 
-        Data.Account account = this.customerService.getAccount(
+        shared.data.Account account = this.customerService.getAccount(
                 accountMessage.getFirstName(),
                 accountMessage.getLastName()
         );
 
-        Serializer accountSerializer = new Serializer<Data.Account>();
+        Serializer accountSerializer = new Serializer<shared.data.Account>();
         byte[] serializedAccount = accountSerializer.serialize(account);
         return serializedAccount;
     }
@@ -227,12 +227,12 @@ public class UDPServer {
                 accountMessage.getCustomer().getPassword()
         );
 
-        Data.Account account = this.customerService.getAccount(
+        shared.data.Account account = this.customerService.getAccount(
                 accountMessage.getCustomer().getFirstName(),
                 accountMessage.getCustomer().getLastName()
         );
 
-        Serializer accountSerializer = new Serializer<Data.Account>();
+        Serializer accountSerializer = new Serializer<shared.data.Account>();
         byte[] serializedAccount = accountSerializer.serialize(account);
         return serializedAccount;
     }

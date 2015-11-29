@@ -21,7 +21,7 @@ public interface ICustomerServer {
      * @return
      * @throws RemoteException Standard Remote interface exception. See RMI documentation.
      */
-    int openAccount(Data.Bank bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password);
+    int openAccount(shared.data.Bank bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password);
 
     /**
      * Allows to retrieve a single customer information
@@ -32,7 +32,7 @@ public interface ICustomerServer {
      * @throws RemoteException
      * @throws FailedLoginException thrown if the password and or the bank are incorrect.
      */
-    Data.Customer getCustomer(Data.Bank bank, String email, String password) throws FailedLoginException;
+    shared.data.Customer getCustomer(shared.data.Bank bank, String email, String password) throws FailedLoginException;
 
     /**
      * Allows to validate a customer's credential on the server.
@@ -43,7 +43,7 @@ public interface ICustomerServer {
      * @throws RemoteException
      * @throws FailedLoginException
      */
-    Data.Customer signIn(Data.Bank bank, String email, String password) throws FailedLoginException;
+    shared.data.Customer signIn(shared.data.Bank bank, String email, String password) throws FailedLoginException;
 
     /**
      * Will create a new loan for the given account after validating the customer's credit line against all banks.
@@ -56,7 +56,7 @@ public interface ICustomerServer {
      * @throws RemoteException
      * @throws FailedLoginException
      */
-    Data.Loan getLoan(Data.Bank bank, int accountNumber, String password, long loanAmount) throws FailedLoginException;
+    shared.data.Loan getLoan(shared.data.Bank bank, int accountNumber, String password, long loanAmount) throws FailedLoginException;
 
     /**
      * Transfers a loan from a bank to another.
@@ -69,5 +69,5 @@ public interface ICustomerServer {
      * @return the new loan created at the other bank
      * @throws TransferException
      */
-    Data.Loan transferLoan(int loanId, Data.Bank currentBank, Data.Bank otherBank) throws TransferException;
+    shared.data.Loan transferLoan(int loanId, shared.data.Bank currentBank, shared.data.Bank otherBank) throws TransferException;
 }

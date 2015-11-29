@@ -1,4 +1,4 @@
-package Contracts;
+package shared.contracts;
 
 /**
  * Created by Aymeric on 2015-11-08.

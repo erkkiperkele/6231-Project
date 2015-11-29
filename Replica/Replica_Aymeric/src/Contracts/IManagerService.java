@@ -20,7 +20,7 @@ public interface IManagerService {
      * @param newDueDate
      * @throws RecordNotFoundException This exception is thrown if the loan couldn't be found for the given Id.
      */
-    void delayPayment(Data.Bank bank, int loanID, Date currentDueDate, Date newDueDate) throws RecordNotFoundException;
+    void delayPayment(shared.data.Bank bank, int loanID, Date currentDueDate, Date newDueDate) throws RecordNotFoundException;
 
     /**
      * retrieves the all of the bank's customer information,
@@ -30,5 +30,5 @@ public interface IManagerService {
      * @throws FailedLoginException this exception is thrown in case the bank specified
      * doesn't correspond to the current server's bank
      */
-    Data.CustomerInfo[] getCustomersInfo(Data.Bank bank) throws FailedLoginException;
+    shared.data.CustomerInfo[] getCustomersInfo(shared.data.Bank bank) throws FailedLoginException;
 }

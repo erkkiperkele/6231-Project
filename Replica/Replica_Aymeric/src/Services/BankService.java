@@ -3,7 +3,7 @@ package Services;
 import Contracts.IBankService;
 import Exceptions.RecordNotFoundException;
 import Exceptions.TransferException;
-import UDP.*;
+import shared.udp.*;
 import Data.*;
 
 import javax.security.auth.login.FailedLoginException;
@@ -28,10 +28,10 @@ public class BankService implements IBankService {
     }
 
     @Override
-    public int openAccount(Data.Bank bank, String firstName, String lastName, String email, String phone, String password) {
+    public int openAccount(shared.data.Bank bank, String firstName, String lastName, String email, String phone, String password) {
 
 
-        Data.Customer newCustomer = new Data.Customer(firstName, lastName, password, email, phone);
+        shared.data.Customer newCustomer = new shared.data.Customer(firstName, lastName, password, email, phone);
 
         this.repository.createAccount(newCustomer, DEFAULT_CREDIT_LIMIT);
 
@@ -40,9 +40,9 @@ public class BankService implements IBankService {
     }
 
     @Override
-    public Data.Customer getCustomer(String email, String password) throws FailedLoginException {
+    public shared.data.Customer getCustomer(String email, String password) throws FailedLoginException {
 
-        Data.Customer foundCustomer = this.repository.getCustomer(email);
+        shared.data.Customer foundCustomer = this.repository.getCustomer(email);
 
 
         if (foundCustomer == null) {
@@ -56,9 +56,9 @@ public class BankService implements IBankService {
     }
 
     @Override
-    public List<Data.Loan> getLoans(int accountNumber) {
+    public List<shared.data.Loan> getLoans(int accountNumber) {
 
-        List<Data.Loan> loans = this.repository.getLoans(accountNumber);
+        List<shared.data.Loan> loans = this.repository.getLoans(accountNumber);
 
         if (loans.size() < 0) {
             SessionService.getInstance().log().info(
@@ -72,10 +72,10 @@ public class BankService implements IBankService {
     }
 
     @Override
-    public Data.Loan getLoan(Data.Bank bank, int accountNumber, String password, long loanAmount) throws FailedLoginException {
+    public shared.data.Loan getLoan(shared.data.Bank bank, int accountNumber, String password, long loanAmount) throws FailedLoginException {
 
-        Data.Account account = this.repository.getAccount(accountNumber);
-        Data.Customer customer = account.getOwner();
+        shared.data.Account account = this.repository.getAccount(accountNumber);
+        shared.data.Customer customer = account.getOwner();
 
         long internalLoansAmount = getInternalLoansAmount(accountNumber, password, customer);
 
@@ -83,18 +83,18 @@ public class BankService implements IBankService {
 
         long currentCredit = externalLoansAmount + internalLoansAmount + loanAmount;
 
-        Data.Loan newLoan = createLoan(loanAmount, account, customer, currentCredit);
+        shared.data.Loan newLoan = createLoan(loanAmount, account, customer, currentCredit);
 
         return newLoan;
     }
 
     @Override
-    public Data.Account getAccount(String firstName, String lastName) {
+    public shared.data.Account getAccount(String firstName, String lastName) {
         return this.repository.getAccount(firstName, lastName);
     }
 
     @Override
-    public void delayPayment(Data.Bank bank, int loanId, Date currentDueDate, Date newDueDate)
+    public void delayPayment(shared.data.Bank bank, int loanId, Date currentDueDate, Date newDueDate)
             throws RecordNotFoundException {
 
         //Note: in the context of this assignment, the current due date is not verified.
@@ -103,9 +103,9 @@ public class BankService implements IBankService {
     }
 
     @Override
-    public Data.CustomerInfo[] getCustomersInfo(Data.Bank bank) throws FailedLoginException {
+    public shared.data.CustomerInfo[] getCustomersInfo(shared.data.Bank bank) throws FailedLoginException {
         if (bank == SessionService.getInstance().getBank()) {
-            Data.CustomerInfo[] customersInfo = this.repository.getCustomersInfo();
+            shared.data.CustomerInfo[] customersInfo = this.repository.getCustomersInfo();
 
             SessionService.getInstance().log().info(
                     String.format("Server returned %d customers info", customersInfo.length)
@@ -136,12 +136,12 @@ public class BankService implements IBankService {
      * @throws TransferException
      */
     @Override
-    public Data.Loan transferLoan(int loanId, Data.Bank currentBank, Data.Bank otherBank) throws TransferException {
+    public shared.data.Loan transferLoan(int loanId, shared.data.Bank currentBank, shared.data.Bank otherBank) throws TransferException {
 
-        Data.Loan loan = findLoan(loanId);
-        Data.Customer customer = findCustomer(loan);
+        shared.data.Loan loan = findLoan(loanId);
+        shared.data.Customer customer = findCustomer(loan);
 
-        Data.Loan externalLoan;
+        shared.data.Loan externalLoan;
         try{
 
             //WARNING: Needs 2 locks!
@@ -151,7 +151,7 @@ public class BankService implements IBankService {
             LockFactory.getInstance().writeLock("");
             LockFactory.getInstance().writeLock(customer.getUserName());
 
-            Data.Account externalAccount = findExternalAccount(otherBank, customer);
+            shared.data.Account externalAccount = findExternalAccount(otherBank, customer);
             externalLoan = tryTransferLoan(loanId, otherBank, loan, externalAccount);
             tryDeleteLoan(loanId, loan, customer);
 
@@ -179,17 +179,17 @@ public class BankService implements IBankService {
      * @param loanAmount
      * @return
      */
-    public Data.Loan getLoanWithNoCreditLineCheck(Data.Bank bank, int accountNumber, String password, long loanAmount)
+    public shared.data.Loan getLoanWithNoCreditLineCheck(shared.data.Bank bank, int accountNumber, String password, long loanAmount)
             throws FailedLoginException {
-        Data.Account account = this.repository.getAccount(accountNumber);
-        Data.Customer customer = account.getOwner();
+        shared.data.Account account = this.repository.getAccount(accountNumber);
+        shared.data.Customer customer = account.getOwner();
 
         verifyPassword(accountNumber, password, customer);
-        Data.Loan newLoan = createLoan(loanAmount, account, customer, 0);
+        shared.data.Loan newLoan = createLoan(loanAmount, account, customer, 0);
         return newLoan;
     }
 
-    private void tryDeleteLoan(int loanId, Data.Loan loan, Data.Customer customer) throws TransferException {
+    private void tryDeleteLoan(int loanId, shared.data.Loan loan, shared.data.Customer customer) throws TransferException {
         boolean isTransferSuccessful = this.repository.deleteLoan(customer.getUserName(), loan.getLoanNumber());
         if (!isTransferSuccessful)
         {
@@ -202,9 +202,9 @@ public class BankService implements IBankService {
         }
     }
 
-    private Data.Loan tryTransferLoan(int loanId, Data.Bank otherBank, Data.Loan loan, Data.Account externalAccount) throws TransferException {
+    private shared.data.Loan tryTransferLoan(int loanId, shared.data.Bank otherBank, shared.data.Loan loan, shared.data.Account externalAccount) throws TransferException {
 
-        Data.Loan externalLoan = createLoanAtBank(otherBank, externalAccount, loan);
+        shared.data.Loan externalLoan = createLoanAtBank(otherBank, externalAccount, loan);
         if (externalLoan == null)
         {
             String message = String.format(
@@ -218,12 +218,12 @@ public class BankService implements IBankService {
         return externalLoan;
     }
 
-    private Data.Customer findCustomer(Data.Loan loan) {
+    private shared.data.Customer findCustomer(shared.data.Loan loan) {
         return this.repository.getAccount(loan.getCustomerAccountNumber()).getOwner();
     }
 
-    private Data.Account findExternalAccount(Data.Bank otherBank, Data.Customer customer) throws TransferException {
-        Data.Account externalAccount = getExternalAccount(otherBank, customer);
+    private shared.data.Account findExternalAccount(shared.data.Bank otherBank, shared.data.Customer customer) throws TransferException {
+        shared.data.Account externalAccount = getExternalAccount(otherBank, customer);
 
         if(externalAccount == null)
         {
@@ -238,8 +238,8 @@ public class BankService implements IBankService {
         return externalAccount;
     }
 
-    private Data.Loan findLoan(int loanId) throws TransferException {
-        Data.Loan loan = this.repository.getLoan(loanId);
+    private shared.data.Loan findLoan(int loanId) throws TransferException {
+        shared.data.Loan loan = this.repository.getLoan(loanId);
         if (loan == null)
         {
             String message = String.format("Loan #%1$d doesn't exist.", loanId);
@@ -250,33 +250,33 @@ public class BankService implements IBankService {
     }
 
     private long getExternalLoans(String firstName, String lastName) {
-        Data.Bank currentBank = SessionService.getInstance().getBank();
+        shared.data.Bank currentBank = SessionService.getInstance().getBank();
 
         long externalLoans = 0;
 
-        if (currentBank != Data.Bank.National) {
-            long externalLoan = getLoanAtBank(Data.Bank.National, firstName, lastName);
+        if (currentBank != shared.data.Bank.National) {
+            long externalLoan = getLoanAtBank(shared.data.Bank.National, firstName, lastName);
             externalLoans += externalLoan;
         }
-        if (currentBank != Data.Bank.Royal) {
-            long externalLoan = getLoanAtBank(Data.Bank.Royal, firstName, lastName);
+        if (currentBank != shared.data.Bank.Royal) {
+            long externalLoan = getLoanAtBank(shared.data.Bank.Royal, firstName, lastName);
             externalLoans += externalLoan;
         }
-        if (currentBank != Data.Bank.Dominion) {
-            long externalLoan = getLoanAtBank(Data.Bank.Dominion, firstName, lastName);
+        if (currentBank != shared.data.Bank.Dominion) {
+            long externalLoan = getLoanAtBank(shared.data.Bank.Dominion, firstName, lastName);
             externalLoans += externalLoan;
         }
         return externalLoans;
     }
 
-    private long getLoanAtBank(Data.Bank bank, String firstName, String lastName) {
+    private long getLoanAtBank(shared.data.Bank bank, String firstName, String lastName) {
 
         long externalLoan = 0;
         try {
 
             IOperationMessage getLoanMessage = new GetLoanMessage(firstName, lastName);
             byte[] data = createUDPMessageData(getLoanMessage, OperationType.GetLoan);
-            byte[] udpAnswer = this.udp.sendMessage(data, Data.ServerPorts.getUDPPort(bank));
+            byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
             Serializer getLoanSerializer = new Serializer<Long>();
             externalLoan = (Long) getLoanSerializer.deserialize(udpAnswer);
@@ -289,9 +289,9 @@ public class BankService implements IBankService {
         return externalLoan;
     }
 
-    private Data.Account getExternalAccount(Data.Bank otherBank, Data.Customer customer) {
+    private shared.data.Account getExternalAccount(shared.data.Bank otherBank, shared.data.Customer customer) {
 
-        Data.Account account = getAccountAtBank(otherBank, customer);
+        shared.data.Account account = getAccountAtBank(otherBank, customer);
 
         if (account == null)
         {
@@ -300,7 +300,7 @@ public class BankService implements IBankService {
         return account;
     }
 
-    private long getInternalLoansAmount(int accountNumber, String password, Data.Customer customer) throws FailedLoginException {
+    private long getInternalLoansAmount(int accountNumber, String password, shared.data.Customer customer) throws FailedLoginException {
         verifyPassword(accountNumber, password, customer);
 
         return this.repository.getLoans(accountNumber)
@@ -309,7 +309,7 @@ public class BankService implements IBankService {
                 .sum();
     }
 
-    private void verifyPassword(int accountNumber, String password, Data.Customer customer) throws FailedLoginException {
+    private void verifyPassword(int accountNumber, String password, shared.data.Customer customer) throws FailedLoginException {
         if (!customer.getPassword().equals(password)) {
 
             SessionService.getInstance().log().warn(
@@ -320,9 +320,9 @@ public class BankService implements IBankService {
         }
     }
 
-    private Data.Loan createLoan(long loanAmount, Data.Account account, Data.Customer customer, long currentCredit) {
+    private shared.data.Loan createLoan(long loanAmount, shared.data.Account account, shared.data.Customer customer, long currentCredit) {
 
-        Data.Loan newLoan = null;
+        shared.data.Loan newLoan = null;
         String userName = account.getOwner().getUserName();
 
         if (currentCredit < account.getCreditLimit()) {
@@ -348,16 +348,16 @@ public class BankService implements IBankService {
         return newLoan;
     }
 
-    private Data.Account getAccountAtBank(Data.Bank bank, Data.Customer customer) {
+    private shared.data.Account getAccountAtBank(shared.data.Bank bank, shared.data.Customer customer) {
 
-        Data.Account externalAccount = null;
+        shared.data.Account externalAccount = null;
         try {
             IOperationMessage getAccountMessage = new GetAccountMessage(customer.getFirstName(), customer.getLastName());
             byte[] data = createUDPMessageData(getAccountMessage, OperationType.GetAccount);
-            byte[] udpAnswer = this.udp.sendMessage(data, Data.ServerPorts.getUDPPort(bank));
+            byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
-            Serializer getAccountSerializer = new Serializer<Data.Account>();
-            externalAccount = (Data.Account) getAccountSerializer.deserialize(udpAnswer);
+            Serializer getAccountSerializer = new Serializer<shared.data.Account>();
+            externalAccount = (shared.data.Account) getAccountSerializer.deserialize(udpAnswer);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -366,16 +366,16 @@ public class BankService implements IBankService {
         return externalAccount;
     }
 
-    private Data.Account createAccountAtBank(Data.Bank bank, Data.Customer customer) {
+    private shared.data.Account createAccountAtBank(shared.data.Bank bank, shared.data.Customer customer) {
 
-        Data.Account externalAccount = null;
+        shared.data.Account externalAccount = null;
         try {
             IOperationMessage createUDPMessageData = new CreateAccountMessage(customer);
             byte[] data = createUDPMessageData(createUDPMessageData, OperationType.CreateAccount);
-            byte[] udpAnswer = this.udp.sendMessage(data, Data.ServerPorts.getUDPPort(bank));
+            byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
-            Serializer getAccountSerializer = new Serializer<Data.Account>();
-            externalAccount = (Data.Account) getAccountSerializer.deserialize(udpAnswer);
+            Serializer getAccountSerializer = new Serializer<shared.data.Account>();
+            externalAccount = (shared.data.Account) getAccountSerializer.deserialize(udpAnswer);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -384,16 +384,16 @@ public class BankService implements IBankService {
         return externalAccount;
     }
 
-    private Data.Loan createLoanAtBank(Data.Bank bank, Data.Account externalAccount, Data.Loan loan) {
+    private shared.data.Loan createLoanAtBank(shared.data.Bank bank, shared.data.Account externalAccount, shared.data.Loan loan) {
 
-        Data.Loan externalLoan = null;
+        shared.data.Loan externalLoan = null;
         try {
             IOperationMessage createUDPMessageData = new CreateLoanMessage(externalAccount, loan);
             byte[] data = createUDPMessageData(createUDPMessageData, OperationType.CreateLoan);
-            byte[] udpAnswer = this.udp.sendMessage(data, Data.ServerPorts.getUDPPort(bank));
+            byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
-            Serializer getLoanSerializer = new Serializer<Data.Loan>();
-            externalLoan = (Data.Loan) getLoanSerializer.deserialize(udpAnswer);
+            Serializer getLoanSerializer = new Serializer<shared.data.Loan>();
+            externalLoan = (shared.data.Loan) getLoanSerializer.deserialize(udpAnswer);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

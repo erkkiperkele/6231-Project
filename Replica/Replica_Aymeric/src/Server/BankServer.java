@@ -49,7 +49,7 @@ public class BankServer {
     }
 
     private static void initialize(String arg) {
-        Data.Bank serverName = Data.Bank.fromInt(Integer.parseInt(arg));
+        shared.data.Bank serverName = shared.data.Bank.fromInt(Integer.parseInt(arg));
         SessionService.getInstance().setBank(serverName);
         bankService = new BankService();
         udp = new UDPServer(bankService);
@@ -57,8 +57,8 @@ public class BankServer {
 
     private static void startRMIServer() {
 
-        Data.Bank bank = SessionService.getInstance().getBank();
-        int serverPort = Data.ServerPorts.getRMIPort(bank);
+        shared.data.Bank bank = SessionService.getInstance().getBank();
+        int serverPort = shared.data.ServerPorts.getRMIPort(bank);
 
         try {
             (new BankServerRMI(bankService, serverPort)).exportServer();
@@ -88,8 +88,8 @@ public class BankServer {
         try {
             String[] args = new String[]{};
 
-            Data.Bank bank = SessionService.getInstance().getBank();
-            int serverPort = Data.ServerPorts.getRMIPort(bank);
+            shared.data.Bank bank = SessionService.getInstance().getBank();
+            int serverPort = shared.data.ServerPorts.getRMIPort(bank);
             Properties props = new Properties();
             props.put("ORBPort", serverPort);
             ORB orb = ORB.init(args, props);

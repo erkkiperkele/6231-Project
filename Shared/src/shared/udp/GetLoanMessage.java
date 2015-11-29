@@ -1,15 +1,18 @@
-package UDP;
+package shared.udp;
 
 import java.io.Serializable;
 
+/**
+ * A serializable message to request a customer's credit line at a bank using UDP messaging.
+ */
 @SuppressWarnings("serial")
-public class GetAccountMessage implements Serializable, IOperationMessage {
+public class GetLoanMessage implements Serializable, IOperationMessage {
 
 
     private String firstName;
     private String lastName;
 
-    public GetAccountMessage(String firstName, String lastName) {
+    public GetLoanMessage(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -22,3 +25,5 @@ public class GetAccountMessage implements Serializable, IOperationMessage {
         return this.lastName;
     }
 }
+
+

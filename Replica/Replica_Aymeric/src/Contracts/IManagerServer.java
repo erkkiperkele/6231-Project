@@ -21,7 +21,7 @@ public interface IManagerServer {
      * @throws RemoteException
      * @throws RecordNotFoundException
      */
-    void delayPayment(Data.Bank bank, int loanID, Date currentDueDate, Date newDueDate)
+    void delayPayment(shared.data.Bank bank, int loanID, Date currentDueDate, Date newDueDate)
             throws RecordNotFoundException;
 
     /**
@@ -31,6 +31,6 @@ public interface IManagerServer {
      * @throws RemoteException
      * @throws FailedLoginException thrown if the target bank does not correspond to the server's identity
      */
-    Data.CustomerInfo[] getCustomersInfo(Data.Bank bank)
+    shared.data.CustomerInfo[] getCustomersInfo(shared.data.Bank bank)
             throws FailedLoginException;
 }

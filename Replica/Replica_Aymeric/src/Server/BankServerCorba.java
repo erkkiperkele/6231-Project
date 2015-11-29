@@ -27,7 +27,7 @@ public class BankServerCorba extends BankServerPOA {
     public short openAccount(Bank bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password) {
         System.out.println("openning account!!!!");
 
-        Data.Bank serverBank = ObjectMapper.toBank(bank);
+        shared.data.Bank serverBank = ObjectMapper.toBank(bank);
         int accountNumber = bankService.openAccount(serverBank, firstName, lastName, emailAddress, phoneNumber, password);
         return (short) accountNumber;
     }
@@ -38,7 +38,7 @@ public class BankServerCorba extends BankServerPOA {
 
         System.out.println("get customer!!!!");
 
-        Data.Customer serverCustomer = null;
+        shared.data.Customer serverCustomer = null;
         try {
             serverCustomer = bankService.getCustomer(email, password);
         } catch (FailedLoginException e) {
@@ -59,8 +59,8 @@ public class BankServerCorba extends BankServerPOA {
     public Loan getLoan(Bank bank, short accountNumber, String password, int loanAmount)
             throws Corba.BankServerPackage.FailedLoginException {
 
-        Data.Bank serverBank = ObjectMapper.toBank(bank);
-        Data.Loan serverLoan = null;
+        shared.data.Bank serverBank = ObjectMapper.toBank(bank);
+        shared.data.Loan serverLoan = null;
         try {
             serverLoan = bankService.getLoan(serverBank, accountNumber, password, loanAmount);
         } catch (FailedLoginException e) {
@@ -73,7 +73,7 @@ public class BankServerCorba extends BankServerPOA {
     public void delayPayment(Bank bank, short loanID, Date currentDueDate, Date newDueDate)
             throws RecordNotFoundException {
 
-        Data.Bank serverBank = ObjectMapper.toBank(bank);
+        shared.data.Bank serverBank = ObjectMapper.toBank(bank);
         java.util.Date serverCurrentDueDate = ObjectMapper.toDate(currentDueDate);
         java.util.Date serverNewDueDate = ObjectMapper.toDate(newDueDate);
         try {
@@ -87,8 +87,8 @@ public class BankServerCorba extends BankServerPOA {
     public BankInfo getCustomersInfo(Bank bank)
             throws Corba.BankServerPackage.FailedLoginException {
 
-        Data.Bank serverBank = ObjectMapper.toBank(bank);
-        Data.CustomerInfo[] customersInfo;
+        shared.data.Bank serverBank = ObjectMapper.toBank(bank);
+        shared.data.CustomerInfo[] customersInfo;
         try {
             customersInfo = bankService.getCustomersInfo(serverBank);
             return ObjectMapper.toCorbaBankInfo(customersInfo);
@@ -100,10 +100,10 @@ public class BankServerCorba extends BankServerPOA {
     @Override
     public Loan transferLoan(short loanId, Bank currentBank, Bank otherBank) throws TransferException {
 
-        Data.Bank serverCurrentBank = ObjectMapper.toBank(currentBank);
-        Data.Bank serverOtherBank = ObjectMapper.toBank(otherBank);
+        shared.data.Bank serverCurrentBank = ObjectMapper.toBank(currentBank);
+        shared.data.Bank serverOtherBank = ObjectMapper.toBank(otherBank);
 
-        Data.Loan newLoan;
+        shared.data.Loan newLoan;
 
         try {
             newLoan = bankService.transferLoan(loanId, serverCurrentBank, serverOtherBank);

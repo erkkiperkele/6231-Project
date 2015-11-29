@@ -3,11 +3,11 @@ package Server;
 import Contracts.IBankService;
 import Contracts.ICustomerRMIServer;
 import Contracts.IManagerRMIServer;
-import Data.Bank;
-import Data.Customer;
-import Data.CustomerInfo;
-import Data.Loan;
 import Exceptions.RecordNotFoundException;
+import shared.data.Bank;
+import shared.data.Customer;
+import shared.data.CustomerInfo;
+import shared.data.Loan;
 
 import javax.security.auth.login.FailedLoginException;
 import java.rmi.Remote;

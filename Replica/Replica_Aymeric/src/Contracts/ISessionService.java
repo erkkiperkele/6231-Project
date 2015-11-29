@@ -11,14 +11,14 @@ public interface ISessionService {
      * Indicates what's the current server's bank.
      * @return
      */
-    Data.Bank getBank();
+    shared.data.Bank getBank();
 
     /**
      * Sets the current server's bank at startup.
      * Should not be changed once server is online.
      * @param bank
      */
-    void setBank(Data.Bank bank);
+    void setBank(shared.data.Bank bank);
 
     /**
      * Returns a file logger where to write the logs for the server.

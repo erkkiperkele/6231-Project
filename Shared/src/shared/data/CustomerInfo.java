@@ -1,4 +1,4 @@
-package Data;
+package shared.data;
 
 import java.io.Serializable;
 import java.util.List;

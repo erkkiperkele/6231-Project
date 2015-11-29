@@ -1,4 +1,4 @@
-package UDP;
+package shared.udp;
 
 public enum OperationType {
     GetAccount,

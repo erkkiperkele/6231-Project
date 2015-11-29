@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ObjectMapper {
 
-    public static Bank toCorbaBank(Data.Bank bank) {
+    public static Bank toCorbaBank(shared.data.Bank bank) {
 
         Bank corbaBank = null;
         try {
@@ -29,19 +29,19 @@ public class ObjectMapper {
         return mapToCorbaObject(date);
     }
 
-    public static Customer toCorbaCustomer(Data.Customer customer) {
+    public static Customer toCorbaCustomer(shared.data.Customer customer) {
         return mapToCorbaObject(customer);
     }
 
-    public static Loan toCorbaLoan(Data.Loan serverLoan) {
+    public static Loan toCorbaLoan(shared.data.Loan serverLoan) {
         return mapToCorbaObject(serverLoan);
     }
 
-    public static BankInfo toCorbaBankInfo(Data.CustomerInfo[] customersInfo) {
+    public static BankInfo toCorbaBankInfo(shared.data.CustomerInfo[] customersInfo) {
 
         List<Corba.BankServerPackage.CustomerInfo> corbaCustomers = new ArrayList<>();
 
-        for (Data.CustomerInfo customerInfo : customersInfo) {
+        for (shared.data.CustomerInfo customerInfo : customersInfo) {
             corbaCustomers.add(mapToCorbaObject(customerInfo));
         }
 
@@ -50,9 +50,9 @@ public class ObjectMapper {
         );
     }
 
-    public static Data.Customer toCustomer(Customer corbaCustomer) {
+    public static shared.data.Customer toCustomer(Customer corbaCustomer) {
 
-        Data.Customer customer = null;
+        shared.data.Customer customer = null;
         try {
             customer = ObjectMapper.mapToClientObject(corbaCustomer);
         } catch (ObjectMappingException e) {
@@ -61,9 +61,9 @@ public class ObjectMapper {
         return customer;
     }
 
-    public static Data.Loan toLoan(Loan corbaLoan) {
+    public static shared.data.Loan toLoan(Loan corbaLoan) {
 
-        Data.Loan loan = null;
+        shared.data.Loan loan = null;
         try {
             loan = ObjectMapper.mapToClientObject(corbaLoan);
         } catch (ObjectMappingException e) {
@@ -72,9 +72,9 @@ public class ObjectMapper {
         return loan;
     }
 
-    public static Data.Bank toBank(Bank corbaBank) {
+    public static shared.data.Bank toBank(Bank corbaBank) {
 
-        Data.Bank bank = null;
+        shared.data.Bank bank = null;
         try {
             bank = ObjectMapper.mapToClientObject(corbaBank);
         } catch (ObjectMappingException e) {
@@ -88,9 +88,9 @@ public class ObjectMapper {
         return mapToClientObject(currentDueDate);
     }
 
-    public static Data.CustomerInfo[] toCustomersInfo(BankInfo bankInfo) {
+    public static shared.data.CustomerInfo[] toCustomersInfo(BankInfo bankInfo) {
 
-        Data.CustomerInfo[] customersInfo = new Data.CustomerInfo[0];
+        shared.data.CustomerInfo[] customersInfo = new shared.data.CustomerInfo[0];
         try {
             customersInfo = mapToClientObject(bankInfo);
         } catch (ObjectMappingException e) {
@@ -99,7 +99,7 @@ public class ObjectMapper {
         return customersInfo;
     }
 
-    private static Bank mapToCorbaObject(Data.Bank source) throws ObjectMappingException {
+    private static Bank mapToCorbaObject(shared.data.Bank source) throws ObjectMappingException {
         Bank destination = Bank.None;
 
         switch (source) {
@@ -123,7 +123,7 @@ public class ObjectMapper {
         return destination;
     }
 
-    private static Customer mapToCorbaObject(Data.Customer customer) {
+    private static Customer mapToCorbaObject(shared.data.Customer customer) {
         return new Customer(
                 (short) customer.getId(),
                 customer.getFirstName(),
@@ -145,7 +145,7 @@ public class ObjectMapper {
         return new Corba.BankServerPackage.Date(year, month, day);
     }
 
-    private static Loan mapToCorbaObject(Data.Loan serverLoan) {
+    private static Loan mapToCorbaObject(shared.data.Loan serverLoan) {
 
         Loan corbaLoan = new Loan(
                 (short) serverLoan.getLoanNumber(),
@@ -157,10 +157,10 @@ public class ObjectMapper {
         return corbaLoan;
     }
 
-    private static Corba.BankServerPackage.CustomerInfo mapToCorbaObject(Data.CustomerInfo customerInfo) {
+    private static Corba.BankServerPackage.CustomerInfo mapToCorbaObject(shared.data.CustomerInfo customerInfo) {
 
         List<Loan> loans = new ArrayList<>();
-        for (Data.Loan loan : customerInfo.getLoans()) {
+        for (shared.data.Loan loan : customerInfo.getLoans()) {
             loans.add(mapToCorbaObject(loan));
         }
 
@@ -171,7 +171,7 @@ public class ObjectMapper {
         );
     }
 
-    private static Account mapToCorbaObject(Data.Account account) {
+    private static Account mapToCorbaObject(shared.data.Account account) {
         return new Account(
                 (short) account.getAccountNumber(),
                 mapToCorbaObject(account.getOwner()),
@@ -179,22 +179,22 @@ public class ObjectMapper {
         );
     }
 
-    private static Data.Bank mapToClientObject(Bank source) throws ObjectMappingException {
-        Data.Bank destination = Data.Bank.None;
+    private static shared.data.Bank mapToClientObject(Bank source) throws ObjectMappingException {
+        shared.data.Bank destination = shared.data.Bank.None;
 
 
         switch (source.toString()) {
             case "Dominion":
-                destination = Data.Bank.Dominion;
+                destination = shared.data.Bank.Dominion;
                 break;
             case "National":
-                destination = Data.Bank.National;
+                destination = shared.data.Bank.National;
                 break;
             case "Royal":
-                destination = Data.Bank.Royal;
+                destination = shared.data.Bank.Royal;
                 break;
             case "None":
-                destination = Data.Bank.None;
+                destination = shared.data.Bank.None;
                 break;
             default:
                 throw new ObjectMappingException(
@@ -204,9 +204,9 @@ public class ObjectMapper {
         return destination;
     }
 
-    private static Data.Customer mapToClientObject(Customer corbaCustomer) throws ObjectMappingException {
+    private static shared.data.Customer mapToClientObject(Customer corbaCustomer) throws ObjectMappingException {
 
-        return new Data.Customer(
+        return new shared.data.Customer(
                 corbaCustomer.id,
                 corbaCustomer.accountNumber,
                 corbaCustomer.firstName,
@@ -218,9 +218,9 @@ public class ObjectMapper {
         );
     }
 
-    private static Data.Loan mapToClientObject(Loan corbaLoan) throws ObjectMappingException {
+    private static shared.data.Loan mapToClientObject(Loan corbaLoan) throws ObjectMappingException {
 
-        return new Data.Loan(
+        return new shared.data.Loan(
                 corbaLoan.loanNumber,
                 corbaLoan.customerAccountNumber,
                 corbaLoan.amount,
@@ -238,35 +238,35 @@ public class ObjectMapper {
         return calendar.getTime();
     }
 
-    private static Data.CustomerInfo[] mapToClientObject(BankInfo bankInfo) throws ObjectMappingException {
-        List<Data.CustomerInfo> customersInfo = new ArrayList<>();
+    private static shared.data.CustomerInfo[] mapToClientObject(BankInfo bankInfo) throws ObjectMappingException {
+        List<shared.data.CustomerInfo> customersInfo = new ArrayList<>();
 
         Corba.BankServerPackage.CustomerInfo[] corbaCustomersInfos = bankInfo.customersInfo;
         for (Corba.BankServerPackage.CustomerInfo customerInfo : corbaCustomersInfos) {
             customersInfo.add(mapToClientObject(customerInfo));
         }
 
-        return customersInfo.stream().toArray(Data.CustomerInfo[]::new);
+        return customersInfo.stream().toArray(shared.data.CustomerInfo[]::new);
     }
 
-    private static Data.CustomerInfo mapToClientObject(Corba.BankServerPackage.CustomerInfo corbaCustomerInfo)
+    private static shared.data.CustomerInfo mapToClientObject(Corba.BankServerPackage.CustomerInfo corbaCustomerInfo)
             throws ObjectMappingException {
 
-        List<Data.Loan> loans = new ArrayList<>();
+        List<shared.data.Loan> loans = new ArrayList<>();
 
         for (Loan loan : corbaCustomerInfo.loans) {
             loans.add(mapToClientObject(loan));
         }
 
-        return new Data.CustomerInfo(
+        return new shared.data.CustomerInfo(
                 mapToClientObject(corbaCustomerInfo.account),
                 loans
         );
     }
 
-    private static Data.Account mapToClientObject(Account corbaAccount) throws ObjectMappingException {
+    private static shared.data.Account mapToClientObject(Account corbaAccount) throws ObjectMappingException {
 
-        return new Data.Account(
+        return new shared.data.Account(
                 corbaAccount.accountNumber,
                 mapToClientObject(corbaAccount.owner),
                 corbaAccount.creditLimit

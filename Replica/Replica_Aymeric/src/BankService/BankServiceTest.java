@@ -17,8 +17,8 @@ public class BankServiceTest {
 
 
     private static IBankService bankService;
-    private static Data.Bank bank;
-    private static Data.Bank anotherBank;
+    private static shared.data.Bank bank;
+    private static shared.data.Bank anotherBank;
 
     public static void main(String[] args) throws FailedLoginException {
 
@@ -33,10 +33,10 @@ public class BankServiceTest {
     }
 
     private static void initialize(String arg) {
-        bank = Data.Bank.fromInt(Integer.parseInt(arg));
-        anotherBank = bank == Data.Bank.Royal
-                ? Data.Bank.National
-                : Data.Bank.Royal;
+        bank = shared.data.Bank.fromInt(Integer.parseInt(arg));
+        anotherBank = bank == shared.data.Bank.Royal
+                ? shared.data.Bank.National
+                : shared.data.Bank.Royal;
 
         SessionService.getInstance().setBank(bank);
         bankService = new BankService();
@@ -55,23 +55,23 @@ public class BankServiceTest {
 
         try {
             String unknownUsername = "dummy@dummy.com";
-            Data.Customer unknown = bankService.getCustomer(unknownUsername, "aa");
+            shared.data.Customer unknown = bankService.getCustomer(unknownUsername, "aa");
             printCustomer(unknown, unknownUsername);
 
             String mariaUsername = "maria.etinger@gmail.com";
-            Data.Customer maria = bankService.getCustomer(mariaUsername, "aa");
+            shared.data.Customer maria = bankService.getCustomer(mariaUsername, "aa");
             printCustomer(maria, mariaUsername);
 
             String justinUsername = "justin.paquette@gmail.com";
-            Data.Customer justin = bankService.getCustomer(justinUsername, "aa");
+            shared.data.Customer justin = bankService.getCustomer(justinUsername, "aa");
             printCustomer(justin, justinUsername);
 
             String alexUserName = "alex.emond@gmail.com";
-            Data.Customer alex = null;
+            shared.data.Customer alex = null;
             alex = bankService.getCustomer(alexUserName, "aa");
             printCustomer(alex, alexUserName);
 
-            List<Data.Loan> alexLoans = bankService.getLoans(alex.getAccountNumber());
+            List<shared.data.Loan> alexLoans = bankService.getLoans(alex.getAccountNumber());
             printLoans(alexLoans, alex.getFirstName());
 
         } catch (FailedLoginException e) {
@@ -82,7 +82,7 @@ public class BankServiceTest {
     public static void testOpeningMultipleAccounts() {
         System.out.println(String.format("Start of concurrent account creation"));
 
-        Data.Bank bank = SessionService.getInstance().getBank();
+        shared.data.Bank bank = SessionService.getInstance().getBank();
 
         String firstName = "Concurrent";
         String lastName = "concu";
@@ -166,9 +166,9 @@ public class BankServiceTest {
 
     public static void testUDPGetLoan() {
 
-        Data.Bank bank = SessionService.getInstance().getBank();
+        shared.data.Bank bank = SessionService.getInstance().getBank();
 
-        if (bank == Data.Bank.Royal) {
+        if (bank == shared.data.Bank.Royal) {
 
             int accountNumber = 2;
             String password = "aa";
@@ -191,10 +191,10 @@ public class BankServiceTest {
     }
 
     public static void testPrintCustomersInfo() {
-        Data.Bank bank = SessionService.getInstance().getBank();
+        shared.data.Bank bank = SessionService.getInstance().getBank();
         try {
-            Data.CustomerInfo[] customersInfo = bankService.getCustomersInfo(bank);
-            for (Data.CustomerInfo info : customersInfo) {
+            shared.data.CustomerInfo[] customersInfo = bankService.getCustomersInfo(bank);
+            for (shared.data.CustomerInfo info : customersInfo) {
                 System.out.println(info.toString());
             }
         } catch (FailedLoginException e) {
@@ -203,7 +203,7 @@ public class BankServiceTest {
     }
 
     public static void testDelayPayment() {
-        Data.Bank bank = SessionService.getInstance().getBank();
+        shared.data.Bank bank = SessionService.getInstance().getBank();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
         try {
@@ -218,7 +218,7 @@ public class BankServiceTest {
         }
     }
 
-    private static void printCustomer(Data.Customer customer, String username) {
+    private static void printCustomer(shared.data.Customer customer, String username) {
         if (customer != null) {
             SessionService.getInstance().log().info(customer.toString());
         } else {
@@ -226,9 +226,9 @@ public class BankServiceTest {
         }
     }
 
-    private static void printLoans(List<Data.Loan> loans, String customerName) {
+    private static void printLoans(List<shared.data.Loan> loans, String customerName) {
         if (loans != null && loans.size() > 0) {
-            for (Data.Loan loan : loans) {
+            for (shared.data.Loan loan : loans) {
                 SessionService.getInstance().log().info(loan.toString());
             }
         } else {
@@ -247,16 +247,16 @@ public class BankServiceTest {
 
 
         //4 loans transferred concurrently for a user
-        Data.Loan loan1 = bankService.getLoan(bank, 2, "aa", 1);
-        Data.Loan loan2 = bankService.getLoan(bank, 2, "aa", 1);
-        Data.Loan loan3 = bankService.getLoan(anotherBank, 2, "aa", 1);
-        Data.Loan loan4 = bankService.getLoan(anotherBank, 2, "aa", 1);
+        shared.data.Loan loan1 = bankService.getLoan(bank, 2, "aa", 1);
+        shared.data.Loan loan2 = bankService.getLoan(bank, 2, "aa", 1);
+        shared.data.Loan loan3 = bankService.getLoan(anotherBank, 2, "aa", 1);
+        shared.data.Loan loan4 = bankService.getLoan(anotherBank, 2, "aa", 1);
 
         //4 loans transferred concurrently for another user
-        Data.Loan loan5 = bankService.getLoan(bank, 3, "aa", 1);
-        Data.Loan loan6 = bankService.getLoan(bank, 3, "aa", 1);
-        Data.Loan loan7 = bankService.getLoan(anotherBank, 3, "aa", 1);
-        Data.Loan loan8 = bankService.getLoan(anotherBank, 3, "aa", 1);
+        shared.data.Loan loan5 = bankService.getLoan(bank, 3, "aa", 1);
+        shared.data.Loan loan6 = bankService.getLoan(bank, 3, "aa", 1);
+        shared.data.Loan loan7 = bankService.getLoan(anotherBank, 3, "aa", 1);
+        shared.data.Loan loan8 = bankService.getLoan(anotherBank, 3, "aa", 1);
 
         Thread transferLoan1 = generateThreadTransferLoan(anotherBank, loan1);
         Thread transferLoan2 = generateThreadTransferLoan(anotherBank, loan2);
@@ -279,7 +279,7 @@ public class BankServiceTest {
         transferLoan8.start();
     }
 
-    private static Thread generateThreadTransferLoan(Data.Bank otherBank, Data.Loan loan) {
+    private static Thread generateThreadTransferLoan(shared.data.Bank otherBank, shared.data.Loan loan) {
         return new Thread(() ->
         {
             int loanId = loan.getLoanNumber();

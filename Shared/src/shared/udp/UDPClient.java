@@ -1,4 +1,4 @@
-package UDP;
+package shared.udp;
 
 import java.io.Closeable;
 import java.io.IOException;

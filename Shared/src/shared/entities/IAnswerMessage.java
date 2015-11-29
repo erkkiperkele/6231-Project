@@ -1,4 +1,4 @@
-package Entities;
+package shared.entities;
 
 /**
  * Simple interface for answer messages.

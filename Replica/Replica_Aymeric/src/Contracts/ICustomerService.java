@@ -21,7 +21,7 @@ public interface ICustomerService {
      * @param password No complexity validation at the moment
      * @return
      */
-    int openAccount(Data.Bank bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password);
+    int openAccount(shared.data.Bank bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password);
 
     /**
      * Retrieves a customer information if he has an account.
@@ -29,7 +29,7 @@ public interface ICustomerService {
      * @param email
      * @return
      */
-    Data.Customer getCustomer(String email, String password)
+    shared.data.Customer getCustomer(String email, String password)
             throws FailedLoginException;
 
     /**
@@ -39,7 +39,7 @@ public interface ICustomerService {
      * @param accountNumber
      * @return
      */
-    List<Data.Loan> getLoans(int accountNumber);
+    List<shared.data.Loan> getLoans(int accountNumber);
 
     /**
      * Will create a new loan for the given account number
@@ -54,7 +54,7 @@ public interface ICustomerService {
      * @return
      * @throws FailedLoginException this exception is thrown in case the password is incorrect
      */
-    Data.Loan getLoan(Data.Bank bank, int accountNumber, String password, long loanAmount) throws FailedLoginException;
+    shared.data.Loan getLoan(shared.data.Bank bank, int accountNumber, String password, long loanAmount) throws FailedLoginException;
 
     /**
      * Transfers a loan from a bank to another.
@@ -67,7 +67,7 @@ public interface ICustomerService {
      * @return the new loan created at the other bank
      * @throws TransferException
      */
-    Data.Loan transferLoan(int loanId, Data.Bank currentBank, Data.Bank otherBank) throws TransferException;
+    shared.data.Loan transferLoan(int loanId, shared.data.Bank currentBank, shared.data.Bank otherBank) throws TransferException;
 
     /**
      * Retrieves a Customer's account information
@@ -75,6 +75,6 @@ public interface ICustomerService {
      * @param LastName
      * @return
      */
-    Data.Account getAccount(String firstName, String LastName);
+    shared.data.Account getAccount(String firstName, String LastName);
 
 }

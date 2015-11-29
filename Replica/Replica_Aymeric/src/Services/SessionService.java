@@ -12,7 +12,7 @@ import Contracts.ISessionService;
 public class SessionService implements ISessionService {
     private static SessionService ourInstance = new SessionService();
     private static ILoggerService loggerService;
-    private Data.Bank bank;
+    private shared.data.Bank bank;
 
     private SessionService() {
         loggerService = new LoggerService();
@@ -23,12 +23,12 @@ public class SessionService implements ISessionService {
     }
 
     @Override
-    public Data.Bank getBank() {
+    public shared.data.Bank getBank() {
         return this.bank;
     }
 
     @Override
-    public void setBank(Data.Bank bank) {
+    public void setBank(shared.data.Bank bank) {
         this.bank = bank;
     }
 

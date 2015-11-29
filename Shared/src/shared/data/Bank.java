@@ -1,4 +1,4 @@
-package Data;
+package shared.data;
 
 public enum Bank {
     Royal,
