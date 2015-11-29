@@ -27,6 +27,23 @@ public enum Bank {
         }
     }
 
+    public static Bank fromString(String bankName)
+    {
+        switch (bankName.toUpperCase()) {
+            case "RBC":
+                return Royal;
+
+            case "BMO":
+                return National;
+
+            case "DESJARDINS":
+                return Dominion;
+
+            default:
+                return None;
+        }
+    }
+
     /**
      * maps a bank name to an integer.
      * @return

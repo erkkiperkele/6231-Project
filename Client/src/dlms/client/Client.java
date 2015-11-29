@@ -8,8 +8,8 @@ import dlms.corba.FrontEndHelper;
 import dlms.corba.FrontEnd;
 
 /**
- * Base class for customer and manager clients 
- * 
+ * Base class for customer and manager clients
+ *
  * @author mat
  *
  */
@@ -18,35 +18,29 @@ public class Client {
 	public final static String orbArgs[] = { "-ORBInitialPort 1050", "-ORBInitialHost localhost" };
 	private ORB orb;
 	private FrontEnd serverCache = null;
-	
+
 	/**
-	 * 
+	 *
 	 * Constructor
 	 */
 	public Client() {
-		
+
 		super();
 		this.orb = ORB.init(orbArgs, null);
 	}
-		
-	/**
-	 * Gets the FrontEnd object
-	 * 
-	 * @param serverId
-	 * @return
-	 */
+
 	protected FrontEnd getServer() {
 
 		if (serverCache != null) {
 			return serverCache;
 		}
-		
+
 		try {
-			
+
 			// Get the root naming context
 			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-			
+
 			// Resolve the Object Reference in Naming
 			serverCache = FrontEndHelper.narrow(ncRef.resolve_str("frontEnd"));
 

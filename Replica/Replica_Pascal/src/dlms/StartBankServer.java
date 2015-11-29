@@ -1,7 +1,9 @@
 package dlms;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
+import com.sun.javafx.scene.traversal.SubSceneTraversalEngine;
 import dlms.model.*;
 import dlms.util.Env;
 
@@ -48,6 +50,10 @@ public class StartBankServer
 		{
 			// Start instance listening on UDP
 			System.out.println("TODO: start listening on UDP!!");
+			while (true){
+				System.out.println(Calendar.getInstance().getTime() + " - DUMMY Server: just a while true");
+				Thread.sleep(5000);
+			}
 		}
 		catch (Exception e)
 		{

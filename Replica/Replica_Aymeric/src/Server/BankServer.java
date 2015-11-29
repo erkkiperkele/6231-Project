@@ -11,9 +11,15 @@ import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
 import org.omg.PortableServer.POAPackage.ObjectNotActive;
 import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
+import shared.data.Bank;
+import shared.data.Customer;
+import shared.data.Loan;
+import shared.udp.CreateAccountMessage;
+import shared.udp.GetAccountMessage;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.Properties;
 
 /**
@@ -39,13 +45,29 @@ public class BankServer {
         String serverArg = args.length > 0
                 ? args[0]
                 : "1";
-        
+
+        serverArg = serverArg.length() > 0
+                ? "" + Bank.fromString(serverArg).toInt()
+                : serverArg;
+
         initialize(serverArg);
 
         //Starting bank server
-//        startRMIServer();
         startUDPServer();
-        startCorbaServer();
+//        startCorbaServer();
+
+        //TEST ONLY (to show server is active even when there's no activity)
+//        while(true)
+//        {
+//            try {
+//                GetAccountMessage test = new GetAccountMessage("","");
+//
+//                System.out.println("dummy test");
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     private static void initialize(String arg) {
@@ -53,24 +75,6 @@ public class BankServer {
         SessionService.getInstance().setBank(serverName);
         bankService = new BankService();
         udp = new UDPServer(bankService);
-    }
-
-    private static void startRMIServer() {
-
-        shared.data.Bank bank = SessionService.getInstance().getBank();
-        int serverPort = shared.data.ServerPorts.getRMIPort(bank);
-
-        try {
-            (new BankServerRMI(bankService, serverPort)).exportServer();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        SessionService.getInstance().log().info(
-                String.format("%s Server is up and running on port %d!",
-                        bank,
-                        serverPort)
-        );
     }
 
     private static void startUDPServer() {
@@ -82,53 +86,4 @@ public class BankServer {
         SessionService.getInstance().log().info(String.format("[UDP] SERVER STARTED"));
 
     }
-
-    public static void startCorbaServer() {
-
-        try {
-            String[] args = new String[]{};
-
-            shared.data.Bank bank = SessionService.getInstance().getBank();
-            int serverPort = shared.data.ServerPorts.getRMIPort(bank);
-            Properties props = new Properties();
-            props.put("ORBPort", serverPort);
-            ORB orb = ORB.init(args, props);
-
-            POA rootPOA = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
-
-            //Obtain a reference
-            BankServerCorba bankServerCorba = new BankServerCorba(bankService, serverPort);
-            byte[] id = rootPOA.activate_object(bankServerCorba);
-            org.omg.CORBA.Object ref = rootPOA.id_to_reference(id);
-
-            //Translate to ior and write it to a file
-            String ior = orb.object_to_string(ref);
-            System.out.println(ior);
-
-            PrintWriter file = new PrintWriter(String.format("ior_%s.txt", bank.name()));
-            file.println(ior);
-            file.close();
-
-            SessionService.getInstance().log().info(String.format("[CORBA] SERVER STARTED"));
-
-            //initialize the ORB
-            rootPOA.the_POAManager().activate();
-            orb.run();
-
-        } catch (WrongPolicy wrongPolicy) {
-            wrongPolicy.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (InvalidName invalidName) {
-            invalidName.printStackTrace();
-        } catch (ServantAlreadyActive servantAlreadyActive) {
-            servantAlreadyActive.printStackTrace();
-        } catch (ObjectNotActive objectNotActive) {
-            objectNotActive.printStackTrace();
-        } catch (AdapterInactive adapterInactive) {
-            adapterInactive.printStackTrace();
-        }
-    }
-
-
 }

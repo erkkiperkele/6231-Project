@@ -1,10 +1,11 @@
 package Services;
 
 import Contracts.IBankService;
+import Data.DataRepository;
 import Exceptions.RecordNotFoundException;
 import Exceptions.TransferException;
 import shared.udp.*;
-import Data.*;
+import shared.data.*;
 
 import javax.security.auth.login.FailedLoginException;
 import java.io.IOException;
