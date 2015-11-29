@@ -7,8 +7,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Shared" />
-    <orderEntry type="library" name="libs" level="project" />
-    <orderEntry type="library" name="openorb_orb-1.4.0" level="project" />
   </component>
 </module>

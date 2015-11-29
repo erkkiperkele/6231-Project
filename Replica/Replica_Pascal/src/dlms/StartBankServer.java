@@ -26,7 +26,7 @@ public class StartBankServer
 			Env.setDebug(true);
 		}
 
-		String bankName = null;
+		String bankName = "RBC";
 		if (args.length > 0)
 		{
 			bankName = args[0];
@@ -47,6 +47,7 @@ public class StartBankServer
 		try
 		{
 			// Start instance listening on UDP
+			System.out.println("TODO: start listening on UDP!!");
 		}
 		catch (Exception e)
 		{
@@ -57,7 +58,7 @@ public class StartBankServer
 	/**
 	 * getServerInformation
 	 * 
-	 * @param args
+	 * @param bankName
 	 *            from the Main method
 	 * @return the selected ServerInfo or null
 	 */

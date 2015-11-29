@@ -150,10 +150,6 @@ public class Env
 		return rmiHostName;
 	}
 
-	/**
-	 * @param rmiPortNumber
-	 *            the rmiPortNumber to set
-	 */
 	public static void setRMIHostName(String hostName)
 	{
 		Env.rmiHostName = hostName;
