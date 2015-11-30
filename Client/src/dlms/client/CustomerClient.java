@@ -31,7 +31,7 @@ public class CustomerClient extends Client {
 	 */
 	public int getLoan(String bank, int accountNumber, String password, int loanAmount) {
 
-		return 0;
+		return 55;
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class CustomerClient extends Client {
 	 */
 	public int openAccount(String bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password) {
 
-		return 0;
+		return 66;
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class CustomerClient extends Client {
 	 */
 	public int transferLoan(int loanId, String currentBankId, String newBankId) {
 
-		return 0;
+		return 77;
 	}
 	
 	/**
@@ -72,6 +72,5 @@ public class CustomerClient extends Client {
 		
 		return this.getClass().getSimpleName() + "-" + this.id;
 	}
-	
 }
 

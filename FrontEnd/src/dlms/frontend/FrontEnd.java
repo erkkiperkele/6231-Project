@@ -12,8 +12,7 @@ import dlms.corba.FrontEndHelper;
 import dlms.corba.FrontEndPOA;
 
 /**
- * The DLMS front end. this is the object through which the client performs
- * operations.
+ * The DLMS CORBA front end
  * 
  * @author mat
  *
@@ -53,10 +52,10 @@ public class FrontEnd extends FrontEndPOA {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// Bind the object reference in naming
-			NameComponent path1[] = ncRef.to_name("frontend");
+			NameComponent path1[] = ncRef.to_name("FrontEnd");
 			ncRef.rebind(path1, feRef);
 
-			System.out.println("AppController: Front end ready and waiting ...");
+			System.out.println("FrontEnd: ready and waiting ...");
 	
 			// Wait for invocations from clients
 			orb.run();
@@ -86,26 +85,26 @@ public class FrontEnd extends FrontEndPOA {
 	@Override
 	public String printCustomerInfo(String bankId) {
 		
-		return null;
+		return "printCustomerInfo";
 	}
 
 	@Override
 	public int transferLoan(String bankId, int loanId, String currentBankId, String otherBankId) throws AppException {
 		
-		return 0;
+		return 11;
 	}
 
 	@Override
 	public int openAccount(String bankId, String firstName, String lastName, String emailAddress, String phoneNumber,
 			String password) throws AppException {
 		
-		return 0;
+		return 22;
 	}
 
 	@Override
 	public int getLoan(String bankId, int accountNbr, String password, int loanAmount) throws AppException {
 		// TODO Auto-generated method stub
-		return 0;
+		return 33;
 	}
 
 	/**

@@ -1,5 +1,7 @@
 package dlms.client;
 
+import dlms.corba.FrontEnd;
+
 /**
  * This is the manager client application for the DLMS
  * 
@@ -42,6 +44,8 @@ public class ManagerClient extends Client {
 	 */
 	public void printCustomerInfo(String bank) {
 
+		FrontEnd fe = getServer();
+		System.out.println(fe.printCustomerInfo(bank));
 	}
 
 	/**
