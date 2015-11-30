@@ -48,27 +48,28 @@ public class BankReplica {
 	 * @param id
 	 * @param addr
 	 */
-	BankReplica(String id, InetSocketAddress addr) {
+	public BankReplica(String bankId, BankReplicaStubGroup replicaStubs) {
 
-		this.group = new BankReplicaStubGroup();
-		this.bank = new Bank(id, addr);
+		this.group = replicaStubs;
+		this.bank = new Bank(bankId, replicaStubs.get(bankId).addr);
 		
 		// Set up the logger
-		this.logger = Logger.getLogger(this.bank.getId());  
-	    FileHandler fh;  
-	    try {
-	        fh = new FileHandler(this.bank.getTextId() + "-log.txt");  
-	        logger.addHandler(fh);
-	        SimpleFormatter formatter = new SimpleFormatter();  
-	        fh.setFormatter(formatter);  
-	        logger.info(this.bank.getTextId() + " logger started");  
-	    } catch (SecurityException e) {  
-	        e.printStackTrace();
-	        System.exit(1);
-	    } catch (IOException e) {  
-	        e.printStackTrace(); 
-	        System.exit(1);
-	    }
+		this.logger = Logger.getLogger(this.bank.getId());
+
+//	    FileHandler fh;  
+//	    try {
+//	        fh = new FileHandler(this.bank.getTextId() + "-log.txt");  
+//	        logger.addHandler(fh);
+//	        SimpleFormatter formatter = new SimpleFormatter();  
+//	        fh.setFormatter(formatter);  
+//	        logger.info(this.bank.getTextId() + " logger started");  
+//	    } catch (SecurityException e) {  
+//	        e.printStackTrace();
+//	        System.exit(1);
+//	    } catch (IOException e) {  
+//	        e.printStackTrace(); 
+//	        System.exit(1);
+//	    }
 
 	    // Start the bank's UDP listener
 		logger.info(this.bank.getId() + ": Starting UDP Listener");
@@ -82,10 +83,10 @@ public class BankReplica {
 	 * 
 	 * @param stub
 	 */
-	public BankReplica(BankReplicaStub stub) {
-		
-		this(stub.id, stub.addr);
-	}
+//	public BankReplica(BankReplicaStub stub) {
+//		
+//		this(stub.id, stub.addr);
+//	}
 	
 	/**
 	 * Gets the bank object of this replica

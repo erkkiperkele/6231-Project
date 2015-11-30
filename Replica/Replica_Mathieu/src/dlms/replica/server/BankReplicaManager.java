@@ -42,7 +42,7 @@ public class BankReplicaManager implements IBankServer {
 		this.bankReplicas = new HashMap<String, BankReplica>();
 		this.locks = new HashMap<String, Object>();
 		this.replicaGroup = replicaGroup;
-		this.createBanks();
+		//this.createBanks();
 		
 		// Initialize the object locks
 		char ch;
@@ -194,18 +194,18 @@ public class BankReplicaManager implements IBankServer {
 	/**
 	 * Create a group of replica stubs and share it amongst the replicas
 	 */
-	private void createBanks() {
-
-		// Create the replicas
-		for (BankReplicaStub stub : replicaGroup.values()) {
-			
-			BankReplica bankReplica = new BankReplica(replicaGroup.get(stub.id));
-			this.bankReplicas.put(stub.id, bankReplica);
-			
-			// Banks need to have knowledge of one another to accommodate some operations
-			bankReplica.setGroup(this.replicaGroup);
-		}
-	}
+//	private void createBanks() {
+//
+//		// Create the replicas
+//		for (BankReplicaStub stub : replicaGroup.values()) {
+//			
+//			BankReplica bankReplica = new BankReplica(replicaGroup.get(stub.id));
+//			this.bankReplicas.put(stub.id, bankReplica);
+//			
+//			// Banks need to have knowledge of one another to accommodate some operations
+//			bankReplica.setGroup(this.replicaGroup);
+//		}
+//	}
 
 	/**
 	 * Gets the "letter" lock, used to lock the 2nd level HashMaps of accounts and loans

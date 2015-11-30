@@ -10,7 +10,7 @@ import java.net.InetSocketAddress;
  */
 public class BankReplicaStub {
 	
-	public String id ="";
+	public String id = "";
 	public InetSocketAddress addr;
 	
 	/**
@@ -20,6 +20,7 @@ public class BankReplicaStub {
 	 * @param addr
 	 */
 	public BankReplicaStub(String id, InetSocketAddress addr) {
+		
 		super();
 		this.id = id;
 		this.addr = addr;
@@ -37,5 +38,11 @@ public class BankReplicaStub {
 		return stub.id == this.id && stub.addr.equals(this.addr);
 	}
 	
+	/**
+	 * 
+	 */
+	public String toString() {
+		return "bankid: " + this.id + "host: " + this.addr.getHostString() + "port: " + this.addr.getPort(); 
+	}
 	
 }
