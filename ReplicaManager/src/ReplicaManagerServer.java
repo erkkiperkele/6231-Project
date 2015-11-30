@@ -25,9 +25,6 @@ public class ReplicaManagerServer {
             e.printStackTrace();
 
         }
-
-
-
         System.out.println("Servers started");
     }
 
