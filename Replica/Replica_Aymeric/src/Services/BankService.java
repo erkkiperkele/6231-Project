@@ -403,9 +403,10 @@ public class BankService implements IBankService {
         return externalLoan;
     }
 
+    /// TODO: Remove <OperationType type>
     private byte[] createUDPMessageData(IOperationMessage operationMessage, OperationType type) throws IOException {
         Serializer udpMessageSerializer = new Serializer<UDPMessage>();
-        UDPMessage message = new UDPMessage(operationMessage, type);
+        UDPMessage message = new UDPMessage(operationMessage);
 
         return udpMessageSerializer.serialize(message);
     }

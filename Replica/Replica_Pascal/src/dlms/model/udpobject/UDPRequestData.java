@@ -2,8 +2,8 @@ package dlms.model.udpobject;
 
 import java.io.Serializable;
 
-import dlms.model.Customer;
 import dlms.model.TypeOfRequest;
+import shared.data.Customer;
 
 public class UDPRequestData implements Serializable
 {

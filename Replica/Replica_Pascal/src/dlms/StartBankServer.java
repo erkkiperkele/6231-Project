@@ -1,9 +1,8 @@
 package dlms;
 
-import java.util.Calendar;
 import java.util.Scanner;
+import java.util.logging.Level;
 
-import com.sun.javafx.scene.traversal.SubSceneTraversalEngine;
 import dlms.model.*;
 import dlms.util.Env;
 
@@ -23,42 +22,54 @@ public class StartBankServer
 		// Load server settings
 		Env.loadServerSettings("BankServer");
 
+		String bankName;
 		if (args == null || args.length == 0)
 		{
 			Env.setDebug(true);
+			bankName = shared.data.Bank.Royal.toString();
 		}
-
-		String bankName = "RBC";
-		if (args.length > 0)
+		else
 		{
 			bankName = args[0];
 		}
+		
 		ServerInfo server = getServerInformation(bankName);
+		if(serverIsValid(server))
+		{
+			try
+			{
+				// Start instance listening on UDP
+				ServerBank bankServer = new ServerBank(server, true);
+				bankServer.waitUntilUDPServiceEnd();
+			}
+			catch (Exception e)
+			{
+				// Most likely an InterruptedException has been raised
+				Env.log(Level.SEVERE, "Exception in StartBankServer: " + e, true);
+			}
+		}
+	}
 
+	/**
+	 * Validate if the server is valid and show the corresponding error message
+	 * @param server
+	 * @return true or false depending on if the server can be executed or not
+	 */
+	private static boolean serverIsValid(ServerInfo server) 
+	{
+		boolean isServerValid = true;
 		if (server == null)
 		{
-			return;
+			Env.log(Level.SEVERE, "Invalid server name!", true);
+			isServerValid = false;
 		}
 		else if (server.isServiceOpened())
 		{
-			System.out.println("Service is currently running on the UDP port " + server.getPort());
-			System.out.println("Change the port and try again or close the service instance.");
-			return;
+			Env.log(Level.SEVERE, "Service is currently running on the UDP port " + server.getPort(), true);
+			Env.log(Level.SEVERE, "Change the port and try again or close the service instance.", true);
+			isServerValid = false;
 		}
-
-		try
-		{
-			// Start instance listening on UDP
-			System.out.println("TODO: start listening on UDP!!");
-			while (true){
-				System.out.println(Calendar.getInstance().getTime() + " - DUMMY Server: just a while true");
-				Thread.sleep(5000);
-			}
-		}
-		catch (Exception e)
-		{
-			System.out.println("Exception in StartBankServer: " + e);
-		}
+		return isServerValid;
 	}
 	
 	/**

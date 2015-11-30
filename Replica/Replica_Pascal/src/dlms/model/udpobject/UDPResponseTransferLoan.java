@@ -2,7 +2,7 @@ package dlms.model.udpobject;
 
 import java.io.Serializable;
 
-import dlms.model.Loan;
+import shared.data.Loan;
 
 public class UDPResponseTransferLoan implements Serializable
 {

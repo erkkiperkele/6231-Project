@@ -25,10 +25,10 @@ public class ClientImpl
 		int result;
 		try
 		{
-			if (this.bank.getName().equalsIgnoreCase(currentBank) == false)
-				throw new ExceptionWrongBank("Wrong server " + currentBank + " != " + this.bank.getName());
+			if (this.bank.getServerName().equalsIgnoreCase(currentBank) == false)
+				throw new ExceptionWrongBank("Wrong server " + currentBank + " != " + this.bank.getServerName());
 
-			if (this.bank.getName().equalsIgnoreCase(otherBank) == true)
+			if (this.bank.getServerName().equalsIgnoreCase(otherBank) == true)
 				throw new ExceptionWrongBank("Destination bank is the same as current bank, not allowed");
 
 			ServerInfo sv = Env.GetServerInfo(otherBank);
@@ -36,7 +36,7 @@ public class ClientImpl
 				throw new ExceptionWrongBank("Wrong server " + otherBank + " doesn't exists.");
 
 			System.out.println(" - transferLoan(" + loanID + "," + currentBank + "," + otherBank + ")");
-			if (this.bank.transferLoan(loanID, sv))
+			if (this.bank.transferLoan(loanID, sv.getServerName()))
 			{
 				result = 0;
 			}
@@ -57,8 +57,8 @@ public class ClientImpl
 		int result;
 		try
 		{
-			if (this.bank.getName().equalsIgnoreCase(bank) == false)
-				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getName());
+			if (this.bank.getServerName().equalsIgnoreCase(bank) == false)
+				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getServerName());
 
 			DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 
@@ -84,8 +84,8 @@ public class ClientImpl
 		String result;
 		try
 		{
-			if (this.bank.getName().equalsIgnoreCase(bank) == false)
-				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getName());
+			if (this.bank.getServerName().equalsIgnoreCase(bank) == false)
+				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getServerName());
 
 			System.out.println(" - printCustomerInfo()");
 			result = this.bank.printCustomerInfo().toString();
@@ -97,31 +97,31 @@ public class ClientImpl
 		return result;
 	}
 
-	public String openAccount(String bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password)
+	public int openAccount(String bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password)
 	{
-		String result;
+		int result;
 		try
 		{
-			if (this.bank.getName().equalsIgnoreCase(bank) == false)
-				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getName());
+			if (this.bank.getServerName().equalsIgnoreCase(bank) == false)
+				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getServerName());
 
 			System.out.println(" - openAccount");
 			result = this.bank.openAccount(firstName, lastName, emailAddress, phoneNumber, password);
 		}
 		catch (Exception e)
 		{
-			result = null;
+			result = -1;
 		}
 		return result;
 	}
 
-	public int getLoan(String bank, String accountNumber, String password, double loanAmount)
+	public int getLoan(String bank, int accountNumber, String password, long loanAmount)
 	{
 		int loanID;
 		try
 		{
-			if (this.bank.getName().equalsIgnoreCase(bank) == false)
-				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getName());
+			if (this.bank.getServerName().equalsIgnoreCase(bank) == false)
+				throw new ExceptionWrongBank("Wrong server " + bank + " != " + this.bank.getServerName());
 
 			System.out.println(" - getLoan");
 			loanID = this.bank.getLoan(accountNumber, password, loanAmount);

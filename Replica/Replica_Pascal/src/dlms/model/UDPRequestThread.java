@@ -12,6 +12,7 @@ import dlms.model.udpobject.UDPRequestData;
 import dlms.model.udpobject.UDPResponseTransferLoan;
 import dlms.util.Constant;
 import dlms.util.Env;
+import shared.data.*;
 
 /**
  * @author Pascal Tozzi 27664850 UDPRequestThread allowing to do asynchrone

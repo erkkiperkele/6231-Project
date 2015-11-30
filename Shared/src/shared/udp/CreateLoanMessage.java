@@ -23,4 +23,9 @@ public class CreateLoanMessage implements Serializable, IOperationMessage{
     public Loan getLoan() {
         return loan;
     }
+    
+	public OperationType getOperationType()
+	{
+		return OperationType.CreateLoan;
+	}
 }

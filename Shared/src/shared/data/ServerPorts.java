@@ -22,7 +22,46 @@ public class ServerPorts {
                 return 0;
         }
     }
-
+    
+    /**
+     * maps each bank to a local port.
+     * @param bank
+     * @return
+     */
+    public static String getFrontEndIP() 
+    {
+    	return "127.0.0.1";
+    }
+    
+    /**
+     * maps each bank to a local port.
+     * @param bank
+     * @return
+     */
+    public static int getFrontEndPort() 
+    {
+    	return 4245;
+    }
+    
+    /**
+     * maps each bank to a local port.
+     * @param bank
+     * @return
+     */
+    public static String getSequencerIP() 
+    {
+    	return "127.0.0.1";
+    }
+    
+    /**
+     * maps each bank to a local port.
+     * @param bank
+     * @return
+     */
+    public static int getSequencerPort() 
+    {
+    	return 4246;
+    }
 
     /**
      * maps each bank to another local port for its UDP server.

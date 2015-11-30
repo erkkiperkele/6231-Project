@@ -21,4 +21,9 @@ public class GetAccountMessage implements Serializable, IOperationMessage {
     public String getLastName() {
         return this.lastName;
     }
+    
+	public OperationType getOperationType()
+	{
+		return OperationType.GetAccount;
+	}
 }
