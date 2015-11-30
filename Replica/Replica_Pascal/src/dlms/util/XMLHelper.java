@@ -6,6 +6,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 import dlms.model.*;
+import shared.data.Customer;
+import shared.data.Loan;
 
 /**
  * @author Pascal Tozzi 27664850 Little helper to serialize to XML and

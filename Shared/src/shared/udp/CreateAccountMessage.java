@@ -18,4 +18,9 @@ public class CreateAccountMessage implements Serializable, IOperationMessage{
 
         this.customer = customer;
     }
+    
+	public OperationType getOperationType()
+	{
+		return OperationType.CreateAccount;
+	}
 }

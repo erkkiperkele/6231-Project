@@ -6,8 +6,12 @@ import java.io.File;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
 import java.util.logging.*;
@@ -37,6 +41,24 @@ public class Env
 		{
 			System.out.println(message);
 		}
+	}
+	
+	public static Date getNewLoanDueDate()
+	{
+		Date loanDueDate;
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MONTH, 6);
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		try
+		{
+			loanDueDate = formatter.parse(formatter.format(cal.getTime()));
+		}
+		catch (Exception e)
+		{
+			Env.log(Level.SEVERE, "Date Parse Exception: " + e.getMessage(), true);
+			loanDueDate = cal.getTime();
+		}
+		return loanDueDate;
 	}
 
 	/**

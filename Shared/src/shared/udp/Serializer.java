@@ -15,7 +15,7 @@ public class Serializer<E> {
     }
 
     @SuppressWarnings("unchecked")
-	public E deserialize(byte[] object)
+	public static <E> E deserialize(byte[] object)
             throws IOException, ClassNotFoundException {
 
         ByteArrayInputStream in = new ByteArrayInputStream(object);

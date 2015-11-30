@@ -24,6 +24,11 @@ public class GetLoanMessage implements Serializable, IOperationMessage {
     public String getLastName() {
         return this.lastName;
     }
+    
+	public OperationType getOperationType()
+	{
+		return OperationType.GetLoan;
+	}
 }
 
 

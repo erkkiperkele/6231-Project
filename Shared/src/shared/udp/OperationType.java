@@ -3,6 +3,15 @@ package shared.udp;
 public enum OperationType {
     GetAccount,
     CreateAccount,
+    CreateLoan,
+    
+    // Client messages
+    OpenAccount,
     GetLoan,
-    CreateLoan
+    DelayPayment,
+    PrintCustomerInfo,
+    TransferLoan, 
+    
+    // Bank messages
+    GetLoanAmount
 }

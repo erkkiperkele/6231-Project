@@ -3,6 +3,9 @@ package dlms.util;
 import java.io.*;
 import java.util.Properties;
 
+import shared.data.Bank;
+import shared.data.ServerPorts;
+
 public class WriteConfig
 {
 	public static boolean InitServerDefaultSettings()
@@ -16,20 +19,18 @@ public class WriteConfig
 			output = new FileOutputStream("config.properties");
 
 			// Set the properties value
-			// RBC Server Settings for UDP connection
-			prop.setProperty("bank-server-name1", "RBC");
+			// Dominion Server Settings for UDP connection
+			prop.setProperty("bank-server-name1", Bank.Dominion.toString());
 			prop.setProperty("bank-server-ip1", "localhost");
-			prop.setProperty("bank-server-port1", "5000");
-			// BMO Server Settings for UDP connection
-			prop.setProperty("bank-server-name2", "BMO");
+			prop.setProperty("bank-server-port1", String.valueOf(ServerPorts.getUDPPort(Bank.Dominion)));
+			// National Server Settings for UDP connection
+			prop.setProperty("bank-server-name2", Bank.National.toString());
 			prop.setProperty("bank-server-ip2", "localhost");
-			prop.setProperty("bank-server-port2", "5001");
-			// Desjardins Server Settings for UDP connection
-			prop.setProperty("bank-server-name3", "Desjardins");
+			prop.setProperty("bank-server-port2", String.valueOf(ServerPorts.getUDPPort(Bank.National)));
+			// Royal Server Settings for UDP connection
+			prop.setProperty("bank-server-name3", Bank.Royal.toString());
 			prop.setProperty("bank-server-ip3", "localhost");
-			prop.setProperty("bank-server-port3", "5002");
-			// RMI Settings
-			prop.setProperty("rmi-hostname", "localhost");
+			prop.setProperty("bank-server-port3", String.valueOf(ServerPorts.getUDPPort(Bank.Royal)));
 
 			// Log
 			prop.setProperty("log-console-enabled", "FALSE");

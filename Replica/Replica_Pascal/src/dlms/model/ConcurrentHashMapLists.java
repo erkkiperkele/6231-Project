@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Optional;
 
 import dlms.util.XMLHelper;
+import shared.data.Customer;
+import shared.data.Loan;
 
 /**
  * @author Pascal Tozzi 27664850 Protect against most concurrency issue
@@ -93,7 +95,7 @@ public class ConcurrentHashMapLists<T>
 			{
 				for (T element : listElement)
 				{
-					if (((Loan) element).getLoanID() == loanID)
+					if (((Loan) element).getLoanNumber() == loanID)
 					{
 						return (Loan) element;
 					}
@@ -163,5 +165,23 @@ public class ConcurrentHashMapLists<T>
 			}
 		}
 		return isRemoved;
+	}
+
+	public Customer getCustomer(int accountNumber)
+	{
+		synchronized (map)
+		{
+			for (ArrayList<T> listElement : map.values())
+			{
+				for (T element : listElement)
+				{
+					if (((Customer) element).getAccountNumber() == accountNumber)
+					{
+						return (Customer) element;
+					}
+				}
+			}
+		}
+		return null;
 	}
 }

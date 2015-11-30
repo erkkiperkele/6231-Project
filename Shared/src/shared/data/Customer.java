@@ -15,6 +15,7 @@ public class Customer implements Serializable {
     private int accountNumber;
     private String password;
     private String email;
+    private long creditLimit;
 
     public String getEmail() {
 
@@ -104,4 +105,12 @@ public class Customer implements Serializable {
 
         return displayInfo;
     }
+
+	public long getCreditLimit() {
+		return creditLimit;
+	}
+
+	public void setCreditLimit(long creditLimit) {
+		this.creditLimit = creditLimit;
+	}
 }

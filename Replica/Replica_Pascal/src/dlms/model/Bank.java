@@ -3,6 +3,9 @@ package dlms.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import shared.data.Customer;
+import shared.data.Loan;
+
 /**
  * @author Pascal Tozzi 27664850 Bank class used by the client and server and
  *         even serialized as a return parameter for the printCustomerInfo
@@ -58,7 +61,7 @@ public class Bank implements java.io.Serializable, Cloneable
 
 		for (Loan loan : this.getLoans())
 		{
-			Customer customer = this.getAccounts().get(loan.getAccountNumber());
+			Customer customer = this.getAccounts().get(loan.getCustomerAccountNumber());
 			message += System.lineSeparator() + customer.getFirstName() + " " + customer.getLastName() + ": " + loan.toString();
 		}
 

@@ -7,17 +7,20 @@ import java.util.logging.Level;
 
 import dlms.exception.*;
 import dlms.util.*;
+import shared.data.AbstractServerBank;
+import shared.data.Customer;
+import shared.data.Loan;
 
 /**
  * @author Pascal Tozzi 27664850 ServerBank containing all the logic of the
  *         service
  */
-public class ServerBank
+public class ServerBank extends AbstractServerBank
 {
 	private String name;
 	private ConcurrentHashMapLists<Customer> accounts = new ConcurrentHashMapLists<Customer>();
 	private ConcurrentHashMapLists<Loan> loans = new ConcurrentHashMapLists<Loan>();
-	private static final double LOAN_LIMIT = 1000;
+	private static final long LOAN_LIMIT = 1000;
 	private int loanCounter = 0;
 
 	private UDPServerThread udpServer = null;
@@ -30,7 +33,7 @@ public class ServerBank
 	/**
 	 * @return the name
 	 */
-	public String getName()
+	public String getServerName()
 	{
 		return this.name;
 	}
@@ -64,16 +67,12 @@ public class ServerBank
 
 		if (isServerInstance == true)
 		{
-			int port = server.getPort();
-			Env.log(Level.FINE, "Starting UDP port " + port, true);
-			udpServer = new UDPServerThread(this, port);
-			udpServer.start();
-
-			String loan_filename = Env.getServerLoansFile(this.getName(), "*");
+			Env.log(Level.FINE, "Starting server service for " + server.getServerName(), true);
+			String loan_filename = Env.getServerLoansFile(this.getServerName(), "*");
 			String loan_filename_left = loan_filename.substring(0, loan_filename.indexOf("*"));
 			String loan_filename_right = loan_filename.substring(loan_filename_left.length() + 1);
 
-			String customer_filename = Env.getServerCustomersFile(this.getName(), "*");
+			String customer_filename = Env.getServerCustomersFile(this.getServerName(), "*");
 			String customer_filename_left = customer_filename.substring(0, customer_filename.indexOf("*"));
 			String customer_filename_right = customer_filename.substring(customer_filename_left.length() + 1);
 
@@ -89,24 +88,6 @@ public class ServerBank
 			Env.log(Level.FINE, "Loading Loans and Customers files", true);
 			for (int i = 0; i < listOfFiles.length; i++)
 			{
-				if (listOfFiles[i].isFile() && listOfFiles[i].getName().length() == loan_filename.length()
-						&& (listOfFiles[i].getName().startsWith(loan_filename_left)) && (listOfFiles[i].getName().endsWith(loan_filename_right)))
-				{
-					Env.log(Level.FINE, "Loading Loans: " + listOfFiles[i].getName(), true);
-					ArrayList<Loan> lstLoans = XMLHelper.readLoans(listOfFiles[i].getName());
-					for (Loan loan : lstLoans)
-					{
-						this.loans.put(loan.getAccountNumber(), loan);
-
-						if (loan.getLoanID() > loanCounter)
-						{
-							// Re-initialize the LoanCounterID to the max Loan
-							// from this bank.
-							loanCounter = loan.getLoanID();
-						}
-					}
-				}
-
 				if (listOfFiles[i].isFile() && listOfFiles[i].getName().length() == customer_filename.length()
 						&& (listOfFiles[i].getName().startsWith(customer_filename_left)) && (listOfFiles[i].getName().endsWith(customer_filename_right)))
 				{
@@ -114,10 +95,33 @@ public class ServerBank
 					ArrayList<Customer> lstCustomers = XMLHelper.readCustomers(listOfFiles[i].getName());
 					for (Customer customer : lstCustomers)
 					{
-						this.accounts.put(customer.getAccountNumber(), customer);
+						this.accounts.put(getStringUsername(customer), customer);
+					}
+				}
+				
+				if (listOfFiles[i].isFile() && listOfFiles[i].getName().length() == loan_filename.length()
+						&& (listOfFiles[i].getName().startsWith(loan_filename_left)) && (listOfFiles[i].getName().endsWith(loan_filename_right)))
+				{
+					Env.log(Level.FINE, "Loading Loans: " + listOfFiles[i].getName(), true);
+					ArrayList<Loan> lstLoans = XMLHelper.readLoans(listOfFiles[i].getName());
+					for (Loan loan : lstLoans)
+					{
+						this.loans.put(getStringUsername(loan), loan);
+
+						if (loan.getLoanNumber() > loanCounter)
+						{
+							// Re-initialize the LoanCounterID to the max Loan
+							// from this bank.
+							loanCounter = loan.getLoanNumber();
+						}
 					}
 				}
 			}
+			
+			int port = server.getPort();
+			Env.log(Level.FINE, "Starting UDP port " + port, true);
+			udpServer = new UDPServerThread("Pascal Replica Implementation", port, this);
+			udpServer.start();
 		}
 	}
 
@@ -132,7 +136,7 @@ public class ServerBank
 	 * @return
 	 * @throws Exception
 	 */
-	public String openAccount(String firstName, String lastName, String emailAddress, String phoneNumber, String password) throws Exception
+	public int openAccount(String firstName, String lastName, String emailAddress, String phoneNumber, String password) throws Exception
 	{
 		/*
 		 * When a customer invokes this method through a CustomerClient program,
@@ -145,12 +149,7 @@ public class ServerBank
 
 		Env.log(Level.FINE, "openAccount(" + firstName + "," + lastName + ")", true);
 
-		Customer customer = new Customer();
-		customer.setFirstName(firstName);
-		customer.setLastName(lastName);
-		customer.setEmailAddress(emailAddress);
-		customer.setPhoneNumber(phoneNumber);
-		customer.setPassword(password);
+		Customer customer = new Customer(firstName, lastName, password, emailAddress, phoneNumber);
 		customer.setCreditLimit(LOAN_LIMIT);
 
 		// Verify if customer already exist with first name and last name
@@ -160,17 +159,15 @@ public class ServerBank
 			throw new ExceptionCustomerAlreadyExist(customer.getUserName());
 		}
 
-		String accountNumber = customer.getUserName(); // Env.getRandomAccountNumber();
-
-		customer.setAccountNumber(accountNumber);
+		String accountName = getStringUsername(customer);
 		Env.log(Level.FINE, firstName + "," + lastName + ": Adding the account.", true);
-		this.accounts.put(accountNumber, customer);
+		this.accounts.put(getStringUsername(customer), customer);
 		// Release
 		Env.log(Level.FINE, firstName + "," + lastName + ": Commit() to XML", true);
-		this.accounts.commit(Env.getServerCustomersFile(this.getName(), accountNumber), accountNumber, true);
+		this.accounts.commit(Env.getServerCustomersFile(this.getServerName(), accountName), accountName, true);
 
 		Env.log(Level.FINE, firstName + "," + lastName + ": Created.", true);
-		return accountNumber;
+		return customer.getAccountNumber();
 	}
 
 	/**
@@ -182,7 +179,7 @@ public class ServerBank
 	 * @return
 	 * @throws Exception
 	 */
-	public int getLoan(String accountNumber, String password, double loanAmount) throws Exception
+	public int getLoan(int accountNumber, String password, long loanAmount) throws Exception
 	{
 		/*
 		 * When a customer invokes this method through a CustomerClient program,
@@ -197,7 +194,7 @@ public class ServerBank
 
 		Env.log(Level.FINE, "getLoan(" + accountNumber + ")", true);
 
-		Customer customer = (Customer) this.accounts.get(accountNumber);
+		Customer customer = (Customer) this.accounts.getCustomer(accountNumber);
 		if (customer == null)
 		{
 			Env.log(Level.SEVERE, accountNumber + " NotValidCustomerAccountID", true);
@@ -213,11 +210,10 @@ public class ServerBank
 		int loanApprovedID = -1;
 		synchronized (customer)
 		{
-			Loan loan = (Loan) this.loans.get(accountNumber);
+			Loan loan = (Loan) this.loans.getLoan(accountNumber);
 			if (loan == null)
 			{
 				Env.log(Level.FINE, accountNumber + " Creating Loan", true);
-				loan = new Loan(customer.getUserName());
 			}
 			else
 			{
@@ -226,14 +222,14 @@ public class ServerBank
 			}
 
 			Env.log(Level.FINE, accountNumber + " Starting Credit Check.", true);
-			double totalLoanAmount = loan.getLoanAmount();
-			ArrayList<UDPRequestThreadWithRetry> threads = new ArrayList<UDPRequestThreadWithRetry>();
+			double totalLoanAmount = 0;
+			ArrayList<UDPRequestThread> threads = new ArrayList<UDPRequestThread>();
 			for (ServerInfo sv : Env.getLstServers())
 			{
-				if (!sv.getServerName().equalsIgnoreCase(this.getName()))
+				if (!sv.getServerName().equalsIgnoreCase(this.getServerName()))
 				{
-					UDPRequestThreadWithRetry request = new UDPRequestThreadWithRetry(new UDPRequestThread(sv.getIpAddress(), sv.getPort(),
-							customer.getUserName()), Constant.AMOUNT_OF_RETRY_UDP);
+					UDPRequestThread request = new UDPRequestThread(sv.getIpAddress(), sv.getPort(),
+							customer.getUserName());
 					threads.add(request);
 					request.start();
 
@@ -241,7 +237,7 @@ public class ServerBank
 				}
 			}
 
-			for (UDPRequestThreadWithRetry request : threads)
+			for (UDPRequestThread request : threads)
 			{
 				try
 				{
@@ -253,7 +249,7 @@ public class ServerBank
 					throw new ExceptionUDPBankNotAvailableRetryLater(e.getMessage());
 				}
 
-				if (request.isError())
+				if (request.isError(null))
 				{
 					Env.log(Level.SEVERE, accountNumber + " Credit Check UDPBankNotAvailableRetryLater", true);
 					throw new ExceptionUDPBankNotAvailableRetryLater(request.getErrorMessage());
@@ -266,15 +262,16 @@ public class ServerBank
 
 			if (customer.getCreditLimit() >= totalLoanAmount + loanAmount)
 			{
-				loan.setLoanAmount(loanAmount);
+				int loanID;
 				synchronized (this)
 				{
-					loan.setLoanID(++loanCounter);
+					loanID = ++loanCounter;
 				}
+				loan = new Loan(loanID, accountNumber, loanAmount, Env.getNewLoanDueDate());
 				this.loans.put(customer.getUserName(), loan);
-				this.loans.commit(Env.getServerLoansFile(this.getName(), customer.getUserName()), customer.getUserName(), false);
+				this.loans.commit(Env.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
 
-				loanApprovedID = loan.getLoanID();
+				loanApprovedID = loan.getLoanNumber();
 				Env.log(Level.FINE, accountNumber + " Credit Check Accepted.", true);
 			}
 			else
@@ -308,31 +305,31 @@ public class ServerBank
 
 		synchronized (loan)
 		{
-			ArrayList<Loan> list = getLoans().getList(loan.getAccountNumber());
+			ArrayList<Loan> list = getLoans().getList(getStringUsername(loan));
 			synchronized (list)
 			{
-				Date loanDate = loan.getLoanDueDate();
+				Date loanDate = loan.getDueDate();
 				// prevent the list to commit while changing a value
 				if (loanDate.getTime() == currentDueDate.getTime())
 				{
-					loan.setLoanDueDate(newDueDate);
+					loan.setDueDate(newDueDate);
 					// Commit data + history
 					isPaymentDelayed = true;
-					Env.log(Level.FINE, loan.getAccountNumber() + " delayPayment(" + loanID + ") DueDate modified.", true);
+					Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") DueDate modified.", true);
 				}
 				else
 				{
-					Env.log(Level.WARNING, loan.getAccountNumber() + " delayPayment(" + loanID + ") InvalidDueDate (Refresh issue)", true);
+					Env.log(Level.WARNING, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") InvalidDueDate (Refresh issue)", true);
 					throw new ExceptionInvalidDueDate();
 				}
 			}
 		}
 
-		Env.log(Level.FINE, loan.getAccountNumber() + " delayPayment(" + loanID + ") commit()", true);
-		String username = loan.getAccountNumber();
-		this.loans.commit(Env.getServerLoansFile(this.getName(), username), username, false);
+		Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit()", true);
+		String username = getStringUsername(loan);
+		this.loans.commit(Env.getServerLoansFile(this.getServerName(), username), username, false);
 
-		Env.log(Level.FINE, loan.getAccountNumber() + " delayPayment(" + loanID + ") commit() Successful", true);
+		Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit() Successful", true);
 		return isPaymentDelayed;
 	}
 
@@ -341,16 +338,16 @@ public class ServerBank
 	 * 
 	 * @return bank with all user and loan informations
 	 */
-	public Bank printCustomerInfo()
+	public String printCustomerInfo()
 	{
 		Env.log(Level.FINE, "printCustomerInfo()", true);
-		Bank bankInfo = new Bank(this.getName());
+		Bank bankInfo = new Bank(this.getServerName());
 		bankInfo.loans.addAll(this.getLoans().getAllLoans());
 		for (Customer customer : this.getAccounts().getAllCustomers())
 		{
 			bankInfo.accounts.put(customer.getUserName(), customer);
 		}
-		return bankInfo;
+		return bankInfo.toString();
 	}
 
 	/**
@@ -362,7 +359,7 @@ public class ServerBank
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean transferLoan(int loanID, ServerInfo otherBank) throws Exception
+	public boolean transferLoan(int loanID, String otherBankName) throws Exception
 	{
 		/*
 		 * This function is used by a customer to transfer a previously obtained
@@ -379,8 +376,10 @@ public class ServerBank
 		 * CurrentBank should all be done atomically (that is, all should be
 		 * done or none should be done) using UDP/IP messages.
 		 */
-		Env.log(Level.FINE, "transferLoan(loanID: " + loanID + ", currentBank: " + this.getName() + ", otherBank: " + otherBank.getServerName() + ")", true);
+		Env.log(Level.FINE, "transferLoan(loanID: " + loanID + ", currentBank: " + this.getServerName() + ", otherBank: " + otherBankName + ")", true);
 
+		ServerInfo otherBank = dlms.StartBankServer.getServerInformation(otherBankName);
+		
 		Loan loan = this.loans.getLoan(loanID);
 		if (loan == null)
 		{
@@ -388,7 +387,7 @@ public class ServerBank
 			throw new ExceptionInvalidLoanID();
 		}
 
-		String accountNumber = loan.getAccountNumber();
+		String accountNumber = getStringUsername(loan);
 		Customer customer = (Customer) this.accounts.get(accountNumber);
 		if (customer == null)
 		{
@@ -415,8 +414,8 @@ public class ServerBank
 			{
 				Env.log(Level.FINE, loanID + " Starting Loan transfer.", true);
 
-				UDPRequestThreadWithRetry request = new UDPRequestThreadWithRetry(new UDPRequestThread(otherBank.getIpAddress(), otherBank.getPort(),
-						customer.getUserName(), customer, loan), Constant.AMOUNT_OF_RETRY_UDP);
+				UDPRequestThread request = new UDPRequestThread(otherBank.getIpAddress(), otherBank.getPort(),
+						customer.getUserName(), customer, loan);
 
 				// Doesn't actually need to be on a separate thread
 				// We call run directly instead of start to skip the thread
@@ -427,7 +426,7 @@ public class ServerBank
 					Env.log(Level.FINE, loanID + " Transfer successfull, committing the data to the database.", true);
 					try
 					{
-						this.loans.commit(Env.getServerLoansFile(this.getName(), customer.getUserName()), customer.getUserName(), false);
+						this.loans.commit(Env.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
 						isTransfered = true;
 					}
 					catch (Exception e)
@@ -470,24 +469,23 @@ public class ServerBank
 	 * @param loan
 	 * @throws Exception
 	 */
-	public int createTransferedLoan(Customer customer, Loan loan) throws Exception
+	public int createTransferedLoan(shared.data.Customer customer, shared.data.Loan loan) throws Exception
 	{
 		// The customer is locked from the parent calling this method
 		// thus impossible to create a loan on that customer
 		Env.log(Level.FINE, customer.getUserName() + " Creating Loan", true);
-		Loan newLoan = new Loan(customer.getUserName());
 
+		int loanNumber;
 		synchronized (this)
 		{
-			newLoan.setLoanID(++loanCounter);
+			loanNumber = ++loanCounter;
 		}
-		newLoan.setLoanDueDate(loan.getLoanDueDate());
-		newLoan.setLoanAmount(loan.getLoanAmount());
-
+		Loan newLoan = new Loan(loanNumber, loan.getCustomerAccountNumber(), loan.getAmount(), loan.getDueDate());
+		
 		this.loans.put(customer.getUserName(), newLoan);
 		try
 		{
-			this.loans.commit(Env.getServerLoansFile(this.getName(), customer.getUserName()), customer.getUserName(), false);
+			this.loans.commit(Env.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
 		}
 		catch (Exception e)
 		{
@@ -496,6 +494,40 @@ public class ServerBank
 			throw e;
 		}
 
-		return loan.getLoanID();
+		return loan.getLoanNumber();
+	}
+	
+	/**
+	 * Changing the key to email,
+	 * before it was <lastname+firstname>
+	 * @param loan
+	 * @return
+	 */
+	private String getStringUsername(Loan loan) 
+	{
+		// Search the customer with a specific customerID
+		Customer customer = (Customer)this.accounts.getCustomer(loan.getCustomerAccountNumber());
+		return getStringUsername(customer);
+	}
+	
+	/**
+	 * Changing the key to email,
+	 * before it was <lastname+firstname>
+	 * @param loan
+	 * @return
+	 */
+	private String getStringUsername(Customer customer) 
+	{
+		return customer.getEmail();
+	}
+
+
+	/**
+	 * Loop that wait forever based on udpServer thread
+	 * @throws InterruptedException 
+	 */
+	public void waitUntilUDPServiceEnd() throws InterruptedException 
+	{
+		udpServer.join();
 	}
 }
