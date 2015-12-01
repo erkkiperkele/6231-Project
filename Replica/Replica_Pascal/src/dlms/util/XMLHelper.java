@@ -5,7 +5,6 @@ import java.beans.XMLDecoder;
 import java.io.*;
 import java.util.ArrayList;
 
-import dlms.model.*;
 import shared.data.Customer;
 import shared.data.Loan;
 

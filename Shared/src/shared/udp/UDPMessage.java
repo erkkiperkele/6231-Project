@@ -9,7 +9,6 @@ import java.net.UnknownHostException;
 public class UDPMessage implements Serializable {
 
     private IOperationMessage message;
-    private OperationType operation;
 
     private boolean isClientMessage;
     private String clientIP;

@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import dlms.exception.*;
+import shared.exception.ExceptionWrongBank;
 import dlms.util.Env;
 
 /**

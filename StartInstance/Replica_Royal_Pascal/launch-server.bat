@@ -1,0 +1,1 @@
+start call java -cp ../../Replica/Replica_Pascal/bin;../../Shared/bin dlms.StartBankServer Royal
