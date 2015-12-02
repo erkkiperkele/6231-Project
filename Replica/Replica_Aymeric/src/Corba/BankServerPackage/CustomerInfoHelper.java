@@ -109,7 +109,7 @@ public class CustomerInfoHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/CustomerInfo:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/CustomerInfo:1.0";
 
     /**
      * Read CustomerInfo from a marshalled stream

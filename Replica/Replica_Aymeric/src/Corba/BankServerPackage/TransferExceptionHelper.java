@@ -103,7 +103,7 @@ public class TransferExceptionHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/TransferException:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/TransferException:1.0";
 
     /**
      * Read TransferException from a marshalled stream

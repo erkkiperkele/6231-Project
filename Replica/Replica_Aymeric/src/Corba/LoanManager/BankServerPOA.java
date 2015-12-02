@@ -3,7 +3,7 @@ package Corba.LoanManager;
 import Corba.BankServerPackage.*;
 
 /**
- * Interface definition: BankServer.
+ * Interface definition: StartBankServer.
  * 
  * @author OpenORB Compiler
  */
@@ -22,7 +22,7 @@ public abstract class BankServerPOA extends org.omg.PortableServer.Servant
 
     private static String [] _ids_list =
     {
-        "IDL:LoanManager/BankServer:1.0"
+        "IDL:LoanManager/StartBankServer:1.0"
     };
 
     public String[] _all_interfaces(org.omg.PortableServer.POA poa, byte [] objectId)

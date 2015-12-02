@@ -1,16 +1,16 @@
 package Corba.LoanManager;
 
 /** 
- * Helper class for : BankServer
+ * Helper class for : StartBankServer
  *  
  * @author OpenORB Compiler
  */ 
 public class BankServerHelper
 {
     /**
-     * Insert BankServer into an any
+     * Insert StartBankServer into an any
      * @param a an any
-     * @param t BankServer value
+     * @param t StartBankServer value
      */
     public static void insert(org.omg.CORBA.Any a, BankServer t)
     {
@@ -18,10 +18,10 @@ public class BankServerHelper
     }
 
     /**
-     * Extract BankServer from an any
+     * Extract StartBankServer from an any
      *
      * @param a an any
-     * @return the extracted BankServer value
+     * @return the extracted StartBankServer value
      */
     public static BankServer extract(org.omg.CORBA.Any a )
     {
@@ -45,20 +45,20 @@ public class BankServerHelper
     private static org.omg.CORBA.TypeCode _tc = null;
 
     /**
-     * Return the BankServer TypeCode
+     * Return the StartBankServer TypeCode
      * @return a TypeCode
      */
     public static org.omg.CORBA.TypeCode type()
     {
         if (_tc == null) {
             org.omg.CORBA.ORB orb = org.omg.CORBA.ORB.init();
-            _tc = orb.create_interface_tc( id(), "BankServer" );
+            _tc = orb.create_interface_tc( id(), "StartBankServer" );
         }
         return _tc;
     }
 
     /**
-     * Return the BankServer IDL ID
+     * Return the StartBankServer IDL ID
      * @return an ID
      */
     public static String id()
@@ -66,12 +66,12 @@ public class BankServerHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer:1.0";
 
     /**
-     * Read BankServer from a marshalled stream
+     * Read StartBankServer from a marshalled stream
      * @param istream the input stream
-     * @return the readed BankServer value
+     * @return the readed StartBankServer value
      */
     public static BankServer read(org.omg.CORBA.portable.InputStream istream)
     {
@@ -79,9 +79,9 @@ public class BankServerHelper
     }
 
     /**
-     * Write BankServer into a marshalled stream
+     * Write StartBankServer into a marshalled stream
      * @param ostream the output stream
-     * @param value BankServer value
+     * @param value StartBankServer value
      */
     public static void write(org.omg.CORBA.portable.OutputStream ostream, BankServer value)
     {
@@ -89,9 +89,9 @@ public class BankServerHelper
     }
 
     /**
-     * Narrow CORBA::Object to BankServer
+     * Narrow CORBA::Object to StartBankServer
      * @param obj the CORBA Object
-     * @return BankServer Object
+     * @return StartBankServer Object
      */
     public static BankServer narrow(org.omg.CORBA.Object obj)
     {
@@ -111,9 +111,9 @@ public class BankServerHelper
     }
 
     /**
-     * Unchecked Narrow CORBA::Object to BankServer
+     * Unchecked Narrow CORBA::Object to StartBankServer
      * @param obj the CORBA Object
-     * @return BankServer Object
+     * @return StartBankServer Object
      */
     public static BankServer unchecked_narrow(org.omg.CORBA.Object obj)
     {

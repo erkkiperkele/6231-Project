@@ -109,7 +109,7 @@ public class AccountHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/Account:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/Account:1.0";
 
     /**
      * Read Account from a marshalled stream

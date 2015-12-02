@@ -109,7 +109,7 @@ public class DateHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/Date:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/Date:1.0";
 
     /**
      * Read Date from a marshalled stream

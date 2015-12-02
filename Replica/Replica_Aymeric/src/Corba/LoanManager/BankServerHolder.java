@@ -1,7 +1,7 @@
 package Corba.LoanManager;
 
 /**
- * Holder class for : BankServer
+ * Holder class for : StartBankServer
  * 
  * @author OpenORB Compiler
  */
@@ -9,7 +9,7 @@ final public class BankServerHolder
         implements org.omg.CORBA.portable.Streamable
 {
     /**
-     * Internal BankServer value
+     * Internal StartBankServer value
      */
     public BankServer value;
 
@@ -29,7 +29,7 @@ final public class BankServerHolder
     }
 
     /**
-     * Read BankServer from a marshalled stream
+     * Read StartBankServer from a marshalled stream
      * @param istream the input stream
      */
     public void _read(org.omg.CORBA.portable.InputStream istream)
@@ -38,7 +38,7 @@ final public class BankServerHolder
     }
 
     /**
-     * Write BankServer into a marshalled stream
+     * Write StartBankServer into a marshalled stream
      * @param ostream the output stream
      */
     public void _write(org.omg.CORBA.portable.OutputStream ostream)
@@ -47,7 +47,7 @@ final public class BankServerHolder
     }
 
     /**
-     * Return the BankServer TypeCode
+     * Return the StartBankServer TypeCode
      * @return a TypeCode
      */
     public org.omg.CORBA.TypeCode _type()

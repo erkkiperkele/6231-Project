@@ -14,7 +14,6 @@ public class UDPServerHandleRequestThread extends shared.udp.UDPServerHandleRequ
 	
 	/**
 	 * Method can be overwritten for FE, Sequencer, Replica, ReplicaManager
-	 * @param bank
 	 * @param udpMessage
 	 */
 	protected void processRequest(UDPMessage udpMessage)

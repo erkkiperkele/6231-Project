@@ -103,7 +103,7 @@ public class FailedLoginExceptionHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/FailedLoginException:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/FailedLoginException:1.0";
 
     /**
      * Read FailedLoginException from a marshalled stream

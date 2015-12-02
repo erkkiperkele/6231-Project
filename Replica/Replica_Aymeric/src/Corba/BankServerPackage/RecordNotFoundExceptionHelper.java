@@ -103,7 +103,7 @@ public class RecordNotFoundExceptionHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/RecordNotFoundException:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/RecordNotFoundException:1.0";
 
     /**
      * Read RecordNotFoundException from a marshalled stream

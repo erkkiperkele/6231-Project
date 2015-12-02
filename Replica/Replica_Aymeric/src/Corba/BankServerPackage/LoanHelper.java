@@ -112,7 +112,7 @@ public class LoanHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/Loan:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/Loan:1.0";
 
     /**
      * Read Loan from a marshalled stream

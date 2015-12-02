@@ -3,30 +3,14 @@ package Server;
 import Contracts.IBankService;
 import Services.BankService;
 import Services.SessionService;
-import org.omg.CORBA.ORB;
-import org.omg.CORBA.ORBPackage.InvalidName;
-import org.omg.PortableServer.POA;
-import org.omg.PortableServer.POAHelper;
-import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
-import org.omg.PortableServer.POAPackage.ObjectNotActive;
-import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
-import org.omg.PortableServer.POAPackage.WrongPolicy;
 import shared.data.Bank;
-import shared.data.Customer;
-import shared.data.Loan;
-import shared.udp.CreateAccountMessage;
-import shared.udp.GetAccountMessage;
-
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Calendar;
-import java.util.Properties;
+import shared.udp.UDPServerThread;
 
 /**
  * This class starts both RMI and UDP servers for a given bank.
  * It also contains basic tests for data access (concurrency, UDP protocols...)
  */
-public class BankServer {
+public class StartBankServer {
 
     private static IBankService bankService;
 
@@ -53,21 +37,8 @@ public class BankServer {
         initialize(serverArg);
 
         //Starting bank server
-        startUDPServer();
-//        startCorbaServer();
-
-        //TEST ONLY (to show server is active even when there's no activity)
-//        while(true)
-//        {
-//            try {
-//                GetAccountMessage test = new GetAccountMessage("","");
-//
-//                System.out.println("dummy test");
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        startBankServer();
+        startUDPServerForInternalOperations();
     }
 
     private static void initialize(String arg) {
@@ -77,7 +48,7 @@ public class BankServer {
         udp = new UDPServer(bankService);
     }
 
-    private static void startUDPServer() {
+    private static void startUDPServerForInternalOperations() {
         Thread startUdpServer = new Thread(() ->
         {
             udp.startServer();
@@ -85,5 +56,12 @@ public class BankServer {
         startUdpServer.start();
         SessionService.getInstance().log().info(String.format("[UDP] SERVER STARTED"));
 
+    }
+
+    private static void startBankServer() {
+
+        IBankService bankService = new BankService();
+
+        BankServerUdp bankServer = new BankServerUdp(bankService);
     }
 }

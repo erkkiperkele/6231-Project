@@ -117,7 +117,7 @@ public class ObjectMapper {
                 break;
             default:
                 throw new ObjectMappingException(
-                        "This Bank is not implemented in the Corba Interface (BankServer.idl)"
+                        "This Bank is not implemented in the Corba Interface (StartBankServer.idl)"
                 );
         }
         return destination;
@@ -198,7 +198,7 @@ public class ObjectMapper {
                 break;
             default:
                 throw new ObjectMappingException(
-                        "This Bank is not implemented in the Corba Interface (BankServer.idl)"
+                        "This Bank is not implemented in the Corba Interface (StartBankServer.idl)"
                 );
         }
         return destination;

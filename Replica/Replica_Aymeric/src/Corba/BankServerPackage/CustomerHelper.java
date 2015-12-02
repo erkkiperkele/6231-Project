@@ -124,7 +124,7 @@ public class CustomerHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/Customer:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/Customer:1.0";
 
     /**
      * Read Customer from a marshalled stream

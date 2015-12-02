@@ -1,7 +1,7 @@
 package Corba.LoanManager;
 
 /**
- * Interface definition: BankServer.
+ * Interface definition: StartBankServer.
  * 
  * @author OpenORB Compiler
  */

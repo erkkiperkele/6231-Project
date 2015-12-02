@@ -3,7 +3,7 @@ package Corba.LoanManager;
 import Corba.BankServerPackage.*;
 
 /**
- * Interface definition: BankServer.
+ * Interface definition: StartBankServer.
  * 
  * @author OpenORB Compiler
  */
@@ -12,7 +12,7 @@ public class _BankServerStub extends org.omg.CORBA.portable.ObjectImpl
 {
     static final String[] _ids_list =
     {
-        "IDL:LoanManager/BankServer:1.0"
+        "IDL:LoanManager/StartBankServer:1.0"
     };
 
     public String[] _ids()

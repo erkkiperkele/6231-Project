@@ -103,7 +103,7 @@ public class BankInfoHelper
         return _id;
     }
 
-    private final static String _id = "IDL:LoanManager/BankServer/BankInfo:1.0";
+    private final static String _id = "IDL:LoanManager/StartBankServer/BankInfo:1.0";
 
     /**
      * Read BankInfo from a marshalled stream
