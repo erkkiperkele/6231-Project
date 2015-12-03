@@ -20,7 +20,7 @@ public class PrintCustomerInfoMessage implements Serializable, IOperationMessage
 
 	public OperationType getOperationType()
 	{
-		return OperationType.TransferLoan;
+		return OperationType.PrintCustomerInfo;
 	}
 
 	public String getBank() {
