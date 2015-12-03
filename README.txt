@@ -7,7 +7,7 @@ STARTING THE APPLICATION
 The ORB daemon is used as the naming service for the CORBA front end. 
 Open a console and type the following command:
 
-WINDOWS: start orbd -InitialPort 1050
+WINDOWS: start orbd -ORBInitialPort 1050
 UNIX: orbd -ORBInitialPort 1050&
 
 
