@@ -2,6 +2,7 @@ package dlms.replica.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.SocketException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +19,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import dlms.model.UDPServerThread;
 import dlms.replica.exception.AppException;
 import dlms.replica.exception.ValidationException;
 import dlms.replica.model.Account;
@@ -25,6 +27,7 @@ import dlms.replica.model.Loan;
 import dlms.replica.model.ThreadSafeHashMap;
 import dlms.replica.udpmessage.MessageResponseLoanSum;
 import dlms.replica.udpmessage.MessageResponseTransferLoan;
+import shared.data.AbstractServerBank;
 
 
 /**
@@ -34,13 +37,14 @@ import dlms.replica.udpmessage.MessageResponseTransferLoan;
  * @author mat
  *
  */
-public class BankReplica {
+public class BankReplica extends AbstractServerBank {
 	
 	private BankReplicaStubGroup group = null;
 	private Logger logger = null;
 	private Thread udpListenerThread;
 	private UdpListener udpListener;
 	private volatile Bank bank;
+	private UDPServerThread udpServer;
 	
 	/**
 	 * Constructor
@@ -52,6 +56,8 @@ public class BankReplica {
 
 		this.group = replicaStubs;
 		this.bank = new Bank(bankId, replicaStubs.get(bankId).addr);
+		
+		// Make sure bankId is a key of replicaStubs
 		
 		// Set up the logger
 		this.logger = Logger.getLogger(this.bank.getId());
@@ -71,6 +77,17 @@ public class BankReplica {
 //	        System.exit(1);
 //	    }
 
+		
+		// Start the bank's sequencer's UDP listener
+		try {
+			udpServer = new UDPServerThread("Mat Replica Implementation", 9001);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		udpServer.start();
+
+		
 	    // Start the bank's UDP listener
 		logger.info(this.bank.getId() + ": Starting UDP Listener");
 		udpListener = new UdpListener(this.bank, this.logger);
@@ -437,5 +454,29 @@ public class BankReplica {
 	private boolean rollbackLoanTransfer(BankReplicaStub otherBankStub, int loanId) {
 		
 		return true;
+	}
+
+	@Override
+	public String getServerName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getLoan(int accountNumber, String password, long loanAmount) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean delayPayment(int loanID, Date currentDueDate, Date newDueDate) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean transferLoan(int loanID, String otherBank) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
