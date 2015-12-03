@@ -7,7 +7,7 @@ module dlms
 		interface FrontEnd
 		{
 			boolean delayPayment (in string bankId, in long loanId, in string currentDueDate, in string newDueDate) raises (AppException);
-			string printCustomerInfo(in string bankId);
+			string printCustomerInfo(in string bankId) raises (AppException);
 			
 			long transferLoan(in string bankId, in long loanId, in string currentBankId, in string otherBankId) raises (AppException);
 			long openAccount(in string bankId, in string firstName, in string lastName, in string emailAddress, in string phoneNumber, in string password) raises (AppException);

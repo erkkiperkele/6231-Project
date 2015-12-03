@@ -1,5 +1,7 @@
 package dlms.client;
 
+import java.util.Properties;
+
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
@@ -15,9 +17,8 @@ import dlms.corba.FrontEnd;
  */
 public class Client {
 
-	public final static String orbArgs[] = { "-ORBInitialPort 1050", "-ORBInitialHost localhost" };
 	private ORB orb;
-	private FrontEnd serverCache = null;
+	protected FrontEnd server = null;
 	
 	/**
 	 * 
@@ -26,21 +27,13 @@ public class Client {
 	public Client() {
 		
 		super();
-		this.orb = ORB.init(orbArgs, null);
-	}
 		
-	/**
-	 * Gets the FrontEnd object
-	 * 
-	 * @param serverId
-	 * @return
-	 */
-	protected FrontEnd getServer() {
+		Properties orbProps = new Properties();
+		orbProps.put("org.omg.CORBA.ORBInitialHost", "localhost");
+		orbProps.put("org.omg.CORBA.ORBInitialPort", "1050");
+		
+		this.orb = ORB.init(new String[]{}, orbProps);
 
-		if (serverCache != null) {
-			return serverCache;
-		}
-		
 		try {
 			
 			// Get the root naming context
@@ -48,13 +41,13 @@ public class Client {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			
 			// Resolve the Object Reference in Naming
-			serverCache = FrontEndHelper.narrow(ncRef.resolve_str("FrontEnd"));
+			server = FrontEndHelper.narrow(ncRef.resolve_str("FrontEnd"));
 
 		} catch (Exception e) {
 			System.out.println("Error : " + e);
 			e.printStackTrace(System.out);
+			System.exit(1);
 		}
-
-		return serverCache;
+		
 	}
 }

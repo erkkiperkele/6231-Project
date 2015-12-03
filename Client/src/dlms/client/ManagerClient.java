@@ -1,6 +1,6 @@
 package dlms.client;
 
-import dlms.corba.FrontEnd;
+import dlms.corba.AppException;
 
 /**
  * This is the manager client application for the DLMS
@@ -44,8 +44,11 @@ public class ManagerClient extends Client {
 	 */
 	public void printCustomerInfo(String bank) {
 
-		FrontEnd fe = getServer();
-		System.out.println(fe.printCustomerInfo(bank));
+		try {
+			System.out.println(server.printCustomerInfo(bank));
+		} catch (AppException e) {
+			System.out.println("Operation failed. " + e.getMessage());
+		}
 	}
 
 	/**
