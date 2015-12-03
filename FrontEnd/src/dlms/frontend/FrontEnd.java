@@ -106,8 +106,9 @@ public class FrontEnd extends FrontEndPOA {
 		PrintCustomerInfoMessage msgObj = new PrintCustomerInfoMessage(bankId);
 
 		// Send the operation message to the sequencer and get the sequence number of the operation
-		int sequenceNbr = this.callSequencer(msgObj);
+		//int sequenceNbr = this.callSequencer(msgObj);
 		
+		int sequenceNbr = 1;
 		
 		int r = randomWithRange(1,5);
 		System.out.println("Random: " + r);
@@ -116,16 +117,16 @@ public class FrontEnd extends FrontEndPOA {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-//		
-//		
-//		for (int i = 0; i < 1000000; i++) {
-//			int j = i % 2;
-//		}
-//		
-//		long threadId = Thread.currentThread().getId();
-//		System.out.println("Thread # " + threadId + " is doing this task");
+		
+		
+		for (int i = 0; i < 1000000; i++) {
+			int j = i % 2;
+		}
+		
+		long threadId = Thread.currentThread().getId();
+		System.out.println("Thread # " + threadId + " is doing this task");
         
-		return "Op printCustomerInfo: Sequence Number: " + sequenceNbr;
+		return "Op printCustomerInfo: Sequence Number: " + sequenceNbr++;
 	}
 
 //	public static void test() {

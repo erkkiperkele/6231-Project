@@ -32,48 +32,47 @@ public class TestClient {
 		// Create a manager client and output user data
 		ManagerClient mc = new ManagerClient();
 		
-		mc.printCustomerInfo("rbc");
-		mc.printCustomerInfo("bmo");
-		mc.printCustomerInfo("cibc");
+//		mc.printCustomerInfo("rbc");
+//		mc.printCustomerInfo("bmo");
+//		mc.printCustomerInfo("cibc");
 
 //		test();
 //		
-//		// Create a few customer clients in their own threads and make them do some operations
-//		final Thread tc1 = new Thread() {
-//			@Override
-//			public void run() {
-//				mc.printCustomerInfo("rbc");
-//
-//				long threadId = Thread.currentThread().getId();
-//				System.out.println("Thread tc1 # " + threadId + " is doing this task");
-//			}
-//		};
-//	
-//		final Thread tc2 = new Thread() {
-//			@Override
-//			public void run() {
-//				mc.printCustomerInfo("bmo");
-//				long threadId = Thread.currentThread().getId();
-//				System.out.println("Thread tc2 # " + threadId + " is doing this task");
-//			}
-//		};
-//	
-//		final Thread tc3 = new Thread() {
-//			@Override
-//			public void run() {
-//				mc.printCustomerInfo("cibc");
-//				long threadId = Thread.currentThread().getId();
-//				System.out.println("Thread tc3 # " + threadId + " is doing this task");
-//			}
-//		};
-//
-//		tc1.start();
-//		tc2.start();
-//		tc3.start();
-//		tc1.join();
-//		tc2.join();
-//		tc3.join();
+		// Create a few customer clients in their own threads and make them do some operations
+		final Thread tc1 = new Thread() {
+			@Override
+			public void run() {
+				mc.printCustomerInfo("rbc");
 
+				long threadId = Thread.currentThread().getId();
+				System.out.println("Thread tc1 # " + threadId + " is doing this task");
+			}
+		};
+	
+		final Thread tc2 = new Thread() {
+			@Override
+			public void run() {
+				mc.printCustomerInfo("bmo");
+				long threadId = Thread.currentThread().getId();
+				System.out.println("Thread tc2 # " + threadId + " is doing this task");
+			}
+		};
+	
+		final Thread tc3 = new Thread() {
+			@Override
+			public void run() {
+				mc.printCustomerInfo("cibc");
+				long threadId = Thread.currentThread().getId();
+				System.out.println("Thread tc3 # " + threadId + " is doing this task");
+			}
+		};
+
+		tc1.start();
+		tc2.start();
+		tc3.start();
+		tc1.join();
+		tc2.join();
+		tc3.join();
 	}
 	
 	
