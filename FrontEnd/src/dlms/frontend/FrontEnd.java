@@ -11,9 +11,9 @@ import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.logging.Logger;
-
-//import org.omg.CORBA.ORB;
 
 import dlms.corba.AppException;
 import dlms.corba.FrontEndPOA;
@@ -34,59 +34,22 @@ public class FrontEnd extends FrontEndPOA {
 	public static final String SEQ_HOST = "localhost";
 	public static final int SEQ_PORT = 5000;
 	public static final int MSG_BUF = 4096;
+	public static final int MAX_QUEUE_SIZE = 8;
 	
-	//private ORB orb;
-
+	private Logger logger = null;
+	private volatile QueuePool opQueuePool = null;
+	private volatile BlockingQueue<UDPMessage> queue = null;
 
 	/**
 	 * Constructor
 	 */
-	public FrontEnd() {
+	public FrontEnd(Logger logger, QueuePool opQueuePool) {
 		
 		super();
 		
-		
-//	    FileHandler fh;  
-//	    try {
-//	        fh = new FileHandler(this.bank.getTextId() + "-log.txt");  
-//	        logger.addHandler(fh);
-//	        SimpleFormatter formatter = new SimpleFormatter();  
-//	        fh.setFormatter(formatter);  
-//	        logger.info(this.bank.getTextId() + " logger started");  
-//	    } catch (SecurityException e) {  
-//	        e.printStackTrace();
-//	        System.exit(1);
-//	    } catch (IOException e) {  
-//	        e.printStackTrace(); 
-//	        System.exit(1);
-//	    }
-
-//		InetSocketAddress addr = new InetSocketAddress("localhost", 9000);
-//		
-//		DatagramSocket serverSocket = null;
-//		try {
-//			serverSocket = new DatagramSocket(addr);
-//		} catch (SocketException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		byte[] receiveData = new byte[RECV_BUFFER_SIZE];
-//		//byte[] sendData = new byte[RECV_BUFFER_SIZE];
-//
-//		receiveData = new byte[RECV_BUFFER_SIZE];
-//		final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-//
-//		// Wait for the packet
-//		///logger.info(this.bank.getTextId() + ": Waiting for bank UDP request on " + this.bank.udpAddress.toString());
-//		try {
-//			logger.info("Waiting for packet on " + addr.getHostString() + ":" + addr.getPort());
-//			serverSocket.receive(receivePacket);
-//			logger.info("Received packet");
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-
+		this.logger = logger;
+		this.opQueuePool = opQueuePool;
+		this.queue = new ArrayBlockingQueue<UDPMessage>(MAX_QUEUE_SIZE);
 	}
 
 	@Override
@@ -103,26 +66,59 @@ public class FrontEnd extends FrontEndPOA {
 		PrintCustomerInfoMessage msgObj = new PrintCustomerInfoMessage(bankId);
 		UDPMessage udpMessage = new UDPMessage(msgObj);
 		
-		// Send the operation message to the sequencer and get the sequence number of the operation
+		logger.info("FrontEnd: Forwarding printCustomerInfo operation to the sequencer");
+		
+		// Send the operation message to the sequencer and get the sequence number for the operation
 		int sequenceNbr = this.forwardToSequencer(udpMessage);
-		//int sequenceNbr = 1;
+
+		// Add this thread's blocking queue to the queue pool for the replica listener thread
+		opQueuePool.put(sequenceNbr, this.queue);
 		
-		int r = randomWithRange(1,5);
-		System.out.println("Random: " + r);
-		try {
-			Thread.sleep(r*1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		logger.info("FrontEnd: Sequencer replied to printCustomerInfo operation with sequence number " + sequenceNbr);
 		
 		
-		for (int i = 0; i < 1000000; i++) {
-			int j = i % 2;
-		}
+		// Now we just have to wait for the messages to go around and come back from the replica
 		
-		long threadId = Thread.currentThread().getId();
-		System.out.println("Thread # " + threadId + " is doing this task");
+		
+		
+		// Create a thread to handle the reception of replica results
+//		ReplicaMessageHandler responseThread = new ReplicaMessageHandler(sequenceNbr, OperationType.PrintCustomerInfo);
+//		responseThread.start();
+		
+		
+		// Add this thread to the thread pool
+		
+		// Wait for a the response thread to to get two valid results from the replicas then forward the result to the client
+//		synchronized (this) {
+//
+//			try {
+//				responseThread.wait();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		
+		
+//		int r = randomWithRange(1,5);
+//		System.out.println("Random: " + r);
+//		try {
+//			Thread.sleep(r*1000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		for (int i = 0; i < 1000000; i++) {
+//			int j = i % 2;
+//		}
+//		
+//		long threadId = Thread.currentThread().getId();
+//		System.out.println("Thread # " + threadId + " is doing this task");
         
+		// clean up the blocking queue from the pool
+		opQueuePool.remove(sequenceNbr);
+		
 		return "Op printCustomerInfo: Sequence Number: " + sequenceNbr++;
 	}
 
@@ -139,12 +135,12 @@ public class FrontEnd extends FrontEndPOA {
 //		int peakThreadCount = bean.getPeakThreadCount();
 //		System.out.println("Peak Thread Count = " + peakThreadCount);
 //	}
-//	
-	public int randomWithRange(int min, int max)
-	{
-	   int range = (max - min) + 1;     
-	   return (int)(Math.random() * range) + min;
-	}
+
+//	public int randomWithRange(int min, int max)
+//	{
+//	   int range = (max - min) + 1;     
+//	   return (int)(Math.random() * range) + min;
+//	}
 	
 	@Override
 	public int transferLoan(String bankId, int loanId, String currentBankId, String otherBankId) throws AppException {

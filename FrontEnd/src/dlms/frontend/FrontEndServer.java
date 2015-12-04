@@ -1,7 +1,10 @@
 package dlms.frontend;
 
+import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NameComponent;
@@ -12,9 +15,19 @@ import org.omg.PortableServer.POAHelper;
 
 import dlms.corba.FrontEndHelper;
 
+/**
+ * Entry point for the front end
+ * 
+ * @author mat
+ *
+ */
 public class FrontEndServer {
 
+	public static final boolean ENABLE_FILE_LOGGING = false;
+	
+	private ORB orb = null;
 	private Logger logger = null;
+	private volatile QueuePool opQueuePool = null;
 	
 	/**
 	 * Constructor
@@ -23,10 +36,47 @@ public class FrontEndServer {
 		
 		super();
 
+		// Create a pool of blocking queues to hold UDP messages for specific
+		// operations which arrive from the replicas
+		this.opQueuePool = new QueuePool();
+
 		// Set up the logger
 		logger = Logger.getLogger("FrontEnd");
-		logger.info("FrontEnd logger started");
+		if (ENABLE_FILE_LOGGING) {
+		    FileHandler fh;  
+		    try {
+		        fh = new FileHandler("FrontEnd-log.txt");  
+		        logger.addHandler(fh);
+		        SimpleFormatter formatter = new SimpleFormatter();  
+		        fh.setFormatter(formatter);
+		    } catch (SecurityException e) {  
+		        e.printStackTrace();
+		        System.exit(1);
+		    } catch (IOException e) {  
+		        e.printStackTrace(); 
+		        System.exit(1);
+		    }
+		}
+		logger.info("FrontEnd: Logger started");
 		
+		this.initiOrb();
+		this.startServers();
+	}
+
+	/**
+	 * 
+	 * @param args
+	 */
+	public static void main(String args[]) {
+
+		new FrontEndServer();
+	}
+	
+	/**
+	 * Initialize the ORB
+	 */
+	private void initiOrb() {
+
 		try {
 			
 			Properties orbProps = new Properties();
@@ -34,16 +84,14 @@ public class FrontEndServer {
 			orbProps.put("org.omg.CORBA.ORBInitialPort", "1050");
 			
 			// Create and initialize the ORB
-			//ORB orb = ORB.init(orbArgs, null);
-			ORB orb = ORB.init(new String[]{}, orbProps);
+			orb = ORB.init(new String[]{}, orbProps);
 
 			// Get reference to RootPOA and activate the POAManager
 			POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
 			rootpoa.the_POAManager().activate();
 
 			// Create a servant and register it with the ORB
-			FrontEnd frontEnd = new FrontEnd();
-			//frontEnd.setORB(orb);
+			FrontEnd frontEnd = new FrontEnd(logger, this.opQueuePool);
 
 			// Get object reference from the servant
 			org.omg.CORBA.Object ref1 = rootpoa.servant_to_reference(frontEnd);
@@ -59,16 +107,6 @@ public class FrontEndServer {
 			NameComponent path1[] = ncRef.to_name("FrontEnd");
 			ncRef.rebind(path1, feRef);
 
-			System.out.println("FrontEnd: ready and waiting ...");
-
-			// Start the replica UDP listener thread and pass it the dictionary of request threads
-			
-			ReplicaListener replicaListener = new ReplicaListener(logger);
-			replicaListener.start();
-
-			// Wait for invocations from clients
-			orb.run();
-			
 		}
 		catch (Exception e) {
 			System.err.println("Error: " + e);
@@ -77,11 +115,17 @@ public class FrontEndServer {
 	}
 
 	/**
-	 * 
-	 * @param args
+	 * Starts the ORB server and UDP listener for incoming messages from the replicas
 	 */
-	public static void main(String args[]) {
+	private void startServers() {
+		
+		//System.out.println("FrontEnd: ready and waiting ...");
 
-		new FrontEndServer();
+		// Wait for replica operation responses (in its own thread)
+		ReplicaListener replicaListener = new ReplicaListener(logger, this.opQueuePool);
+		replicaListener.start();
+
+		// Wait for invocations from clients
+		orb.run();
 	}
 }
