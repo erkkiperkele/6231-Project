@@ -1,6 +1,7 @@
 package dlms.frontend;
 
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NameComponent;
@@ -12,13 +13,20 @@ import org.omg.PortableServer.POAHelper;
 import dlms.corba.FrontEndHelper;
 
 public class FrontEndServer {
+
+	private Logger logger = null;
 	
 	/**
-	 * 
-	 * @param args
+	 * Constructor
 	 */
-	public static void main(String args[]) {
+	public FrontEndServer() {
+		
+		super();
 
+		// Set up the logger
+		logger = Logger.getLogger("FrontEnd");
+		logger.info("FrontEnd logger started");
+		
 		try {
 			
 			Properties orbProps = new Properties();
@@ -27,7 +35,7 @@ public class FrontEndServer {
 			
 			// Create and initialize the ORB
 			//ORB orb = ORB.init(orbArgs, null);
-			ORB orb = ORB.init(args, orbProps);
+			ORB orb = ORB.init(new String[]{}, orbProps);
 
 			// Get reference to RootPOA and activate the POAManager
 			POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
@@ -53,6 +61,11 @@ public class FrontEndServer {
 
 			System.out.println("FrontEnd: ready and waiting ...");
 
+			// Start the replica UDP listener thread and pass it the dictionary of request threads
+			
+			ReplicaListener replicaListener = new ReplicaListener(logger);
+			replicaListener.start();
+
 			// Wait for invocations from clients
 			orb.run();
 			
@@ -61,5 +74,14 @@ public class FrontEndServer {
 			System.err.println("Error: " + e);
 			e.printStackTrace(System.out);
 		}
+	}
+
+	/**
+	 * 
+	 * @param args
+	 */
+	public static void main(String args[]) {
+
+		new FrontEndServer();
 	}
 }

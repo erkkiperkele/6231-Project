@@ -20,6 +20,7 @@ import dlms.corba.FrontEndPOA;
 import shared.udp.IOperationMessage;
 import shared.udp.IReplyMessage;
 import shared.udp.ReplyMessage;
+import shared.udp.UDPMessage;
 import shared.udp.message.client.PrintCustomerInfoMessage;
 
 /**
@@ -35,7 +36,6 @@ public class FrontEnd extends FrontEndPOA {
 	public static final int MSG_BUF = 4096;
 	
 	//private ORB orb;
-	private Logger logger = null;
 
 
 	/**
@@ -45,9 +45,6 @@ public class FrontEnd extends FrontEndPOA {
 		
 		super();
 		
-		// Set up the logger
-		this.logger = Logger.getLogger("FrontEnd");
-		logger.info("FrontEnd logger started");
 		
 //	    FileHandler fh;  
 //	    try {
@@ -104,11 +101,11 @@ public class FrontEnd extends FrontEndPOA {
 
 		// Create the operation message
 		PrintCustomerInfoMessage msgObj = new PrintCustomerInfoMessage(bankId);
-
-		// Send the operation message to the sequencer and get the sequence number of the operation
-		//int sequenceNbr = this.callSequencer(msgObj);
+		UDPMessage udpMessage = new UDPMessage(msgObj);
 		
-		int sequenceNbr = 1;
+		// Send the operation message to the sequencer and get the sequence number of the operation
+		int sequenceNbr = this.forwardToSequencer(udpMessage);
+		//int sequenceNbr = 1;
 		
 		int r = randomWithRange(1,5);
 		System.out.println("Random: " + r);
@@ -185,9 +182,9 @@ public class FrontEnd extends FrontEndPOA {
 	 * @return the sequence number of the operation
 	 * @throws AppException 
 	 */
-	private int callSequencer(IOperationMessage message) throws AppException {
+	private int forwardToSequencer(UDPMessage message) throws AppException {
 		
-		return (int) makeUdpRequest(message).getResult();
+		return 1;
 	}
 	
 	/**
@@ -201,7 +198,7 @@ public class FrontEnd extends FrontEndPOA {
 	private <T extends Serializable> IReplyMessage<T> makeUdpRequest(IOperationMessage requestObj) throws AppException {
 
 		DatagramSocket clientSocket = null;
-		InetSocketAddress remoteAddr = new InetSocketAddress(SEQ_HOST, SEQ_PORT);
+		InetSocketAddress remoteAddr = new InetSocketAddress(SEQ_HOST, SEQ_PORT); // The Sequencer IP address
 
 		try {
 
@@ -210,7 +207,7 @@ public class FrontEnd extends FrontEndPOA {
 			//
 
 			// Init data structures
-			clientSocket = new DatagramSocket(); // sourceBank.udpAddress.getPort()
+			clientSocket = new DatagramSocket();
 			final byte[] receiveData = new byte[MSG_BUF];
 			final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 
