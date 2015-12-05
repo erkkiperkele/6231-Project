@@ -58,7 +58,7 @@ public class ReplicaListener extends Thread {
 				// LISTENER
 				//
 				
-				logger.info("FrontEnd: Waiting for replica messages");
+				logger.info("FrontEnd: Waiting for replica messages on " + FE_HOST + ":" + FE_PORT);
 				
 				receiveData = new byte[UDP_PACKET_SIZE];
 				final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
