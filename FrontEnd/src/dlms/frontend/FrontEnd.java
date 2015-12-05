@@ -62,7 +62,14 @@ public class FrontEnd extends FrontEndPOA {
 		// Create the operation message and send it to the sequencer. the
 		// sequencer will reply with the sequence number
 		PrintCustomerInfoMessage opMessage = new PrintCustomerInfoMessage(bankId);
-		long sequenceNbr = this.forwardToSequencer(opMessage);
+
+		long sequenceNbr = 0;
+		try {
+			sequenceNbr = this.forwardToSequencer(opMessage);
+		} catch (AppException e) {
+			logger.info("FrontEnd: " + e.getMessage());
+			throw e;
+		}
 
 		// Add this thread's blocking queue to the queue pool for the replica
 		// listener thread
@@ -169,32 +176,42 @@ public class FrontEnd extends FrontEndPOA {
 		InetSocketAddress remoteAddr = new InetSocketAddress(SEQ_HOST, SEQ_PORT); // The Sequencer IP address
 		long opSequenceNbr = 0;
 		int retryCntr = 3;
+		final byte[] incomingDataBuffer = new byte[MSG_BUF];	
+		DatagramPacket incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
+		DatagramPacket outgoingPacket = null;
+		final byte[] outgoingData;
 
 		try {
-			clientSocket = new DatagramSocket();
-			clientSocket.setSoTimeout(3000);
-		} catch (SocketException e) {
+			outgoingData = Serializer.serialize(udpMessage);
+			outgoingPacket = new DatagramPacket(outgoingData, outgoingData.length, remoteAddr);
+
+		} catch (final IOException e) {
 			throw new AppException(e.getMessage());
 		}
 		
 		try {
-			
-			byte[] outgoingData = Serializer.serialize(udpMessage);
-			final DatagramPacket outgoingPacket = new DatagramPacket(outgoingData, outgoingData.length, remoteAddr);
-			clientSocket.send(outgoingPacket);
-
-		} catch (final IOException e) {
+			clientSocket = new DatagramSocket();
+			clientSocket.setSoTimeout(1000);
+		} catch (SocketException e) {
 			if (clientSocket != null) {
 				clientSocket.close();
 			}
 			throw new AppException(e.getMessage());
 		}
-		
-		// Get back the operation sequence number	
-		final byte[] incomingDataBuffer = new byte[MSG_BUF];		
-		final DatagramPacket incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
 
 		while (true) {
+			try {
+				clientSocket.send(outgoingPacket);
+			} catch (IOException e) {
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
+				throw new AppException(e.getMessage());
+			}
+		
+			// Get back the operation sequence number		
+			incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
+
 			
 			// Receive the packet
 			try {
