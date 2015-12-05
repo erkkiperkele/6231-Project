@@ -1,12 +1,9 @@
 package shared.util;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Level;
-
 import shared.data.Bank;
 import shared.data.ServerInfo;
 
@@ -60,9 +57,6 @@ public class ReadConfig
 			frontEndSvInfo = new ServerInfo(Constant.getFrontEndName(), frontEndIp, Integer.parseInt(frontEndPort));
 			sequencerSvInfo = new ServerInfo(Constant.getSequencerName(), sequencerIp, Integer.parseInt(sequencerPort));
 			
-			// get the property value and print it out
-			ArrayList<ServerInfo> lstServers = new ArrayList<ServerInfo>();
-
 			int serverCounter = 1;
 			String bankmachineName;
 			String replicaManagerIp;
@@ -137,8 +131,6 @@ public class ReadConfig
 
 				serverCounter++;
 			}
-			Env.setLstServers(lstServers);
-
 
 			boolean isLogConsoleEnabled = (logConsoleEnabled == null || logConsoleEnabled.equalsIgnoreCase(Constant.TRUE));
 			boolean islogFileEnabled = (logFileEnabled == null || logFileEnabled.equalsIgnoreCase(Constant.TRUE));
@@ -150,6 +142,8 @@ public class ReadConfig
 	    	Env.setLogFileEnabled(islogFileEnabled);
 	    	Env.setLogConsoleEnabled(isLogConsoleEnabled);
 	    	Env.setLogPath(logFilePath);
+	    	
+	    	Env.setMachineName(machineName);
 			
 	    	Env.loadSettings(bankmachineName, sequencerSvInfo, frontEndSvInfo, 
 	    			replicaManagerSvInfoSet, replicaSvInfoSet, replicaIntranetSvInfoSet, replicaRMSvInfoSet);

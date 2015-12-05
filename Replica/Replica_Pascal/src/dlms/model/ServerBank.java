@@ -70,7 +70,7 @@ public class ServerBank extends AbstractServerBank
 
 		if (isServerInstance == true)
 		{
-			EnvP.log(Level.FINE, "Starting server service for " + server.getServerName(), true);
+			Env.log(Level.FINE, "Starting server service for " + server.getServerName());
 			String loan_filename = EnvP.getServerLoansFile(this.getServerName(), "*");
 			String loan_filename_left = loan_filename.substring(0, loan_filename.indexOf("*"));
 			String loan_filename_right = loan_filename.substring(loan_filename_left.length() + 1);
@@ -88,13 +88,13 @@ public class ServerBank extends AbstractServerBank
 			File folder = new File("./");
 			File[] listOfFiles = folder.listFiles();
 
-			EnvP.log(Level.FINE, "Loading Loans and Customers files", true);
+			Env.log(Level.FINE, "Loading Loans and Customers files");
 			for (int i = 0; i < listOfFiles.length; i++)
 			{
 				if (listOfFiles[i].isFile() && listOfFiles[i].getName().length() == customer_filename.length()
 						&& (listOfFiles[i].getName().startsWith(customer_filename_left)) && (listOfFiles[i].getName().endsWith(customer_filename_right)))
 				{
-					EnvP.log(Level.FINE, "Loading Customers: " + listOfFiles[i].getName(), true);
+					Env.log(Level.FINE, "Loading Customers: " + listOfFiles[i].getName());
 					ArrayList<Customer> lstCustomers = XMLHelper.readCustomers(listOfFiles[i].getName());
 					for (Customer customer : lstCustomers)
 					{
@@ -105,7 +105,7 @@ public class ServerBank extends AbstractServerBank
 				if (listOfFiles[i].isFile() && listOfFiles[i].getName().length() == loan_filename.length()
 						&& (listOfFiles[i].getName().startsWith(loan_filename_left)) && (listOfFiles[i].getName().endsWith(loan_filename_right)))
 				{
-					EnvP.log(Level.FINE, "Loading Loans: " + listOfFiles[i].getName(), true);
+					Env.log(Level.FINE, "Loading Loans: " + listOfFiles[i].getName());
 					ArrayList<Loan> lstLoans = XMLHelper.readLoans(listOfFiles[i].getName());
 					for (Loan loan : lstLoans)
 					{
@@ -122,7 +122,7 @@ public class ServerBank extends AbstractServerBank
 			}
 			
 			int port = server.getPort();
-			EnvP.log(Level.FINE, "Starting UDP port " + port, true);
+			Env.log(Level.FINE, "Starting UDP port " + port);
 			udpServer = new UDPServerThread("Pascal Replica Implementation", port, this);
 			udpServer.start();
 		}
@@ -150,7 +150,7 @@ public class ServerBank extends AbstractServerBank
 		 * the customer.
 		 */
 
-		EnvP.log(Level.FINE, "openAccount(" + firstName + "," + lastName + ")", true);
+		Env.log(Level.FINE, "openAccount(" + firstName + "," + lastName + ")");
 
 		Customer customer = new Customer(firstName, lastName, password, emailAddress, phoneNumber);
 		customer.setCreditLimit(LOAN_LIMIT);
@@ -158,18 +158,18 @@ public class ServerBank extends AbstractServerBank
 		// Verify if customer already exist with first name and last name
 		if (this.accounts.get(customer.getUserName()) != null)
 		{
-			EnvP.log(Level.WARNING, firstName + "," + lastName + ": Customer Already Exist", true);
+			Env.log(Level.WARNING, firstName + "," + lastName + ": Customer Already Exist");
 			throw new ExceptionCustomerAlreadyExist(customer.getUserName());
 		}
 
 		String accountName = getStringUsername(customer);
-		EnvP.log(Level.FINE, firstName + "," + lastName + ": Adding the account.", true);
+		Env.log(Level.FINE, firstName + "," + lastName + ": Adding the account.");
 		this.accounts.put(getStringUsername(customer), customer);
 		// Release
-		EnvP.log(Level.FINE, firstName + "," + lastName + ": Commit() to XML", true);
+		Env.log(Level.FINE, firstName + "," + lastName + ": Commit() to XML");
 		this.accounts.commit(EnvP.getServerCustomersFile(this.getServerName(), accountName), accountName, true);
 
-		EnvP.log(Level.FINE, firstName + "," + lastName + ": Created.", true);
+		Env.log(Level.FINE, firstName + "," + lastName + ": Created.");
 		return customer.getAccountNumber();
 	}
 
@@ -195,18 +195,18 @@ public class ServerBank extends AbstractServerBank
 		 * messages.
 		 */
 
-		EnvP.log(Level.FINE, "getLoan(" + accountNumber + ")", true);
+		Env.log(Level.FINE, "getLoan(" + accountNumber + ")");
 
 		Customer customer = (Customer) this.accounts.getCustomer(accountNumber);
 		if (customer == null)
 		{
-			EnvP.log(Level.SEVERE, accountNumber + " NotValidCustomerAccountID", true);
+			Env.log(Level.SEVERE, accountNumber + " NotValidCustomerAccountID");
 			throw new ExceptionNotValidCustomerAccountID();
 		}
 
 		if (!customer.getPassword().equals(password))
 		{
-			EnvP.log(Level.SEVERE, accountNumber + " InvalidPassword", true);
+			Env.log(Level.SEVERE, accountNumber + " InvalidPassword");
 			throw new ExceptionInvalidPassword();
 		}
 
@@ -216,15 +216,15 @@ public class ServerBank extends AbstractServerBank
 			Loan loan = (Loan) this.loans.getLoan(accountNumber);
 			if (loan == null)
 			{
-				EnvP.log(Level.FINE, accountNumber + " Creating Loan", true);
+				Env.log(Level.FINE, accountNumber + " Creating Loan");
 			}
 			else
 			{
-				EnvP.log(Level.SEVERE, accountNumber + " OnlyOneLoanPerCustomer", true);
+				Env.log(Level.SEVERE, accountNumber + " OnlyOneLoanPerCustomer");
 				throw new ExceptionOnlyOneLoanPerCustomer();
 			}
 
-			EnvP.log(Level.FINE, accountNumber + " Starting Credit Check.", true);
+			Env.log(Level.FINE, accountNumber + " Starting Credit Check.");
 			double totalLoanAmount = 0;
 			ArrayList<UDPRequestThread> threads = new ArrayList<UDPRequestThread>();
 			for (ServerInfo sv : Env.getReplicaServerInfoList())
@@ -236,7 +236,7 @@ public class ServerBank extends AbstractServerBank
 					threads.add(request);
 					request.start();
 
-					EnvP.log(Level.FINE, accountNumber + " Credit Check UDP: " + sv.getServerName(), true);
+					Env.log(Level.FINE, accountNumber + " Credit Check UDP: " + sv.getServerName());
 				}
 			}
 
@@ -248,13 +248,13 @@ public class ServerBank extends AbstractServerBank
 				}
 				catch (InterruptedException e)
 				{
-					EnvP.log(Level.SEVERE, accountNumber + " Credit Check UDPBankNotAvailableRetryLater", true);
+					Env.log(Level.SEVERE, accountNumber + " Credit Check UDPBankNotAvailableRetryLater");
 					throw new ExceptionUDPBankNotAvailableRetryLater(e.getMessage());
 				}
 
 				if (request.isError(null))
 				{
-					EnvP.log(Level.SEVERE, accountNumber + " Credit Check UDPBankNotAvailableRetryLater", true);
+					Env.log(Level.SEVERE, accountNumber + " Credit Check UDPBankNotAvailableRetryLater");
 					throw new ExceptionUDPBankNotAvailableRetryLater(request.getErrorMessage());
 				}
 				else
@@ -275,11 +275,11 @@ public class ServerBank extends AbstractServerBank
 				this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
 
 				loanApprovedID = loan.getLoanNumber();
-				EnvP.log(Level.FINE, accountNumber + " Credit Check Accepted.", true);
+				Env.log(Level.FINE, accountNumber + " Credit Check Accepted.");
 			}
 			else
 			{
-				EnvP.log(Level.FINE, accountNumber + " Credit Check Refused." + customer.getCreditLimit() + "<" + (totalLoanAmount + loanAmount), true);
+				Env.log(Level.FINE, accountNumber + " Credit Check Refused." + customer.getCreditLimit() + "<" + (totalLoanAmount + loanAmount));
 			}
 		}
 
@@ -297,12 +297,12 @@ public class ServerBank extends AbstractServerBank
 	 */
 	public boolean delayPayment(int loanID, Date currentDueDate, Date newDueDate) throws Exception
 	{
-		EnvP.log(Level.FINE, "delayPayment(" + loanID + ")", true);
+		Env.log(Level.FINE, "delayPayment(" + loanID + ")");
 		boolean isPaymentDelayed = false;
 		Loan loan = getLoans().getLoan(loanID);
 		if (loan == null)
 		{
-			EnvP.log(Level.SEVERE, "delayPayment(" + loanID + ") InvalidLoanID", true);
+			Env.log(Level.SEVERE, "delayPayment(" + loanID + ") InvalidLoanID");
 			throw new ExceptionInvalidLoanID();
 		}
 
@@ -318,21 +318,21 @@ public class ServerBank extends AbstractServerBank
 					loan.setDueDate(newDueDate);
 					// Commit data + history
 					isPaymentDelayed = true;
-					EnvP.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") DueDate modified.", true);
+					Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") DueDate modified.");
 				}
 				else
 				{
-					EnvP.log(Level.WARNING, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") InvalidDueDate (Refresh issue)", true);
+					Env.log(Level.WARNING, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") InvalidDueDate (Refresh issue)");
 					throw new ExceptionInvalidDueDate();
 				}
 			}
 		}
 
-		EnvP.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit()", true);
+		Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit()");
 		String username = getStringUsername(loan);
 		this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), username), username, false);
 
-		EnvP.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit() Successful", true);
+		Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit() Successful");
 		return isPaymentDelayed;
 	}
 
@@ -343,7 +343,7 @@ public class ServerBank extends AbstractServerBank
 	 */
 	public String printCustomerInfo()
 	{
-		EnvP.log(Level.FINE, "printCustomerInfo()", true);
+		Env.log(Level.FINE, "printCustomerInfo()");
 		Bank bankInfo = new Bank(this.getServerName());
 		bankInfo.loans.addAll(this.getLoans().getAllLoans());
 		for (Customer customer : this.getAccounts().getAllCustomers())
@@ -379,14 +379,14 @@ public class ServerBank extends AbstractServerBank
 		 * CurrentBank should all be done atomically (that is, all should be
 		 * done or none should be done) using UDP/IP messages.
 		 */
-		EnvP.log(Level.FINE, "transferLoan(loanID: " + loanID + ", currentBank: " + this.getServerName() + ", otherBank: " + otherBankName + ")", true);
+		Env.log(Level.FINE, "transferLoan(loanID: " + loanID + ", currentBank: " + this.getServerName() + ", otherBank: " + otherBankName + ")");
 
 		ServerInfo otherBank = dlms.StartBankServer.getServerInformation(otherBankName);
 		
 		Loan loan = this.loans.getLoan(loanID);
 		if (loan == null)
 		{
-			EnvP.log(Level.SEVERE, loanID + " InvalidLoanID", true);
+			Env.log(Level.SEVERE, loanID + " InvalidLoanID");
 			throw new ExceptionInvalidLoanID();
 		}
 
@@ -394,7 +394,7 @@ public class ServerBank extends AbstractServerBank
 		Customer customer = (Customer) this.accounts.get(accountNumber);
 		if (customer == null)
 		{
-			EnvP.log(Level.SEVERE, accountNumber + " NotValidCustomerAccountID", true);
+			Env.log(Level.SEVERE, accountNumber + " NotValidCustomerAccountID");
 			throw new ExceptionNotValidCustomerAccountID();
 		}
 
@@ -405,17 +405,17 @@ public class ServerBank extends AbstractServerBank
 			loan = (Loan) this.loans.get(accountNumber);
 			if (loan == null)
 			{
-				EnvP.log(Level.SEVERE, loanID + " InvalidLoanID", true);
+				Env.log(Level.SEVERE, loanID + " InvalidLoanID");
 				throw new ExceptionInvalidLoanID();
 			}
 
-			EnvP.log(Level.FINE, loanID + " Removing the loan to transfer.", true);
+			Env.log(Level.FINE, loanID + " Removing the loan to transfer.");
 
 			// Customer resource locked, removing the loan temporarily in memory
 			// only
 			if (this.loans.remove(accountNumber))
 			{
-				EnvP.log(Level.FINE, loanID + " Starting Loan transfer.", true);
+				Env.log(Level.FINE, loanID + " Starting Loan transfer.");
 
 				UDPRequestThread request = new UDPRequestThread(otherBank.getIpAddress(), otherBank.getPort(),
 						customer.getUserName(), customer, loan);
@@ -426,7 +426,7 @@ public class ServerBank extends AbstractServerBank
 
 				if (request.isLoanTransfered())
 				{
-					EnvP.log(Level.FINE, loanID + " Transfer successfull, committing the data to the database.", true);
+					Env.log(Level.FINE, loanID + " Transfer successfull, committing the data to the database.");
 					try
 					{
 						this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
@@ -437,7 +437,7 @@ public class ServerBank extends AbstractServerBank
 						// Save to database should never fail, in case it fail,
 						// we need to log the loanID to ensure it's removed at a
 						// later time.
-						EnvP.log(Level.SEVERE, loanID + " Database error, need to remove the transfered loan!", true);
+						Env.log(Level.SEVERE, loanID + " Database error, need to remove the transfered loan!");
 
 						// this should never happen, I wont deal with this case
 						// in assignment.
@@ -455,7 +455,7 @@ public class ServerBank extends AbstractServerBank
 				}
 				else
 				{
-					EnvP.log(Level.FINE, loanID + " Failed transfering the loan, putting it back in the list.", true);
+					Env.log(Level.FINE, loanID + " Failed transfering the loan, putting it back in the list.");
 					// Adding the removed loan
 					this.loans.put(customer.getUserName(), loan);
 				}
@@ -476,7 +476,7 @@ public class ServerBank extends AbstractServerBank
 	{
 		// The customer is locked from the parent calling this method
 		// thus impossible to create a loan on that customer
-		EnvP.log(Level.FINE, customer.getUserName() + " Creating Loan", true);
+		Env.log(Level.FINE, customer.getUserName() + " Creating Loan");
 
 		int loanNumber;
 		synchronized (this)

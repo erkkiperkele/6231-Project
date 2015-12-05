@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.logging.Level;
 
 import shared.data.Bank;
@@ -18,9 +17,6 @@ import shared.data.ServerInfo;
 
 public class Env
 {
-	private static ArrayList<ServerInfo> lstServers;
-	private static boolean isDebug = false;
-
 	private static boolean isLogFileEnabled;
 	private static boolean isLogConsoleEnabled;
 	private static String logPath;
@@ -167,15 +163,12 @@ public class Env
     	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
     }
 
-	public static synchronized void writeToLogFile(Level level, String message)
+	private static synchronized void writeToLogFile(String message)
 	{
-		if(!isLogFileEnabled)
-			return;
-		
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(logPath, true)))) 
 		{
 			String timestamp = (new java.sql.Timestamp((new java.util.Date()).getTime())).toString();
-		    out.println(timestamp + ": " + level.toString() + " " + message);
+		    out.println(timestamp + ": " + message);
 		}
 		catch (IOException e) 
 		{
@@ -183,10 +176,32 @@ public class Env
 		}
 	}
 
-	public static void log(Level level, String message, boolean showConsole)
+	private static synchronized void writeToLogFile(Level level, String message)
 	{
-		writeToLogFile(level, message);
-		if (showConsole)
+		writeToLogFile(level.toString() + " " + message);
+	}
+
+	public static void log(String message)
+	{
+		if(isLogFileEnabled)
+		{
+			writeToLogFile(message);
+		}
+		
+		if (isLogConsoleEnabled)
+		{
+			System.out.println(message);
+		}
+	}
+
+	public static void log(Level level, String message)
+	{
+		if(isLogFileEnabled)
+		{
+			writeToLogFile(level, message);
+		}
+		
+		if (isLogConsoleEnabled)
 		{
 			System.out.println(message);
 		}
@@ -204,7 +219,7 @@ public class Env
 		}
 		catch (Exception e)
 		{
-			Env.log(Level.SEVERE, "Date Parse Exception: " + e.getMessage(), true);
+			Env.log(Level.SEVERE, "Date Parse Exception: " + e.getMessage());
 			loanDueDate = cal.getTime();
 		}
 		return loanDueDate;
@@ -229,59 +244,6 @@ public class Env
 		return true;
 	}
 
-	/**
-	 * 
-	 * @param logLevelValue
-	 * @param isLogConsoleEnabled
-	 * @param islogFileEnabled
-	 * @param logFilePath
-	 */
-	public static void initLogger(Level logLevelValue, boolean isLogConsoleEnabled, boolean islogFileEnabled, String logFilePath, String info)
-	{
-		isLogFileEnabled = islogFileEnabled;
-		logPath = logFilePath;
-	}
-
-	/**
-	 * @return the lstServers
-	 */
-	public static ArrayList<ServerInfo> getLstServers()
-	{
-		return lstServers;
-	}
-
-	/**
-	 * @param lstServers
-	 *            the lstServers to set
-	 */
-	public static void setLstServers(ArrayList<ServerInfo> lstServers)
-	{
-		Env.lstServers = lstServers;
-	}
-
-	public static boolean isDebug()
-	{
-		return isDebug;
-	}
-
-	public static void setDebug(boolean isDebug)
-	{
-		Env.isDebug = isDebug;
-	}
-
-	/**
-	 * Get the bank server information
-	 * 
-	 * @param bankName
-	 *            name of the bank
-	 * @return the server information or null if not found
-	 */
-	public static ServerInfo GetServerInfo(String bankName)
-	{
-		Optional<ServerInfo> sv = getLstServers().stream().filter(x -> x.getServerName().equalsIgnoreCase(bankName)).findFirst();
-		return sv.isPresent() ? sv.get() : null;
-	}
-	
 	/**
 	 * getSequencerServerInfo
 	 * @return
