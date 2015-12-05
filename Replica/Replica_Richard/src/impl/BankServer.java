@@ -21,11 +21,11 @@ public class BankServer extends AbstractServerBank {
 	// This solution is only valid because all BankServers run on the same machine
 	private static HashMap<String, Integer> servers = new HashMap<String, Integer>();
 
-	private Bank bank;
+	private BankStore bank;
 	private int port;
 	private BankSocket socket;
 
-	public BankServer(Bank bank) {
+	public BankServer(BankStore bank) {
 		this.bank = bank;
 		this.port = PORTSTART++;
 		
@@ -219,10 +219,10 @@ public class BankServer extends AbstractServerBank {
 	}
 
 	private class UDPListenerThread extends Thread {
-		Bank bank;
+		BankStore bank;
 		BankSocket socket;
 
-		public UDPListenerThread(Bank bank, BankSocket socket) {
+		public UDPListenerThread(BankStore bank, BankSocket socket) {
 			this.bank = bank;
 			this.socket = socket;
 		}
@@ -251,13 +251,13 @@ public class BankServer extends AbstractServerBank {
 	}
 
 	private class UDPResponderThread extends Thread {
-		private Bank bank;
+		private BankStore bank;
 		private BankSocket socket;
 		private InetAddress remoteHost;
 		private int remotePort;
 		private String command;
 
-		public UDPResponderThread(Bank bank, String command, InetAddress rh, int rp) {
+		public UDPResponderThread(BankStore bank, String command, InetAddress rh, int rp) {
 			this.bank = bank;
 			try {
 				this.socket = new BankSocket();
@@ -333,9 +333,9 @@ public class BankServer extends AbstractServerBank {
 		private BankSocket sock;
 		private InetAddress remoteHost;
 		private int remotePort;
-		private Bank b;
+		private BankStore b;
 		
-		public UDPLoanReceiverThread(Bank b, InetAddress rh, int rp) {
+		public UDPLoanReceiverThread(BankStore b, InetAddress rh, int rp) {
 			this.b = b;
 			try {
 				// Create new bank socket

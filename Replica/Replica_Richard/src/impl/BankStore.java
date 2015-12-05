@@ -15,12 +15,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import shared.data.*;
 
-public class Bank {
+public class BankStore {
 	private String name;
 	private HashMap<String, ArrayList<Customer>> accounts;
 	private HashMap<String, ArrayList<Loan>> loans;
 	
-	public Bank(String name) {
+	public BankStore(String name) {
 		this.name = name;
 		
 		// Read accounts and loans info from files
