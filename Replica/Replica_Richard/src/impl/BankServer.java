@@ -1,13 +1,19 @@
+package impl;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.SocketException;
 
-public class BankServer extends DLMS.BankServerInterfacePOA {
+import shared.data.*;
+import shared.udp.UDPServerThread;
+
+public class BankServer extends AbstractServerBank {
 	
 	private static int PORTSTART = 3000;
 	private static final int NUMOFBANKS = 3;
@@ -37,7 +43,7 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	}
 
 	@Override
-	public String openAccount(String Bank, String FirstName, String LastName, String EmailAddress, String PhoneNumber,
+	public int openAccount(String FirstName, String LastName, String EmailAddress, String PhoneNumber,
 			String Password) {
 		CustomerAccount c = new CustomerAccount(FirstName, LastName, EmailAddress, PhoneNumber, Password);
 		bank.storeAccount(c);
@@ -45,17 +51,18 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	}
 
 	@Override
-	public String getLoan(String Bank, String AccountNumber, String Password, double Amount) {
+	public int getLoan(int AccountNumber, String Password, long Amount) throws Exception {
 		// Verify that AccountNumber exists in the system
 		CustomerAccount c = bank.getCustomer(AccountNumber);
 		if (c == null) {
 			// No account with that AccountNumber exists on this server
-			return null;
+			throw new Exception("No such account found in database");
 		}
+		char firstInitial = c.getFirstName().charAt(0);
 
 		// Password check
 		if (!c.getPassword().equals(Password)) {
-			return "Password mismatch\n";
+			throw new Exception("Password mismatch");
 		}
 
 		String fn = c.getFirstName();
@@ -99,7 +106,7 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 		if ((Amount + customerLoans) > c.getCreditLimit()) {
 			// Loan amount too high
 			bank.refuseLoan(c, Amount);
-			return "Loan refused: Not enough credit.\n";
+			throw new Exception("Loan refused: Not enough credit.\n");
 		}
 
 		// Set loan due date to 1 year from now by default
@@ -109,13 +116,13 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 		int year = Integer.parseInt(curDate.substring(0, 4));
 		++year;
 		Loan l = new Loan(c.getID(), Amount, String.format("%d%s", year, curDate.substring(4)));
-		bank.storeLoan(l);
+		bank.storeLoan(firstInitial, l);
 
 		return l.getID();
 	}
 
 	@Override
-	public String delayPayment(String Bank, String LoanID, String CurrentDueDate, String NewDueDate) {
+	public boolean delayPayment(int LoanID, Date CurrentDueDate, Date NewDueDate) {
 		Loan l = bank.getLoan(LoanID);
 
 		// Check that loan exists
@@ -133,13 +140,12 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	}
 
 	@Override
-	public String printCustomerInfo(String Bank) {
+	public String printCustomerInfo() {
 		return bank.printInfo();
 	}
 
 	@Override
-	public String transferLoan(String LoanID, String CurrentBank,
-			String OtherBank) {
+	public boolean transferLoan(int LoanID, String OtherBank) {
 		// Check if loan exists
 		Loan loan = bank.getLoan(LoanID);
 		if (loan == null) {
@@ -270,7 +276,7 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 			String[] sp = command.split(" ");
 			// Search accounts for matching person (same name)
 			String response = null;
-			CustomerAccount c = bank.getCustomerByName(sp[0], sp[1].trim());
+			CustomerAccount c = bank.getCustomer(sp[0], sp[1].trim());
 			if (c == null) {
 				// Reply 0.0
 				response = "0.0";
@@ -350,8 +356,8 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 			// Wait to receive name of Customer
 			String[] custName = recv().split(" ");
 			// Check if customer exists
-			CustomerAccount custAcc = b.getCustomerByName(custName[0], custName[1]);
-			String custID;
+			CustomerAccount custAcc = b.getCustomer(custName[0], custName[1]);
+			int custID;
 			CustomerAccount newAcc = null;
 			// Reply whether or not customer exists
 			if (custAcc == null) {
@@ -381,7 +387,7 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 				if (custAcc == null) {
 					b.storeAccount(newAcc);
 				}
-				b.storeLoan(loan);
+				b.storeLoan(custAcc, loan);
 				send("ACK");
 			}
 		}
@@ -403,6 +409,11 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 				return null;
 			}
 		}
+	}
+
+	@Override
+	public String getServerName() {
+		return this.bank.getName();
 	}
 }
 

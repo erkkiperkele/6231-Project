@@ -1,27 +1,31 @@
+package impl;
 import java.io.Serializable;
 
 public class CustomerAccount implements Serializable {
 	
-	private static int AccountAccumulator = 1000;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7902021447980385222L;
+
+	private static int AccountAccumulator;
 	
-	private String AccountID;
+	private int AccountID;
 	private String FirstName;
 	private String LastName;
 	private String Email;
 	private String PhoneNumber;
 	private String Password;
-	private double CreditLimit;
+	private double CreditLimit = 1000;
 	
 	public CustomerAccount(String firstName, String lastName, String email, String phoneNumber,
 			String password) {
-		char fn = Character.toUpperCase(firstName.charAt(0));
-		AccountID = String.format("%c%d", fn, ++AccountAccumulator);
+		AccountID = ++AccountAccumulator;
 		FirstName = firstName;
 		LastName = lastName;
 		Email = email;
 		PhoneNumber = phoneNumber;
 		Password = password;
-		CreditLimit = 10000;
 	}
 	
 	public String toString() {
@@ -32,7 +36,7 @@ public class CustomerAccount implements Serializable {
 			 + String.format("Credit limit: %.2f%n", CreditLimit);
 	}
 
-	public String getID() {
+	public int getID() {
 		return AccountID;
 	}
 	

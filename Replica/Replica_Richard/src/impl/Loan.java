@@ -1,34 +1,41 @@
+package impl;
 import java.io.Serializable;
+import java.util.Date;
 
 public class Loan implements Serializable {
 	
-	private static int AccountAccumulator = 1000;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -45963620214868611L;
+
+	private static int AccountAccumulator;
 	
-	private String LoanID;
-	private String CustomerAccountNumber;
+	private int LoanID;
+	private int CustomerAccountNumber;
 	private double Amount;
-	private String DueDate;
+	private Date DueDate;
 	
-	public Loan(String CustomerAccountNumber, double Amount, String DueDate) {
-		this.LoanID = String.format("%c%d", CustomerAccountNumber.charAt(0), ++AccountAccumulator);
+	public Loan(int CustomerAccountNumber, double Amount, Date DueDate) {
+		this.LoanID = ++AccountAccumulator;
 		this.CustomerAccountNumber = CustomerAccountNumber;
 		this.Amount = Amount;
 		this.DueDate = DueDate;
 	}
 	
-	public String getID() {
+	public int getID() {
 		return LoanID;
 	}
 	
-	public String getAccountID() {
+	public int getAccountID() {
 		return CustomerAccountNumber;
 	}
 	
-	public void setDueDate(String DueDate) {
+	public void setDueDate(Date DueDate) {
 		this.DueDate = DueDate;
 	}
 	
-	public String getDueDate() {
+	public Date getDueDate() {
 		return DueDate;
 	}
 	

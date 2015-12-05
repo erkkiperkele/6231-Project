@@ -1,3 +1,4 @@
+package impl;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,7 +13,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.ListIterator;
 
 public class Bank {
 	private String name;
@@ -60,16 +60,13 @@ public class Bank {
 		return name;
 	}
 	
-	public Loan getLoan(String id) {
-		ListIterator<Loan> it = loans.get(id.substring(0,1)).listIterator();
-		
-		while (it.hasNext()) {
-			Loan l = it.next();
-			if (l.getID().equals(id)) {
-				return l;
-			}
-		}
-		return null;
+	public Loan getLoan(int id) {
+		return this.loans.values()
+				.stream()
+				.flatMap(l -> l.stream())
+				.filter(l -> l.getID() == id)
+				.findFirst()
+				.orElse(null);
 	}
 	
 	public void refuseLoan(CustomerAccount c, double amount) {
@@ -85,8 +82,8 @@ public class Bank {
 		}	
 	}
 	
-	public void changeLoanRepayment(Loan l, String ndd) {
-		String cdd = l.getDueDate();
+	public void changeLoanRepayment(Loan l, Date ndd) {
+		Date cdd = l.getDueDate();
 		
 		synchronized (l) {
 			l.setDueDate(ndd);
@@ -105,48 +102,34 @@ public class Bank {
 		}
 	}
 	
-	public Loan getLoanByCustomer(String can) {
-		ListIterator<Loan> it = loans.get(can.substring(0,1)).listIterator();
-		
-		while (it.hasNext()) {
-			Loan l = it.next();
-			if (l.getAccountID().equals(can)) {
-				return l;
-			}
-		}
-		
-		return null;
+	public Loan getLoanByCustomer(int can) {
+		return this.loans.values()
+				.stream()
+				.flatMap(l -> l.stream())
+				.filter(l -> l.getAccountID() == can)
+				.findFirst()
+				.orElse(null);
 	}
 	
-	public CustomerAccount getCustomer(String id) {
-		ListIterator<CustomerAccount> it = accounts.get(id.substring(0,1)).listIterator();
-		
-		while (it.hasNext()) {
-			CustomerAccount c = it.next();
-			if (c.getID().equals(id)) {
-				return c;
-			}
-		}
-		return null;
+	public CustomerAccount getCustomer(int id) {
+		return this.accounts.values()
+                .stream()
+                .flatMap(a -> a.stream())
+                .filter(a -> a.getID() == id)
+                .findFirst()
+                .orElse(null);
 	}
 	
-	public CustomerAccount getCustomerByName(String fn, String ln) {
-		ListIterator<CustomerAccount> it = accounts.get(fn.substring(0,1)).listIterator();
-		
-		while (it.hasNext()) {
-			CustomerAccount c = it.next();
-			boolean fn_matches = c.getFirstName().equals(fn);
-			boolean ln_matches = c.getLastName().equals(ln);
-			if (fn_matches && ln_matches) {
-				return c;
-			}
-		}
-		
-		return null;
+	public CustomerAccount getCustomer(String fn, String ln) {
+		return this.accounts.get(fn.charAt(0))
+				.stream()
+				.filter(a -> a.getFirstName().equals(fn) && a.getLastName().equals(ln))
+				.findFirst()
+				.orElse(null);
 	}
 	
 	public void storeAccount(CustomerAccount account) {
-		String fn = account.getID().substring(0,1);
+		String fn = account.getFirstName().substring(0,1);
 		synchronized(accounts.get(fn)) {
 			accounts.get(fn).add(account);
 		}
@@ -165,8 +148,8 @@ public class Bank {
 		}
 	}
 	
-	public void storeLoan(Loan loan) {
-		String fn = loan.getID().substring(0,1);
+	public void storeLoan(CustomerAccount c, Loan loan) {
+		String fn = c.getFirstName().substring(0,1);
 		if (loans.get(fn) == null) {
 			loans.put(String.valueOf(fn), new ArrayList<Loan>());
 		}
@@ -186,19 +169,14 @@ public class Bank {
 		}
 	}
 	
-	public void removeLoan(String id) {
-		ArrayList<Loan> ar = loans.get(id.substring(0,1));
-		synchronized(ar) {
-			ListIterator<Loan> it = ar.listIterator();
-			while (it.hasNext()) {
-				Loan l = it.next();
-				if (l.getID().equals(id)) {
-					it.remove();
-				}
+	public void removeLoan(int id) {
+		if (((Collection<Loan>) loans.values()
+				.stream()
+				.flatMap(l -> l.stream()))
+				.removeIf((Loan l) -> l.getID() == id)) {
+			synchronized(this) {
+				SerializeLoans();
 			}
-		}
-		synchronized(this) {
-			SerializeLoans();
 		}
 	}
 
