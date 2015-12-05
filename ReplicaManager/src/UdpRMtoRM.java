@@ -4,6 +4,7 @@ import shared.udp.message.state.PingMessage;
 import shared.udp.message.state.ReplicaManagerMessage;
 import shared.udp.message.state.StateMessage;
 import shared.udp.message.state.StateMessageType;
+import shared.util.Constant;
 
 import java.io.IOException;
 import java.net.*;
@@ -29,14 +30,14 @@ public class UdpRMtoRM {
 
     public void startServer() {
 
-        int serverPortRMtoRMMessenger = 6666;
-        int serverPortRMtoRMListener = 6667;
+//        int serverPortRMtoRMMessenger = 6666;
+        int serverPortRMtoRMListener = Constant.RM_TO_RM_LISTENER_PORT;
 
         DatagramSocket messengerSocket = null;
         DatagramSocket listenerSocket = null;
 
         try {
-            messengerSocket = new DatagramSocket(serverPortRMtoRMMessenger);
+            messengerSocket = new DatagramSocket();
             listenerSocket = new DatagramSocket(serverPortRMtoRMListener);
             startMessenger(messengerSocket);
             startListener(listenerSocket);
@@ -91,14 +92,14 @@ public class UdpRMtoRM {
         {
             try {
 
-                System.out.println(String.format("[UDP] Server received Message"));
+                System.out.println(String.format("[UDP - RM to RM] Server received Message"));
 
                 byte[] messageBytes = request.getData();
                 int answerPort = request.getPort();
                 String message = new String(messageBytes, "UTF-8");
                 processMessage(message, request.getAddress(), answerPort, aSocket);
 
-                System.out.println(String.format("[UDP] Server Answered Message on port: %d", answerPort));
+                System.out.println(String.format("[UDP - RM to RM] Server Answered Message on port: %d", answerPort));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -111,7 +112,7 @@ public class UdpRMtoRM {
         {
             try {
 
-                System.out.println(String.format("[UDP] Server received Answer"));
+                System.out.println(String.format("[UDP - RM to RM] Server received Answer"));
 
                 byte[] messageBytes = packet.getData();
 
@@ -119,7 +120,7 @@ public class UdpRMtoRM {
 
                 processAnswerMessage(answer);
 
-                System.out.println(String.format("[UDP] Server received answer"));
+                System.out.println(String.format("[UDP - RM to RM] Server received answer"));
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {

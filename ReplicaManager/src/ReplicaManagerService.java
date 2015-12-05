@@ -17,6 +17,8 @@ public class ReplicaManagerService implements IReplicaManagerService {
         //TODO:
         // if 3rd error, call onFailure
         // get valid State from replica
+
+        System.out.println("RECEIVED an ERROR message");
     }
 
     @Override
@@ -27,6 +29,8 @@ public class ReplicaManagerService implements IReplicaManagerService {
         // choose new implementation
         // start new implementation
         // get valid State from replica
+
+        System.out.println("RECEIVED a FAILURE message");
     }
 
     private ReplicaState getReplicaState(){
