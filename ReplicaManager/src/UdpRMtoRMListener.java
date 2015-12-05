@@ -17,29 +17,24 @@ import java.net.*;
  * @author mat
  */
 
-public class UdpRMtoRM {
+public class UdpRMtoRMListener extends Thread {
 
-    private static final String RM_HOST = "localhost";
     private static IReplicaStateService replicaStateService;
 
 
-    public UdpRMtoRM(IReplicaStateService replicaStateService) {
+    public UdpRMtoRMListener(IReplicaStateService replicaStateService) {
+
         this.replicaStateService = replicaStateService;
     }
 
-
-    public void startServer() {
-
-//        int serverPortRMtoRMMessenger = 6666;
+    @Override
+    public void run() {
         int serverPortRMtoRMListener = Constant.RM_TO_RM_LISTENER_PORT;
 
-        DatagramSocket messengerSocket = null;
         DatagramSocket listenerSocket = null;
 
         try {
-            messengerSocket = new DatagramSocket();
             listenerSocket = new DatagramSocket(serverPortRMtoRMListener);
-            startMessenger(messengerSocket);
             startListener(listenerSocket);
 
         } catch (SocketException e) {
@@ -48,32 +43,14 @@ public class UdpRMtoRM {
             System.out.println("IO: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            if (messengerSocket != null) {
-                messengerSocket.close();
-            }
             if (listenerSocket != null) {
                 listenerSocket.close();
             }
 
         }
-
     }
 
-    private void startListener(DatagramSocket socket) throws IOException {
-        byte[] buffer = new byte[4096];
-
-        while (true) {
-            DatagramPacket request = new DatagramPacket(buffer, buffer.length);
-            socket.receive(request);
-
-            final DatagramSocket finalSocket = socket;
-            Thread processAnswer = createProcessAnswerThread(finalSocket, request);
-            processAnswer.start();
-
-        }
-    }
-
-    private void startMessenger(DatagramSocket messengerSocket) throws IOException {
+    private void startListener(DatagramSocket messengerSocket) throws IOException {
         byte[] buffer = new byte[4096];
 
         while (true) {
@@ -83,7 +60,6 @@ public class UdpRMtoRM {
             final DatagramSocket finalSocket = messengerSocket;
             Thread processRequest = createProcessRequestThread(finalSocket, request);
             processRequest.start();
-
         }
     }
 
@@ -96,69 +72,26 @@ public class UdpRMtoRM {
 
                 byte[] messageBytes = request.getData();
                 int answerPort = request.getPort();
-                String message = new String(messageBytes, "UTF-8");
+                String message = new String(messageBytes, "UTF-8").trim();
                 processMessage(message, request.getAddress(), answerPort, aSocket);
 
                 System.out.println(String.format("[UDP - RM to RM] Server Answered Message on port: %d", answerPort));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
-        return processRequest;
-    }
-
-    private Thread createProcessAnswerThread(DatagramSocket socket, DatagramPacket packet) {
-        Thread processAnswer = new Thread(() ->
-        {
-            try {
-
-                System.out.println(String.format("[UDP - RM to RM] Server received Answer"));
-
-                byte[] messageBytes = packet.getData();
-
-                ReplicaManagerMessage answer = Serializer.deserialize(messageBytes);
-
-                processAnswerMessage(answer);
-
-                System.out.println(String.format("[UDP - RM to RM] Server received answer"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        });
-        return processAnswer;
-    }
-
-    private void processAnswerMessage(ReplicaManagerMessage answer) {
-        switch (answer.getStateMessageType())
-        {
-            case ping:
-                processPingAnswer(answer);
-                break;
-            case state:
-                processStateAnswer(answer);
         }
-
-    }
-
-    private void processStateAnswer(ReplicaManagerMessage answer) {
-        ReplicaState state = ((StateMessage)answer.getAnswer())
-                .getReplicaState();
-        replicaStateService.setReplicaState(state);
-    }
-
-    private void processPingAnswer(ReplicaManagerMessage answer) {
-        //TODO: ping is not used at the moment.
+        );
+        return processRequest;
     }
 
     private void processMessage(String message, InetAddress address, int answerPort, DatagramSocket socket) {
 
-        switch (message.toLowerCase()) {
-            case "getState":
+        System.out.println(message);
+        switch (message) {
+            case Constant.GET_STATE:
                 processStateRequest(address, answerPort, socket);
                 break;
-            case "ping":
+            case Constant.GET_PING:
                 processPingRequest(address, answerPort, socket);
                 break;
         }

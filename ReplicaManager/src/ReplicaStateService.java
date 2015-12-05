@@ -5,6 +5,7 @@ import shared.data.ReplicaState;
  */
 public class ReplicaStateService implements IReplicaStateService {
 
+
     @Override
     public boolean isAlive() {
 
@@ -16,6 +17,8 @@ public class ReplicaStateService implements IReplicaStateService {
     public ReplicaState getReplicaState() {
 
         //TODO: read state from disk and return it.
+
+        System.out.println("Has been asked some replica state");
         return null;
     }
 

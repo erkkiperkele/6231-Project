@@ -12,4 +12,15 @@ public class Constant
 	public static final int RM_TO_FE_LISTENER_PORT = 6667;
 	public static final int RM_TO_RM_LISTENER_PORT = 6666;
 
+	public static final String GET_STATE = "getstate";
+	public static final String GET_PING = "ping";
+
+	public static final String STOP_FE = "stop";
+	public static final String FE_STOPPED = "stopped";
+	public static final String START_FE = "start";
+	public static final String FE_STARTED = "started";
+
+	public static final int FE_TO_RM_LISTENER_PORT = 7777;
+
+
 }

@@ -1,9 +1,10 @@
 import shared.contracts.IReplicaManagerService;
+import shared.data.Bank;
 
 import java.io.IOException;
 
 public class ReplicaManagerServer {
-    private static String[] banks = new String[]{"RBC", "BMO", "Desjardins"};
+    private static String[] banks = new String[]{Bank.Royal.name(), Bank.Dominion.name(), Bank.National.name()};
     private static IReplicaManagerService replicaManagerService;
     private IReplicaStateService replicaStateService;
 
@@ -22,14 +23,14 @@ public class ReplicaManagerServer {
     public void startFrontEndMessageUdpServer() {
         //TODO!!! use RUDP.
 
-        UdpRMtoFE udpServerFrontEnd= new UdpRMtoFE(replicaManagerService);
+        UdpRMtoFEListener udpServerFrontEnd= new UdpRMtoFEListener(replicaManagerService);
         udpServerFrontEnd.start();
     }
 
     public void startStateTransferUDPServer() {
 
-        UdpRMtoRM udpServerReplicaManager= new UdpRMtoRM(replicaStateService);
-        udpServerReplicaManager.startServer();
+        UdpRMtoRMListener udpServerReplicaManager= new UdpRMtoRMListener(replicaStateService);
+        udpServerReplicaManager.start();
     }
 
 

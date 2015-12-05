@@ -1,9 +1,11 @@
 package shared.udp.console;
 
+import com.sun.tools.internal.jxc.ap.Const;
 import shared.data.Bank;
 import shared.entities.FailureType;
 import shared.udp.ReplicaStatusMessage;
 import shared.udp.Serializer;
+import shared.udp.message.state.StateMessage;
 import shared.util.Constant;
 import sun.net.spi.nameservice.NameService;
 
@@ -69,7 +71,25 @@ public class UdpConsole {
     }
 
     private static void sendGetStateMessage() {
-        console.println("NOT YET IMPLEMENTED");
+
+        byte[] data = Constant.GET_STATE.getBytes();
+        InetAddress inetAddress = getInetAddress("localhost");
+        int port = Constant.RM_TO_RM_LISTENER_PORT;
+
+
+        sendMessage(inetAddress, port, data);
+
+    }
+
+    private static InetAddress getInetAddress(String url) {
+
+        InetAddress inetAddress = null;
+        try {
+            inetAddress = InetAddress.getByName(url);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return inetAddress;
     }
 
     //Simulates front end sending failure message to RM on dedicated port.
@@ -80,43 +100,22 @@ public class UdpConsole {
             ReplicaStatusMessage message = new ReplicaStatusMessage(Bank.Royal, url, type);
             byte[] data = Serializer.serialize(message);
 
-            DatagramSocket socket = null;
             InetAddress inetAddress = null;
             int port = Constant.RM_TO_FE_LISTENER_PORT;
 
             inetAddress = InetAddress.getByName(url);
 
-            sendMessage(inetAddress, port, socket, data);
+            sendMessage(inetAddress, port, data);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
-//    private static void sendErrorMessage() {
-//
-//        String url = "localhost";
-//        ReplicaStatusMessage message = new ReplicaStatusMessage(Bank.Royal, url , FailureType.error);
-//        DatagramSocket socket = null;
-//        InetAddress inetAddress = null;
-//        int port = Constant.RM_TO_FE_LISTENER_PORT;
-//
-//
-//        try {
-//            inetAddress = InetAddress.getByName(url);
-//        } catch (UnknownHostException e) {
-//            e.printStackTrace();
-//        }
-//
-//        sendMessage(inetAddress, port, socket);
-//
-//    }
 
-
-    private static void sendMessage(InetAddress address, int answerPort, DatagramSocket socket, byte[] message) {
+    private static void sendMessage(InetAddress address, int answerPort, byte[] message) {
+        DatagramSocket socket = null;
 
         try {
             socket = new DatagramSocket();

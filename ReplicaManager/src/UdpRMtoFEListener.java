@@ -18,15 +18,15 @@ import shared.udp.Serializer;
  *
  */
 
-public class UdpRMtoFE extends Thread {
+public class UdpRMtoFEListener extends Thread {
 
     private static final String RM_HOST = "localhost";
-    private static final int RM_PORT = 15000;
+    private static final int RM_PORT = 6667;
     private static final int UDP_PACKET_SIZE = 4096;
     private static IReplicaManagerService replicaManagerService;
 
 
-    public UdpRMtoFE(IReplicaManagerService replicaManagerService) {
+    public UdpRMtoFEListener(IReplicaManagerService replicaManagerService) {
         this.replicaManagerService = replicaManagerService;
     }
 
@@ -71,7 +71,6 @@ public class UdpRMtoFE extends Thread {
             message = Serializer.deserialize(data);
 
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return message;

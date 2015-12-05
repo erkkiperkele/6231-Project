@@ -1,6 +1,8 @@
 import shared.data.ReplicaState;
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
+import shared.udp.UDPClient;
+import shared.util.Constant;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +11,11 @@ import java.io.InputStreamReader;
 
 public class ReplicaManagerService implements IReplicaManagerService {
 
+    private UDPClient udpFrontEnd;
 
+    public ReplicaManagerService() {
+        this.udpFrontEnd = new UDPClient();
+    }
 
     @Override
     public void onError(Bank bank, String serverAddress) {
@@ -18,7 +24,60 @@ public class ReplicaManagerService implements IReplicaManagerService {
         // if 3rd error, call onFailure
         // get valid State from replica
 
-        System.out.println("RECEIVED an ERROR message");
+
+        //stopFE
+
+        stopFrontEnd();
+        stopBankServer(bank);
+        spawnNewProcess("Aymeric", bank.name());
+        //resetState
+
+
+        startFrontEnd();
+
+        System.out.println("Server restarted");
+    }
+
+    private void stopFrontEnd() {
+
+        String isStopped = "";
+        int retryCount = 0;
+
+        while (isStopped != Constant.FE_STOPPED && retryCount < 5)
+        {
+            try {
+                byte[] answer = udpFrontEnd.sendMessage(Constant.STOP_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                isStopped = new String(answer, "UTF-8").trim();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void startFrontEnd() {
+
+        String isStarted = "";
+        int retryCount = 0;
+
+        while (isStarted != Constant.FE_STARTED && retryCount < 5)
+        {
+            try {
+                byte[] answer = udpFrontEnd.sendMessage(Constant.START_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                isStarted = new String(answer, "UTF-8").trim();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void stopBankServer(Bank bank) {
+        Process p = ReplicaManagerSession.getInstance().getServerProcess(bank.name());
+
+        if (p != null) {
+            p.destroy();
+        }
+
+
     }
 
     @Override
@@ -33,7 +92,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
         System.out.println("RECEIVED a FAILURE message");
     }
 
-    private ReplicaState getReplicaState(){
+    private ReplicaState getReplicaState() {
 
         //TODO:
         // request all 3 bank states to 1st replica in the list
@@ -50,11 +109,16 @@ public class ReplicaManagerService implements IReplicaManagerService {
     }
 
     @Override
-    public void spawnNewProcess(String implementationName, String bankName) throws IOException {
+    public void spawnNewProcess(String implementationName, String bankName) {
 
         String command = getCommand(implementationName, bankName);
 
-        Process p = Runtime.getRuntime().exec(command);
+        Process p = null;
+        try {
+            p = Runtime.getRuntime().exec(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         ReplicaManagerSession.getInstance().registerServer(bankName, p);
 
         Thread outputServer1 = getProcessOutputThread(p, implementationName, bankName);
@@ -82,7 +146,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
         {
             String processOutput;
             try {
-                try(BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))){
+                try (BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
                     while ((processOutput = input.readLine()) != null) {
                         System.out.println(
                                 String.format("[%1$s][%2$s] - %3$s",
