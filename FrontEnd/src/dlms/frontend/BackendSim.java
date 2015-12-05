@@ -14,6 +14,7 @@ public class BackendSim {
 	
 	private static final int BUFFER_SIZE = 4096;
 	private ProcessStub sequencerStub;
+	private ProcessStub frontendStub;
 	private long opSequenceNbr = 1;
 	
 	/**
@@ -33,7 +34,7 @@ public class BackendSim {
 		
 		super();
 		sequencerStub = new ProcessStub("sequencer", new InetSocketAddress("localhost", 5000));
-		sequencerStub = new ProcessStub("frontend", new InetSocketAddress("localhost", 15000));
+		frontendStub = new ProcessStub("frontend", new InetSocketAddress("localhost", 15000));
 		runs();
 	}
 	

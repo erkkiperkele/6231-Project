@@ -19,8 +19,10 @@ import java.util.logging.Logger;
 
 import dlms.corba.AppException;
 import dlms.corba.FrontEndPOA;
-import shared.udp.FailedProcessMessage;
+import shared.data.Bank;
+import shared.entities.FailureType;
 import shared.udp.IOperationMessage;
+import shared.udp.ReplicaStatusMessage;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
 import shared.udp.message.client.PrintCustomerInfoMessage;
@@ -296,7 +298,7 @@ public class FrontEnd extends FrontEndPOA {
 	 * @param BankId
 	 * @param opSequenceNbr
 	 */
-	private void flagProcessFailure(String BankId, long opSequenceNbr) {
+	private void flagProcessFailure(String bankName) {
 		
 		ExecutorService pool;
 		Set<Future<Boolean>> set;
@@ -304,8 +306,8 @@ public class FrontEnd extends FrontEndPOA {
 		// Prepare the threads to call other banks to get the loan sum for this account
 		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
 	    set = new HashSet<Future<Boolean>>();
-	    
-	    FailedProcessMessage udpMessage = new FailedProcessMessage(BankId, opSequenceNbr);
+
+	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", FailureType.failure);
 	    byte[] outgoingData;
 		try {
 			outgoingData = Serializer.serialize(udpMessage);
@@ -346,7 +348,7 @@ public class FrontEnd extends FrontEndPOA {
 	 * @param BankId
 	 * @param opSequenceNbr
 	 */
-	private void flagProcessBug(String BankId, long opSequenceNbr) {
+	private void flagProcessBug(String bankName) {
 		
 		ExecutorService pool;
 		Set<Future<Boolean>> set;
@@ -355,7 +357,7 @@ public class FrontEnd extends FrontEndPOA {
 		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
 	    set = new HashSet<Future<Boolean>>();
 	    
-	    FailedProcessMessage udpMessage = new FailedProcessMessage(BankId, opSequenceNbr);
+	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", FailureType.error);
 	    byte[] outgoingData;
 		try {
 			outgoingData = Serializer.serialize(udpMessage);
@@ -389,12 +391,5 @@ public class FrontEnd extends FrontEndPOA {
 			pool.shutdown();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
