@@ -1,13 +1,19 @@
+package impl;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.SocketException;
 
-public class BankServer extends DLMS.BankServerInterfacePOA {
+import shared.data.*;
+import shared.util.Env;
+import shared.udp.UDPServerThread;
+
+public class BankServer extends AbstractServerBank {
 	
 	private static int PORTSTART = 3000;
 	private static final int NUMOFBANKS = 3;
@@ -15,11 +21,11 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	// This solution is only valid because all BankServers run on the same machine
 	private static HashMap<String, Integer> servers = new HashMap<String, Integer>();
 
-	private Bank bank;
+	private BankStore bank;
 	private int port;
 	private BankSocket socket;
 
-	public BankServer(Bank bank) {
+	public BankServer(BankStore bank) {
 		this.bank = bank;
 		this.port = PORTSTART++;
 		
@@ -37,25 +43,26 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	}
 
 	@Override
-	public String openAccount(String Bank, String FirstName, String LastName, String EmailAddress, String PhoneNumber,
+	public int openAccount(String FirstName, String LastName, String EmailAddress, String PhoneNumber,
 			String Password) {
-		CustomerAccount c = new CustomerAccount(FirstName, LastName, EmailAddress, PhoneNumber, Password);
+		Customer c = new Customer(FirstName, LastName, EmailAddress, PhoneNumber, Password);
 		bank.storeAccount(c);
-		return c.getID();
+		return c.getId();
 	}
 
 	@Override
-	public String getLoan(String Bank, String AccountNumber, String Password, double Amount) {
+	public int getLoan(int AccountNumber, String Password, long Amount) throws Exception {
 		// Verify that AccountNumber exists in the system
-		CustomerAccount c = bank.getCustomer(AccountNumber);
+		Customer c = bank.getCustomer(AccountNumber);
 		if (c == null) {
 			// No account with that AccountNumber exists on this server
-			return null;
+			throw new Exception("No such account found in database");
 		}
+		char firstInitial = c.getFirstName().charAt(0);
 
 		// Password check
 		if (!c.getPassword().equals(Password)) {
-			return "Password mismatch\n";
+			throw new Exception("Password mismatch");
 		}
 
 		String fn = c.getFirstName();
@@ -99,23 +106,20 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 		if ((Amount + customerLoans) > c.getCreditLimit()) {
 			// Loan amount too high
 			bank.refuseLoan(c, Amount);
-			return "Loan refused: Not enough credit.\n";
+			throw new Exception("Loan refused: Not enough credit.\n");
+		}
+		synchronized(this) {
+			int loanId = ++loanID;
 		}
 
-		// Set loan due date to 1 year from now by default
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-		String curDate = fmt.format(cal.getTime());
-		int year = Integer.parseInt(curDate.substring(0, 4));
-		++year;
-		Loan l = new Loan(c.getID(), Amount, String.format("%d%s", year, curDate.substring(4)));
-		bank.storeLoan(l);
+		Loan l = new Loan(loanID, c.getId(), Amount, Env.getNewLoanDueDate());
+		bank.storeLoan(firstInitial, l);
 
 		return l.getID();
 	}
 
 	@Override
-	public String delayPayment(String Bank, String LoanID, String CurrentDueDate, String NewDueDate) {
+	public boolean delayPayment(int LoanID, Date CurrentDueDate, Date NewDueDate) {
 		Loan l = bank.getLoan(LoanID);
 
 		// Check that loan exists
@@ -133,13 +137,12 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	}
 
 	@Override
-	public String printCustomerInfo(String Bank) {
+	public String printCustomerInfo() {
 		return bank.printInfo();
 	}
 
 	@Override
-	public String transferLoan(String LoanID, String CurrentBank,
-			String OtherBank) {
+	public boolean transferLoan(int LoanID, String OtherBank) {
 		// Check if loan exists
 		Loan loan = bank.getLoan(LoanID);
 		if (loan == null) {
@@ -216,10 +219,10 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	}
 
 	private class UDPListenerThread extends Thread {
-		Bank bank;
+		BankStore bank;
 		BankSocket socket;
 
-		public UDPListenerThread(Bank bank, BankSocket socket) {
+		public UDPListenerThread(BankStore bank, BankSocket socket) {
 			this.bank = bank;
 			this.socket = socket;
 		}
@@ -248,13 +251,13 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 	}
 
 	private class UDPResponderThread extends Thread {
-		private Bank bank;
+		private BankStore bank;
 		private BankSocket socket;
 		private InetAddress remoteHost;
 		private int remotePort;
 		private String command;
 
-		public UDPResponderThread(Bank bank, String command, InetAddress rh, int rp) {
+		public UDPResponderThread(BankStore bank, String command, InetAddress rh, int rp) {
 			this.bank = bank;
 			try {
 				this.socket = new BankSocket();
@@ -270,7 +273,7 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 			String[] sp = command.split(" ");
 			// Search accounts for matching person (same name)
 			String response = null;
-			CustomerAccount c = bank.getCustomerByName(sp[0], sp[1].trim());
+			CustomerAccount c = bank.getCustomer(sp[0], sp[1].trim());
 			if (c == null) {
 				// Reply 0.0
 				response = "0.0";
@@ -330,9 +333,9 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 		private BankSocket sock;
 		private InetAddress remoteHost;
 		private int remotePort;
-		private Bank b;
+		private BankStore b;
 		
-		public UDPLoanReceiverThread(Bank b, InetAddress rh, int rp) {
+		public UDPLoanReceiverThread(BankStore b, InetAddress rh, int rp) {
 			this.b = b;
 			try {
 				// Create new bank socket
@@ -350,8 +353,8 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 			// Wait to receive name of Customer
 			String[] custName = recv().split(" ");
 			// Check if customer exists
-			CustomerAccount custAcc = b.getCustomerByName(custName[0], custName[1]);
-			String custID;
+			CustomerAccount custAcc = b.getCustomer(custName[0], custName[1]);
+			int custID;
 			CustomerAccount newAcc = null;
 			// Reply whether or not customer exists
 			if (custAcc == null) {
@@ -381,7 +384,7 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 				if (custAcc == null) {
 					b.storeAccount(newAcc);
 				}
-				b.storeLoan(loan);
+				b.storeLoan(custAcc, loan);
 				send("ACK");
 			}
 		}
@@ -403,6 +406,11 @@ public class BankServer extends DLMS.BankServerInterfacePOA {
 				return null;
 			}
 		}
+	}
+
+	@Override
+	public String getServerName() {
+		return this.bank.getName();
 	}
 }
 
