@@ -14,6 +14,6 @@ import shared.udp.UDPMessage;
  *
  */
 @SuppressWarnings("serial")
-public class QueuePool extends HashMap<Integer, BlockingQueue<UDPMessage>> {
+public class QueuePool extends HashMap<Long, BlockingQueue<UDPMessage>> {
 
 }

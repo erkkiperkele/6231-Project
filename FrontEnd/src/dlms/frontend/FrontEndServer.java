@@ -16,14 +16,17 @@ import org.omg.PortableServer.POAHelper;
 import dlms.corba.FrontEndHelper;
 
 /**
- * Entry point for the front end
+ * CORBA entry point for the front end
  * 
  * @author mat
  *
  */
 public class FrontEndServer {
 
-	public static final boolean ENABLE_FILE_LOGGING = false;
+	// These should be coming from a config
+	public static final boolean FILE_LOGGING = false;
+	public static final String ORBD_HOST = "localhost";
+	public static final String ORBD_PORT = "1050";
 	
 	private ORB orb = null;
 	private Logger logger = null;
@@ -36,13 +39,13 @@ public class FrontEndServer {
 		
 		super();
 
-		// Create a pool of blocking queues to hold UDP messages for specific
-		// operations which arrive from the replicas
+		// Create a pool of blocking queues to hold the UDP messages from the
+		// replicas
 		this.opQueuePool = new QueuePool();
 
 		// Set up the logger
 		logger = Logger.getLogger("FrontEnd");
-		if (ENABLE_FILE_LOGGING) {
+		if (FILE_LOGGING) {
 		    FileHandler fh;  
 		    try {
 		        fh = new FileHandler("FrontEnd-log.txt");  
@@ -59,6 +62,7 @@ public class FrontEndServer {
 		}
 		logger.info("FrontEnd: Logger started");
 		
+		// Start the servers
 		this.initiOrb();
 		this.startServers();
 	}
@@ -80,8 +84,8 @@ public class FrontEndServer {
 		try {
 			
 			Properties orbProps = new Properties();
-			orbProps.put("org.omg.CORBA.ORBInitialHost", "localhost");
-			orbProps.put("org.omg.CORBA.ORBInitialPort", "1050");
+			orbProps.put("org.omg.CORBA.ORBInitialHost", ORBD_HOST);
+			orbProps.put("org.omg.CORBA.ORBInitialPort", ORBD_PORT);
 			
 			// Create and initialize the ORB
 			orb = ORB.init(new String[]{}, orbProps);
@@ -115,13 +119,11 @@ public class FrontEndServer {
 	}
 
 	/**
-	 * Starts the ORB server and UDP listener for incoming messages from the replicas
+	 * Starts the ORB server and UDP listener for replica messages
 	 */
 	private void startServers() {
-		
-		//System.out.println("FrontEnd: ready and waiting ...");
 
-		// Wait for replica operation responses (in its own thread)
+		// Listen for replica operation response messages
 		ReplicaListener replicaListener = new ReplicaListener(logger, this.opQueuePool);
 		replicaListener.start();
 

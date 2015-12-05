@@ -1,11 +1,6 @@
 package dlms.frontend;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
@@ -18,8 +13,7 @@ import java.util.logging.Logger;
 import dlms.corba.AppException;
 import dlms.corba.FrontEndPOA;
 import shared.udp.IOperationMessage;
-import shared.udp.IReplyMessage;
-import shared.udp.ReplyMessage;
+import shared.udp.Serializer;
 import shared.udp.UDPMessage;
 import shared.udp.message.client.PrintCustomerInfoMessage;
 
@@ -31,6 +25,7 @@ import shared.udp.message.client.PrintCustomerInfoMessage;
  */
 public class FrontEnd extends FrontEndPOA {
 
+	// These should be coming from a config
 	public static final String SEQ_HOST = "localhost";
 	public static final int SEQ_PORT = 5000;
 	public static final int MSG_BUF = 4096;
@@ -62,21 +57,19 @@ public class FrontEnd extends FrontEndPOA {
 	@Override
 	public String printCustomerInfo(String bankId) throws AppException {
 
-		// Create the operation message
-		PrintCustomerInfoMessage msgObj = new PrintCustomerInfoMessage(bankId);
-		UDPMessage udpMessage = new UDPMessage(msgObj);
+		logger.info("FrontEnd: Client invoked printCustomerInfo(" + bankId + ")");
 		
-		logger.info("FrontEnd: Forwarding printCustomerInfo operation to the sequencer");
-		
-		// Send the operation message to the sequencer and get the sequence number for the operation
-		int sequenceNbr = this.forwardToSequencer(udpMessage);
+		// Create the operation message and send it to the sequencer. the
+		// sequencer will reply with the sequence number
+		PrintCustomerInfoMessage opMessage = new PrintCustomerInfoMessage(bankId);
+		long sequenceNbr = this.forwardToSequencer(opMessage);
 
-		// Add this thread's blocking queue to the queue pool for the replica listener thread
+		// Add this thread's blocking queue to the queue pool for the replica
+		// listener thread
 		opQueuePool.put(sequenceNbr, this.queue);
 		
 		logger.info("FrontEnd: Sequencer replied to printCustomerInfo operation with sequence number " + sequenceNbr);
-		
-		
+
 		// Now we just have to wait for the messages to go around and come back from the replica
 		
 		
@@ -161,113 +154,99 @@ public class FrontEnd extends FrontEndPOA {
 		return 33;
 	}
 
-//	/**
-//	 * 
-//	 * @param orb_val
-//	 */
-//	public void setORB(ORB orb_val) {
-//		this.orb = orb_val;
-//	}
-	
 	/**
 	 * Forwards the operation to the sequencer and gets the sequence number of
 	 * the operation
-	 * @param <T>
 	 * 
-	 * @param message The operation message to send to the sequencer
-	 * @return the sequence number of the operation
-	 * @throws AppException 
-	 */
-	private int forwardToSequencer(UDPMessage message) throws AppException {
-		
-		return 1;
-	}
-	
-	/**
-	 * A generic method for making a UDP response and getting a reply
-	 * 
-	 * @param requestObj
+	 * @param opMessage
 	 * @return
 	 * @throws AppException
 	 */
-	@SuppressWarnings("unchecked")
-	private <T extends Serializable> IReplyMessage<T> makeUdpRequest(IOperationMessage requestObj) throws AppException {
+	private synchronized long forwardToSequencer(IOperationMessage opMessage) throws AppException {
 
+		UDPMessage udpMessage = new UDPMessage(opMessage);
 		DatagramSocket clientSocket = null;
 		InetSocketAddress remoteAddr = new InetSocketAddress(SEQ_HOST, SEQ_PORT); // The Sequencer IP address
+		long opSequenceNbr = 0;
+		int retryCntr = 3;
 
 		try {
-
-			//
-			// REQUESTING
-			//
-
-			// Init data structures
 			clientSocket = new DatagramSocket();
-			final byte[] receiveData = new byte[MSG_BUF];
-			final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ObjectOutputStream oos;
-
-			// Serialize the message
-			oos = new ObjectOutputStream(baos);
-			oos.writeObject(requestObj);
-			byte[] sendData = baos.toByteArray();
-
-			final DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, remoteAddr);
-			clientSocket.send(sendPacket);
-
-			//
-			// GETTING RESPONSE
-			//
-			clientSocket.setSoTimeout(5000);
-
-			try {
-
-				clientSocket.receive(receivePacket);
-
-				// Parse the response data
-				byte[] recvData = new byte[receivePacket.getLength()];
-				System.arraycopy(receivePacket.getData(), receivePacket.getOffset(), recvData, 0,
-						receivePacket.getLength());
-
-				ByteArrayInputStream bais = new ByteArrayInputStream(recvData);
-				ObjectInputStream ois;
-				ReplyMessage<T> replyMessage = null;
-
-				try {
-					ois = new ObjectInputStream(bais);
-					replyMessage = (ReplyMessage<T>) ois.readObject();
-					bais.close();
-					ois.close();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				if (replyMessage.isSuccessful()) {
-					return replyMessage;
-				} else {
-					throw new AppException(replyMessage.getMessage());
-				}
-
-			} catch (final SocketTimeoutException e) {
-				throw new AppException(e.getMessage());
-			} finally {
-				if (clientSocket != null)
-					clientSocket.close();
-			}
-
-		} catch (final SocketException e) {
+			clientSocket.setSoTimeout(3000);
+		} catch (SocketException e) {
 			throw new AppException(e.getMessage());
+		}
+		
+		try {
+			
+			byte[] outgoingData = Serializer.serialize(udpMessage);
+			final DatagramPacket outgoingPacket = new DatagramPacket(outgoingData, outgoingData.length, remoteAddr);
+			clientSocket.send(outgoingPacket);
+
 		} catch (final IOException e) {
+			if (clientSocket != null) {
+				clientSocket.close();
+			}
 			throw new AppException(e.getMessage());
+		}
+		
+		// Get back the operation sequence number	
+		final byte[] incomingDataBuffer = new byte[MSG_BUF];		
+		final DatagramPacket incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
+
+		while (true) {
+			
+			// Receive the packet
+			try {
+				clientSocket.receive(incomingPacket);
+				
+			} catch (SocketTimeoutException e) {
+				
+				if (retryCntr > 0) {
+					retryCntr--;
+					continue;
+				}
+				
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
+				throw new AppException("FrontEnd: Sequencer ack timed out");
+				
+			} catch (SocketException e) {
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
+				throw new AppException(e.getMessage());
+				
+			} catch (IOException e) {
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
+				throw new AppException(e.getMessage());
+			}
+			
+			break;
+		}
+		
+		// Parse the response data
+		try {
+
+			byte[] incomingData = new byte[incomingPacket.getLength()];
+			System.arraycopy(incomingPacket.getData(), incomingPacket.getOffset(), incomingData, 0,
+					incomingPacket.getLength());
+			opSequenceNbr = (long) Serializer.deserialize(incomingData);
+	
+		} catch (ClassNotFoundException | IOException e) {
+			if (clientSocket != null) {
+				clientSocket.close();
+			}
+			throw new AppException(e.getMessage());
+			
 		} finally {
 			if (clientSocket != null)
 				clientSocket.close();
 		}
+		
+		return opSequenceNbr;
 	}
-	
 }
