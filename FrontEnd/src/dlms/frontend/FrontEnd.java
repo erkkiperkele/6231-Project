@@ -6,12 +6,20 @@ import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.logging.Logger;
 
 import dlms.corba.AppException;
 import dlms.corba.FrontEndPOA;
+import shared.udp.FailedProcessMessage;
 import shared.udp.IOperationMessage;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
@@ -34,7 +42,10 @@ public class FrontEnd extends FrontEndPOA {
 	private Logger logger = null;
 	private volatile QueuePool opQueuePool = null;
 	private volatile BlockingQueue<UDPMessage> queue = null;
-
+	
+	private ProcessStubGroup replicaManagerGroup;
+	private ProcessStub sequencerStub;
+	
 	/**
 	 * Constructor
 	 */
@@ -45,6 +56,15 @@ public class FrontEnd extends FrontEndPOA {
 		this.logger = logger;
 		this.opQueuePool = opQueuePool;
 		this.queue = new ArrayBlockingQueue<UDPMessage>(MAX_QUEUE_SIZE);
+
+		// Set up the config of processes to which this component must connect
+		this.replicaManagerGroup = new ProcessStubGroup();
+		this.replicaManagerGroup.put("rm1", new ProcessStub("rm1", new InetSocketAddress("localhost", 21000)));
+		this.replicaManagerGroup.put("rm2", new ProcessStub("rm2", new InetSocketAddress("localhost", 22000)));
+		this.replicaManagerGroup.put("rm3", new ProcessStub("rm3", new InetSocketAddress("localhost", 23000)));
+		this.replicaManagerGroup.put("rm4", new ProcessStub("rm4", new InetSocketAddress("localhost", 24000)));
+		
+		ProcessStub sequencerStub = new ProcessStub("sequencer", new InetSocketAddress("localhost", 5000));
 	}
 
 	@Override
@@ -62,8 +82,8 @@ public class FrontEnd extends FrontEndPOA {
 		// Create the operation message and send it to the sequencer. the
 		// sequencer will reply with the sequence number
 		PrintCustomerInfoMessage opMessage = new PrintCustomerInfoMessage(bankId);
-
 		long sequenceNbr = 0;
+		
 		try {
 			sequenceNbr = this.forwardToSequencer(opMessage);
 		} catch (AppException e) {
@@ -78,6 +98,10 @@ public class FrontEnd extends FrontEndPOA {
 		logger.info("FrontEnd: Sequencer replied to printCustomerInfo operation with sequence number " + sequenceNbr);
 
 		// Now we just have to wait for the messages to go around and come back from the replica
+		
+		//flagProcessFailure(String BankId, long opSequenceNbr)
+		
+		
 		
 		
 		
@@ -180,8 +204,10 @@ public class FrontEnd extends FrontEndPOA {
 		DatagramPacket incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
 		DatagramPacket outgoingPacket = null;
 		final byte[] outgoingData;
-
+		
 		try {
+			
+			
 			outgoingData = Serializer.serialize(udpMessage);
 			outgoingPacket = new DatagramPacket(outgoingData, outgoingData.length, remoteAddr);
 
@@ -212,7 +238,6 @@ public class FrontEnd extends FrontEndPOA {
 			// Get back the operation sequence number		
 			incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
 
-			
 			// Receive the packet
 			try {
 				clientSocket.receive(incomingPacket);
@@ -265,5 +290,105 @@ public class FrontEnd extends FrontEndPOA {
 		}
 		
 		return opSequenceNbr;
+	}
+	
+	/**
+	 * Sends a message to each replica manager saying that a replica failed
+	 * 
+	 * @param BankId
+	 * @param opSequenceNbr
+	 */
+	private void flagProcessFailure(String BankId, long opSequenceNbr) {
+		
+		ExecutorService pool;
+		Set<Future<Boolean>> set;
+		
+		// Prepare the threads to call other banks to get the loan sum for this account
+		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
+	    set = new HashSet<Future<Boolean>>();
+	    
+	    FailedProcessMessage udpMessage = new FailedProcessMessage(BankId, opSequenceNbr);
+	    byte[] outgoingData;
+		try {
+			outgoingData = Serializer.serialize(udpMessage);
+		} catch (IOException e1) {
+			logger.info("FrontEnd: Unable to serialize UDP message to replica managers");
+			return;
+		}
+
+		try {
+
+			// Get the loan sum for all banks and approve or not the new loan
+			for (ProcessStub rmStub : this.replicaManagerGroup.values()) {
+				Callable<Boolean> callable = new UdpSend(outgoingData, rmStub.addr);
+				logger.info("FrontEnd: Sending failed process message to replica manager " + rmStub.id);
+				Future<Boolean> future = pool.submit(callable);
+				set.add(future);
+			}
+
+			for (Future<Boolean> future : set) {
+
+				try {
+					//Boolean result = future.get();
+					future.get();
+				} catch (ExecutionException | InterruptedException e) {
+					logger.info("FrontEnd: Exception in sending message to replica managers. "  + e.getCause().getMessage());
+					//throw e.getCause();
+				}
+			}
+
+		} finally {
+			pool.shutdown();
+		}
+	}
+
+	/**
+	 * Sends a message to each replica manager saying that a replica result was different than others
+	 * 
+	 * @param BankId
+	 * @param opSequenceNbr
+	 */
+	private void flagProcessBug(String BankId, long opSequenceNbr) {
+		
+		ExecutorService pool;
+		Set<Future<Boolean>> set;
+		
+		// Prepare the threads to call other banks to get the loan sum for this account
+		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
+	    set = new HashSet<Future<Boolean>>();
+	    
+	    FailedProcessMessage udpMessage = new FailedProcessMessage(BankId, opSequenceNbr);
+	    byte[] outgoingData;
+		try {
+			outgoingData = Serializer.serialize(udpMessage);
+		} catch (IOException e1) {
+			logger.info("FrontEnd: Unable to serialize UDP message to replica managers");
+			return;
+		}
+
+		try {
+
+			// Get the loan sum for all banks and approve or not the new loan
+			for (ProcessStub rmStub : this.replicaManagerGroup.values()) {
+				Callable<Boolean> callable = new UdpSend(outgoingData, rmStub.addr);
+				logger.info("FrontEnd: Sending failed process message to replica manager " + rmStub.id);
+				Future<Boolean> future = pool.submit(callable);
+				set.add(future);
+			}
+
+			for (Future<Boolean> future : set) {
+
+				try {
+					//Boolean result = future.get();
+					future.get();
+				} catch (ExecutionException | InterruptedException e) {
+					logger.info("FrontEnd: Exception in sending message to replica managers. "  + e.getCause().getMessage());
+					//throw e.getCause();
+				}
+			}
+
+		} finally {
+			pool.shutdown();
+		}
 	}
 }
