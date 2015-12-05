@@ -31,7 +31,6 @@ public class ReplicaListener extends Thread {
 	/**
 	 * Constructor
 	 * 
-	 * @param bank
 	 * @param logger
 	 * @return 
 	 */

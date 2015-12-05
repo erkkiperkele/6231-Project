@@ -4,7 +4,6 @@ import Contracts.IBankService;
 import Services.BankService;
 import Services.SessionService;
 import shared.data.Bank;
-import shared.udp.UDPServerThread;
 
 /**
  * This class starts both RMI and UDP servers for a given bank.
@@ -14,7 +13,8 @@ public class StartBankServer {
 
     private static IBankService bankService;
 
-    private static UDPServer udp;
+    private static UDPServer udpInternal;
+    private static BankServerUdp bankServerUdp;
 
 
     /**
@@ -28,7 +28,7 @@ public class StartBankServer {
 
         String serverArg = args.length > 0
                 ? args[0]
-                : "1";
+                : "RBC";
 
         serverArg = serverArg.length() > 0
                 ? "" + Bank.fromString(serverArg).toInt()
@@ -45,16 +45,17 @@ public class StartBankServer {
         shared.data.Bank serverName = shared.data.Bank.fromInt(Integer.parseInt(arg));
         SessionService.getInstance().setBank(serverName);
         bankService = new BankService();
-        udp = new UDPServer(bankService);
+        udpInternal = new UDPServer(bankService);
+
     }
 
     private static void startUDPServerForInternalOperations() {
         Thread startUdpServer = new Thread(() ->
         {
-            udp.startServer();
+            udpInternal.startServer();
         });
         startUdpServer.start();
-        SessionService.getInstance().log().info(String.format("[UDP] SERVER STARTED"));
+        SessionService.getInstance().log().info(String.format("[UDP] INTERNAL SERVER STARTED"));
 
     }
 
@@ -62,6 +63,8 @@ public class StartBankServer {
 
         IBankService bankService = new BankService();
 
-        BankServerUdp bankServer = new BankServerUdp(bankService);
+        bankServerUdp = new BankServerUdp(bankService);
+        bankServerUdp.start();
+        SessionService.getInstance().log().info(String.format("[UDP] BANK SERVER STARTED"));
     }
 }

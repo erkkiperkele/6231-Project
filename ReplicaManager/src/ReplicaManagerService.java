@@ -1,21 +1,42 @@
-import shared.contracts.IReplicaManager;
+import shared.data.ReplicaState;
+import shared.contracts.IReplicaManagerService;
+import shared.data.Bank;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class ReplicaManagerService implements IReplicaManager {
+public class ReplicaManagerService implements IReplicaManagerService {
 
 
 
     @Override
-    public void onError(String serverName) {
+    public void onError(Bank bank, String serverAddress) {
 
+        //TODO:
+        // if 3rd error, call onFailure
+        // get valid State from replica
     }
 
     @Override
-    public void onFailure(String serverName) {
+    public void onFailure(Bank bank, String serverAddress) {
+
+        //TODO:
+        // kill instance
+        // choose new implementation
+        // start new implementation
+        // get valid State from replica
+    }
+
+    private ReplicaState getReplicaState(){
+
+        //TODO:
+        // request all 3 bank states to 1st replica in the list
+        // kill all 3 bank servers
+        // restart all 3 bank server with the new state
+
+        return null;
 
     }
 

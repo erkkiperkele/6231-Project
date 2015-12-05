@@ -17,7 +17,7 @@ public class CommandBuilder {
         switch (studentName.toLowerCase())
         {
             case "aymeric":
-                this.classPath = "Server.BankServer";
+                this.classPath = "Server.StartBankServer";
                 break;
             case "pascal":
                 this.classPath = "dlms.StartBankServer";

@@ -20,17 +20,20 @@ public class BankServerUdp extends AbstractServerBank {
 
     public BankServerUdp(IBankService bankService) {
 
-        int port = ServerPorts.getUDPPort(this.bank);     //TODO: Get Real PORT! (this is not the right one)
 
-        this.bankService = bankService;
         this.bank = SessionService.getInstance().getBank();
+        this.bankService = bankService;
+        int port = ServerPorts.getReplicaUDPPort(this.bank);
 
         try {
-            udpServer = new UDPServerThread("Replica Manager", port, this);
-            udpServer.start();
+            udpServer = new UDPServerThread("Replica Aymeric", port, this);
         } catch (SocketException e) {
             e.printStackTrace();
         }
+    }
+
+    public void start(){
+        udpServer.start();
     }
 
     @Override

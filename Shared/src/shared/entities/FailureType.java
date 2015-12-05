@@ -5,7 +5,6 @@ package shared.entities;
  */
 public enum FailureType {
 
-    benignError,        // 1 software error
-    criticalError,      // 3 software errors
+    error,        // 1 software error
     failure             // Crash (server timed out)
 }

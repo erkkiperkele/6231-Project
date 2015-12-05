@@ -23,9 +23,6 @@ public class UDPMessage implements Serializable {
      * Communication received from FrontEnd
      * Need the IP and Port of the client connection for the response
      * @param message
-     * @param operation
-     * @param clientIP
-     * @param clientPort
      */
     public UDPMessage(IOperationMessage message) {
         this.message = message;

@@ -1,41 +1,35 @@
-import shared.contracts.IReplicaManager;
+import shared.contracts.IReplicaManagerService;
 
 import java.io.IOException;
 
 public class ReplicaManagerServer {
     private static String[] banks = new String[]{"RBC", "BMO", "Desjardins"};
-    private static IReplicaManager replicaManager;
+    private static IReplicaManagerService replicaManagerService;
+    private IReplicaStateService replicaStateService;
 
-    public static void main(String[] args) {
+    public ReplicaManagerServer() {
 
-        //TODO:
-        //- Start listening on udp (for error/failure messages)
-        //- Replace hardcoded bank names with real getter.
-        //- Store processes in a separate class so they can be managed (killed, restarted, etc.)
-        //- Logs!
-
-        replicaManager = new ReplicaManagerService();
-
-        String implementationName = "Aymeric";
-
-        try {
-            startBankServers(implementationName);
-            startUdpServer();
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
-        System.out.println("Servers started");
+        this.replicaManagerService = new ReplicaManagerService();
+        this.replicaStateService = new ReplicaStateService();
     }
 
-    private static void startBankServers(String implementationName) throws IOException {
+    public void startBankServers(String implementationName) throws IOException {
         for (String bank : banks) {
-            replicaManager.spawnNewProcess(implementationName, bank);
+            replicaManagerService.spawnNewProcess(implementationName, bank);
         }
     }
 
-    private static void startUdpServer() {
-        //TODO!!!
+    public void startFrontEndMessageUdpServer() {
+        //TODO!!! use RUDP.
+
+        UdpRMtoFE udpServerFrontEnd= new UdpRMtoFE(replicaManagerService);
+        udpServerFrontEnd.start();
+    }
+
+    public void startStateTransferUDPServer() {
+
+        UdpRMtoRM udpServerReplicaManager= new UdpRMtoRM(replicaStateService);
+        udpServerReplicaManager.startServer();
     }
 
 

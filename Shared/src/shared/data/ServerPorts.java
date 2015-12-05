@@ -22,10 +22,26 @@ public class ServerPorts {
                 return 0;
         }
     }
+
+    public static int getReplicaUDPPort(Bank bank){
+
+        switch (bank) {
+            case Royal:
+                return 4255;
+
+            case National:
+                return 4256;
+
+            case Dominion:
+                return 4257;
+
+            default:
+                return 0;
+        }
+    }
     
     /**
      * maps each bank to a local port.
-     * @param bank
      * @return
      */
     public static String getFrontEndIP() 
@@ -35,7 +51,6 @@ public class ServerPorts {
     
     /**
      * maps each bank to a local port.
-     * @param bank
      * @return
      */
     public static int getFrontEndPort() 
@@ -45,7 +60,6 @@ public class ServerPorts {
     
     /**
      * maps each bank to a local port.
-     * @param bank
      * @return
      */
     public static String getSequencerIP() 
@@ -55,7 +69,6 @@ public class ServerPorts {
     
     /**
      * maps each bank to a local port.
-     * @param bank
      * @return
      */
     public static int getSequencerPort() 
