@@ -13,14 +13,16 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+
 import shared.data.*;
+import sun.reflect.generics.tree.ReturnType;
 
 public class BankStore {
-	private String name;
+	private Bank name;
 	private HashMap<String, ArrayList<Customer>> accounts;
 	private HashMap<String, ArrayList<Loan>> loans;
 	
-	public BankStore(String name) {
+	public BankStore(Bank name) {
 		this.name = name;
 		
 		// Read accounts and loans info from files
@@ -57,7 +59,7 @@ public class BankStore {
 		}
 	}
 	
-	public String getName() {
+	public Bank getName() {
 		return name;
 	}
 	

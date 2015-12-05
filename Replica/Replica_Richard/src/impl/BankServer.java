@@ -12,6 +12,7 @@ import java.net.SocketException;
 import shared.data.*;
 import shared.util.Env;
 import shared.udp.UDPServerThread;
+import shared.exception.*;
 
 public class BankServer extends AbstractServerBank {
 	
@@ -19,11 +20,21 @@ public class BankServer extends AbstractServerBank {
 	private static final int NUMOFBANKS = 3;
 	// Maintain a registry of each instance's name/port for UDP communication
 	// This solution is only valid because all BankServers run on the same machine
-	private static HashMap<String, Integer> servers = new HashMap<String, Integer>();
+	private static HashMap<Bank, Integer> servers = new HashMap<Bank, Integer>();
 
 	private BankStore bank;
 	private int port;
 	private BankSocket socket;
+	private static int LoanNumber = 0;
+	private static int CustomerNumber = 0;
+	
+	private static synchronized int incrementCustomerNumber() {
+		return ++CustomerNumber;
+	}
+	
+	private static synchronized int incrementLoanNumber() {
+		return ++LoanNumber;
+	}
 
 	public BankServer(BankStore bank) {
 		this.bank = bank;
@@ -56,13 +67,12 @@ public class BankServer extends AbstractServerBank {
 		Customer c = bank.getCustomer(AccountNumber);
 		if (c == null) {
 			// No account with that AccountNumber exists on this server
-			throw new Exception("No such account found in database");
+			throw new ExceptionNotValidCustomerAccountID();
 		}
-		char firstInitial = c.getFirstName().charAt(0);
 
 		// Password check
 		if (!c.getPassword().equals(Password)) {
-			throw new Exception("Password mismatch");
+			throw new ExceptionInvalidPassword();
 		}
 
 		String fn = c.getFirstName();
@@ -108,32 +118,29 @@ public class BankServer extends AbstractServerBank {
 			bank.refuseLoan(c, Amount);
 			throw new Exception("Loan refused: Not enough credit.\n");
 		}
-		synchronized(this) {
-			int loanId = ++loanID;
-		}
 
-		Loan l = new Loan(loanID, c.getId(), Amount, Env.getNewLoanDueDate());
-		bank.storeLoan(firstInitial, l);
+		Loan l = new Loan(incrementLoanNumber(), c.getId(), Amount, Env.getNewLoanDueDate());
+		bank.storeLoan(c, l);
 
-		return l.getID();
+		return l.getLoanNumber();
 	}
 
 	@Override
-	public boolean delayPayment(int LoanID, Date CurrentDueDate, Date NewDueDate) {
+	public boolean delayPayment(int LoanID, Date CurrentDueDate, Date NewDueDate) throws Exception {
 		Loan l = bank.getLoan(LoanID);
 
 		// Check that loan exists
 		if (l == null) {
-			return "Failed. No such loan.\n";
+			throw new Exception("Failed. No such loan.\n");
 		}
 
 		// Check that current due date is correct
 		if (!l.getDueDate().equals(CurrentDueDate)) {
-			return "Failed. Due date mismatch\n";
+			throw new Exception("Failed. Due date mismatch\n");
 		}
 
 		bank.changeLoanRepayment(l, NewDueDate);
-		return "Success:\n" + l.toString();
+		return true;
 	}
 
 	@Override
@@ -142,11 +149,11 @@ public class BankServer extends AbstractServerBank {
 	}
 
 	@Override
-	public boolean transferLoan(int LoanID, String OtherBank) {
+	public boolean transferLoan(int LoanID, String OtherBank) throws Exception {
 		// Check if loan exists
 		Loan loan = bank.getLoan(LoanID);
 		if (loan == null) {
-			return "No loan found with ID=" + LoanID + "\n";
+			throw new Exception("No loan found with ID=" + LoanID + "\n");
 		}
 		try {
 			InetAddress lh = InetAddress.getLocalHost();
@@ -164,7 +171,7 @@ public class BankServer extends AbstractServerBank {
 				rp = sock.getResponsePort();
 			}
 			
-			CustomerAccount custAcc = bank.getCustomer(loan.getAccountID());
+			Customer custAcc = bank.getCustomer(loan.getCustomerAccountNumber());
 			String name = custAcc.getFirstName()+ " " + custAcc.getLastName();
 			// Poll remote bank for Customer name
 			sock.sendMessage(lh, rp, name);
@@ -273,13 +280,13 @@ public class BankServer extends AbstractServerBank {
 			String[] sp = command.split(" ");
 			// Search accounts for matching person (same name)
 			String response = null;
-			CustomerAccount c = bank.getCustomer(sp[0], sp[1].trim());
+			Customer c = bank.getCustomer(sp[0], sp[1].trim());
 			if (c == null) {
 				// Reply 0.0
 				response = "0.0";
 			} else {
 				// Search for loan from person
-				Loan l = bank.getLoanByCustomer(c.getID());
+				Loan l = bank.getLoanByCustomer(c.getId());
 				if (l == null) {
 					// Reply 0.0
 					response = "0.0";
@@ -353,21 +360,21 @@ public class BankServer extends AbstractServerBank {
 			// Wait to receive name of Customer
 			String[] custName = recv().split(" ");
 			// Check if customer exists
-			CustomerAccount custAcc = b.getCustomer(custName[0], custName[1]);
+			Customer custAcc = b.getCustomer(custName[0], custName[1]);
 			int custID;
-			CustomerAccount newAcc = null;
+			Customer newAcc = null;
 			// Reply whether or not customer exists
 			if (custAcc == null) {
 				send("NAK");
 				// Receive customer information
 				String[] cInfo = recv().split("\n");
-				newAcc = new CustomerAccount(custName[0], custName[1], cInfo[0], cInfo[1], cInfo[2]);
-				custID = newAcc.getID();
+				newAcc = new Customer(custName[0], custName[1], cInfo[0], cInfo[1], cInfo[2]);
+				custID = newAcc.getId();
 				// Reply that customer account has been created
 				send("ACK");
 			} else {
 				// Account exists, send ACK
-				custID = custAcc.getID();
+				custID = custAcc.getId();
 				send("ACK");
 			}
 		
@@ -410,7 +417,7 @@ public class BankServer extends AbstractServerBank {
 
 	@Override
 	public String getServerName() {
-		return this.bank.getName();
+		return this.bank;
 	}
 }
 
