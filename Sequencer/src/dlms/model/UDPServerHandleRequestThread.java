@@ -2,6 +2,7 @@ package dlms.model;
 
 import shared.data.ServerPorts;
 import shared.udp.UDPMessage;
+import shared.util.Env;
 
 /**
  * @author Pascal Tozzi 27664850
@@ -22,7 +23,7 @@ public class UDPServerHandleRequestThread extends shared.udp.UDPServerHandleRequ
 
 		// Forward message to all replica with override to send back to FrontEnd
 		// Otherwise the message will be sent back to the sequencer
-		udpMessage.overwriteDestination(ServerPorts.getFrontEndIP(), ServerPorts.getFrontEndPort());
+		udpMessage.overwriteDestination(Env.getFrontEndServerInfo().getIpAddress(), Env.getFrontEndServerInfo().getPort());
 		
 		int nCount = this.sendToAll(udpMessage);
 		System.out.println("Message was forward to " 

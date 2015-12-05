@@ -332,6 +332,15 @@ public class Env
 		return null;
 	}
 
+	public static List<ServerInfo> getReplicaServerInfoList(String machineName) {
+		Map<Bank, ServerInfo> map = replicaSvInfoSet.get(machineName);
+		if(map != null)
+		{
+			return new ArrayList<ServerInfo>(map.values());
+		}
+		return null;
+	}
+
 	/**
 	 * getReplicaManagerServerInfo
 	 * @return

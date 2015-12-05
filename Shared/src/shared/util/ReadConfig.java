@@ -82,24 +82,24 @@ public class ReadConfig
 			while ((bankmachineName = prop.getProperty("bank-server-machine-name" + serverCounter)) != null
 					&& (replicaManagerIp = prop.getProperty("bank-server-replicatemanager" + serverCounter + "-ip")) != null
 					&& (replicaManagerPort = prop.getProperty("bank-server-replicatemanager" + serverCounter + "-port")) != null 
-					&& (replicaDominionIp = prop.getProperty("bank-server-intranet" + serverCounter + "-ip")) != null
-					&& (replicaDominionPort = prop.getProperty("bank-server-intranet" + serverCounter + "-port")) != null 
-					&& (replicaNationalIp = prop.getProperty("bank-server-intranet" + serverCounter + "-ip")) != null
-					&& (replicaNationalPort = prop.getProperty("bank-server-intranet" + serverCounter + "-port")) != null 
-					&& (replicaRoyalIp = prop.getProperty("bank-server-intranet" + serverCounter + "-ip")) != null
-					&& (replicaRoyalPort = prop.getProperty("bank-server-intranet" + serverCounter + "-port")) != null 
-					&& (replicaIntranetDominionIp = prop.getProperty("bank-server-replica" + serverCounter + "-ip")) != null
-					&& (replicaIntranetDominionPort = prop.getProperty("bank-server-replica" + serverCounter + "-port")) != null 
-					&& (replicaIntranetNationalIp = prop.getProperty("bank-server-replica" + serverCounter + "-ip")) != null
-					&& (replicaIntranetNationalPort = prop.getProperty("bank-server-replica" + serverCounter + "-port")) != null 
-					&& (replicaIntranetRoyalIp = prop.getProperty("bank-server-replica" + serverCounter + "-ip")) != null
-					&& (replicaIntranetRoyalPort = prop.getProperty("bank-server-replica" + serverCounter + "-port")) != null 
-					&& (replicaRMDominionIp = prop.getProperty("bank-server-replica-rm" + serverCounter + "-ip")) != null
-					&& (replicaRMDominionPort = prop.getProperty("bank-server-replica-rm" + serverCounter + "-port")) != null 
-					&& (replicaRMNationalIp = prop.getProperty("bank-server-replica-rm" + serverCounter + "-ip")) != null
-					&& (replicaRMNationalPort = prop.getProperty("bank-server-replica-rm" + serverCounter + "-port")) != null 
-					&& (replicaRMRoyalIp = prop.getProperty("bank-server-replica-rm" + serverCounter + "-ip")) != null
-					&& (replicaRMRoyalPort = prop.getProperty("bank-server-replica-rm" + serverCounter + "-port")) != null 
+					&& (replicaDominionIp = prop.getProperty("bank-server-intranet" + serverCounter + "-" + Bank.Dominion.toString() + "-ip")) != null
+					&& (replicaDominionPort = prop.getProperty("bank-server-intranet" + serverCounter + "-" + Bank.Dominion.toString() + "-port")) != null 
+					&& (replicaNationalIp = prop.getProperty("bank-server-intranet" + serverCounter + "-" + Bank.National.toString() + "-ip")) != null
+					&& (replicaNationalPort = prop.getProperty("bank-server-intranet" + serverCounter + "-" + Bank.National.toString() + "-port")) != null 
+					&& (replicaRoyalIp = prop.getProperty("bank-server-intranet" + serverCounter + "-" + Bank.Royal.toString() + "-ip")) != null
+					&& (replicaRoyalPort = prop.getProperty("bank-server-intranet" + serverCounter + "-" + Bank.Royal.toString() + "-port")) != null 
+					&& (replicaIntranetDominionIp = prop.getProperty("bank-server-replica" + serverCounter + "-" + Bank.Dominion.toString() + "-ip")) != null
+					&& (replicaIntranetDominionPort = prop.getProperty("bank-server-replica" + serverCounter + "-" + Bank.Dominion.toString() + "-port")) != null 
+					&& (replicaIntranetNationalIp = prop.getProperty("bank-server-replica" + serverCounter + "-" + Bank.National.toString() + "-ip")) != null
+					&& (replicaIntranetNationalPort = prop.getProperty("bank-server-replica" + serverCounter + "-" + Bank.National.toString() + "-port")) != null 
+					&& (replicaIntranetRoyalIp = prop.getProperty("bank-server-replica" + serverCounter + "-" + Bank.Royal.toString() + "-ip")) != null
+					&& (replicaIntranetRoyalPort = prop.getProperty("bank-server-replica" + serverCounter + "-" + Bank.Royal.toString() + "-port")) != null 
+					&& (replicaRMDominionIp = prop.getProperty("bank-server-replica-rm" + serverCounter + "-" + Bank.Dominion.toString() + "-ip")) != null
+					&& (replicaRMDominionPort = prop.getProperty("bank-server-replica-rm" + serverCounter + "-" + Bank.Dominion.toString() + "-port")) != null 
+					&& (replicaRMNationalIp = prop.getProperty("bank-server-replica-rm" + serverCounter + "-" + Bank.National.toString() + "-ip")) != null
+					&& (replicaRMNationalPort = prop.getProperty("bank-server-replica-rm" + serverCounter + "-" + Bank.National.toString() + "-port")) != null 
+					&& (replicaRMRoyalIp = prop.getProperty("bank-server-replica-rm" + serverCounter + "-" + Bank.Royal.toString() + "-ip")) != null
+					&& (replicaRMRoyalPort = prop.getProperty("bank-server-replica-rm" + serverCounter + "-" + Bank.Royal.toString() + "-port")) != null 
 					&& isValidPort(replicaManagerPort) 
 					&& isValidPort(replicaDominionPort)
 					&& isValidPort(replicaNationalPort)

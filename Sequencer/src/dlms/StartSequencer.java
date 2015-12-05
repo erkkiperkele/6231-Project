@@ -20,7 +20,9 @@ public class StartSequencer
 		try
 		{
 			Env.setMachineName(Constant.MACHINE_NAME_SEQUENCER);
-			UDPServerThread server = new UDPServerThread("Sequencer", 5000);
+			UDPServerThread server = new UDPServerThread(Env.getSequencerServerInfo().getServerName(), Env.getSequencerServerInfo().getPort());
+			server.start();
+			server.executeTestMessage();
 			server.join();
 		}
 		catch (Exception e)

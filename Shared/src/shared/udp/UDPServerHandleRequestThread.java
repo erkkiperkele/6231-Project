@@ -3,14 +3,15 @@ package shared.udp;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.HashMap;
-import java.util.List;
-
+import java.util.Iterator;
 import shared.data.AbstractServerBank;
+import shared.data.ServerInfo;
 import shared.udp.message.client.DelayPaymentMessage;
 import shared.udp.message.client.GetLoanMessage;
 import shared.udp.message.client.OpenAccountMessage;
 import shared.udp.message.client.PrintCustomerInfoMessage;
 import shared.udp.message.client.TransferLoanMessage;
+import shared.util.Env;
 
 /**
  * @author Pascal Tozzi 27664850 UDPServerHandleRequestThread handle packet.
@@ -25,19 +26,17 @@ public class UDPServerHandleRequestThread implements Runnable
 	private DatagramSocket aSocket;
 	private HashMap<String, UDPServerHandleRequestThread> dicHandleRequest;
 	private Exception lastError = null;
-	private List<ReplicaInfo> replicaList = null;
 	protected AbstractServerBank bank;
 	
 	public void initialize(String key, AbstractServerBank bank, DatagramSocket aSocket,
 			DatagramPacket request, UDPMessage udpMessage, HashMap<String, 
-			UDPServerHandleRequestThread> dicHandleRequest, List<ReplicaInfo> replicaList) {
+			UDPServerHandleRequestThread> dicHandleRequest) {
 		this.dicHandleRequest = dicHandleRequest;
 		this.aSocket = aSocket;
 		this.bank = bank;
 		this.receivedDatagram = request;
 		this.receivedUdpMessage = udpMessage;
 		this.key = key;
-		this.replicaList = replicaList;
 		t = new Thread(this);
 		t.start();
 	}
@@ -120,18 +119,22 @@ public class UDPServerHandleRequestThread implements Runnable
 		}
 		
 		int nCount = 0;
-		for(ReplicaInfo replica : replicaList)
-		{
-			DatagramPacket reply = new DatagramPacket(response, response.length, replica.getPort(), replica.getAddress());
-			try
+		
+		for (Iterator<String> iterator = Env.getListMachineName(); iterator.hasNext();) {
+			String machineName = iterator.next();
+			for(ServerInfo replica : Env.getReplicaServerInfoList(machineName))
 			{
-				aSocket.send(reply);
-				nCount++;
-			}
-			catch (Exception e)
-			{
-				// handled by the parent function
-				System.out.println("sendToAll Exception: " + e.getMessage());
+				DatagramPacket reply = new DatagramPacket(response, response.length, replica.getAddress());
+				try
+				{
+					aSocket.send(reply);
+					nCount++;
+				}
+				catch (Exception e)
+				{
+					// handled by the parent function
+					System.out.println("sendToAll Exception: " + e.getMessage());
+				}
 			}
 		}
 		return nCount;

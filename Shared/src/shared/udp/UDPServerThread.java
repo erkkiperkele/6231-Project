@@ -5,8 +5,6 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-
 import shared.data.AbstractServerBank;
 
 /**
@@ -17,10 +15,10 @@ public class UDPServerThread implements Runnable
 	public static final int SIZE_BUFFER_REQUEST = 1000;
 	
 	private boolean continueUDP = true;
-	private AbstractServerBank bank;
-	private DatagramSocket aSocket = null;
 	private Thread t = null;
-	protected List<ReplicaInfo> replicaList = null;
+	
+	protected AbstractServerBank bank;
+	protected DatagramSocket aSocket = null;
 
 	/**
 	 * Constructor
@@ -105,12 +103,12 @@ public class UDPServerThread implements Runnable
 					if(udpMessage.getSequenceNumber() < 0 && !udpMessage.isClientMessage())
 					{
 						getUDPServerHandleRequestThread()
-							.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest, replicaList);
+							.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
 					}
 					else if (!dicHandleRequest.containsKey(key))
 					{
 						client = getUDPServerHandleRequestThread();
-						client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest, replicaList);
+						client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
 						dicHandleRequest.put(key, client);
 					}
 					else
