@@ -2,7 +2,6 @@ package impl;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
@@ -11,6 +10,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 
 import shared.data.*;
+import shared.util.Env;
 import shared.udp.UDPServerThread;
 
 public class BankServer extends AbstractServerBank {
@@ -45,15 +45,15 @@ public class BankServer extends AbstractServerBank {
 	@Override
 	public int openAccount(String FirstName, String LastName, String EmailAddress, String PhoneNumber,
 			String Password) {
-		CustomerAccount c = new CustomerAccount(FirstName, LastName, EmailAddress, PhoneNumber, Password);
+		Customer c = new Customer(FirstName, LastName, EmailAddress, PhoneNumber, Password);
 		bank.storeAccount(c);
-		return c.getID();
+		return c.getId();
 	}
 
 	@Override
 	public int getLoan(int AccountNumber, String Password, long Amount) throws Exception {
 		// Verify that AccountNumber exists in the system
-		CustomerAccount c = bank.getCustomer(AccountNumber);
+		Customer c = bank.getCustomer(AccountNumber);
 		if (c == null) {
 			// No account with that AccountNumber exists on this server
 			throw new Exception("No such account found in database");
@@ -108,14 +108,11 @@ public class BankServer extends AbstractServerBank {
 			bank.refuseLoan(c, Amount);
 			throw new Exception("Loan refused: Not enough credit.\n");
 		}
+		synchronized(this) {
+			int loanId = ++loanID;
+		}
 
-		// Set loan due date to 1 year from now by default
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-		String curDate = fmt.format(cal.getTime());
-		int year = Integer.parseInt(curDate.substring(0, 4));
-		++year;
-		Loan l = new Loan(c.getID(), Amount, String.format("%d%s", year, curDate.substring(4)));
+		Loan l = new Loan(loanID, c.getId(), Amount, Env.getNewLoanDueDate());
 		bank.storeLoan(firstInitial, l);
 
 		return l.getID();

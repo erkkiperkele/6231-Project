@@ -13,10 +13,11 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import shared.data.*;
 
 public class Bank {
 	private String name;
-	private HashMap<String, ArrayList<CustomerAccount>> accounts;
+	private HashMap<String, ArrayList<Customer>> accounts;
 	private HashMap<String, ArrayList<Loan>> loans;
 	
 	public Bank(String name) {
@@ -28,7 +29,7 @@ public class Bank {
 		if (facc.exists() && floan.exists()) {
 			try {
 				ObjectInputStream ois = new ObjectInputStream(new FileInputStream(facc));
-				this.accounts = (HashMap<String, ArrayList<CustomerAccount>>)ois.readObject();
+				this.accounts = (HashMap<String, ArrayList<Customer>>)ois.readObject();
 
 				ois = new ObjectInputStream(new FileInputStream(floan));
 				this.loans = (HashMap<String, ArrayList<Loan>>)ois.readObject();
@@ -37,10 +38,10 @@ public class Bank {
 				e.printStackTrace();
 			}
 		} else {
-			accounts = new HashMap<String, ArrayList<CustomerAccount>>();
+			accounts = new HashMap<String, ArrayList<Customer>>();
 			loans = new HashMap<String, ArrayList<Loan>>();
 			for (char i = 'A'; i <= 'Z'; ++i) {
-				accounts.put(String.valueOf(i), new ArrayList<CustomerAccount>());
+				accounts.put(String.valueOf(i), new ArrayList<Customer>());
 				loans.put(String.valueOf(i), new ArrayList<Loan>());
 			}
 			try {
@@ -64,15 +65,15 @@ public class Bank {
 		return this.loans.values()
 				.stream()
 				.flatMap(l -> l.stream())
-				.filter(l -> l.getID() == id)
+				.filter(l -> l.getLoanNumber() == id)
 				.findFirst()
 				.orElse(null);
 	}
 	
-	public void refuseLoan(CustomerAccount c, double amount) {
+	public void refuseLoan(Customer c, double amount) {
 		synchronized (this) {
 			try {
-				FileWriter fout = new FileWriter("./" + name + "/logs/" + c.getID() + ".txt", true);
+				FileWriter fout = new FileWriter("./" + name + "/logs/" + c.getId() + ".txt", true);
 				fout.write(getTimestamp() + " :: " + "Applied for, and was refused a $" + amount + "loan.\n");
 				fout.close();
 				SerializeLoans();
@@ -93,7 +94,7 @@ public class Bank {
 				File f = new File("./" + name + "/logs/Manager.txt");
 				if (!f.exists()) f.createNewFile();
 				FileWriter fout = new FileWriter(f, true);
-				fout.write(getTimestamp() + " :: Manager changed loan " + l.getID() + "\n");
+				fout.write(getTimestamp() + " :: Manager changed loan " + l.getLoanNumber() + "\n");
 				fout.write("\t Old: " + cdd + ". New: " + ndd + ".\n");
 				fout.close();
 			} catch (IOException e) {
@@ -106,21 +107,21 @@ public class Bank {
 		return this.loans.values()
 				.stream()
 				.flatMap(l -> l.stream())
-				.filter(l -> l.getAccountID() == can)
+				.filter(l -> l.getCustomerAccountNumber() == can)
 				.findFirst()
 				.orElse(null);
 	}
 	
-	public CustomerAccount getCustomer(int id) {
+	public Customer getCustomer(int id) {
 		return this.accounts.values()
                 .stream()
                 .flatMap(a -> a.stream())
-                .filter(a -> a.getID() == id)
+                .filter(a -> a.getId() == id)
                 .findFirst()
                 .orElse(null);
 	}
 	
-	public CustomerAccount getCustomer(String fn, String ln) {
+	public Customer getCustomer(String fn, String ln) {
 		return this.accounts.get(fn.charAt(0))
 				.stream()
 				.filter(a -> a.getFirstName().equals(fn) && a.getLastName().equals(ln))
@@ -128,14 +129,14 @@ public class Bank {
 				.orElse(null);
 	}
 	
-	public void storeAccount(CustomerAccount account) {
+	public void storeAccount(Customer account) {
 		String fn = account.getFirstName().substring(0,1);
 		synchronized(accounts.get(fn)) {
 			accounts.get(fn).add(account);
 		}
 		synchronized (this) {
 			try {
-				File f = new File("./" + name + "/logs/" + account.getID() + ".txt");
+				File f = new File("./" + name + "/logs/" + account.getId() + ".txt");
 				f.createNewFile();
 				FileWriter fout = new FileWriter(f, true);
 				fout.write(getTimestamp() + " :: " + "Account created.\n");
@@ -148,7 +149,7 @@ public class Bank {
 		}
 	}
 	
-	public void storeLoan(CustomerAccount c, Loan loan) {
+	public void storeLoan(Customer c, Loan loan) {
 		String fn = c.getFirstName().substring(0,1);
 		if (loans.get(fn) == null) {
 			loans.put(String.valueOf(fn), new ArrayList<Loan>());
@@ -158,7 +159,7 @@ public class Bank {
 		}
 		synchronized (this) {
 			try {
-				FileWriter fout = new FileWriter("./" + name + "/logs/" + loan.getAccountID() + ".txt", true);
+				FileWriter fout = new FileWriter("./" + name + "/logs/" + loan.getCustomerAccountNumber() + ".txt", true);
 				fout.write(getTimestamp() + " :: " + "Successfully took out loan.\n");
 				fout.write(loan.toString());
 				fout.close();
@@ -173,7 +174,7 @@ public class Bank {
 		if (((Collection<Loan>) loans.values()
 				.stream()
 				.flatMap(l -> l.stream()))
-				.removeIf((Loan l) -> l.getID() == id)) {
+				.removeIf((Loan l) -> l.getLoanNumber() == id)) {
 			synchronized(this) {
 				SerializeLoans();
 			}
@@ -199,12 +200,12 @@ public class Bank {
 		
 		StringWriter sw = new StringWriter();
 		// Write CustomerAccount Information
-		Collection<ArrayList<CustomerAccount>> as = accounts.values();
-		Iterator<ArrayList<CustomerAccount>> ait = as.iterator();
+		Collection<ArrayList<Customer>> as = accounts.values();
+		Iterator<ArrayList<Customer>> ait = as.iterator();
 		while (ait.hasNext()) {
-			Iterator<CustomerAccount> cit = ait.next().iterator();
+			Iterator<Customer> cit = ait.next().iterator();
 			while (cit.hasNext()) {
-				CustomerAccount c = cit.next();
+				Customer c = cit.next();
 				synchronized(c) {
 					sw.write(c.toString());
 				}
