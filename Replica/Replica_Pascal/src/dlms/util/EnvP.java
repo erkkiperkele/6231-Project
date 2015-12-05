@@ -18,9 +18,8 @@ import java.util.logging.*;
 
 import dlms.model.*;
 
-public class Env
+public class EnvP
 {
-	private static ArrayList<ServerInfo> lstServers;
 	private static String rmiHostName;
 	private static Logger logger;
 	private static final Random rand = new Random();
@@ -36,7 +35,7 @@ public class Env
 
 	public static void log(Level level, String message, boolean showConsole)
 	{
-		Env.getLogger().log(level, message);
+		EnvP.getLogger().log(level, message);
 		if (showConsole)
 		{
 			System.out.println(message);
@@ -55,7 +54,7 @@ public class Env
 		}
 		catch (Exception e)
 		{
-			Env.log(Level.SEVERE, "Date Parse Exception: " + e.getMessage(), true);
+			EnvP.log(Level.SEVERE, "Date Parse Exception: " + e.getMessage(), true);
 			loanDueDate = cal.getTime();
 		}
 		return loanDueDate;
@@ -89,7 +88,7 @@ public class Env
 	 */
 	public static void initLogger(Level logLevelValue, boolean isLogConsoleEnabled, boolean islogFileEnabled, String logFilePath, String info)
 	{
-		String loggerName = Env.class.getName() + "_" + info;
+		String loggerName = EnvP.class.getName() + "_" + info;
 		logger = Logger.getLogger(loggerName);
 		logger.setLevel(logLevelValue);
 
@@ -148,23 +147,6 @@ public class Env
 	}
 
 	/**
-	 * @return the lstServers
-	 */
-	public static ArrayList<ServerInfo> getLstServers()
-	{
-		return lstServers;
-	}
-
-	/**
-	 * @param lstServers
-	 *            the lstServers to set
-	 */
-	public static void setLstServers(ArrayList<ServerInfo> lstServers)
-	{
-		Env.lstServers = lstServers;
-	}
-
-	/**
 	 * @return the rmiPortNumber
 	 */
 	public static String getRMIHostName()
@@ -174,7 +156,7 @@ public class Env
 
 	public static void setRMIHostName(String hostName)
 	{
-		Env.rmiHostName = hostName;
+		EnvP.rmiHostName = hostName;
 	}
 
 	public static String getCustomerClientRegistryURL(int port)
@@ -204,37 +186,6 @@ public class Env
 		return String.format("%04d", (rand.nextInt(9999) + 1)) + "-" + String.format("%04d", (rand.nextInt(9999) + 1));
 	}
 
-	public static void loadServerSettings(String info)
-	{
-		// Load server settings
-		ReadConfig.InitServerSettings(info);
-
-		if (getLstServers() == null || getLstServers().size() == 0)
-		{
-			System.out.println("No bank information found in config.properties.");
-			System.out.println("Default setting will be created.");
-			if (WriteConfig.InitServerDefaultSettings())
-			{
-				// Reload server settings
-				ReadConfig.InitServerSettings(info);
-			}
-		}
-	}
-
-	public static String getIORBankFile(String bankName)
-	{
-		String path;
-		if (Env.isDebug())
-		{
-			path = ".." + File.separator + bankName + "_IOR.txt";
-		}
-		else
-		{
-			path = "." + File.separator + bankName + "_IOR.txt";
-		}
-		return path;
-	}
-
 	public static boolean isDebug()
 	{
 		return isDebug;
@@ -242,7 +193,7 @@ public class Env
 
 	public static void setDebug(boolean isDebug)
 	{
-		Env.isDebug = isDebug;
+		EnvP.isDebug = isDebug;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -276,18 +227,5 @@ public class Env
 
 		message = bos.toByteArray();
 		return message;
-	}
-
-	/**
-	 * Get the bank server information
-	 * 
-	 * @param bankName
-	 *            name of the bank
-	 * @return the server information or null if not found
-	 */
-	public static ServerInfo GetServerInfo(String bankName)
-	{
-		Optional<ServerInfo> sv = getLstServers().stream().filter(x -> x.getServerName().equalsIgnoreCase(bankName)).findFirst();
-		return sv.isPresent() ? sv.get() : null;
 	}
 }

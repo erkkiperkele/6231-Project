@@ -4,8 +4,10 @@ import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import shared.data.ServerInfo;
 import shared.exception.ExceptionWrongBank;
-import dlms.util.Env;
+import shared.util.Env;
+import dlms.util.EnvP;
 
 /**
  * @author Pascal Tozzi 27664850 CustomerClient and ManagerClient Implementation
@@ -31,7 +33,8 @@ public class ClientImpl
 			if (this.bank.getServerName().equalsIgnoreCase(otherBank) == true)
 				throw new ExceptionWrongBank("Destination bank is the same as current bank, not allowed");
 
-			ServerInfo sv = Env.GetServerInfo(otherBank);
+			shared.data.Bank bank = shared.data.Bank.fromString(otherBank);
+			ServerInfo sv = Env.getReplicaServerInfo(bank);
 			if (sv == null)
 				throw new ExceptionWrongBank("Wrong server " + otherBank + " doesn't exists.");
 

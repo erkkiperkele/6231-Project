@@ -1,6 +1,8 @@
 package dlms;
 
 import dlms.model.UDPServerThread;
+import shared.util.Constant;
+import shared.util.Env;
 
 /**
  * @author Pascal Tozzi 27664850 Entry application with console interface to
@@ -17,6 +19,7 @@ public class StartSequencer
 	{
 		try
 		{
+			Env.setMachineName(Constant.MACHINE_NAME_SEQUENCER);
 			UDPServerThread server = new UDPServerThread("Sequencer", 5000);
 			server.join();
 		}

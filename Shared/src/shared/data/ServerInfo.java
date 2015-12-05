@@ -15,6 +15,13 @@ public class ServerInfo
 	private String serverName;
 	private String ipAddress;
 	private int port;
+	
+	public ServerInfo(String serverName, String ipAddress, int port)
+	{
+		this.serverName = serverName;
+		this.ipAddress = ipAddress;
+		this.port = port;
+	}
 
 	/**
 	 * @return the serverName

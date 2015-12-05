@@ -1,13 +1,17 @@
 package shared.util;
 
 import java.io.*;
+import java.util.Iterator;
 import java.util.Properties;
 
 import shared.data.Bank;
-import shared.data.ServerPorts;
 
 public class WriteConfig
 {
+	/**
+	 * Create server settings file
+	 * @return true if created successfully
+	 */
 	public static boolean InitServerDefaultSettings()
 	{
 		boolean areSettingsCreated = false;
@@ -20,49 +24,55 @@ public class WriteConfig
 
 			// Used to translate all the port of X
 			// There 4 replicas implementations
-			prop.setProperty("port-overload-replica-name", "aymeric");
-			prop.setProperty("port-overload-increase-aymeric", "0");
-			prop.setProperty("port-overload-increase-mathieu", "10");
-			prop.setProperty("port-overload-increase-pascal", "20");
-			prop.setProperty("port-overload-increase-richard", "30");
-
-			// ip address
-			prop.setProperty("bank-server-ip-aymeric", "localhost");
-			prop.setProperty("bank-server-ip-mathieu", "localhost");
-			prop.setProperty("bank-server-ip-pascal", "localhost");
-			prop.setProperty("bank-server-ip-richard", "localhost");
+			prop.setProperty("current-machine-name", "aymeric");
+			
+			// Log
+			prop.setProperty("log-console-enabled", String.valueOf(Env.isLogConsoleEnabled()).toUpperCase());
+			prop.setProperty("log-file-enabled", String.valueOf(Env.islogFileEnabled()).toUpperCase());
+			prop.setProperty("log-file-path", Env.getLogPath());
 
 			// Front-End
-			prop.setProperty("bank-front-end-ip", "localhost");
-			prop.setProperty("bank-front-end-port", "4100");
+			prop.setProperty("bank-front-end-ip", Env.getFrontEndServerInfo().getIpAddress());
+			prop.setProperty("bank-front-end-port", String.valueOf(Env.getFrontEndServerInfo().getPort()));
 			
 			// Sequencer
-			prop.setProperty("bank-sequencer-ip", "localhost");
-			prop.setProperty("bank-sequencer-port", "4101");
+			prop.setProperty("bank-sequencer-ip", Env.getSequencerServerInfo().getIpAddress());
+			prop.setProperty("bank-sequencer-port", String.valueOf(Env.getSequencerServerInfo().getPort()));
+
+			int machineCount = 0;
+			for (Iterator<String> iterator = Env.getListMachineName(); iterator.hasNext();) {
+				String machineName = iterator.next();
+
+				machineCount++;
+				prop.setProperty("bank-server-machine-name" + machineCount, machineName);
+				prop.setProperty("bank-server-replicatemanager"+machineCount+"-ip", Env.getReplicaManagerServerInfo(machineName).getIpAddress());
+				prop.setProperty("bank-server-replicatemanager"+machineCount+"-port", String.valueOf(Env.getReplicaManagerServerInfo(machineName).getPort()));
+
+				String bankName = Bank.Dominion.toString();
+				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-ip", Env.getReplicaServerInfo(machineName, Bank.Dominion).getIpAddress());
+				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaServerInfo(machineName, Bank.Dominion).getPort()));
+				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-ip", Env.getReplicaIntranetServerInfo(machineName, Bank.Dominion).getIpAddress());
+				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaIntranetServerInfo(machineName, Bank.Dominion).getPort()));
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Dominion).getIpAddress());
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Dominion).getPort()));
+				
+				bankName = Bank.National.toString();
+				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-ip", Env.getReplicaServerInfo(machineName, Bank.National).getIpAddress());
+				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaServerInfo(machineName, Bank.National).getPort()));
+				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-ip", Env.getReplicaIntranetServerInfo(machineName, Bank.National).getIpAddress());
+				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaIntranetServerInfo(machineName, Bank.National).getPort()));
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.National).getIpAddress());
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.National).getPort()));
+				
+				bankName = Bank.Royal.toString();
+				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-ip", Env.getReplicaServerInfo(machineName, Bank.Royal).getIpAddress());
+				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaServerInfo(machineName, Bank.Royal).getPort()));
+				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-ip", Env.getReplicaIntranetServerInfo(machineName, Bank.Royal).getIpAddress());
+				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaIntranetServerInfo(machineName, Bank.Royal).getPort()));
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Royal).getIpAddress());
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Royal).getPort()));
+			}
 			
-			// Set the properties value
-			// Dominion Server Settings for UDP connection
-			prop.setProperty("bank-server-name1", Bank.Dominion.toString());
-			prop.setProperty("bank-server-replica-port1", String.valueOf(ServerPorts.getUDPPort(Bank.Dominion)));
-			prop.setProperty("bank-server-intranet-port1", String.valueOf(ServerPorts.getUDPPortIntranet(Bank.Dominion)));
-			prop.setProperty("bank-server-replicatemanager-port1", String.valueOf(ServerPorts.getUDPPortReplicaManager(Bank.Dominion)));
-			// National Server Settings for UDP connection
-			prop.setProperty("bank-server-name2", Bank.National.toString());
-			prop.setProperty("bank-server-replica-port2", String.valueOf(ServerPorts.getUDPPort(Bank.National)));
-			prop.setProperty("bank-server-intranet-port2", String.valueOf(ServerPorts.getUDPPortIntranet(Bank.National)));
-			prop.setProperty("bank-server-replicatemanager-port2", String.valueOf(ServerPorts.getUDPPortReplicaManager(Bank.National)));
-			// Royal Server Settings for UDP connection
-			prop.setProperty("bank-server-name3", Bank.Royal.toString());
-			prop.setProperty("bank-server-replica-port3", String.valueOf(ServerPorts.getUDPPort(Bank.Royal)));
-			prop.setProperty("bank-server-intranet-port3", String.valueOf(ServerPorts.getUDPPortIntranet(Bank.Royal)));
-			prop.setProperty("bank-server-replicatemanager-port3", String.valueOf(ServerPorts.getUDPPortReplicaManager(Bank.Royal)));
-
-			// Log
-			prop.setProperty("log-console-enabled", "FALSE");
-			prop.setProperty("log-file-enabled", "TRUE");
-			prop.setProperty("log-file-path", "./log/logclient.txt");
-			prop.setProperty("log-level", "ALL");
-
 			// save properties to project root folder
 			prop.store(output, null);
 			areSettingsCreated = true;
