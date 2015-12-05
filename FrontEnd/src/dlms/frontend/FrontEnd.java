@@ -206,8 +206,6 @@ public class FrontEnd extends FrontEndPOA {
 		final byte[] outgoingData;
 		
 		try {
-			
-			
 			outgoingData = Serializer.serialize(udpMessage);
 			outgoingPacket = new DatagramPacket(outgoingData, outgoingData.length, remoteAddr);
 
@@ -391,4 +389,12 @@ public class FrontEnd extends FrontEndPOA {
 			pool.shutdown();
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
