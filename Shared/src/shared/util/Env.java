@@ -280,15 +280,6 @@ public class Env
 		frontEndSvInfo = new ServerInfo(serverName, ipAddress, port);
 	}
 
-
-	/**
-	 * getReplicaManagerServerInfo
-	 * @return
-	 */
-	public static ServerInfo getReplicaManagerServerInfo() {
-		return replicaManagerSvInfoSet;
-	}
-
 	/**
 	 * getListMachineName
 	 * @return
