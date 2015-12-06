@@ -10,10 +10,11 @@ public class CommandBuilder {
     private String implementationName;
     private String modulePathSequencer = "./out/production/Sequencer";
 
+
     public CommandBuilder setImplementation(String studentName){
 
         //Patch, waiting for Richard's to work
-        this.implementationName = studentName == "richard"
+        this.implementationName = studentName.equals("richard")
                 ? "aymeric"
                 : studentName;
 
@@ -44,9 +45,21 @@ public class CommandBuilder {
     }
 
     public String getCommand(){
+
+
+        String os = System.getProperty("os.name");
+        String separator = os.contains("Mac OS")
+                ? ":"
+                : ";";
+
+        System.err.println(os);
+//        String separator = System.getProperty("os.name")
+
+
         return String.format(
-                "java -cp %1$s:%2$s:%3$s %4$s %5$s",
+                "java -cp %1$s%2$s%3$s%2$s%4$s %5$s %6$s",
                 modulePathReplica,
+                separator,
                 modulePathShared,
                 modulePathSequencer,
                 classPath,
