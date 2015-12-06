@@ -392,6 +392,19 @@ public class Env
 		}
 		return null;
 	}
+	
+	/**
+	 * getReplicaIntranetServerInfo
+	 * @return
+	 */
+	public static ServerInfo getReplicaIntranetServerInfo() {
+		Map<Bank, ServerInfo> map = replicaIntranetSvInfoSet.get(Env.getMachineName());
+		if(map != null)
+		{
+			return map.get(Env.getCurrentBank());
+		}
+		return null;
+	}
 
 	/**
 	 * getReplicaToReplicaManagerServerInfo

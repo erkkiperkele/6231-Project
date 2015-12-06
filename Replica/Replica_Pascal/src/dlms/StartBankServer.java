@@ -42,9 +42,12 @@ public class StartBankServer
 				// Start instance listening on UDP
 				ServerBank bankServer = new ServerBank(server, true);
 				UDPReplicaToReplicaManagerThread replicaManager = new UDPReplicaToReplicaManagerThread(bankServer);
+				UDPIntranetServerThread intranetServer = new UDPIntranetServerThread(bankServer);
+				intranetServer.start();
 				replicaManager.start();
 				bankServer.waitUntilUDPServiceEnd();
 				replicaManager.join();
+				intranetServer.join();
 			}
 			catch (Exception e)
 			{
