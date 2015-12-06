@@ -8,6 +8,7 @@ import dlms.replica.server.BankReplicaStub;
 import dlms.replica.server.BankReplicaStubGroup;
 import shared.data.Bank;
 import shared.data.ServerInfo;
+import shared.util.Constant;
 import shared.util.Env;
 
 /**
@@ -25,17 +26,17 @@ public class ReplicaLauncher {
 	public static void main(String[] args) {
 		
 		String bankName = "";
-		
+
 		Env.loadSettings();
-		Env.setCurrentBank(Bank.None);
+		Env.setCurrentBank(Bank.Royal);
 		
 		// Establish the bank details and add them all to a group
 		// this will be passed to each replica so that they know of each others'
 		// existence
 		
-		ServerInfo bank1Info = Env.getReplicaIntranetServerInfo(Bank.Royal);
-		ServerInfo bank2Info = Env.getReplicaIntranetServerInfo(Bank.National);
-		ServerInfo bank3Info = Env.getReplicaIntranetServerInfo(Bank.Dominion);
+		ServerInfo bank1Info = Env.getReplicaIntranetServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.Royal);
+		ServerInfo bank2Info = Env.getReplicaIntranetServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.National);
+		ServerInfo bank3Info = Env.getReplicaIntranetServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.Dominion);
 		
 		BankReplicaStubGroup replicaStubs = new BankReplicaStubGroup();
 		replicaStubs.put(Bank.Royal.name(), new BankReplicaStub(Bank.Royal.name(), new InetSocketAddress(bank1Info.getIpAddress(), bank1Info.getPort())));
@@ -49,7 +50,6 @@ public class ReplicaLauncher {
 		else {
 			bankName = args[0];
 		}
-
 
 		new BankReplica(bankName, replicaStubs);
 	}
