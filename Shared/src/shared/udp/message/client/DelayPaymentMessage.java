@@ -4,20 +4,20 @@ import java.io.Serializable;
 import java.util.Date;
 
 import shared.udp.IOperationMessage;
+import shared.udp.IOperationResult;
 import shared.udp.OperationType;
 
 @SuppressWarnings("serial")
-public class DelayPaymentMessage implements Serializable, IOperationMessage 
+public class DelayPaymentMessage implements Serializable, IOperationMessage, IOperationResult<Boolean>
 {
 	private String bank;
 	private int loanID;
 	private Date currentDueDate;
 	private Date newDueDate;
-	private boolean isDelaySuccessful;
+	private boolean isDelaySuccessful = false;
 	private Exception exception;
 	private String machineName;
 
-	public DelayPaymentMessage() {}	
 	public DelayPaymentMessage(String bank, int loanID, Date currentDueDate, Date newDueDate)
 	{
 		this.bank = bank;
@@ -25,7 +25,24 @@ public class DelayPaymentMessage implements Serializable, IOperationMessage
 		this.currentDueDate = currentDueDate;
 		this.newDueDate = newDueDate;
 	}
+	
+	/**
+	 * Used to compare this object's result with another, for use in the front
+	 * end so that it doesn't have to worry about types
+	 * 
+	 * @param msg
+	 * @return
+	 */
+	@Override
+	public boolean isResultEqual(IOperationResult<Boolean> altMessage) {
 
+		if (altMessage == null) {
+			return false;
+		}
+
+		return isDelaySuccessful == altMessage.getResult();
+	}
+	
 	public OperationType getOperationType()
 	{
 		return OperationType.DelayPayment;
@@ -74,5 +91,9 @@ public class DelayPaymentMessage implements Serializable, IOperationMessage
 	@Override
 	public String getMachineName() {
 		return machineName;
+	}
+	@Override
+	public Boolean getResult() {
+		return isDelaySuccessful;
 	}
 }

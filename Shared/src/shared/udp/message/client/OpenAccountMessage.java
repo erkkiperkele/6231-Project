@@ -3,10 +3,11 @@ package shared.udp.message.client;
 import java.io.Serializable;
 
 import shared.udp.IOperationMessage;
+import shared.udp.IOperationResult;
 import shared.udp.OperationType;
 
 @SuppressWarnings("serial")
-public class OpenAccountMessage implements Serializable, IOperationMessage 
+public class OpenAccountMessage implements Serializable, IOperationMessage, IOperationResult<Integer>
 {
 	private String bank;
 	private String firstName;
@@ -14,7 +15,7 @@ public class OpenAccountMessage implements Serializable, IOperationMessage
 	private String emailAddress;
 	private String phoneNumber;
 	private String password;
-	private int resultAccountID;
+	private int resultAccountID = -1;
 	private Exception exception;
 	private String machineName;
 
@@ -89,5 +90,18 @@ public class OpenAccountMessage implements Serializable, IOperationMessage
 	@Override
 	public String getMachineName() {
 		return machineName;
+	}
+	@Override
+	public Integer getResult() {
+		return resultAccountID;
+	}
+	@Override
+	public boolean isResultEqual(IOperationResult<Integer> altMessage) {
+		
+		if (resultAccountID < 1 || altMessage == null) {
+			return false;
+		}
+		// TODO Auto-generated method stub
+		return resultAccountID == altMessage.getResult();
 	}
 }

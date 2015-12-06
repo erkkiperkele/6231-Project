@@ -24,7 +24,7 @@ public class PrintCustomerInfoMessage implements Serializable, IOperationMessage
 	{
 		return OperationType.PrintCustomerInfo;
 	}
-	
+
 	/**
 	 * Used to compare this object's result with another, for use in the front
 	 * end so that it doesn't have to worry about types

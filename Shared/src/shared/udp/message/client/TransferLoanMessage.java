@@ -3,15 +3,16 @@ package shared.udp.message.client;
 import java.io.Serializable;
 
 import shared.udp.IOperationMessage;
+import shared.udp.IOperationResult;
 import shared.udp.OperationType;
 
 @SuppressWarnings("serial")
-public class TransferLoanMessage implements Serializable, IOperationMessage 
+public class TransferLoanMessage implements Serializable, IOperationMessage, IOperationResult<Boolean>
 {
 	private int loanID;
 	private String currentBank;
 	private String otherBank;
-	private boolean isTransferSuccessful;
+	private boolean isTransferSuccessful = false;
 	private Exception exception;
 	private String machineName;
 
@@ -69,5 +70,18 @@ public class TransferLoanMessage implements Serializable, IOperationMessage
 	@Override
 	public String getMachineName() {
 		return machineName;
+	}
+	@Override
+	public Boolean getResult() {
+		return isTransferSuccessful;
+	}
+	@Override
+	public boolean isResultEqual(IOperationResult<Boolean> altMessage) {
+
+		if (altMessage == null) {
+			return false;
+		}
+
+		return isTransferSuccessful == altMessage.getResult();
 	}
 }

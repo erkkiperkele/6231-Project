@@ -6,30 +6,24 @@ import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import dlms.corba.AppException;
 import dlms.corba.FrontEndPOA;
-import shared.data.Bank;
 import shared.data.ServerInfo;
-import shared.entities.FailureType;
 import shared.udp.IOperationMessage;
-import shared.udp.ReplicaStatusMessage;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
+import shared.udp.message.client.DelayPaymentMessage;
+import shared.udp.message.client.OpenAccountMessage;
 import shared.udp.message.client.PrintCustomerInfoMessage;
-import shared.util.Constant;
 import shared.util.Env;
 
 /**
@@ -64,8 +58,56 @@ public class FrontEnd extends FrontEndPOA {
 	@Override
 	public boolean delayPayment(String bankId, int loanId, String currentDueDate, String newDueDate)
 			throws AppException {
+		
+		//
+		logger.info("FrontEnd: Client invoked delayPayment(" + bankId + ", " + loanId + ", " + currentDueDate + ", " + newDueDate + ")");
+		
+		// Convert Dates
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-M-yyyy");
+		Date dateCurrent = null;
+		Date dateNew = null;
+		
+		try {
+			dateCurrent = dateFormat.parse(currentDueDate);
+			dateNew = dateFormat.parse(newDueDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		
+		BlockingQueue<Boolean> resultQueue = new ArrayBlockingQueue<Boolean>(1);
+		DelayPaymentMessage opMessage = new DelayPaymentMessage(bankId, loanId, dateCurrent, dateNew);
+		ResultSetListener<Boolean> resultsListener = null;
+		long opSequenceNbr = 0;
+		Boolean result = null;
+		
+		// Send the operation to the sequencer and get the sequence number
+		try {
+			opSequenceNbr = this.forwardToSequencer(opMessage);
+		} catch (AppException e) {
+			logger.info("FrontEnd: " + e.reason);
+			throw e;
+		}
+		
+		// Listen for the operation result on the blocking queue - resultQueue
+		resultsListener = new ResultSetListener<Boolean>(logger, this.opQueuePool, opSequenceNbr, resultQueue, faultyReplicas);
+		resultsListener.start();
+		
+		//
+		logger.info("FrontEnd: Sequencer replied to delayPayment operation with sequence number " + opSequenceNbr);
 
-		return false;
+		try {
+			result = resultQueue.poll(5000, TimeUnit.MILLISECONDS);
+		} catch (InterruptedException e) {
+			throw new AppException("FrontEnd: InterruptedException while waiting for the operation result");
+		}
+
+		// Timeout!
+		if (result == null) {
+			throw new AppException("FrontEnd: The backend timed out");
+		}
+		
+		return result;
 	}
 
 	@Override
@@ -119,7 +161,43 @@ public class FrontEnd extends FrontEndPOA {
 	public int openAccount(String bankId, String firstName, String lastName, String emailAddress, String phoneNumber,
 			String password) throws AppException {
 		
-		return 22;
+		//
+		logger.info("FrontEnd: Client invoked openAccount(" + bankId + ", " + firstName + ", " + emailAddress + ", " + phoneNumber + ", " + password + ")");
+		
+		BlockingQueue<Integer> resultQueue = new ArrayBlockingQueue<Integer>(1);
+		OpenAccountMessage opMessage = new OpenAccountMessage(bankId, firstName, lastName, emailAddress, phoneNumber,
+				password);
+		ResultSetListener<Integer> resultsListener = null;
+		long opSequenceNbr = 0;
+		Integer result = null;
+		
+		// Send the operation to the sequencer and get the sequence number
+		try {
+			opSequenceNbr = this.forwardToSequencer(opMessage);
+		} catch (AppException e) {
+			logger.info("FrontEnd: " + e.reason);
+			throw e;
+		}
+		
+		// Listen for the operation result on the blocking queue - resultQueue
+		resultsListener = new ResultSetListener<Integer>(logger, this.opQueuePool, opSequenceNbr, resultQueue, faultyReplicas);
+		resultsListener.start();
+		
+		//
+		logger.info("FrontEnd: Sequencer replied to openAccount operation with sequence number " + opSequenceNbr);
+
+		try {
+			result = resultQueue.poll(5000, TimeUnit.MILLISECONDS);
+		} catch (InterruptedException e) {
+			throw new AppException("FrontEnd: InterruptedException while waiting for the operation result");
+		}
+
+		// Timeout!
+		if (result == null) {
+			throw new AppException("FrontEnd: The backend timed out");
+		}
+		
+		return result;
 	}
 
 	@Override
@@ -232,97 +310,4 @@ public class FrontEnd extends FrontEndPOA {
 		
 		return opSequenceNbr;
 	}
-	
-//
-//	/**
-//	 * Sends a message to each replica manager saying that a replica result was different than others
-//	 * 
-//	 * @param BankId
-//	 * @param opSequenceNbr
-//	 */
-//	private void flagProcessBug(String bankName) {
-//		
-//		ExecutorService pool;
-//		Set<Future<Boolean>> set;
-//		
-//		// Prepare the threads to call other banks to get the loan sum for this account
-//		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
-//	    set = new HashSet<Future<Boolean>>();
-//	    
-//	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", FailureType.error);
-//	    byte[] outgoingData;
-//		try {
-//			outgoingData = Serializer.serialize(udpMessage);
-//		} catch (IOException e1) {
-//			logger.info("FrontEnd: Unable to serialize UDP message to replica managers");
-//			return;
-//		}
-//
-//		try {
-//
-//			// Get the loan sum for all banks and approve or not the new loan
-//			for (ServerInfo rmStub : this.replicaManagerGroup.values()) {
-//				Callable<Boolean> callable = new UdpSend(outgoingData,
-//						new InetSocketAddress(rmStub.getIpAddress(), rmStub.getPort()));
-//				logger.info("FrontEnd: Sending failed process message to " + rmStub.getServerName() + "'s replica manager");
-//				Future<Boolean> future = pool.submit(callable);
-//				set.add(future);
-//			}
-//
-//			for (Future<Boolean> future : set) {
-//
-//				try {
-//					//Boolean result = future.get();
-//					future.get();
-//				} catch (ExecutionException | InterruptedException e) {
-//					logger.info("FrontEnd: Exception in sending message to replica managers. "  + e.getCause().getMessage());
-//					//throw e.getCause();
-//				}
-//			}
-//
-//		} finally {
-//			pool.shutdown();
-//		}
-//	}
-//	
-	
-	
-	
-//	public void runThread() {
-//		
-//		ExecutorService executor = Executors.newSingleThreadExecutor();
-//		UdpTransferLoanCallable callable = new UdpTransferLoanCallable(this.bank, otherBankStub, loanId, 0, this.logger);
-//		Future<MessageResponseTransferLoan> future = executor.submit(callable);
-//
-//		try {
-//			MessageResponseTransferLoan resp = future.get(5, TimeUnit.SECONDS);
-//			if (resp.status) {
-//			
-//				// Loan transfered successfully. It must now be deleted locally.
-//				// If it can't be deleted, we have to roll back!
-//				if (!this.bank.deleteLoan(loanId)) {
-//					// Of course, this one too could fail...
-//					rollbackLoanTransfer(otherBankStub, resp.loanId);
-//				}
-//				
-//				logger.info(this.bank.getTextId() + ": Loan transfer " + loanId + " to " + otherBankStub.id + " successful");
-//				return resp.loanId;
-//			}
-//			else {
-//				logger.info(this.bank.getTextId() + ": Loan transfer failed. " + resp.message);
-//				throw new AppException("Loan transfer failed. " + resp.message);
-//			}
-//		} catch (ExecutionException ee) {
-//			throw new AppException("Callable threw an execution exception: " + ee.getMessage());
-//		} catch (InterruptedException e) {
-//			throw new AppException("Callable was interrupted: " + e.getMessage());
-//		} catch (TimeoutException e) {
-//			throw new AppException("Callable transfer loan timed out: " + e.getMessage());
-//		} finally {
-//			executor.shutdown();
-//		}
-//		
-//		
-//	}
-
 }
