@@ -69,6 +69,7 @@ public class FrontEndServer {
 		logger.info("FrontEnd: Logger started");
 		
 		// Pre-fill in the faulty replicas list for each machine
+		faultyReplicas = new HashMap<String, HashMap<String, Integer>>();
 		faultyReplicas.put(Constant.MACHINE_NAME_RICHARD, new HashMap<String, Integer>());
 		faultyReplicas.put(Constant.MACHINE_NAME_AYMERIC, new HashMap<String, Integer>());
 		faultyReplicas.put(Constant.MACHINE_NAME_PASCAL, new HashMap<String, Integer>());
@@ -85,6 +86,18 @@ public class FrontEndServer {
 	 */
 	public static void main(String args[]) {
 
+		Env.loadSettings();
+
+		if(args.length > 0)
+		{
+			shared.data.Bank bank = shared.data.Bank.fromString(args[0]);
+			if(bank != null && bank != shared.data.Bank.None && bank != Env.getCurrentBank())
+			{
+				// Bank has been overloaded
+				Env.setCurrentBank(bank);
+			}
+		}
+		
 		new FrontEndServer();
 	}
 	
