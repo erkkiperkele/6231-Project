@@ -1,10 +1,12 @@
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
+import shared.util.Constant;
+import shared.util.Env;
 
 import java.io.IOException;
 
 public class ReplicaManagerServer {
-    private static String[] banks = new String[]{Bank.Royal.name(), Bank.Dominion.name(), Bank.National.name()};
+    private static Bank[] banks = new Bank[]{Bank.Royal, Bank.Dominion, Bank.National};
     private static IReplicaManagerService replicaManagerService;
     private IReplicaStateService replicaStateService;
 
@@ -15,23 +17,31 @@ public class ReplicaManagerServer {
     }
 
     public void startBankServers(String implementationName) throws IOException {
-        for (String bank : banks) {
-            replicaManagerService.spawnNewProcess(implementationName, bank);
+        for (Bank bank : banks) {
+            replicaManagerService.spawnNewProcess(implementationName, bank.name());
         }
     }
 
     public void startFrontEndMessageUdpServer() {
         //TODO!!! use RUDP.
 
-        UdpRMtoFEListener udpServerFrontEnd= new UdpRMtoFEListener(replicaManagerService);
+        UdpRMtoFEListener udpServerFrontEnd = new UdpRMtoFEListener(replicaManagerService);
         udpServerFrontEnd.start();
     }
 
     public void startStateTransferUDPServer() {
 
-        UdpRMtoRMListener udpServerReplicaManager= new UdpRMtoRMListener(replicaStateService);
+        UdpRMtoRMListener udpServerReplicaManager = new UdpRMtoRMListener(replicaStateService);
         udpServerReplicaManager.start();
     }
 
+    public void initializeBankServers() {
+        String masterMachine = Constant.MASTER_MACHINE_NAME;
+        if (!Env.getMachineName().equals(masterMachine)) {
+            for (Bank bank : banks) {
+                replicaManagerService.resetState(masterMachine, bank);
+            }
+        }
+    }
 
 }

@@ -23,7 +23,7 @@ public class ReplicaStateService implements IReplicaStateService {
     }
 
     @Override
-    public void setReplicaState(ReplicaState state) {
-        //TODO: write the state on disk and ask bank to reload it.
+    public void setReplicaState(String machineToGetStateFrom, ReplicaState state) {
+
     }
 }

@@ -7,6 +7,6 @@ public interface IReplicaStateService {
 
     boolean isAlive();
     ReplicaState getReplicaState();
-    void setReplicaState(ReplicaState state);
+    void setReplicaState(String machineToGetStateFrom, ReplicaState state);
 
 }

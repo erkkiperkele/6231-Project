@@ -1,3 +1,4 @@
+import shared.data.Bank;
 import shared.data.ReplicaState;
 import shared.udp.Serializer;
 import shared.udp.message.state.PingMessage;
@@ -5,6 +6,7 @@ import shared.udp.message.state.ReplicaManagerMessage;
 import shared.udp.message.state.StateMessage;
 import shared.udp.message.state.StateMessageType;
 import shared.util.Constant;
+import shared.util.Env;
 
 import java.io.IOException;
 import java.net.*;
@@ -29,7 +31,9 @@ public class UdpRMtoRMListener extends Thread {
 
     @Override
     public void run() {
-        int serverPortRMtoRMListener = Constant.RM_TO_RM_LISTENER_PORT;
+        //HACK to get the serverInfos.
+        Env.setCurrentBank(Bank.Royal);
+        int serverPortRMtoRMListener = Env.getReplicaToReplicaManagerServerInfo().getPort();
 
         DatagramSocket listenerSocket = null;
 

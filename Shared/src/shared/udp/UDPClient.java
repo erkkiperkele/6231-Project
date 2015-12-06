@@ -38,13 +38,21 @@ public class UDPClient implements Closeable {
      * @throws IOException
      */
     public byte[] sendMessage(byte[] message, int serverPort) throws IOException {
+        return sendMessage(message, this.host, serverPort);
+    }
 
-        DatagramPacket request = new DatagramPacket(message, message.length, this.host, serverPort);
+    public byte[] sendMessage(byte[] message, String serverAddress, int serverPort) throws IOException {
+        return sendMessage(message, InetAddress.getByName(serverAddress), serverPort);
+    }
+
+    public byte[] sendMessage(byte[] message, InetAddress serverAddress, int serverPort) throws IOException {
+
+        DatagramPacket request = new DatagramPacket(message, message.length, serverAddress, serverPort);
         this.socket.send(request);
 
         System.out.println(String.format("UDP CLIENT is waiting answer on port: %d", this.socket.getLocalPort()));
 
-        byte[] buffer = new byte[1000];
+        byte[] buffer = new byte[4096];
         DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
 
         this.socket.receive(reply);

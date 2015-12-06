@@ -38,6 +38,7 @@ public class Constant
 	public static final String MACHINE_NAME_RICHARD = "richard";
 	public static final String MACHINE_NAME_FRONT_END = nameFrontEnd;
 	public static final String MACHINE_NAME_SEQUENCER = nameSequencer;
+	public static final String MASTER_MACHINE_NAME = MACHINE_NAME_PASCAL;
 
 	public static String getSequencerName() {
 		return nameSequencer;

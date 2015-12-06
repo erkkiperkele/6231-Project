@@ -22,13 +22,16 @@ import shared.util.Env;
 public class UdpRMtoFEListener extends Thread {
 
     private static final String RM_HOST = "localhost";
-    private static final int RM_PORT = 6667;
     private static final int UDP_PACKET_SIZE = 4096;
     private static IReplicaManagerService replicaManagerService;
+    private static final int RM_PORT =  Env.getReplicaManagerServerInfo(Env.getMachineName()).getPort();
 
 
     public UdpRMtoFEListener(IReplicaManagerService replicaManagerService) {
         this.replicaManagerService = replicaManagerService;
+
+//        System.err.println(Env.getMachineName());
+//        int portTest = Env.getFrontEndServerInfo().getPort()
     }
 
     @Override
@@ -37,6 +40,8 @@ public class UdpRMtoFEListener extends Thread {
         DatagramSocket serverSocket = null;
 
         InetSocketAddress localAddr = new InetSocketAddress(RM_HOST, RM_PORT);
+        System.out.println(localAddr.getAddress());
+        System.out.println(localAddr.getPort());
 
         try {
 

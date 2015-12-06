@@ -1,7 +1,10 @@
 import jdk.nashorn.internal.ir.RuntimeNode;
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
+import shared.data.ServerInfo;
+import shared.udp.Serializer;
 import shared.udp.UDPClient;
+import shared.udp.UDPMessage;
 import shared.udp.message.client.RequestSynchronize;
 import shared.util.Constant;
 import shared.util.Env;
@@ -99,11 +102,11 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         Process p = null;
         try {
-        	File f = new File(System.getProperty("user.dir") + "/../Replica_" + bankName + "_" + implementationName);
+            File f = new File(System.getProperty("user.dir") + "/../Replica_" + bankName + "_" + implementationName);
             System.err.println(
                     "Spawning process with command: " + command
-                    + "\n"
-                    + "and working directory: " + f.getAbsoluteFile());
+                            + "\n"
+                            + "and working directory: " + f.getAbsoluteFile());
 
             p = Runtime.getRuntime().exec(command, null, f);
         } catch (IOException e) {
@@ -119,7 +122,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         stopBankServer(bank);
         spawnNewProcess(implementationName, bank.name());
-        resetState(bank);
+        resetState(Constant.MASTER_MACHINE_NAME, bank);
     }
 
     private static String getCommand(String implementationName, String bankName) {
@@ -203,8 +206,38 @@ public class ReplicaManagerService implements IReplicaManagerService {
         return machineName.toLowerCase().equals(myself.toLowerCase());
     }
 
-    private void resetState(Bank bank) {
+    @Override
+    public void resetState(String machineToGetStateFrom, Bank bank) {
         //TODO!!! How to reset the state!
+
+
+        String machineName = Env.getMachineName();
+//        ServerInfo otherServerInfo = Env.getReplicaManagerServerInfo(machineToGetStateFrom);
+        ServerInfo otherServerInfo = Env.getReplicaServerInfo(machineToGetStateFrom, bank);
+
+        RequestSynchronize operationMessage = new RequestSynchronize(
+                machineName,
+                bank.name(),
+                otherServerInfo.getIpAddress(),
+                otherServerInfo.getPort()
+        );
+
+        UDPMessage message = new UDPMessage(operationMessage);
+
+        try {
+            byte[] data = Serializer.serialize(message);
+
+            System.err.println(
+                    "Request initial state to: "
+                            + machineToGetStateFrom + " "
+                            + otherServerInfo.getAddress() + " "
+                            + otherServerInfo.getPort()
+            );
+            udpClient.sendMessage(data, otherServerInfo.getIpAddress(), otherServerInfo.getPort());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         //getstate reliably
         //write state on disk

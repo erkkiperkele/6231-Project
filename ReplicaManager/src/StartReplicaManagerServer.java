@@ -1,4 +1,3 @@
-import shared.util.Constant;
 import shared.util.Env;
 
 import java.io.IOException;
@@ -20,6 +19,7 @@ public class StartReplicaManagerServer {
             server.startBankServers(implementationName);
             server.startFrontEndMessageUdpServer();
             server.startStateTransferUDPServer();
+            server.initializeBankServers();
         } catch (IOException e) {
             e.printStackTrace();
         }
