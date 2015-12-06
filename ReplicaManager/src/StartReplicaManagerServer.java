@@ -14,7 +14,7 @@ public class StartReplicaManagerServer {
 
         ReplicaManagerService replicaManager = new ReplicaManagerService();
 		Env.loadSettings();
-        String implementationName = Constant.MACHINE_NAME_AYMERIC;
+        String implementationName = Env.getMachineName();
 
         ReplicaManagerServer server = new ReplicaManagerServer();
 

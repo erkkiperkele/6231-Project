@@ -57,7 +57,7 @@ public class CommandBuilder {
 
 
         return String.format(
-                "java -cp %1$s%2$s%3$s%2$s%4$s %5$s %6$s",
+                "cmd /c start java -cp %1$s%2$s%3$s%2$s%4$s %5$s %6$s",
                 modulePathReplica,
                 separator,
                 modulePathShared,

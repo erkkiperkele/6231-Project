@@ -1,0 +1,12 @@
+2015-12-05 23:30:51.285: Server Started <pascal> Dominion
+2015-12-05 23:30:51.301: FINE Starting server service for pascal
+2015-12-05 23:30:51.301: FINE Loading Loans and Customers files
+2015-12-05 23:30:51.301: FINE Starting UDP port 4524
+2015-12-05 23:31:33.669: Server Started <pascal> Dominion
+2015-12-05 23:31:33.726: FINE Starting server service for pascal
+2015-12-05 23:31:33.728: FINE Loading Loans and Customers files
+2015-12-05 23:31:33.728: FINE Starting UDP port 4524
+2015-12-05 23:45:06.106: Server Started <pascal> Dominion
+2015-12-05 23:45:06.208: FINE Starting server service for pascal
+2015-12-05 23:45:06.216: FINE Loading Loans and Customers files
+2015-12-05 23:45:06.22: FINE Starting UDP port 4524
