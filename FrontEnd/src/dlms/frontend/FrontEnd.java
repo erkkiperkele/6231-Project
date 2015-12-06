@@ -22,8 +22,10 @@ import shared.udp.IOperationMessage;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
 import shared.udp.message.client.DelayPaymentMessage;
+import shared.udp.message.client.GetLoanMessage;
 import shared.udp.message.client.OpenAccountMessage;
 import shared.udp.message.client.PrintCustomerInfoMessage;
+import shared.udp.message.client.TransferLoanMessage;
 import shared.util.Env;
 
 /**
@@ -153,8 +155,42 @@ public class FrontEnd extends FrontEndPOA {
 	
 	@Override
 	public int transferLoan(String bankId, int loanId, String currentBankId, String otherBankId) throws AppException {
+		//
+		logger.info("FrontEnd: Client invoked transferLoan(" + bankId + ", " + loanId + ", " + currentBankId + ", " + otherBankId + ")");
 		
-		return 11;
+		BlockingQueue<Integer> resultQueue = new ArrayBlockingQueue<Integer>(1);
+		TransferLoanMessage opMessage = new TransferLoanMessage(loanId, currentBankId, otherBankId);
+		ResultSetListener<Integer> resultsListener = null;
+		long opSequenceNbr = 0;
+		Integer result = null;
+		
+		// Send the operation to the sequencer and get the sequence number
+		try {
+			opSequenceNbr = this.forwardToSequencer(opMessage);
+		} catch (AppException e) {
+			logger.info("FrontEnd: " + e.reason);
+			throw e;
+		}
+		
+		// Listen for the operation result on the blocking queue - resultQueue
+		resultsListener = new ResultSetListener<Integer>(logger, this.opQueuePool, opSequenceNbr, resultQueue, faultyReplicas);
+		resultsListener.start();
+		
+		//
+		logger.info("FrontEnd: Sequencer replied to transferLoan operation with sequence number " + opSequenceNbr);
+
+		try {
+			result = resultQueue.poll(5000, TimeUnit.MILLISECONDS);
+		} catch (InterruptedException e) {
+			throw new AppException("FrontEnd: InterruptedException while waiting for the operation result");
+		}
+
+		// Timeout!
+		if (result == null) {
+			throw new AppException("FrontEnd: The backend timed out");
+		}
+		
+		return result;
 	}
 
 	@Override
@@ -202,8 +238,43 @@ public class FrontEnd extends FrontEndPOA {
 
 	@Override
 	public int getLoan(String bankId, int accountNbr, String password, int loanAmount) throws AppException {
-		// TODO Auto-generated method stub
-		return 33;
+		
+		//
+		logger.info("FrontEnd: Client invoked getLoan(" + bankId + ", " + accountNbr + ", " + password + ", " + loanAmount + ")");
+		
+		BlockingQueue<Integer> resultQueue = new ArrayBlockingQueue<Integer>(1);
+		GetLoanMessage opMessage = new GetLoanMessage(bankId, accountNbr, password, loanAmount);
+		ResultSetListener<Integer> resultsListener = null;
+		long opSequenceNbr = 0;
+		Integer result = null;
+		
+		// Send the operation to the sequencer and get the sequence number
+		try {
+			opSequenceNbr = this.forwardToSequencer(opMessage);
+		} catch (AppException e) {
+			logger.info("FrontEnd: " + e.reason);
+			throw e;
+		}
+		
+		// Listen for the operation result on the blocking queue - resultQueue
+		resultsListener = new ResultSetListener<Integer>(logger, this.opQueuePool, opSequenceNbr, resultQueue, faultyReplicas);
+		resultsListener.start();
+		
+		//
+		logger.info("FrontEnd: Sequencer replied to openAccount operation with sequence number " + opSequenceNbr);
+
+		try {
+			result = resultQueue.poll(5000, TimeUnit.MILLISECONDS);
+		} catch (InterruptedException e) {
+			throw new AppException("FrontEnd: InterruptedException while waiting for the operation result");
+		}
+
+		// Timeout!
+		if (result == null) {
+			throw new AppException("FrontEnd: The backend timed out");
+		}
+		
+		return result;
 	}
 
 	/**
