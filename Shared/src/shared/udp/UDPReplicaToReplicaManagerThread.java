@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import shared.data.AbstractServerBank;
 import shared.data.ServerInfo;
+import shared.udp.message.client.RequestSynchronize;
 import shared.util.Env;
 
 public class UDPReplicaToReplicaManagerThread implements Runnable
@@ -45,7 +46,14 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 
 		        // Get the Key used to continue the previous communication
 		        // depending on if the message is from the FrontEnd or between banks		        
-				String key = request.getAddress().getHostAddress() + ":" + request.getPort();
+				String key;
+				key = request.getAddress().getHostAddress() + ":" + request.getPort();
+				if(udpMessage.getOperation() == OperationType.RequestSynchronize)
+				{
+					// we take the destination IP in case it a request instead to the one who talked to us
+					RequestSynchronize r = (RequestSynchronize)udpMessage.getMessage();
+					key = r.getIpAddress() + ":" + r.getPort();
+				}
 				UDPReplicaToReplicaManagerHandleRequestThread client;
 				synchronized (dicHandleRequest)
 				{
@@ -58,7 +66,7 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 					else
 					{
 						client = dicHandleRequest.get(key);
-						client.resumeNextUdpMessageReceived(request, udpMessage);
+						client.appendNextUdpMessageReceived(request, udpMessage);
 					}
 				}
 			}
