@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 import dlms.model.udpobject.UDPRequestData;
 import dlms.model.udpobject.UDPResponseTransferLoan;
 import dlms.util.Constant;
-import dlms.util.Env;
+import dlms.util.EnvP;
 import shared.data.*;
 
 /**
@@ -199,7 +199,7 @@ public class UDPRequestThread implements Runnable
 
 		try
 		{
-			byte[] message = Env.getByteFromObject(data);
+			byte[] message = EnvP.getByteFromObject(data);
 
 			DatagramPacket request = new DatagramPacket(message, message.length, aHost, remotePort);
 			aSocket.send(request);
@@ -221,7 +221,7 @@ public class UDPRequestThread implements Runnable
 
 		try
 		{
-			byte[] message = Env.getByteFromObject(data);
+			byte[] message = EnvP.getByteFromObject(data);
 
 			DatagramPacket request = new DatagramPacket(message, message.length, aHost, remotePort);
 			aSocket.send(request);

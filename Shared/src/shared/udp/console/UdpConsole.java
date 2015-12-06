@@ -1,6 +1,5 @@
 package shared.udp.console;
 
-import com.sun.tools.internal.jxc.ap.Const;
 import shared.data.Bank;
 import shared.entities.FailureType;
 import shared.udp.ReplicaStatusMessage;

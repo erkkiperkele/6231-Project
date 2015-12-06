@@ -2,7 +2,9 @@ package shared.data;
 
 import java.io.IOException;
 import java.net.DatagramSocket;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
+import java.net.SocketAddress;
 
 import shared.util.Constant;
 
@@ -15,6 +17,13 @@ public class ServerInfo
 	private String serverName;
 	private String ipAddress;
 	private int port;
+	
+	public ServerInfo(String serverName, String ipAddress, int port)
+	{
+		this.serverName = serverName;
+		this.ipAddress = ipAddress;
+		this.port = port;
+	}
 
 	/**
 	 * @return the serverName
@@ -129,5 +138,9 @@ public class ServerInfo
 	public String toString()
 	{
 		return getServerName() + " [Service Status: " + (isServiceOpened() ? "Currently Running" : "Not Available") + "]";
+	}
+
+	public SocketAddress getAddress() {
+		return new InetSocketAddress(ipAddress, port);
 	}
 }

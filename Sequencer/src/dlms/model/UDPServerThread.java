@@ -1,10 +1,11 @@
 package dlms.model;
 
 import java.net.SocketException;
-import java.util.ArrayList;
 
 import shared.data.AbstractServerBank;
-import shared.udp.ReplicaInfo;
+import shared.data.Bank;
+import shared.udp.UDPMessage;
+import shared.udp.message.client.OpenAccountMessage;
 
 /**
  * @author Pascal Tozzi 27664850
@@ -22,7 +23,6 @@ public class UDPServerThread extends shared.udp.UDPServerThread
 	public UDPServerThread(String nameOfServer, int port) throws SocketException 
 	{
 		super(nameOfServer, port);
-		initialize();
 	}
 	
 	/**
@@ -35,24 +35,8 @@ public class UDPServerThread extends shared.udp.UDPServerThread
 	public UDPServerThread(String nameOfServer, int port, AbstractServerBank serverBank) throws SocketException 
 	{
 		super(nameOfServer, port, serverBank);
-		initialize();
 	}
 	
-	/**
-	 * Initialize the replica information for the multicast
-	 */
-	public void initialize()
-	{
-		replicaList = new ArrayList<ReplicaInfo>();
-		
-		/// TODO: Need to add all the replica IP and PORT for the multicast here. 
-		System.out.println("TODO: Need to add all the replica IP and PORT for the multicast here.");
-		
-		//this.replicaList.add(new ReplicaInfo(null, 5000));
-		//this.replicaList.add(new ReplicaInfo(null, 5001));
-		//this.replicaList.add(new ReplicaInfo(null, 5002));
-	}
-
 	/**
 	 * Override the object created to handle the request
 	 */
@@ -60,5 +44,10 @@ public class UDPServerThread extends shared.udp.UDPServerThread
 	public UDPServerHandleRequestThread getUDPServerHandleRequestThread()
 	{
 		return new UDPServerHandleRequestThread();
+	}
+
+	public void executeTestMessage() {
+		UDPServerHandleRequestThread thread = getUDPServerHandleRequestThread();
+		thread.initialize("", bank, aSocket, null, new UDPMessage(new OpenAccountMessage(Bank.Dominion.toString(), "Pascal", "Tozzi", "ptozzi@example.com", "555-555-5555", "123456")), null);
 	}
 }

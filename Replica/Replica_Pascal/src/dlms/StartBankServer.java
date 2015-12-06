@@ -4,7 +4,9 @@ import java.util.Scanner;
 import java.util.logging.Level;
 
 import dlms.model.*;
-import dlms.util.Env;
+import shared.data.ServerInfo;
+import shared.util.Constant;
+import shared.util.Env;
 
 /**
  * @author Pascal Tozzi 27664850 Entry application with console interface to
@@ -20,12 +22,11 @@ public class StartBankServer
 	public static void main(String[] args)
 	{
 		// Load server settings
-		Env.loadServerSettings("BankServer");
+		Env.setMachineName(Constant.MACHINE_NAME_PASCAL);
 
 		String bankName;
 		if (args == null || args.length == 0)
 		{
-			Env.setDebug(true);
 			bankName = shared.data.Bank.Royal.toString();
 		}
 		else
@@ -45,7 +46,7 @@ public class StartBankServer
 			catch (Exception e)
 			{
 				// Most likely an InterruptedException has been raised
-				Env.log(Level.SEVERE, "Exception in StartBankServer: " + e, true);
+				Env.log(Level.SEVERE, "Exception in StartBankServer: " + e);
 			}
 		}
 	}
@@ -60,13 +61,13 @@ public class StartBankServer
 		boolean isServerValid = true;
 		if (server == null)
 		{
-			Env.log(Level.SEVERE, "Invalid server name!", true);
+			Env.log(Level.SEVERE, "Invalid server name!");
 			isServerValid = false;
 		}
 		else if (server.isServiceOpened())
 		{
-			Env.log(Level.SEVERE, "Service is currently running on the UDP port " + server.getPort(), true);
-			Env.log(Level.SEVERE, "Change the port and try again or close the service instance.", true);
+			Env.log(Level.SEVERE, "Service is currently running on the UDP port " + server.getPort());
+			Env.log(Level.SEVERE, "Change the port and try again or close the service instance.");
 			isServerValid = false;
 		}
 		return isServerValid;
@@ -81,7 +82,7 @@ public class StartBankServer
 	 */
 	public static ServerInfo getServerInformation(String bankName)
 	{
-		if (Env.getLstServers() == null || Env.getLstServers().size() == 0)
+		if (Env.getReplicaServerInfoList() == null || Env.getReplicaServerInfoList().size() == 0)
 			return null;
 
 		ServerInfo result = null;
@@ -89,7 +90,8 @@ public class StartBankServer
 		boolean bFoundBank = false;
 		if (bankName != null && bankName.isEmpty() == false)
 		{
-			ServerInfo sv = Env.GetServerInfo(bankName);
+			shared.data.Bank bank = shared.data.Bank.fromString(bankName);
+			ServerInfo sv = Env.getReplicaServerInfo(bank);
 			if (sv != null)
 			{
 				result = sv;
@@ -107,9 +109,9 @@ public class StartBankServer
 			while (bFoundBank == false)
 			{
 				System.out.println("Please select the bank from the list:");
-				for (int i = 0; i < Env.getLstServers().size(); i++)
+				for (int i = 0; i < Env.getReplicaServerInfoList().size(); i++)
 				{
-					System.out.println(" - " + Env.getLstServers().get(i).toString());
+					System.out.println(" - " + Env.getReplicaServerInfoList().get(i).toString());
 				}
 
 				System.out.print("Insert your choice: ");
@@ -120,7 +122,8 @@ public class StartBankServer
 				}
 				else
 				{
-					ServerInfo sv = Env.GetServerInfo(bankName);
+					shared.data.Bank bank = shared.data.Bank.fromString(bankName);
+					ServerInfo sv = Env.getReplicaServerInfo(bank);
 					if (sv != null)
 					{
 						result = sv;
