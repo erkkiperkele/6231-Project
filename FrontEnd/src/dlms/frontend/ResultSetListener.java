@@ -37,6 +37,7 @@ public class ResultSetListener<T> extends Thread {
 	private volatile BlockingQueue<UDPMessage> queue = null;
 	private boolean isResultSentToClient = false;
 	private HashMap<String, ServerInfo> replicaManagerGroup;
+	private volatile HashMap<String, HashMap<String, Integer>> faultyReplicas = null;
 
 	/**
 	 * Constructor
@@ -44,13 +45,15 @@ public class ResultSetListener<T> extends Thread {
 	 * @param logger
 	 * @return 
 	 */
-	public ResultSetListener(Logger logger, QueuePool opQueuePool, long opSequenceNbr, BlockingQueue<T> resultQueue) {
-		
+	public ResultSetListener(Logger logger, QueuePool opQueuePool, long opSequenceNbr, BlockingQueue<T> resultQueue,
+			HashMap<String, HashMap<String, Integer>> faultyReplicas) {
+
 		super();
 		this.logger = logger;
 		this.opQueuePool = opQueuePool;
 		this.opSequenceNbr = opSequenceNbr;
 		this.resultQueue = resultQueue;
+		this.faultyReplicas = faultyReplicas;
 		
 		this.queue = new ArrayBlockingQueue<UDPMessage>(MAX_QUEUE_SIZE);
 		opQueuePool.put(opSequenceNbr, this.queue);
@@ -130,48 +133,134 @@ public class ResultSetListener<T> extends Thread {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param messages
+	 * @return
+	 */
 	private boolean handleErrors(HashMap<String, UDPMessage> messages) {
 		
 		String bankName = null;
-				
-		if (messages.size() == 0) {
-			return true;
+
+		if (messages.size() < 2 || messages.size() > 4) {
+			logger.info("FrontEnd: Fatal error. Received " + messages.size() + " responses from replicas for operation " + opSequenceNbr);
+			return false;
 		}
+
+		ArrayList<UDPMessage> list = new ArrayList<UDPMessage>(messages.values());
 		
 		// Handle process crashes
 		
 		// Figure out which bank we are dealing with
 		for (UDPMessage msg : messages.values()) {
 			bankName = msg.getMessage().getBank();
+			break;
 		}
 		
 		if (messages.size() < 4) {
 			
-			HashMap<String, Integer> map = new HashMap<String, Integer>();
-			map.put(Constant.MACHINE_NAME_RICHARD, 0);
-			map.put(Constant.MACHINE_NAME_AYMERIC, 0);
-			map.put(Constant.MACHINE_NAME_PASCAL, 0);
-			map.put(Constant.MACHINE_NAME_MATHIEU, 0);
+			// Get the list of machines which are missing a UDP Message
+			HashMap<String, Integer> missingMachines = new HashMap<String, Integer>();
+			missingMachines.put(Constant.MACHINE_NAME_RICHARD, 0);
+			missingMachines.put(Constant.MACHINE_NAME_AYMERIC, 0);
+			missingMachines.put(Constant.MACHINE_NAME_PASCAL, 0);
+			missingMachines.put(Constant.MACHINE_NAME_MATHIEU, 0);
 			
 			for (UDPMessage msg : messages.values()) {
 				String machineName = msg.getMessage().getMachineName();
-				map.remove(machineName);
+				missingMachines.remove(machineName);
 			}
 			
-			for (String machineName : map.keySet()) {
-				this.multicastCrashedProcess(machineName, bankName);
+			if (missingMachines.size() > 1) {
+				logger.info("FrontEnd: Mulitple replicas failed to reply to an operation. Only sending notification of the first failure to the RM - op: " + opSequenceNbr);
+			}
+
+			for (String machineName : missingMachines.keySet()) {
+				this.multicastCrashedProcess(machineName, bankName, FailureType.failure);
+				break; // Exit after the first multicast
+			}
+			
+			// If there are two correct values at this point, it should have already
+			// been conveyed to the client. If there are two errors, we can't handle
+			// this situation .Exit if there is is missing two or more Messages, 
+			// because we won't be able to compare results
+			if (missingMachines.size() > 1) {
+				return false;
+			}
+		}
+
+		
+		// Handle process bugs - At this point, there should be at least three results
+		
+		HashMap<String, Boolean> validMessages = new HashMap<String, Boolean>();
+		HashMap<String, UDPMessage> invalidMessages = new HashMap<String, UDPMessage>();
+
+		boolean foundValidResult = false;
+
+		for (int i = 0; i < messages.size(); i++) {
+
+			UDPMessage msg1 = list.get(i);
+			IOperationResult<T> firstMessage = (IOperationResult<T>) msg1.getMessage();
+			
+			for (int j = 0; j < messages.size(); j++) {
+				
+				if (i == j) { continue; }
+				
+				UDPMessage msg2 = list.get(j);
+				IOperationResult<T> secondMessage = (IOperationResult<T>) msg2.getMessage();
+				
+				if (firstMessage.isResultEqual(secondMessage)) {
+
+					validMessages.put(msg2.getKey(), true);
+					
+					if (!foundValidResult) {
+						validMessages.put(msg1.getKey(), true);
+						foundValidResult = true;
+					}
+				}
+			}
+			
+			// If we found a valid result, break out and flag all other messages as incorrect
+			if (foundValidResult) {
+				break;
 			}
 		}
 		
-		// Handle process bugs
+		for (String key : messages.keySet()) {
+			if (validMessages.get(key) == null) {
+				// Flag this message as being invalid
+				invalidMessages.put(key, messages.get(key));
+			}
+		}
 		
+		// Now we have all invalid messages. Add them to the list of replicas that failed
+		for (UDPMessage msg : invalidMessages.values()) {
 		
-		
-		
-		
-		
+			String machineName = msg.getMessage().getMachineName();
+
+			HashMap<String, Integer> failuresPerMachine = faultyReplicas.get(machineName);
+			Integer failureCnt = failuresPerMachine.get(bankName);
+			if (failureCnt == null) {
+				// Flag a first failure
+				failuresPerMachine.put(bankName, 1);
+			}
+			
+			failureCnt++;
+			
+			// Send a message to the replica managers that MAchineName/BankName bugged out
+			if (failureCnt > 2) {
+				failuresPerMachine.remove(bankName);
+				this.multicastCrashedProcess(machineName, bankName, FailureType.error);
+			}
+			else {
+				// Update the entry
+				failuresPerMachine.put(bankName, failureCnt);
+			}
+		}
+
 		return false;
 	}
+
 	
 
 	/**
@@ -211,7 +300,7 @@ public class ResultSetListener<T> extends Thread {
 
 			IOperationResult<T> firstMessage = (IOperationResult<T>) list.get(i).getMessage();
 			
-			for (int j = i; i < messages.size(); j++) {
+			for (int j = i; j < messages.size(); j++) {
 				
 				IOperationResult<T> secondMessage = (IOperationResult<T>) list.get(j).getMessage();
 				if (firstMessage.isResultEqual(secondMessage)) {
@@ -230,7 +319,7 @@ public class ResultSetListener<T> extends Thread {
 	 * @param BankId
 	 * @param opSequenceNbr
 	 */
-	private void multicastCrashedProcess(String machineName, String bankName) {
+	private void multicastCrashedProcess(String machineName, String bankName, FailureType failureType) {
 		
 		ExecutorService pool;
 		Set<Future<Boolean>> set;
@@ -239,7 +328,7 @@ public class ResultSetListener<T> extends Thread {
 		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
 	    set = new HashSet<Future<Boolean>>();
 
-	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", FailureType.failure);
+	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", failureType);
 	    byte[] outgoingData;
 		try {
 			outgoingData = Serializer.serialize(udpMessage);

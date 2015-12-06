@@ -45,21 +45,23 @@ public class FrontEnd extends FrontEndPOA {
 	
 	private Logger logger = null;
 	private ServerInfo sqInfo = null;
-	private HashMap<String, ServerInfo> replicaManagerGroup;
 	private volatile QueuePool opQueuePool = null;
+	private volatile HashMap<String, HashMap<String, Integer>> faultyReplicas = null;
 	
 	/**
 	 * Constructor
 	 */
-	public FrontEnd(Logger logger, QueuePool opQueuePool) {
+	public FrontEnd(Logger logger, QueuePool opQueuePool , HashMap<String, HashMap<String, Integer>> faultyReplicas) {
 		
 		super();
 
 		this.logger = logger;
 		this.opQueuePool = opQueuePool;
+		this.faultyReplicas = faultyReplicas;
 
 		// Load the configuration
 		Env.loadSettings();
+		//Env.setCurrentBank(bank);
 		
 		this.sqInfo = Env.getSequencerServerInfo();
 	}
@@ -92,7 +94,7 @@ public class FrontEnd extends FrontEndPOA {
 		}
 		
 		// Listen for the operation result on the blocking queue - resultQueue
-		resultsListener = new ResultSetListener<String>(logger, this.opQueuePool, opSequenceNbr, resultQueue);
+		resultsListener = new ResultSetListener<String>(logger, this.opQueuePool, opSequenceNbr, resultQueue, faultyReplicas);
 		resultsListener.start();
 		
 		//

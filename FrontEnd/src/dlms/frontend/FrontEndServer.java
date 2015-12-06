@@ -1,6 +1,7 @@
 package dlms.frontend;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -16,6 +17,7 @@ import org.omg.PortableServer.POAHelper;
 import dlms.corba.FrontEndHelper;
 import shared.data.Bank;
 import shared.data.ServerInfo;
+import shared.util.Constant;
 import shared.util.Env;
 
 /**
@@ -34,6 +36,7 @@ public class FrontEndServer {
 	private ORB orb = null;
 	private Logger logger = null;
 	private volatile QueuePool opQueuePool = null;
+	private volatile HashMap<String, HashMap<String, Integer>> faultyReplicas = null;
 	
 	/**
 	 * Constructor
@@ -64,6 +67,12 @@ public class FrontEndServer {
 		    }
 		}
 		logger.info("FrontEnd: Logger started");
+		
+		// Pre-fill in the faulty replicas list for each machine
+		faultyReplicas.put(Constant.MACHINE_NAME_RICHARD, new HashMap<String, Integer>());
+		faultyReplicas.put(Constant.MACHINE_NAME_AYMERIC, new HashMap<String, Integer>());
+		faultyReplicas.put(Constant.MACHINE_NAME_PASCAL, new HashMap<String, Integer>());
+		faultyReplicas.put(Constant.MACHINE_NAME_MATHIEU, new HashMap<String, Integer>());
 		
 		// Start the servers
 		this.initiOrb();
@@ -98,7 +107,7 @@ public class FrontEndServer {
 			rootpoa.the_POAManager().activate();
 
 			// Create a servant and register it with the ORB
-			FrontEnd frontEnd = new FrontEnd(logger, this.opQueuePool);
+			FrontEnd frontEnd = new FrontEnd(logger, this.opQueuePool, faultyReplicas);
 
 			// Get object reference from the servant
 			org.omg.CORBA.Object ref1 = rootpoa.servant_to_reference(frontEnd);
