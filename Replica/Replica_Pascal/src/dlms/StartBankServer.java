@@ -23,6 +23,15 @@ public class StartBankServer
 	public static void main(String[] args)
 	{
 		Env.loadSettings();
+		if(args.length > 0)
+		{
+			shared.data.Bank bank = shared.data.Bank.fromString(args[0]);
+			if(bank != null && bank != shared.data.Bank.None && bank != Env.getCurrentBank())
+			{
+				// Bank has been overloaded
+				Env.setCurrentBank(bank);
+			}
+		}
 		Env.log("Server Started <" + Env.getMachineName() + "> " + Env.getCurrentBank());
 
 		ServerInfo server = Env.getReplicaServerInfo();
