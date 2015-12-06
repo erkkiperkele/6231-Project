@@ -16,11 +16,13 @@ public class SynchronizeCustomer implements Serializable, IOperationMessage
 	private boolean isRequested;
 	private int nextCustomerID;
 	private int nextSequenceID;
+	private String machineName;
 
 	public SynchronizeCustomer() {}
-	public SynchronizeCustomer(String bank, Customer customer, int posCustomer, 
+	public SynchronizeCustomer(String machineName, String bank, Customer customer, int posCustomer,
 			int amountCustomer, boolean isRequested, int nextCustomerID, int nextSequenceID) 
 	{
+		this.machineName = machineName;
 		this.bank = bank;
 		this.customer = customer;
 		this.posCustomer = posCustomer;
@@ -38,6 +40,12 @@ public class SynchronizeCustomer implements Serializable, IOperationMessage
 	public String getBank() {
 		return bank;
 	}
+
+	@Override
+	public String getMachineName() {
+		return this.machineName;
+	}
+
 	public void setBank(String bank) {
 		this.bank = bank;
 	}

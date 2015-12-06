@@ -16,11 +16,13 @@ public class SynchronizeLoan implements Serializable, IOperationMessage
 	private boolean isRequested;
 	private int nextLoanID;
 	private int nextSequenceID;
+	private String machineName;
 
 	public SynchronizeLoan() {}
-	public SynchronizeLoan(String bank, Loan loan, int posLoan, 
+	public SynchronizeLoan(String machineName, String bank, Loan loan, int posLoan,
 			int amountLoans, boolean isRequested, int nextLoanID, int nextSequenceID) 
 	{
+		this.machineName = machineName;
 		this.setBank(bank);
 		this.setLoan(loan);
 		this.setPosLoan(posLoan);
@@ -38,6 +40,12 @@ public class SynchronizeLoan implements Serializable, IOperationMessage
 	public String getBank() {
 		return bank;
 	}
+
+	@Override
+	public String getMachineName() {
+		return this.machineName;
+	}
+
 	public void setBank(String bank) {
 		this.bank = bank;
 	}

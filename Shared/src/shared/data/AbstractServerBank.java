@@ -66,15 +66,11 @@ public abstract class AbstractServerBank {
 	 * getCurrentState
 	 * @return
 	 */
-	public BankState getCurrentState() {
-		return null;
-	}
+	public abstract BankState getCurrentState();
 	
 	/**
 	 * setCurrentState
 	 * @param state
 	 */
-	public void setCurrentState(BankState state) {
-		
-	}
+	public abstract void setCurrentState(BankState state);
 }

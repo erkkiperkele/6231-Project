@@ -171,6 +171,29 @@ public class BankService implements IBankService {
     }
 
     /**
+     * WARNING: This is an elevated method. Can not run concurrently!
+     * Should only be accessed while resetting another's Server's state on Replica Manager's request
+     * Do not execute if messages are still received from sequencer.
+     * @return
+     */
+    @Override
+    public BankState getCurrentState() {
+        List customers = this.repository.getCustomersForStateTransfer();
+        List loans = this.repository.getLoansForStateTransfer();
+        return new BankState(loans, customers);
+    }
+
+    /**
+     * WARNING: This is an elevated method. Can not run concurrently!
+     * Should only be accessed while resetting the Server's state on Replica Manager's request
+     * @return
+     */
+    @Override
+    public void setCurrentState(BankState state) {
+        this.repository.resetBankSate(state);
+    }
+
+    /**
      * In case of a transfer (via UDP), credit line is not verified at other banks since loan already exists.
      * Should Not Be Accessible via API! UDP privileges only.
      * Need a better control of elevated operations
@@ -276,7 +299,7 @@ public class BankService implements IBankService {
         try {
 
             IOperationMessage getLoanMessage = new GetLoanMessage(firstName, lastName);
-            byte[] data = createUDPMessageData(getLoanMessage, OperationType.GetLoan);
+            byte[] data = createUDPMessageData(getLoanMessage);
             byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
             Serializer getLoanSerializer = new Serializer<Long>();
@@ -354,7 +377,7 @@ public class BankService implements IBankService {
         shared.data.Account externalAccount = null;
         try {
             IOperationMessage getAccountMessage = new GetAccountMessage(customer.getFirstName(), customer.getLastName());
-            byte[] data = createUDPMessageData(getAccountMessage, OperationType.GetAccount);
+            byte[] data = createUDPMessageData(getAccountMessage);
             byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
             Serializer getAccountSerializer = new Serializer<shared.data.Account>();
@@ -372,7 +395,7 @@ public class BankService implements IBankService {
         shared.data.Account externalAccount = null;
         try {
             IOperationMessage createUDPMessageData = new CreateAccountMessage(customer);
-            byte[] data = createUDPMessageData(createUDPMessageData, OperationType.CreateAccount);
+            byte[] data = createUDPMessageData(createUDPMessageData);
             byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
             Serializer getAccountSerializer = new Serializer<shared.data.Account>();
@@ -390,7 +413,7 @@ public class BankService implements IBankService {
         shared.data.Loan externalLoan = null;
         try {
             IOperationMessage createUDPMessageData = new CreateLoanMessage(externalAccount, loan);
-            byte[] data = createUDPMessageData(createUDPMessageData, OperationType.CreateLoan);
+            byte[] data = createUDPMessageData(createUDPMessageData);
             byte[] udpAnswer = this.udp.sendMessage(data, shared.data.ServerPorts.getUDPPort(bank));
 
             Serializer getLoanSerializer = new Serializer<shared.data.Loan>();
@@ -404,10 +427,12 @@ public class BankService implements IBankService {
     }
 
     /// TODO: Remove <OperationType type>
-    private byte[] createUDPMessageData(IOperationMessage operationMessage, OperationType type) throws IOException {
-        Serializer udpMessageSerializer = new Serializer<UDPMessage>();
-        UDPMessage message = new UDPMessage(operationMessage);
+    private byte[] createUDPMessageData(IOperationMessage operationMessage) throws IOException {
 
-        return udpMessageSerializer.serialize(message);
+        UDPMessage message = new UDPMessage(operationMessage);
+        return Serializer.serialize(message);
+
+//        Serializer udpMessageSerializer = new Serializer<UDPMessage>();
+//        return udpMessageSerializer.serialize(message);
     }
 }

@@ -37,7 +37,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         if (isSelf(machineName)) {
 
-//            stopFrontEnd();
+            stopFrontEnd();
             int newCount = errorCount.get(bank) + 1;
 
             if (newCount >= Constant.MAX_ERROR_COUNT) {
@@ -61,7 +61,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
                 System.out.println(String.format("Server had an error and restarted"));
             }
-//            startFrontEnd();
+            startFrontEnd();
         }
     }
 
@@ -69,7 +69,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
     public void onFailure(Bank bank, String serverAddress) {
 
         if (isSelf(serverAddress)) {
-//            stopFrontEnd();
+            stopFrontEnd();
             String implementationName = ReplicaManagerSession.getInstance().getNextImplementation();
             Bank[] banks = Bank.getBanks();
 
@@ -86,7 +86,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
                     "Server had a failure and restarted all banks with implementation: %1$s",
                     implementationName));
 
-//            startFrontEnd();
+            startFrontEnd();
         }
     }
 
@@ -94,11 +94,15 @@ public class ReplicaManagerService implements IReplicaManagerService {
     public void spawnNewProcess(String implementationName, String bankName) {
 
         String command = getCommand(implementationName, bankName);
-        System.err.println("Spawning process with command: " + command);
 
         Process p = null;
         try {
         	File f = new File(System.getProperty("user.dir") + "/../Replica_" + bankName + "_" + implementationName);
+            System.err.println(
+                    "Spawning process with command: " + command
+                    + "\n"
+                    + "and working directory: " + f.getAbsoluteFile());
+
             p = Runtime.getRuntime().exec(command, null, f);
         } catch (IOException e) {
             e.printStackTrace();

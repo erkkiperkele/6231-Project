@@ -86,4 +86,14 @@ public class BankServerUdp extends AbstractServerBank {
         Loan newLoan = bankService.transferLoan(loanID, this.bank, other);
         return newLoan != null;
     }
+
+    @Override
+    public BankState getCurrentState() {
+        return bankService.getCurrentState();
+    }
+
+    @Override
+    public void setCurrentState(BankState state) {
+        bankService.setCurrentState(state);
+    }
 }

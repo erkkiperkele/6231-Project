@@ -20,6 +20,12 @@ public class BankState
 		this.nextLoanID = nextLoanID;
 	}
 
+	//TODO: To Delete once I know what the replica should set for nextSequenceNumber, customerId and loanId
+	public BankState(List<Loan> loanList, List<Customer> customerList) {
+		this.loanList = loanList;
+		this.customerList = customerList;
+	}
+
 	public List<Loan> getLoanList() {
 		return loanList;
 	}

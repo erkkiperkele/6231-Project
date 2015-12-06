@@ -15,6 +15,7 @@ import shared.data.Loan;
 import shared.udp.message.client.RequestSynchronize;
 import shared.udp.message.client.SynchronizeCustomer;
 import shared.udp.message.client.SynchronizeLoan;
+import shared.util.Env;
 
 /**
  * @author Pascal Tozzi 27664850 UDPServerHandleRequestThread handle packet.
@@ -133,7 +134,6 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	
 	/**
 	 * Method can be overwritten for FE, Sequencer, Replica, ReplicaManager
-	 * @param bank
 	 * @param udpMessage
 	 * @throws Exception 
 	 */
@@ -180,6 +180,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 				for(Loan loan : loanList)
 				{
 					SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
+							Env.getMachineName(),
 							this.bank.getServerName(),
 							loan, 
 							nCount, 
@@ -195,6 +196,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 				for(Customer customer : customerList)
 				{
 					SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
+							Env.getMachineName(),
 							this.bank.getServerName(),
 							customer, 
 							nCount, 

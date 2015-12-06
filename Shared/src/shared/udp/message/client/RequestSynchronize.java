@@ -11,10 +11,12 @@ public class RequestSynchronize implements Serializable, IOperationMessage
 	private String bank;
 	private String ipAddress;
 	private int port;
+	private String machineName;
 
 	public RequestSynchronize() {}
-	public RequestSynchronize(String bank, String ipAddress, int port) 
+	public RequestSynchronize(String machineName, String bank, String ipAddress, int port)
 	{
+		this.machineName = machineName;
 		this.bank = bank;
 		this.ipAddress = ipAddress;
 		this.port = port;
@@ -33,6 +35,12 @@ public class RequestSynchronize implements Serializable, IOperationMessage
 	public String getBank() {
 		return bank;
 	}
+
+	@Override
+	public String getMachineName() {
+		return this.machineName;
+	}
+
 	public void setBank(String bank) {
 		this.bank = bank;
 	}

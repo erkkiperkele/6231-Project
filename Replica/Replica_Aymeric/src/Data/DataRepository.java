@@ -35,6 +35,50 @@ public class DataRepository {
         generateInitialData();
     }
 
+    public List<Loan> getLoansForStateTransfer(){
+        return loans
+                .values()
+                .stream()
+                .flatMap(a -> a.stream())
+                .collect(Collectors.toList());
+    }
+
+    public List<Customer> getCustomersForStateTransfer(){
+        return accounts
+                .values()
+                .stream()
+                .flatMap(a -> a.stream())
+                .map(a -> a.getOwner())
+                .collect(Collectors.toList());
+    }
+
+    public void resetBankSate(BankState state) {
+        this.loans = null;
+        this.accounts = null;
+
+        List<Loan> loans = state.getLoanList();
+        List<Account> accounts = state
+                .getCustomerList()
+                .stream()
+                .map(c -> new Account(c.getAccountNumber(), c, c.getCreditLimit()))
+                .collect(Collectors.toList());
+
+        for (Account account : accounts){
+
+            String index = getIndex(account.getOwner().getUserName());
+            getAccountsAtIndex(index).add(account);
+
+            loans = loans
+                    .stream()
+                    .filter(l -> l.getCustomerAccountNumber() == account.getOwner().getAccountNumber())
+                    .collect(Collectors.toList());
+
+            for (Loan loan : loans){
+                getLoansAtIndex(index).add(loan);
+            }
+        }
+    }
+
     /**
      * retrieves a Customer's information for a given userName.
      *
