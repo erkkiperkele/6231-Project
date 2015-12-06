@@ -21,6 +21,7 @@ public class Env
 	private static boolean isLogConsoleEnabled;
 	private static String logPath;
 
+	private static Bank currentBank;
 	private static String machineName;
 	private static ServerInfo sequencerSvInfo;
 	private static ServerInfo frontEndSvInfo;
@@ -58,7 +59,8 @@ public class Env
      * @param replicaIntranetSvInfoSet
      * @param replicaRMSvInfoSet
      */
-    public static void loadSettings(String machineName, 
+    public static void loadSettings(Bank currentBank,
+    		String machineName, 
     		ServerInfo sequencerSvInfo, 
     		ServerInfo frontEndSvInfo, 
     		Map<String, ServerInfo> replicaManagerSvInfoSet, 
@@ -87,6 +89,7 @@ public class Env
     	setLogFileEnabled(true);
     	setLogConsoleEnabled(true);
     	logPath = Constant.DefaultLogPath;
+    	Env.setCurrentBank(Bank.None);
 
     	// Default values
     	machineName = Constant.getFrontEndName();
@@ -390,6 +393,19 @@ public class Env
 
 	/**
 	 * getReplicaToReplicaManagerServerInfo
+	 * @return
+	 */
+	public static ServerInfo getReplicaToReplicaManagerServerInfo() {
+		Map<Bank, ServerInfo> map = replicaToReplicaManagerSvInfoSet.get(Env.getMachineName());
+		if(map != null)
+		{
+			return map.get(Env.getCurrentBank());
+		}
+		return null;
+	}
+
+	/**
+	 * getReplicaToReplicaManagerServerInfo
 	 * @param bank
 	 * @return
 	 */
@@ -432,5 +448,13 @@ public class Env
 
 	public static String getMachineName() {
 		return Env.machineName;
+	}
+
+	public static Bank getCurrentBank() {
+		return currentBank;
+	}
+
+	public static void setCurrentBank(Bank currentBank) {
+		Env.currentBank = currentBank;
 	}
 }

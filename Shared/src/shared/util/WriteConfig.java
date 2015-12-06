@@ -24,7 +24,8 @@ public class WriteConfig
 
 			// Used to translate all the port of X
 			// There 4 replicas implementations
-			prop.setProperty("current-machine-name", "aymeric");
+			prop.setProperty("current-machine-name", Constant.MACHINE_NAME_FRONT_END);
+			prop.setProperty("current-bank-name", Bank.None.toString());
 			
 			// Log
 			prop.setProperty("log-console-enabled", String.valueOf(Env.isLogConsoleEnabled()).toUpperCase());

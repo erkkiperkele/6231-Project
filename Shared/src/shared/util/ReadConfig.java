@@ -30,6 +30,7 @@ public class ReadConfig
 			// load a properties file
 			prop.load(input);
 			
+			Bank currentBank = Bank.None;
     		ServerInfo sequencerSvInfo = null;
     		ServerInfo frontEndSvInfo = null;
     		Map<String, ServerInfo> replicaManagerSvInfoSet = new HashMap<String, ServerInfo>();
@@ -48,6 +49,12 @@ public class ReadConfig
 
 			String sequencerIp = prop.getProperty("bank-sequencer-ip");
 			String sequencerPort = prop.getProperty("bank-sequencer-port");
+			
+			String bankName = prop.getProperty("current-bank-name");
+			if(bankName != null)
+			{
+				currentBank = Bank.fromString(bankName);
+			}
 			
 			if(frontEndIp == null || frontEndPort == null || sequencerIp == null || sequencerPort == null)
 			{
@@ -145,7 +152,7 @@ public class ReadConfig
 	    	
 	    	Env.setMachineName(machineName);
 			
-	    	Env.loadSettings(bankmachineName, sequencerSvInfo, frontEndSvInfo, 
+	    	Env.loadSettings(currentBank, bankmachineName, sequencerSvInfo, frontEndSvInfo, 
 	    			replicaManagerSvInfoSet, replicaSvInfoSet, replicaIntranetSvInfoSet, replicaRMSvInfoSet);
 		}
 		catch (IOException ex)
