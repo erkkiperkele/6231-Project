@@ -16,7 +16,6 @@ import org.omg.PortableServer.POAHelper;
 
 import dlms.corba.FrontEndHelper;
 import shared.data.Bank;
-import shared.data.ServerInfo;
 import shared.util.Constant;
 import shared.util.Env;
 
@@ -87,16 +86,7 @@ public class FrontEndServer {
 	public static void main(String args[]) {
 
 		Env.loadSettings();
-
-		if(args.length > 0)
-		{
-			shared.data.Bank bank = shared.data.Bank.fromString(args[0]);
-			if(bank != null && bank != shared.data.Bank.None && bank != Env.getCurrentBank())
-			{
-				// Bank has been overloaded
-				Env.setCurrentBank(bank);
-			}
-		}
+		Env.setCurrentBank(Bank.None);
 		
 		new FrontEndServer();
 	}

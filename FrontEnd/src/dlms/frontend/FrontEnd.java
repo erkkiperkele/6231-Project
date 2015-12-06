@@ -58,11 +58,6 @@ public class FrontEnd extends FrontEndPOA {
 		this.logger = logger;
 		this.opQueuePool = opQueuePool;
 		this.faultyReplicas = faultyReplicas;
-
-		// Load the configuration
-		Env.loadSettings();
-		//Env.setCurrentBank(bank);
-		
 		this.sqInfo = Env.getSequencerServerInfo();
 	}
 
