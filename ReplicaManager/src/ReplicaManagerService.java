@@ -70,6 +70,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
             //Change all banks implementations because of GetLoan() that needs homogeneous implementations
             for (Bank b : banks) {
                 restartServers(b, implementationName);
+
                 errorCount.replace(bank, 0);
             }
 
