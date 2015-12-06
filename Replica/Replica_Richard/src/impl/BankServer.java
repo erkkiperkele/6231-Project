@@ -5,28 +5,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 
 import shared.data.*;
 import shared.util.Env;
+import shared.udp.CreateLoanMessage;
+import shared.udp.OperationType;
+import shared.udp.UDPMessage;
 import shared.udp.UDPServerThread;
 import shared.exception.*;
 
 public class BankServer extends AbstractServerBank {
-	
-	private static int PORTSTART = 3000;
-	private static final int NUMOFBANKS = 3;
-	// Maintain a registry of each instance's name/port for UDP communication
-	// This solution is only valid because all BankServers run on the same machine
-	private static HashMap<Bank, Integer> servers = new HashMap<Bank, Integer>();
 
-	private BankStore bank;
+	private BankStore bankStore;
 	private int port;
-	private BankSocket socket;
+	private DatagramSocket socket;
 	private static int LoanNumber = 0;
 	private static int CustomerNumber = 0;
+	private UDPListenerThread listener;
 	
 	private static synchronized int incrementCustomerNumber() {
 		return ++CustomerNumber;
@@ -36,35 +39,33 @@ public class BankServer extends AbstractServerBank {
 		return ++LoanNumber;
 	}
 
-	public BankServer(BankStore bank) {
-		this.bank = bank;
-		this.port = PORTSTART++;
-		
-		// Store bank's UDP info in static member servers
-		servers.put(this.bank.getName(), this.port);
+	public BankServer(BankStore bankStore, ServerInfo svInfo) {
+		this.bankStore = bankStore;
+		this.port = svInfo.getPort();
 		
 		try {
-			this.socket = new BankSocket(port);
+			this.socket = new DatagramSocket(port);
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}
 		
 		// Start UDP listener thread
-		new UDPListenerThread(this.bank, this.socket).start();
+		listener = new UDPListenerThread(this.bankStore, this.socket);
+		listener.start();
 	}
 
 	@Override
 	public int openAccount(String FirstName, String LastName, String EmailAddress, String PhoneNumber,
 			String Password) {
 		Customer c = new Customer(FirstName, LastName, EmailAddress, PhoneNumber, Password);
-		bank.storeAccount(c);
+		bankStore.storeAccount(c);
 		return c.getId();
 	}
 
 	@Override
 	public int getLoan(int AccountNumber, String Password, long Amount) throws Exception {
 		// Verify that AccountNumber exists in the system
-		Customer c = bank.getCustomer(AccountNumber);
+		Customer c = bankStore.getCustomer(AccountNumber);
 		if (c == null) {
 			// No account with that AccountNumber exists on this server
 			throw new ExceptionNotValidCustomerAccountID();
@@ -85,7 +86,7 @@ public class BankServer extends AbstractServerBank {
 			int udpport = PORTSTART - i - 1;
 			// Check own bank
 			if (udpport == this.port) {
-				Loan l = bank.getLoan(AccountNumber);
+				Loan l = bankStore.getLoan(AccountNumber);
 				synchronized(bankResponses) {
 					if (l == null) {
 						bankResponses.add("0.0");
@@ -115,19 +116,19 @@ public class BankServer extends AbstractServerBank {
 
 		if ((Amount + customerLoans) > c.getCreditLimit()) {
 			// Loan amount too high
-			bank.refuseLoan(c, Amount);
+			bankStore.refuseLoan(c, Amount);
 			throw new Exception("Loan refused: Not enough credit.\n");
 		}
 
 		Loan l = new Loan(incrementLoanNumber(), c.getId(), Amount, Env.getNewLoanDueDate());
-		bank.storeLoan(c, l);
+		bankStore.storeLoan(c, l);
 
 		return l.getLoanNumber();
 	}
 
 	@Override
 	public boolean delayPayment(int LoanID, Date CurrentDueDate, Date NewDueDate) throws Exception {
-		Loan l = bank.getLoan(LoanID);
+		Loan l = bankStore.getLoan(LoanID);
 
 		// Check that loan exists
 		if (l == null) {
@@ -139,97 +140,59 @@ public class BankServer extends AbstractServerBank {
 			throw new Exception("Failed. Due date mismatch\n");
 		}
 
-		bank.changeLoanRepayment(l, NewDueDate);
+		bankStore.changeLoanRepayment(l, NewDueDate);
 		return true;
 	}
 
 	@Override
 	public String printCustomerInfo() {
-		return bank.printInfo();
+		return bankStore.printInfo();
 	}
 
 	@Override
 	public boolean transferLoan(int LoanID, String OtherBank) throws Exception {
 		// Check if loan exists
-		Loan loan = bank.getLoan(LoanID);
+		Loan loan = bankStore.getLoan(LoanID);
 		if (loan == null) {
 			throw new ExceptionInvalidLoanID();
 		}
-		try {
-			InetAddress lh = InetAddress.getLocalHost();
-			String r;
-			// Create separate socket for UDP communication
-			BankSocket sock = new BankSocket();
+		InetAddress lh = InetAddress.getLocalHost();
+		String r;
+		// Create separate socket for UDP communication
+		BankSocket sock = new BankSocket();
 
-			// Get OtherBank's UDP port
-			int rp = servers.get(OtherBank);
-			// Send OtherBank a ping to create a new socket
-			sock.sendMessage(lh, rp, "Loan Transfer Request");
-			// Collect remote socket info
-			r = sock.recvMessage();
-			if (r.equals("ACK")) {
-				rp = sock.getResponsePort();
-			}
-			
-			Customer custAcc = bank.getCustomer(loan.getCustomerAccountNumber());
-			String name = custAcc.getFirstName()+ " " + custAcc.getLastName();
-			// Poll remote bank for Customer name
-			sock.sendMessage(lh, rp, name);
-			// Receive reply
-			r = sock.recvMessage();
-			if (r.equals("NAK")) {
-				// Send CustomerAccount information
-				StringBuffer caString = new StringBuffer();
-				caString.append(custAcc.getEmail() + "\n");
-				caString.append(custAcc.getPhoneNumber() + "\n");
-				caString.append(custAcc.getPassword() + "\n");
-				
-				sock.sendMessage(lh, rp, caString.toString());
-				// Receive reply
-				r = sock.recvMessage();
-				if (!(r.equals("ACK"))) {
-					sock.close();
-					return "Unrecognized response: " + r + "\n";
-				}
-			} else if (!(r.equals("ACK"))) {
-				sock.close();
-				return "Unrecognized response: " + r + "\n";
-			}
-			// Send Loan information
-			sock.sendMessage(lh, rp, String.valueOf(loan.getAmount()) + "\n" + loan.getDueDate());
-			// Receive reply/finalize request
-			r = sock.recvMessage();
-			if (!(r.equals("ACK"))) {
-				sock.close();
-				return "Unrecognized response: " + r + "\n";
-			}
-			// Send finalize message
-			sock.sendMessage(lh, rp, "ACK");
-			// Receive reply/finalzed confirmation
-			r = sock.recvMessage();
-			if (!(r.equals("ACK"))) {
-				sock.close();
-				return "Unrecognized response: " + r + "\n";
-			}
-
-			// Delete local loan
-			bank.removeLoan(loan.getID());
-			sock.close();
-			return "Loan successfully transferred.\n";
-		} catch (SocketException e) {
-			e.printStackTrace();
-			return null;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
+		// Get OtherBank's UDP port
+		int rp = servers.get(OtherBank);
+		// Send OtherBank a ping to create a new socket
+		sock.sendMessage(lh, rp, "Loan Transfer Request");
+		// Collect remote socket info
+		r = sock.recvMessage();
+		if (r.equals("ACK")) {
+			rp = sock.getResponsePort();
 		}
+		Customer custAcc = bankStore.getCustomer(loan.getCustomerAccountNumber());
+		ObjectOutputStream send = new ObjectOutputStream(sock.getOutputStream());
+		send.writeObject(custAcc);
+		send.writeObject(loan);
+		ObjectInputStream recv = new ObjectInputStream(sock.getInputStream());
+		boolean result = recv.readBoolean();
+		if (result) {
+			// Loan transferred successfully. Delete local copy
+			bankStore.removeLoan(LoanID);
+		}
+		sock.close();
+		return result;
 	}
 
 	private class UDPListenerThread extends Thread {
+		public static final int BUFFER_SIZE = 4096;
+		
 		BankStore bank;
-		BankSocket socket;
+		DatagramSocket socket;
+		long lastSequenceNumber = 0;
+		byte[] buffer = new byte[BUFFER_SIZE];
 
-		public UDPListenerThread(BankStore bank, BankSocket socket) {
+		public UDPListenerThread(BankStore bank, DatagramSocket socket) {
 			this.bank = bank;
 			this.socket = socket;
 		}
@@ -238,20 +201,18 @@ public class BankServer extends AbstractServerBank {
 			while(true) {
 				try {
 					// Get message and sender information
-					String inc = socket.recvMessage();
-					InetAddress rh = socket.getResponseIP();
-					int rp = socket.getResponsePort();
-					// Parse incoming message
-					if (inc.equals("Loan Transfer Request")) {
-						new UDPLoanReceiverThread(bank, rh, rp).start();
-					} else {
-						// first + last? Asking about Loan information
-						// Create thread to handle request
-						new UDPResponderThread(bank, inc, rh, rp).start();
-					}
+					DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+					socket.receive(packet);
+					ByteArrayInputStream bis = new ByteArrayInputStream(buffer);
+					ObjectInputStream ois = new ObjectInputStream(bis);
+					UDPMessage inc = (UDPMessage)ois.readObject();
+					lastSequenceNumber = inc.getSequenceNumber();
+					// Handle request
 				} catch (IOException e) {
 					e.printStackTrace();
 					continue;
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
 				}
 			}
 		}
@@ -357,42 +318,27 @@ public class BankServer extends AbstractServerBank {
 		public void run() {
 			// Send ACK
 			send("ACK");
-			// Wait to receive name of Customer
-			String[] custName = recv().split(" ");
-			// Check if customer exists
-			Customer custAcc = b.getCustomer(custName[0], custName[1]);
-			int custID;
-			Customer newAcc = null;
-			// Reply whether or not customer exists
-			if (custAcc == null) {
-				send("NAK");
-				// Receive customer information
-				String[] cInfo = recv().split("\n");
-				newAcc = new Customer(custName[0], custName[1], cInfo[0], cInfo[1], cInfo[2]);
-				custID = newAcc.getId();
-				// Reply that customer account has been created
-				send("ACK");
-			} else {
-				// Account exists, send ACK
-				custID = custAcc.getId();
-				send("ACK");
-			}
-		
-			// Receive and parse loan information
-			String[] lInfo = recv().split("\n");
-			Loan loan = new Loan(custID, Double.parseDouble(lInfo[0]), lInfo[1]);
-			// Reply that loan has been created,
-			// and ask to finalize transaction
-			send("ACK");
-			
-			// Receive ACK to finalize
-			if (recv().equals("ACK")) {
-				// Store data, send ACK
+			try {
+				ObjectInputStream recv = new ObjectInputStream(sock.getInputStream());
+				// Wait to receive Customer and Loan
+				Customer custRecv = (Customer)recv.readObject();
+				Loan loanRecv = (Loan)recv.readObject();
+				// Check if customer exists
+				Customer custAcc = b.getCustomer(custRecv.getFirstName(), custRecv.getLastName());
 				if (custAcc == null) {
-					b.storeAccount(newAcc);
+					// Store new Customer
+					custAcc = new Customer(custRecv.getFirstName(), custRecv.getLastName(),
+							custRecv.getPassword(), custRecv.getEmail(), custRecv.getPhone());
+					custAcc.setAccountNumber(incrementCustomerNumber());
+					b.storeAccount(custAcc);
 				}
-				b.storeLoan(custAcc, loan);
-				send("ACK");
+				custAcc.setAccountNumber(incrementCustomerNumber());
+
+				// Store new Loan
+				Loan loanToStore = new Loan(incrementLoanNumber(), custAcc.getAccountNumber(), loanRecv.getAmount(), loanRecv.getDueDate());
+				b.storeLoan(custAcc, loanToStore);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 
@@ -404,20 +350,27 @@ public class BankServer extends AbstractServerBank {
 				e.printStackTrace();
 			}
 		}
-		
-		private String recv() {
-			try {
-				return sock.recvMessage();
-			} catch (IOException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
 	}
 
 	@Override
 	public String getServerName() {
-		return this.bank.getName().toString();
+		return this.bankStore.getName().toString();
+	}
+
+	@Override
+	public BankState getCurrentState() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCurrentState(BankState state) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void waitUntilFinished() throws InterruptedException {
+		listener.join();
 	}
 }
 

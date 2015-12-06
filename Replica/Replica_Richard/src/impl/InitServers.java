@@ -1,8 +1,10 @@
 package impl;
 
-import shared.data.AbstractServerBank;
+import java.util.logging.Level;
+
 import shared.data.Bank;
-import shared.util.Constant;
+import shared.data.ServerInfo;
+import shared.udp.UDPReplicaToReplicaManagerThread;
 import shared.util.Env;
 
 /**
@@ -12,13 +14,47 @@ import shared.util.Env;
 
 public class InitServers {
 	public static void main(String[] args) {
-		Env.setMachineName(Constant.MACHINE_NAME_RICHARD);
-		// Create BankServers
-		AbstractServerBank[] bankservers = new BankServer[Bank.values().length];
-		for (int i = 0; i < bankservers.length; ++i) {
-			bankservers[i] = new BankServer(new BankStore(Bank.values()[i]));
+		Env.loadSettings();
+		if (args.length > 0) {
+			Bank bank = Bank.fromString(args[0]);
+			if(bank != null && bank != shared.data.Bank.None && bank != Env.getCurrentBank())
+			{
+				Env.setCurrentBank(bank);
+			}
 		}
-		
-		System.out.println("Starting server");
+		ServerInfo server = Env.getReplicaServerInfo();
+		if (serverIsValid(server)) {
+			try {
+				BankServer bankServer = new BankServer(new BankStore(Env.getCurrentBank()), server);
+				UDPReplicaToReplicaManagerThread replicaManager = new UDPReplicaToReplicaManagerThread(bankServer);
+				replicaManager.start();
+				bankServer.waitUntilFinished();
+				replicaManager.join();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	/**
+	 * Validate if the server is valid and show the corresponding error message
+	 * @param server
+	 * @return true or false depending on if the server can be executed or not
+	 */
+	private static boolean serverIsValid(ServerInfo server) 
+	{
+		boolean isServerValid = true;
+		if (server == null)
+		{
+			Env.log(Level.SEVERE, "Invalid server name!");
+			isServerValid = false;
+		}
+		else if (server.isServiceOpened())
+		{
+			Env.log(Level.SEVERE, "Service is currently running on the UDP port " + server.getPort());
+			Env.log(Level.SEVERE, "Change the port and try again or close the service instance.");
+			isServerValid = false;
+		}
+		return isServerValid;
 	}
 }
