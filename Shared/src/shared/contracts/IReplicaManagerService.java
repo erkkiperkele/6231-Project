@@ -9,11 +9,7 @@ import java.io.IOException;
  */
 public interface IReplicaManagerService {
 
-    //TODO: Write the real ReplicaManager Interface
-
     void onError(Bank bank, String serverAddress);
     void onFailure(Bank bank, String serverAddress);
-    void agree();
-
     void spawnNewProcess(String implementationName, String bankName) throws IOException;
 }

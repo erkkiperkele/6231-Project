@@ -44,6 +44,14 @@ public enum Bank {
         }
     }
 
+    public static Bank[] getBanks() {
+        return new Bank[]{
+                Bank.Royal,
+                Bank.National,
+                Bank.Dominion
+        };
+    }
+
     /**
      * maps a bank name to an integer.
      * @return

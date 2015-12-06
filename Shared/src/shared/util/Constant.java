@@ -23,4 +23,5 @@ public class Constant
 	public static final int FE_TO_RM_LISTENER_PORT = 7777;
 
 
+	public static final int MAX_ERROR_COUNT = 3;
 }

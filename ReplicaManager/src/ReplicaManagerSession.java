@@ -1,3 +1,5 @@
+import shared.data.Bank;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +17,12 @@ public class ReplicaManagerSession {
     }
 
     public void registerServer(String serverName, Process serverProcess){
+
         processes.put(serverName, serverProcess);
     }
 
     public void unregisterServer(String serverName){
+
         processes.remove(serverName);
     }
 
@@ -26,4 +30,18 @@ public class ReplicaManagerSession {
         return processes.get(serverName);
     }
 
+    //TODO!!!!! FOR REAL
+    public String getServerAddress(){
+        return "TODO";
+    }
+
+    //TODO!!!!! FOR REAL
+    public String getCurrentImplementation() {
+        return "Aymeric";
+    }
+
+    //TODO!!!!! FOR REAL
+    public String getNextImplementation() {
+        return "Pascal";
+    }
 }

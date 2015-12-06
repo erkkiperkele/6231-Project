@@ -1,4 +1,3 @@
-import shared.data.ReplicaState;
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
 import shared.udp.UDPClient;
@@ -7,105 +6,81 @@ import shared.util.Constant;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 
 public class ReplicaManagerService implements IReplicaManagerService {
 
     private UDPClient udpFrontEnd;
+    private HashMap<Bank, Integer> errorCount;
 
     public ReplicaManagerService() {
         this.udpFrontEnd = new UDPClient();
+        this.errorCount = new HashMap<>();
+        errorCount.put(Bank.Royal, 0);
+        errorCount.put(Bank.Dominion, 0);
+        errorCount.put(Bank.National, 0);
+
     }
 
     @Override
     public void onError(Bank bank, String serverAddress) {
 
-        //TODO:
-        // if 3rd error, call onFailure
-        // get valid State from replica
 
+        //TODO: Return the right server address (dummy address at the moment)
 
-        //stopFE
+        if (isSelf(serverAddress)) {
 
-        stopFrontEnd();
-        stopBankServer(bank);
-        spawnNewProcess("Aymeric", bank.name());
-        //resetState
+            stopFrontEnd();
+            int newCount = errorCount.get(bank) + 1;
+            Bank[] banks = Bank.getBanks();
 
+            if (newCount >= Constant.MAX_ERROR_COUNT) {
+                String implementationName = ReplicaManagerSession.getInstance().getNextImplementation();
 
-        startFrontEnd();
+                //Change all banks implementations because of GetLoan() that needs homogeneous implementations
+                for (Bank b : banks) {
+                    restartServers(b, implementationName);
+                    errorCount.replace(bank, 0);
+                }
+                System.out.println(String.format(
+                        "Server had a 3rd error and restarted all banks with implementation: %1$s",
+                        implementationName)
+                );
 
-        System.out.println("Server restarted");
-    }
+            } else {
+                String implementationName = ReplicaManagerSession.getInstance().getCurrentImplementation();
+                restartServers(bank, implementationName);
+                errorCount.replace(bank, newCount);
 
-    private void stopFrontEnd() {
-
-        String isStopped = "";
-        int retryCount = 0;
-
-        while (isStopped != Constant.FE_STOPPED && retryCount < 5)
-        {
-            try {
-                byte[] answer = udpFrontEnd.sendMessage(Constant.STOP_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
-                isStopped = new String(answer, "UTF-8").trim();
-            } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println(String.format("Server had an error and restarted"));
             }
+            startFrontEnd();
         }
-    }
-
-    private void startFrontEnd() {
-
-        String isStarted = "";
-        int retryCount = 0;
-
-        while (isStarted != Constant.FE_STARTED && retryCount < 5)
-        {
-            try {
-                byte[] answer = udpFrontEnd.sendMessage(Constant.START_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
-                isStarted = new String(answer, "UTF-8").trim();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void stopBankServer(Bank bank) {
-        Process p = ReplicaManagerSession.getInstance().getServerProcess(bank.name());
-
-        if (p != null) {
-            p.destroy();
-        }
-
-
     }
 
     @Override
     public void onFailure(Bank bank, String serverAddress) {
 
-        //TODO:
-        // kill instance
-        // choose new implementation
-        // start new implementation
-        // get valid State from replica
+        if (isSelf(serverAddress)) {
+            stopFrontEnd();
+            String implementationName = ReplicaManagerSession.getInstance().getNextImplementation();
+            Bank[] banks = Bank.getBanks();
 
-        System.out.println("RECEIVED a FAILURE message");
-    }
+            //Change all banks implementations because of GetLoan() that needs homogeneous implementations
+            for (Bank b : banks) {
+                restartServers(b, implementationName);
+                errorCount.replace(bank, 0);
+            }
 
-    private ReplicaState getReplicaState() {
+            errorCount.replace(bank, 0);
 
-        //TODO:
-        // request all 3 bank states to 1st replica in the list
-        // kill all 3 bank servers
-        // restart all 3 bank server with the new state
+            System.out.println(String.format(
+                    "Server had a failure and restarted all banks with implementation: %1$s",
+                    implementationName));
 
-        return null;
-
-    }
-
-    @Override
-    public void agree() {
-
+            startFrontEnd();
+        }
     }
 
     @Override
@@ -125,12 +100,11 @@ public class ReplicaManagerService implements IReplicaManagerService {
         outputServer1.start();
     }
 
+    private void restartServers(Bank bank, String implementationName) {
 
-    public void killServer(String bankName) {
-        Process p = ReplicaManagerSession.getInstance().getServerProcess(bankName);
-        p.destroy();
-        ReplicaManagerSession.getInstance().unregisterServer(bankName);
-        System.err.println(bankName + " has been killed");
+        stopBankServer(bank);
+        resetState(bank);
+        spawnNewProcess(implementationName, bank.name());
     }
 
     private static String getCommand(String implementationName, String bankName) {
@@ -166,5 +140,55 @@ public class ReplicaManagerService implements IReplicaManagerService {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void stopFrontEnd() {
+
+        String isStopped = "";
+        int retryCount = 0;
+
+        while (isStopped != Constant.FE_STOPPED && retryCount < 5) {
+            try {
+                byte[] answer = udpFrontEnd.sendMessage(Constant.STOP_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                isStopped = new String(answer, "UTF-8").trim();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void startFrontEnd() {
+
+        String isStarted = "";
+        int retryCount = 0;
+
+        while (isStarted != Constant.FE_STARTED && retryCount < 5) {
+            try {
+                byte[] answer = udpFrontEnd.sendMessage(Constant.START_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                isStarted = new String(answer, "UTF-8").trim();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void stopBankServer(Bank bank) {
+        Process p = ReplicaManagerSession.getInstance().getServerProcess(bank.name());
+        if (p != null) {
+            p.destroy();
+        }
+        ReplicaManagerSession.getInstance().unregisterServer(bank.name());
+    }
+
+    private boolean isSelf(String serverAddress) {
+        String thisReplicaServerAddress = ReplicaManagerSession.getInstance().getServerAddress();
+        return serverAddress.toLowerCase().equals(thisReplicaServerAddress.toLowerCase());
+    }
+
+    private void resetState(Bank bank) {
+        //TODO!!! How to reset the state!
+
+        //getstate reliably
+        //write state on disk
     }
 }
