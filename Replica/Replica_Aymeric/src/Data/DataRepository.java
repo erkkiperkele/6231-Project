@@ -408,6 +408,14 @@ public class DataRepository {
         return ++this.loanNumber;
     }
 
+    public int getCurrentAccountNumber(){
+        return this.accountNumber;
+    }
+
+    public int getCurrentLoanNumber(){
+        return this.loanNumber;
+    }
+
     /**
      * Some dummy data initialization
      */
