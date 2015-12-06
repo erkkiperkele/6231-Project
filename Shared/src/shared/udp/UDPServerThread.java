@@ -12,7 +12,7 @@ import shared.data.AbstractServerBank;
  */
 public class UDPServerThread implements Runnable
 {
-	public static final int SIZE_BUFFER_REQUEST = 1000;
+	public static final int SIZE_BUFFER_REQUEST = 4000;
 	
 	private boolean continueUDP = true;
 	private Thread t = null;

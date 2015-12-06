@@ -398,7 +398,7 @@ public class Env
 	 * @return
 	 */
 	public static ServerInfo getReplicaToReplicaManagerServerInfo(String machineName, Bank bank) {
-		Map<Bank, ServerInfo> map = replicaToReplicaManagerSvInfoSet.get(Env.getMachineName());
+		Map<Bank, ServerInfo> map = replicaToReplicaManagerSvInfoSet.get(machineName);
 		if(map != null)
 		{
 			return map.get(bank);
