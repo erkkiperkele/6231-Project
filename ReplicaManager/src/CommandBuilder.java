@@ -8,11 +8,16 @@ public class CommandBuilder {
     private String classPath;
     private String mainArgument;
     private String implementationName;
+    private String modulePathSequencer = "./out/production/Sequencer";
 
     public CommandBuilder setImplementation(String studentName){
 
-        this.implementationName = studentName;
-        this.modulePathReplica =  String.format("./out/production/Replica_%1$s", studentName);
+        //Patch, waiting for Richard's to work
+        this.implementationName = studentName == "richard"
+                ? "aymeric"
+                : studentName;
+
+        this.modulePathReplica =  String.format("./out/production/Replica_%1$s", implementationName);
 
         switch (studentName.toLowerCase())
         {
@@ -23,10 +28,10 @@ public class CommandBuilder {
                 this.classPath = "dlms.StartBankServer";
                 break;
             case "richard":
-                this.classPath = "dlms.StartBankServer";
+                this.classPath = "Server.StartBankServer";
                 break;
             case "mathieu":
-                this.classPath = "dlms.StartBankServer";
+                this.classPath = "dlms.replica.ReplicaLauncher";
                 break;
         }
         return this;
@@ -40,9 +45,10 @@ public class CommandBuilder {
 
     public String getCommand(){
         return String.format(
-                "java -cp %1$s:%2$s %3$s %4$s",
+                "java -cp %1$s:%2$s:%3$s %4$s %5$s",
                 modulePathReplica,
                 modulePathShared,
+                modulePathSequencer,
                 classPath,
                 mainArgument
         );

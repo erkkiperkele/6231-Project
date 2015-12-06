@@ -1,6 +1,5 @@
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
-import shared.data.ServerInfo;
 import shared.udp.UDPClient;
 import shared.util.Constant;
 import shared.util.Env;
@@ -26,23 +25,27 @@ public class ReplicaManagerService implements IReplicaManagerService {
     }
 
     @Override
-    public void onError(Bank bank, String serverAddress) {
+    public void onError(Bank bank, String machineName) {
 
 
         //TODO: Return the right server address (dummy address at the moment)
 
-        if (isSelf(serverAddress)) {
+        System.err.println(isSelf(machineName));
+        System.err.println(machineName);
+        System.err.println(Env.getMachineName());
 
-            stopFrontEnd();
+        if (isSelf(machineName)) {
+
+//            stopFrontEnd();
             int newCount = errorCount.get(bank) + 1;
-            Bank[] banks = Bank.getBanks();
 
             if (newCount >= Constant.MAX_ERROR_COUNT) {
+                Bank[] banks = Bank.getBanks();
                 String implementationName = ReplicaManagerSession.getInstance().getNextImplementation();
 
                 //Change all banks implementations because of GetLoan() that needs homogeneous implementations
                 for (Bank b : banks) {
-                    restartServers(b, implementationName);
+                    restartServer(b, implementationName);
                     errorCount.replace(bank, 0);
                 }
                 System.out.println(String.format(
@@ -52,12 +55,12 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
             } else {
                 String implementationName = ReplicaManagerSession.getInstance().getCurrentImplementation();
-                restartServers(bank, implementationName);
+                restartServer(bank, implementationName);
                 errorCount.replace(bank, newCount);
 
                 System.out.println(String.format("Server had an error and restarted"));
             }
-            startFrontEnd();
+//            startFrontEnd();
         }
     }
 
@@ -65,13 +68,13 @@ public class ReplicaManagerService implements IReplicaManagerService {
     public void onFailure(Bank bank, String serverAddress) {
 
         if (isSelf(serverAddress)) {
-            stopFrontEnd();
+//            stopFrontEnd();
             String implementationName = ReplicaManagerSession.getInstance().getNextImplementation();
             Bank[] banks = Bank.getBanks();
 
             //Change all banks implementations because of GetLoan() that needs homogeneous implementations
             for (Bank b : banks) {
-                restartServers(b, implementationName);
+                restartServer(b, implementationName);
 
                 errorCount.replace(bank, 0);
             }
@@ -82,7 +85,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
                     "Server had a failure and restarted all banks with implementation: %1$s",
                     implementationName));
 
-            startFrontEnd();
+//            startFrontEnd();
         }
     }
 
@@ -90,6 +93,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
     public void spawnNewProcess(String implementationName, String bankName) {
 
         String command = getCommand(implementationName, bankName);
+        System.err.println("Spawning process with command: " + command);
 
         Process p = null;
         try {
@@ -103,11 +107,11 @@ public class ReplicaManagerService implements IReplicaManagerService {
         outputServer1.start();
     }
 
-    private void restartServers(Bank bank, String implementationName) {
+    private void restartServer(Bank bank, String implementationName) {
 
         stopBankServer(bank);
-        resetState(bank);
         spawnNewProcess(implementationName, bank.name());
+        resetState(bank);
     }
 
     private static String getCommand(String implementationName, String bankName) {

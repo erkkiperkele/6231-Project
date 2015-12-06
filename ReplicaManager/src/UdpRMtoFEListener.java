@@ -36,7 +36,6 @@ public class UdpRMtoFEListener extends Thread {
 
         DatagramSocket serverSocket = null;
 
-        Env.getReplicaManagerServerInfo();
         InetSocketAddress localAddr = new InetSocketAddress(RM_HOST, RM_PORT);
 
         try {

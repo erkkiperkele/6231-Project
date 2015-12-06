@@ -96,7 +96,7 @@ public class UdpConsole {
 
         try {
             String url = "localhost";
-            ReplicaStatusMessage message = new ReplicaStatusMessage(Bank.Royal, url, type);
+            ReplicaStatusMessage message = new ReplicaStatusMessage(Bank.Royal, "aymeric", type);
             byte[] data = Serializer.serialize(message);
 
             InetAddress inetAddress = null;
