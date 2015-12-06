@@ -5,6 +5,7 @@ import shared.util.Constant;
 import shared.util.Env;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -97,7 +98,8 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         Process p = null;
         try {
-            p = Runtime.getRuntime().exec(command);
+        	File f = new File(System.getProperty("user.dir") + "/../Replica_" + bankName + "_" + implementationName);
+            p = Runtime.getRuntime().exec(command, null, f);
         } catch (IOException e) {
             e.printStackTrace();
         }

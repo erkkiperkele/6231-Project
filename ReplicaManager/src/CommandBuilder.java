@@ -4,11 +4,11 @@
 public class CommandBuilder {
 
     private String modulePathReplica;
-    private String modulePathShared = "./out/production/Shared";
+    private String modulePathShared = "../../out/production/Shared";
     private String classPath;
     private String mainArgument;
     private String implementationName;
-    private String modulePathSequencer = "./out/production/Sequencer";
+    private String modulePathSequencer = "../../out/production/Sequencer";
 
 
     public CommandBuilder setImplementation(String studentName){
@@ -18,7 +18,7 @@ public class CommandBuilder {
                 ? "aymeric"
                 : studentName;
 
-        this.modulePathReplica =  String.format("./out/production/Replica_%1$s", implementationName);
+        this.modulePathReplica =  String.format("../../out/production/Replica_%1$s", implementationName);
 
         switch (studentName.toLowerCase())
         {
