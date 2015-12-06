@@ -48,3 +48,10 @@
 2015-12-05 21:17:48.346: FINE Starting server service for pascal
 2015-12-05 21:17:48.346: FINE Loading Loans and Customers files
 2015-12-05 21:17:48.346: FINE Starting UDP port 4524
+2015-12-06 18:29:29.439: Server Started <pascal> Dominion
+2015-12-06 18:29:29.47: SEVERE Service is currently running on the UDP port 4524
+2015-12-06 18:29:29.47: SEVERE Change the port and try again or close the service instance.
+2015-12-06 18:29:44.426: Server Started <pascal> Dominion
+2015-12-06 18:29:44.442: FINE Starting server service for pascal
+2015-12-06 18:29:44.442: FINE Loading Loans and Customers files
+2015-12-06 18:29:44.442: FINE Starting UDP port 4524

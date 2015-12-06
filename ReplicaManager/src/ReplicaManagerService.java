@@ -165,10 +165,14 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         String isStopped = "";
         int retryCount = 0;
+        ServerInfo feServerInfo = getFEServerInfo();
 
         while (isStopped != Constant.FE_STOPPED && retryCount < 5) {
             try {
-                byte[] answer = udpClient.sendMessage(Constant.STOP_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                byte[] answer = udpClient.sendMessage(
+                        Constant.STOP_FE.getBytes(),
+                        feServerInfo.getIpAddress(),
+                        feServerInfo.getPort());
                 isStopped = new String(answer, "UTF-8").trim();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -180,15 +184,26 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         String isStarted = "";
         int retryCount = 0;
+        ServerInfo feServerInfo = getFEServerInfo();
 
         while (isStarted != Constant.FE_STARTED && retryCount < 5) {
             try {
-                byte[] answer = udpClient.sendMessage(Constant.START_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                byte[] answer = udpClient.sendMessage(
+                        Constant.START_FE.getBytes(),
+                        feServerInfo.getIpAddress(),
+                        feServerInfo.getPort()
+                );
                 isStarted = new String(answer, "UTF-8").trim();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static ServerInfo getFEServerInfo(){
+        ServerInfo serverInfo = Env.getFrontEndServerInfo();
+        serverInfo.setPort(Constant.FE_TO_RM_LISTENER_PORT);
+        return serverInfo;
     }
 
     private void stopBankServer(Bank bank) {

@@ -20,7 +20,7 @@ public class TestRunner extends Client {
 		int numberOfRunningThreads = 0;
 		ArrayList<TestThread> runningThreads = new ArrayList<TestThread>(THREADS_TO_RUN);
 		while (numberOfRunningThreads < THREADS_TO_RUN) {
-			// Pass the FE ior to a new thread
+			// Pass the FE stub to a new thread
 			runningThreads.add(new TestThread(server));
 			// Remove terminated threads
 			runningThreads.removeIf(a -> a.getState() == Thread.State.TERMINATED);
@@ -86,9 +86,9 @@ class TestThread extends Thread {
 		}
 		if (accountID > -1) {
 			// Success, decide next method to call
-			printMessage("SUCCESS: Created account " + accountID);
+			success("Created account " + accountID);
 			// Choose next test to run
-			switch(r.nextInt(5)) {
+			switch(r.nextInt(6)) {
 			case 0:
 				CreateValidLoan();
 				break;
@@ -104,13 +104,21 @@ class TestThread extends Thread {
 			case 4:
 				CreateLoanWithInsufficientCredit();
 				break;
+			case 5: // Create duplicate account
+				try {
+					accountID = fe.openAccount(bank, firstName, lastName, email, phone, password);
+				} catch (AppException e) {
+					success("CreateAcountDuplicate(): Exception caught");
+					return;
+				}
+				fail("CreateAccountDuplicate(): Exception not caught");
 			default: // Should not reach here
 				break;
 			}
 		}
 		else {
 			// Failure. Terminate
-			printMessage("Unable to create new account");
+			fail("CreateValidAccount(): Unable to create new account");
 		}
 	}
 
@@ -124,25 +132,128 @@ class TestThread extends Thread {
 		try {
 			accountID = fe.openAccount(bank, firstName, lastName, email, phone, password);
 		} catch (AppException e) {
-			printMessage("CreateInvalidAccount(): Exception caught");
+			success("CreateInvalidAccount(): Exception caught");
 			return;
 		}
-		printMessage("CreateInvalidAccount(): No exception caught");		
+		fail("CreateInvalidAccount(): No exception caught");		
 	}
 
 	private void CreateValidLoan() {
 		try {
 			loanID = fe.getLoan(bank, accountID, password, 100);
 		} catch (AppException e) {
-			printMessage("getLoan(): Unable to create Loan");
+			fail("CreateValidLoan(): Exception caught");
 		}
 		if (loanID > -1) {
-			printMessage("SUCCESS: Acquired loan " + loanID);
-			// TODO Choose next test to run
+			success("CreateValidLoan(): Acquired loan " + loanID);
+			// Choose next test to run
+			switch(r.nextInt(8)) {
+			case 0:
+				DelayPaymentValid();
+				break;
+			case 1:
+				DelayPaymentInvalid();
+				break;
+			case 2:
+				DelayPaymentNoSuchLoan();
+				break;
+			case 3:
+				TransferLoanValid();
+				break;
+			case 4:
+				TransferLoanSameBank();
+				break;
+			case 5:
+				TransferLoanInvalidBank();
+				break;
+			case 6:
+				TransferLoanInvalidLoan();
+				break;
+			case 7: // Get duplicate loan
+				try {
+					loanID = fe.getLoan(bank, accountID, password, 100);
+				} catch (AppException e) {
+					success("CreateLoanDuplicate(): Exception caught");
+					return;
+				}
+				fail("CreateLoanDuplicate(): Exception not caught");
+				return;
+			default:
+				break;
+			}
 		}
 		else {
-			printMessage("FAILURE: Could not acquire loan");
+			fail("GetValidLoan(): Could not acquire loan");
 		}
+	}
+
+	private void TransferLoanInvalidLoan() {
+		int index = 0;
+		while (!Bank.getBanks()[index].toString().equals(bank)) {
+			++index;
+		}
+		try {
+			fe.transferLoan(bank, -1, bank, Bank.getBanks()[index + 1 % Bank.getBanks().length].toString());
+		} catch (AppException e) {
+			success("TransferLoanInvalidLoan(): Exception caught");
+			return;
+		}
+		fail("TransferLoanInvalidLoan(): Exception not caught");
+	}
+
+	private void TransferLoanInvalidBank() {
+		try {
+			fe.transferLoan(bank, loanID, bank, generateRandomString(5));
+		} catch (AppException e) {
+			success("TransferLoanInvalidBank(): Exception caught");
+			return;
+		}
+		fail("TransferLoanInvalidBank(): Exception not caught");
+	}
+
+	private void TransferLoanSameBank() {
+		try {
+			fe.transferLoan(bank, loanID, bank, bank);
+		} catch (AppException e) {
+			success("TransferLoanSameBank(): Exception caught");
+			return;
+		}
+		fail("TransferLoanSameBank(): Exception not caught");		
+	}
+
+	private void TransferLoanValid() {
+		int index = 0;
+		long result = -1;
+		while (!Bank.getBanks()[index].toString().equals(bank)) {
+			++index;
+		}
+		String newBank = Bank.getBanks()[index + 1 % Bank.getBanks().length].toString();
+		try {
+			result = fe.transferLoan(bank, -1, bank, newBank);
+		} catch (AppException e) {
+			fail("TransferLoanValid(): Exception caught");
+			return;
+		}
+		if (result > -1) {
+			success("Transferred " + bank + " loan " + loanID + " to " + newBank + " loan " + result);
+		} else {
+			fail("Loan transfer failed");
+		}
+	}
+
+	private void DelayPaymentNoSuchLoan() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void DelayPaymentInvalid() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void DelayPaymentValid() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void CreateLoanWithInsufficientCredit() {
@@ -150,20 +261,20 @@ class TestThread extends Thread {
 		try {
 			loanID = fe.getLoan(bank, accountID, password, amount);
 		} catch (AppException e) {
-			printMessage("CreateLoanWithInsufficientCredit(): Exception caught");
+			success("CreateLoanWithInsufficientCredit(): Exception caught");
 			return;
 		}
-		printMessage("CreateLoanWithInsufficientCredit(): Exception not caught");
+		fail("CreateLoanWithInsufficientCredit(): Exception not caught");
 	}
 
 	private void CreateLoanWithInvalidAccount() {
 		try {
 			loanID = fe.getLoan(bank, -1, password, 100);
 		} catch (AppException e) {
-			printMessage("CreateLoanWithInvalidAccount(): Exception caught");
+			success("CreateLoanWithInvalidAccount(): Exception caught");
 			return;
 		}
-		printMessage("CreateLoanWithInvalidAccount(): Exception not caught");
+		fail("CreateLoanWithInvalidAccount(): Exception not caught");
 	}
 
 	private void CreateLoanAtInvalidBank() {
@@ -171,20 +282,20 @@ class TestThread extends Thread {
 		try {
 			loanID = fe.getLoan(bank, accountID, password, 100);
 		} catch (AppException e) {
-			printMessage("CreateLoanAtInvalidBank(): Exception caught");
+			success("CreateLoanAtInvalidBank(): Exception caught");
 			return;
 		}
-		printMessage("CreateLoanAtInvalidBank(): Exception not caught");
+		fail("CreateLoanAtInvalidBank(): Exception not caught");
 	}
 
 	private void CreateInvalidLoan() {
 		try {
 			loanID = fe.getLoan(bank, accountID, password.substring(1), 100);
 		} catch (AppException e) {
-			printMessage("CreateInvalidLoan(): Exception caught");
+			success("CreateInvalidLoan(): Exception caught");
 			return;
 		}
-		printMessage("CreateInvalidLoan(): Exception not caught");
+		fail("CreateInvalidLoan(): Exception not caught");
 	}
 
 	private void PrintValidInfo() {
@@ -196,10 +307,9 @@ class TestThread extends Thread {
 			e.printStackTrace();
 		}
 		if (result == null) {
-			// Failure
-			printMessage("printCustomerInfo(" + bank + ") failed");
+			fail("printCustomerInfo(" + bank + ") failed");
 		} else {
-			printMessage("printCustomerInfo(" + bank + ") succeeded");
+			success("printCustomerInfo(" + bank + ") succeeded");
 			printMessage(result);
 		}
 	}
@@ -209,10 +319,10 @@ class TestThread extends Thread {
 		try {
 			fe.printCustomerInfo(bank);
 		} catch (AppException e) {
-			printMessage("PrintInvalidInfo(): Exception caught");
+			success("PrintInvalidInfo(): Exception caught");
 			return;
 		}
-		printMessage("PrintInvalidInfo(): No Exception caught");
+		fail("PrintInvalidInfo(): No Exception caught");
 	}
 	
 	private static String generateRandomString(int len) {
@@ -225,5 +335,13 @@ class TestThread extends Thread {
 	
 	private void printMessage(String msg) {
 		System.out.println("Thread " + this.getId() + ": " + msg);
+	}
+	
+	private void success(String msg) {
+		printMessage("SUCCESS: " + msg);
+	}
+	
+	private void fail(String msg) {
+		printMessage("FAILURE: " + msg);
 	}
 }
