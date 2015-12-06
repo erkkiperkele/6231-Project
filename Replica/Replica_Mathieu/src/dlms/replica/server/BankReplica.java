@@ -28,6 +28,7 @@ import dlms.replica.model.ThreadSafeHashMap;
 import dlms.replica.udpmessage.MessageResponseLoanSum;
 import dlms.replica.udpmessage.MessageResponseTransferLoan;
 import shared.data.AbstractServerBank;
+import shared.data.BankState;
 
 
 /**
@@ -478,5 +479,17 @@ public class BankReplica extends AbstractServerBank {
 	public boolean transferLoan(int loanID, String otherBank) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public BankState getCurrentState() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCurrentState(BankState state) {
+		// TODO Auto-generated method stub
+		
 	}
 }
