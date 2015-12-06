@@ -61,4 +61,20 @@ public abstract class AbstractServerBank {
 	 * @throws Exception
 	 */
 	public abstract boolean transferLoan(int loanID, String otherBank) throws Exception;
+
+	/**
+	 * getCurrentState
+	 * @return
+	 */
+	public BankState getCurrentState() {
+		return null;
+	}
+	
+	/**
+	 * setCurrentState
+	 * @param state
+	 */
+	public void setCurrentState(BankState state) {
+		
+	}
 }

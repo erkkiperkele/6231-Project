@@ -13,5 +13,9 @@ public enum OperationType {
     TransferLoan, 
     
     // Bank messages
-    GetLoanAmount
+    GetLoanAmount, 
+
+    SynchronizeCustomer,
+    SynchronizeLoan,
+    RequestSynchronize
 }

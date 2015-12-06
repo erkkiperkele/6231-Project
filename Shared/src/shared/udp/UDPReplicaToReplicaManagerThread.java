@@ -21,6 +21,7 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 	public UDPReplicaToReplicaManagerThread(AbstractServerBank bank) throws Exception
 	{
 		t = new Thread();
+		this.bank = bank;
 		ServerInfo sv = Env.getReplicaToReplicaManagerServerInfo();
 		System.out.println("Binding to port " + sv.getPort() + " for " + sv.getIpAddress());
 		aSocket = new DatagramSocket(sv.getPort());
@@ -34,7 +35,7 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 
 			// HashMap isn't thread safe, but HashTable is thread safe... it's
 			// fine, we will synchronize it ;)
-			HashMap<String, UDPServerHandleRequestThread> dicHandleRequest = new HashMap<String, UDPServerHandleRequestThread>();
+			HashMap<String, UDPReplicaToReplicaManagerHandleRequestThread> dicHandleRequest = new HashMap<String, UDPReplicaToReplicaManagerHandleRequestThread>();
 			while (continueUDP)
 			{
 				DatagramPacket request = new DatagramPacket(buffer, buffer.length);
@@ -45,17 +46,12 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 		        // Get the Key used to continue the previous communication
 		        // depending on if the message is from the FrontEnd or between banks		        
 				String key = request.getAddress().getHostAddress() + ":" + request.getPort();
-				UDPServerHandleRequestThread client;
+				UDPReplicaToReplicaManagerHandleRequestThread client;
 				synchronized (dicHandleRequest)
 				{
-					/*if(udpMessage.getSequenceNumber() < 0 && !udpMessage.isClientMessage())
+					if (!dicHandleRequest.containsKey(key))
 					{
-						getUDPServerHandleRequestThread()
-							.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
-					}
-					else if (!dicHandleRequest.containsKey(key))
-					{
-						client = getUDPServerHandleRequestThread();
+						client = new UDPReplicaToReplicaManagerHandleRequestThread();
 						client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
 						dicHandleRequest.put(key, client);
 					}
@@ -63,7 +59,7 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 					{
 						client = dicHandleRequest.get(key);
 						client.resumeNextUdpMessageReceived(request, udpMessage);
-					}*/
+					}
 				}
 			}
 		}
