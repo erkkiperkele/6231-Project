@@ -153,7 +153,7 @@ public class BankServer extends AbstractServerBank {
 		// Check if loan exists
 		Loan loan = bank.getLoan(LoanID);
 		if (loan == null) {
-			throw new Exception("No loan found with ID=" + LoanID + "\n");
+			throw new ExceptionInvalidLoanID();
 		}
 		try {
 			InetAddress lh = InetAddress.getLocalHost();
@@ -417,7 +417,7 @@ public class BankServer extends AbstractServerBank {
 
 	@Override
 	public String getServerName() {
-		return this.bank;
+		return this.bank.getName().toString();
 	}
 }
 
