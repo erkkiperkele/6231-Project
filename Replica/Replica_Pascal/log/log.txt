@@ -1,0 +1,50 @@
+2015-12-05 20:55:10.935: Server Started <null> null
+2015-12-05 20:55:10.977: SEVERE Invalid server name!
+2015-12-05 20:55:40.704: Server Started <null> null
+2015-12-05 20:56:16.437: Server Started <null> null
+2015-12-05 20:57:57.991: Server Started <null> null
+2015-12-05 20:57:58.006: SEVERE Invalid server name!
+2015-12-05 21:00:02.217: Server Started <null> null
+2015-12-05 21:02:09.866: Server Started <pascal> Dominion
+2015-12-05 21:02:09.882: FINE Starting server service for pascal
+2015-12-05 21:02:09.882: FINE Loading Loans and Customers files
+2015-12-05 21:02:09.882: FINE Starting UDP port 4529
+2015-12-05 21:02:09.882: SEVERE Exception in StartBankServer: java.lang.NullPointerException
+2015-12-05 21:10:27.855: Server Started <pascal> Dominion
+2015-12-05 21:10:27.872: FINE Starting server service for pascal
+2015-12-05 21:10:27.872: FINE Loading Loans and Customers files
+2015-12-05 21:10:27.872: FINE Starting UDP port 4527
+2015-12-05 21:10:27.872: SEVERE Exception in StartBankServer: java.lang.NullPointerException
+2015-12-05 21:10:45.366: Server Started <pascal> Dominion
+2015-12-05 21:10:46.973: FINE Starting server service for pascal
+2015-12-05 21:10:46.973: FINE Loading Loans and Customers files
+2015-12-05 21:10:46.973: FINE Starting UDP port 4527
+2015-12-05 21:10:56.813: Server Started <pascal> Dominion
+2015-12-05 21:10:57.783: FINE Starting server service for pascal
+2015-12-05 21:10:57.783: FINE Loading Loans and Customers files
+2015-12-05 21:10:57.783: FINE Starting UDP port 4527
+2015-12-05 21:11:05.83: Server Started <pascal> Dominion
+2015-12-05 21:11:07.268: FINE Starting server service for pascal
+2015-12-05 21:11:07.268: FINE Loading Loans and Customers files
+2015-12-05 21:11:07.268: FINE Starting UDP port 4527
+2015-12-05 21:11:28.175: Server Started <pascal> Dominion
+2015-12-05 21:11:29.757: FINE Starting server service for pascal
+2015-12-05 21:11:29.757: FINE Loading Loans and Customers files
+2015-12-05 21:11:29.773: FINE Starting UDP port 4527
+2015-12-05 21:14:30.807: Server Started <pascal> Dominion
+2015-12-05 21:14:30.823: FINE Starting server service for pascal
+2015-12-05 21:14:30.823: FINE Loading Loans and Customers files
+2015-12-05 21:14:30.823: FINE Starting UDP port 4524
+2015-12-05 21:14:30.823: SEVERE Exception in StartBankServer: java.lang.IllegalThreadStateException
+2015-12-05 21:15:03.801: Server Started <pascal> Dominion
+2015-12-05 21:15:05.788: FINE Starting server service for pascal
+2015-12-05 21:15:05.788: FINE Loading Loans and Customers files
+2015-12-05 21:15:05.788: FINE Starting UDP port 4524
+2015-12-05 21:15:29.498: Server Started <pascal> Dominion
+2015-12-05 21:15:29.529: FINE Starting server service for pascal
+2015-12-05 21:15:29.529: FINE Loading Loans and Customers files
+2015-12-05 21:15:29.529: FINE Starting UDP port 4524
+2015-12-05 21:17:48.33: Server Started <pascal> Dominion
+2015-12-05 21:17:48.346: FINE Starting server service for pascal
+2015-12-05 21:17:48.346: FINE Loading Loans and Customers files
+2015-12-05 21:17:48.346: FINE Starting UDP port 4524
