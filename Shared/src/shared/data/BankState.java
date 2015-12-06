@@ -6,16 +6,14 @@ public class BankState
 {
 	private List<Loan> loanList;
 	private List<Customer> customerList;
-	private int nextSequenceNumber;
+	private int nextSequenceNumber = Integer.MIN_VALUE;
 	private int nextCustomerID;
 	private int nextLoanID;
 	
-	public BankState(List<Loan> loanList, List<Customer> customerList, 
-			int nextSequenceNumber, int nextCustomerID, int nextLoanID)
+	public BankState(List<Loan> loanList, List<Customer> customerList, int nextCustomerID, int nextLoanID)
 	{
 		this.loanList = loanList;
 		this.customerList = customerList;
-		this.nextSequenceNumber = nextSequenceNumber;
 		this.nextCustomerID = nextCustomerID;
 		this.nextLoanID = nextLoanID;
 	}
@@ -36,6 +34,10 @@ public class BankState
 
 	public int getNextSequenceNumber() {
 		return nextSequenceNumber;
+	}
+
+	public void setNextSequenceNumber(int nextSequenceNumber) {
+		this.nextSequenceNumber = nextSequenceNumber;
 	}
 
 	public int getNextCustomerID() {
