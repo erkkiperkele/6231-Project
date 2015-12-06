@@ -226,6 +226,7 @@ public class UDPServerHandleRequestThread implements Runnable
 					accountNumber = -1;
 				}
 				msg.setResultAccountID(accountNumber);
+				msg.setMachineName(Env.getMachineName());
 			}
 			this.send(udpMessage);
 		}
@@ -261,6 +262,7 @@ public class UDPServerHandleRequestThread implements Runnable
 					msg.setException(e);
 				}
 				msg.setResultLoanID(loanNumber);
+				msg.setMachineName(Env.getMachineName());
 			}
 			this.send(udpMessage);
 		}
@@ -293,6 +295,7 @@ public class UDPServerHandleRequestThread implements Runnable
 					msg.setException(e);
 				}
 				msg.setDelaySuccessful(isDelayed);
+				msg.setMachineName(Env.getMachineName());
 			}
 			this.send(udpMessage);
 		}
@@ -325,6 +328,8 @@ public class UDPServerHandleRequestThread implements Runnable
 					msg.setException(e);
 				}
 				msg.setResult(result);
+				msg.setMachineName(Env.getMachineName());
+
 			}
 			this.send(udpMessage);
 		}
@@ -357,6 +362,8 @@ public class UDPServerHandleRequestThread implements Runnable
 					msg.setException(e);
 				}
 				msg.setTransferSuccessful(isTransferred);
+				msg.setMachineName(Env.getMachineName());
+
 			}
 			this.send(udpMessage);
 		}

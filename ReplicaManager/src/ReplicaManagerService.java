@@ -1,7 +1,9 @@
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
+import shared.data.ServerInfo;
 import shared.udp.UDPClient;
 import shared.util.Constant;
+import shared.util.Env;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -109,6 +111,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
     }
 
     private static String getCommand(String implementationName, String bankName) {
+
         CommandBuilder commandBuilder = new CommandBuilder();
         return commandBuilder
                 .setImplementation(implementationName)
@@ -181,9 +184,11 @@ public class ReplicaManagerService implements IReplicaManagerService {
         ReplicaManagerSession.getInstance().unregisterServer(bank.name());
     }
 
-    private boolean isSelf(String serverAddress) {
-        String thisReplicaServerAddress = ReplicaManagerSession.getInstance().getServerAddress();
-        return serverAddress.toLowerCase().equals(thisReplicaServerAddress.toLowerCase());
+    private boolean isSelf(String machineName) {
+
+        String myself = Env.getMachineName();
+
+        return machineName.toLowerCase().equals(myself.toLowerCase());
     }
 
     private void resetState(Bank bank) {

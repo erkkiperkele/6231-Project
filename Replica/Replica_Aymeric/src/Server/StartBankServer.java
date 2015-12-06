@@ -4,6 +4,8 @@ import Contracts.IBankService;
 import Services.BankService;
 import Services.SessionService;
 import shared.data.Bank;
+import shared.util.Constant;
+import shared.util.Env;
 
 /**
  * This class starts both RMI and UDP servers for a given bank.
@@ -25,6 +27,8 @@ public class StartBankServer {
      * @param args a single integer defining what bank this server belongs to.
      */
     public static void main(String[] args) {
+
+        Env.setMachineName(Constant.MACHINE_NAME_AYMERIC);
 
         String serverArg = args.length > 0
                 ? args[0]

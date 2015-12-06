@@ -8,6 +8,7 @@ import java.net.SocketException;
 import shared.contracts.IReplicaManagerService;
 import shared.udp.ReplicaStatusMessage;
 import shared.udp.Serializer;
+import shared.util.Env;
 
 /**
  * This is the UDP listener class/thread which receives the operation results
@@ -34,6 +35,8 @@ public class UdpRMtoFEListener extends Thread {
     public void run() {
 
         DatagramSocket serverSocket = null;
+
+        Env.getReplicaManagerServerInfo();
         InetSocketAddress localAddr = new InetSocketAddress(RM_HOST, RM_PORT);
 
         try {

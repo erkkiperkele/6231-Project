@@ -14,7 +14,8 @@ public class GetLoanMessage implements Serializable, IOperationMessage
 	private long loanAmount;
 	private int resultLoanID;
 	private Exception exception;
-	
+	private String machineName;
+
 	public GetLoanMessage() {}	
 	public GetLoanMessage(String bank, int accountNumber, String password, long loanAmount)
 	{
@@ -64,5 +65,9 @@ public class GetLoanMessage implements Serializable, IOperationMessage
 	}
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+
+	public void setMachineName(String machineName) {
+		this.machineName = machineName;
 	}
 }

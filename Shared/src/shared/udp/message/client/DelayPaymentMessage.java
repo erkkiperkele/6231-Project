@@ -15,6 +15,7 @@ public class DelayPaymentMessage implements Serializable, IOperationMessage
 	private Date newDueDate;
 	private boolean isDelaySuccessful;
 	private Exception exception;
+	private String machineName;
 
 	public DelayPaymentMessage() {}	
 	public DelayPaymentMessage(String bank, int loanID, Date currentDueDate, Date newDueDate)
@@ -65,5 +66,9 @@ public class DelayPaymentMessage implements Serializable, IOperationMessage
 	}
 	public void setException(Exception exception) {
 		this.exception = exception;
+	}
+
+	public void setMachineName(String machineName) {
+		this.machineName = machineName;
 	}
 }

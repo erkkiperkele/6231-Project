@@ -16,7 +16,8 @@ public class OpenAccountMessage implements Serializable, IOperationMessage
 	private String password;
 	private int resultAccountID;
 	private Exception exception;
-	
+	private String machineName;
+
 	public OpenAccountMessage() {}
 	public OpenAccountMessage(String bank, String firstName, String lastName, String emailAddress, String phoneNumber, String password)
 	{
@@ -80,5 +81,9 @@ public class OpenAccountMessage implements Serializable, IOperationMessage
 	}
 	public void setException(Exception exception) {
 		this.exception = exception;
+	}
+
+	public void setMachineName(String machineName) {
+		this.machineName = machineName;
 	}
 }

@@ -286,7 +286,7 @@ public class Env
 	 * @return
 	 */
 	public static ServerInfo getReplicaManagerServerInfo() {
-		return frontEndSvInfo;
+		return replicaManagerSvInfoSet;
 	}
 
 	/**

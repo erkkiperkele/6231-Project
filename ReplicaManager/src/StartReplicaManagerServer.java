@@ -1,3 +1,6 @@
+import shared.util.Constant;
+import shared.util.Env;
+
 import java.io.IOException;
 
 /**
@@ -8,12 +11,9 @@ public class StartReplicaManagerServer {
     public static void main(String[] args) {
 
         //TODO:
-        //- Start listening on udp (for error/failure messages)
-        //- Replace hardcoded bank names with real getter.
-        //- Store processes in a separate class so they can be managed (killed, restarted, etc.)
-        //- Logs!
 
         ReplicaManagerService replicaManager = new ReplicaManagerService();
+        Env.setMachineName(Constant.MACHINE_NAME_AYMERIC);
 
         String implementationName = "Aymeric";
         ReplicaManagerServer server = new ReplicaManagerServer();

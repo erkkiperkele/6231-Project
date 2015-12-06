@@ -11,6 +11,7 @@ public class PrintCustomerInfoMessage implements Serializable, IOperationMessage
 	private String bank;
 	private String result;
 	private Exception exception;
+	private String machineName;
 
 	public PrintCustomerInfoMessage() {}
 	public PrintCustomerInfoMessage(String bank) 
@@ -40,5 +41,9 @@ public class PrintCustomerInfoMessage implements Serializable, IOperationMessage
 	}
 	public void setException(Exception exception) {
 		this.exception = exception;
+	}
+
+	public void setMachineName(String machineName) {
+		this.machineName = machineName;
 	}
 }

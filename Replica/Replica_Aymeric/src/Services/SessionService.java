@@ -3,6 +3,7 @@ package Services;
 import Contracts.IFileLogger;
 import Contracts.ILoggerService;
 import Contracts.ISessionService;
+import shared.util.Env;
 
 /**
  * A singleton class to handle session information and logging services

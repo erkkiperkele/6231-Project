@@ -13,7 +13,8 @@ public class TransferLoanMessage implements Serializable, IOperationMessage
 	private String otherBank;
 	private boolean isTransferSuccessful;
 	private Exception exception;
-	
+	private String machineName;
+
 	public TransferLoanMessage() {}
 	public TransferLoanMessage(int loanID, String currentBank, String otherBank)
 	{
@@ -56,5 +57,9 @@ public class TransferLoanMessage implements Serializable, IOperationMessage
 	}
 	public void setException(Exception exception) {
 		this.exception = exception;
+	}
+
+	public void setMachineName(String machineName) {
+		this.machineName = machineName;
 	}
 }

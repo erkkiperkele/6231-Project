@@ -7,21 +7,6 @@ public class ServerPorts {
      * @param bank
      * @return
      */
-    public static int getRMIPort(Bank bank) {
-        switch (bank) {
-            case Royal:
-                return 4242;
-
-            case National:
-                return 4243;
-
-            case Dominion:
-                return 4244;
-
-            default:
-                return 0;
-        }
-    }
 
     public static int getReplicaUDPPort(Bank bank){
 
