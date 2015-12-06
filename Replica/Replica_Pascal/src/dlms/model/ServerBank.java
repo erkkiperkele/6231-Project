@@ -3,11 +3,13 @@ package dlms.model;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 
 import shared.exception.*;
 import dlms.util.*;
 import shared.data.AbstractServerBank;
+import shared.data.BankState;
 import shared.data.Customer;
 import shared.data.Loan;
 import shared.data.ServerInfo;
@@ -25,6 +27,7 @@ public class ServerBank extends AbstractServerBank
 	private ConcurrentHashMapLists<Loan> loans = new ConcurrentHashMapLists<Loan>();
 	private static final long LOAN_LIMIT = 1000;
 	private int loanCounter = 0;
+	private int customerCounter = 0;
 
 	private UDPServerThread udpServer = null;
 
@@ -532,5 +535,22 @@ public class ServerBank extends AbstractServerBank
 	public void waitUntilUDPServiceEnd() throws InterruptedException 
 	{
 		udpServer.join();
+	}
+
+	@Override
+	public BankState getCurrentState() {
+		List<Loan> loanList = new ArrayList<Loan>();
+		List<Customer> customerList = new ArrayList<Customer>();
+		loanList.addAll(loans.getAllLoans());
+		customerList.addAll(accounts.getAllCustomers());
+		int nextCustomerID = customerCounter + 1;
+		int nextLoanID = loanCounter + 1;
+		return new BankState(loanList, customerList, nextCustomerID, nextLoanID);
+	}
+
+	@Override
+	public void setCurrentState(BankState state) {
+		// TODO Auto-generated method stub
+		
 	}
 }

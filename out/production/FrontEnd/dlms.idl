@@ -2,7 +2,9 @@ module dlms
 {
 	module corba
 	{
-		exception AppException{};
+		exception AppException{
+			string reason;
+		};
 	
 		interface FrontEnd
 		{
