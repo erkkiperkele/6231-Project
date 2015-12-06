@@ -1,9 +1,7 @@
 package impl;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,13 +14,12 @@ import java.net.SocketException;
 
 import shared.data.*;
 import shared.util.Env;
-import shared.udp.CreateLoanMessage;
-import shared.udp.OperationType;
 import shared.udp.UDPMessage;
-import shared.udp.UDPServerThread;
 import shared.exception.*;
 
 public class BankServer extends AbstractServerBank {
+	
+	private static final int NUMOFBANKS = Bank.getBanks().length;
 
 	private BankStore bankStore;
 	private int port;
@@ -83,7 +80,7 @@ public class BankServer extends AbstractServerBank {
 		CountDownLatch latch = new CountDownLatch(NUMOFBANKS-1);
 		for (int i = 0; i < NUMOFBANKS; ++i) {
 			
-			int udpport = PORTSTART - i - 1;
+			int udpport = Env.getReplicaIntranetServerInfo(Bank.getBanks()[i]).getPort();
 			// Check own bank
 			if (udpport == this.port) {
 				Loan l = bankStore.getLoan(AccountNumber);
@@ -162,7 +159,7 @@ public class BankServer extends AbstractServerBank {
 		BankSocket sock = new BankSocket();
 
 		// Get OtherBank's UDP port
-		int rp = servers.get(OtherBank);
+		int rp = Env.getReplicaIntranetServerInfo(Bank.fromString(OtherBank)).getPort();
 		// Send OtherBank a ping to create a new socket
 		sock.sendMessage(lh, rp, "Loan Transfer Request");
 		// Collect remote socket info
