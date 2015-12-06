@@ -23,4 +23,16 @@ public class CreateAccountMessage implements Serializable, IOperationMessage{
 	{
 		return OperationType.CreateAccount;
 	}
+
+	@Override
+	public String getBank() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getMachineName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

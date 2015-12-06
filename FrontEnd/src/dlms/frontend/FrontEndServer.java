@@ -14,6 +14,9 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
 import dlms.corba.FrontEndHelper;
+import shared.data.Bank;
+import shared.data.ServerInfo;
+import shared.util.Env;
 
 /**
  * CORBA entry point for the front end
@@ -38,7 +41,7 @@ public class FrontEndServer {
 	public FrontEndServer() {
 		
 		super();
-
+		
 		// Create a pool of blocking queues to hold the UDP messages from the
 		// replicas
 		this.opQueuePool = new QueuePool();
@@ -123,8 +126,15 @@ public class FrontEndServer {
 	 */
 	private void startServers() {
 
+		Thread.UncaughtExceptionHandler exHandler = new Thread.UncaughtExceptionHandler() {
+		    public void uncaughtException(Thread th, Throwable ex) {
+		        System.out.println("Uncaught exception: " + ex.getClass());
+		    }
+		};
+		
 		// Listen for replica operation response messages
-		ReplicaListener replicaListener = new ReplicaListener(logger, this.opQueuePool);
+		ReplicaUdpListener replicaListener = new ReplicaUdpListener(logger, this.opQueuePool);
+		replicaListener.setUncaughtExceptionHandler(exHandler);
 		replicaListener.start();
 
 		// Wait for invocations from clients

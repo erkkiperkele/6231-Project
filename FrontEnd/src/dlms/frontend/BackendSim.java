@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 
+import shared.udp.OperationType;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
 
@@ -53,7 +54,8 @@ public class BackendSim {
 	public void runs() {
 
 		DatagramSocket serverSocket = null;
-
+		long seqNbr = this.opSequenceNbr++;
+		
 		try {
 
 			serverSocket = new DatagramSocket(sequencerStub.addr);
@@ -95,7 +97,6 @@ public class BackendSim {
 				
 				// Respond to the front end with the sequence number
 				
-				long seqNbr = this.opSequenceNbr++;
 				sendData = Serializer.serialize(seqNbr);
 				final DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, remoteIpAddress, remotePort);
 				
@@ -113,10 +114,87 @@ public class BackendSim {
 		} finally {if(serverSocket != null) serverSocket.close();}
 		
 		
+		this.sendValidReplicaResponse(seqNbr);
 		
 		
 		
+	}
+	
+	public void sendValidReplicaResponse(long seqNbr) {
 		
+//		DatagramSocket clientSocket = null;
+//		try {
+//			clientSocket = new DatagramSocket();
+//		} catch (SocketException e1) {
+//			e1.printStackTrace();
+//		}
+//		
+//		
+//		InetSocketAddress r1Addr = new InetSocketAddress("localhost", 31000);
+//		InetSocketAddress r2Addr = new InetSocketAddress("localhost", 32000);
+//		InetSocketAddress r3Addr = new InetSocketAddress("localhost", 33000);
+//		InetSocketAddress r4Addr = new InetSocketAddress("localhost", 34000);
+//
+//		PrintCustomerInfoResultMessage msg1 = new PrintCustomerInfoResultMessage(seqNbr, OperationType.PrintCustomerInfo, "resultString", r1Addr, "");
+//		PrintCustomerInfoResultMessage msg2 = new PrintCustomerInfoResultMessage(seqNbr, OperationType.PrintCustomerInfo, "resultString", r2Addr, "");
+//		PrintCustomerInfoResultMessage msg3 = new PrintCustomerInfoResultMessage(seqNbr, OperationType.PrintCustomerInfo, "resultString", r3Addr, "");
+//		PrintCustomerInfoResultMessage msg4 = new PrintCustomerInfoResultMessage(seqNbr, OperationType.PrintCustomerInfo, "resultString", r4Addr, "");
+//		
+//
+//		
+//		byte[] sendData = new byte[BUFFER_SIZE];
+//		try {
+//			sendData = Serializer.serialize(msg1);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		final DatagramPacket sendPacket1 = new DatagramPacket(sendData, sendData.length, r1Addr.getAddress(), r1Addr.getPort());
+//		try {
+//			clientSocket.send(sendPacket1);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		sendData = new byte[BUFFER_SIZE];
+//		try {
+//			sendData = Serializer.serialize(msg2);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		final DatagramPacket sendPacket2 = new DatagramPacket(sendData, sendData.length, r2Addr.getAddress(), r2Addr.getPort());
+//		try {
+//			clientSocket.send(sendPacket2);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		sendData = new byte[BUFFER_SIZE];
+//		try {
+//			sendData = Serializer.serialize(msg3);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		final DatagramPacket sendPacket3 = new DatagramPacket(sendData, sendData.length, r3Addr.getAddress(), r3Addr.getPort());
+//		try {
+//			clientSocket.send(sendPacket3);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		sendData = new byte[BUFFER_SIZE];
+//		try {
+//			sendData = Serializer.serialize(msg4);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		final DatagramPacket sendPacket4 = new DatagramPacket(sendData, sendData.length, r4Addr.getAddress(), r4Addr.getPort());
+//		try {
+//			clientSocket.send(sendPacket4);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 }

@@ -62,4 +62,12 @@ public class TransferLoanMessage implements Serializable, IOperationMessage
 	public void setMachineName(String machineName) {
 		this.machineName = machineName;
 	}
+	@Override
+	public String getBank() {
+		return currentBank;
+	}
+	@Override
+	public String getMachineName() {
+		return machineName;
+	}
 }

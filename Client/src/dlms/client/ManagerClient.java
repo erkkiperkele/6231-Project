@@ -47,7 +47,7 @@ public class ManagerClient extends Client {
 		try {
 			System.out.println(server.printCustomerInfo(bank));
 		} catch (AppException e) {
-			System.out.println("Operation failed. " + e.getMessage());
+			System.out.println("Operation failed. " + e.reason);
 		}
 	}
 

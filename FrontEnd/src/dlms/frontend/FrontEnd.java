@@ -6,6 +6,7 @@ import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -15,17 +16,21 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import dlms.corba.AppException;
 import dlms.corba.FrontEndPOA;
 import shared.data.Bank;
+import shared.data.ServerInfo;
 import shared.entities.FailureType;
 import shared.udp.IOperationMessage;
 import shared.udp.ReplicaStatusMessage;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
 import shared.udp.message.client.PrintCustomerInfoMessage;
+import shared.util.Constant;
+import shared.util.Env;
 
 /**
  * The DLMS CORBA front end
@@ -36,17 +41,12 @@ import shared.udp.message.client.PrintCustomerInfoMessage;
 public class FrontEnd extends FrontEndPOA {
 
 	// These should be coming from a config
-	public static final String SEQ_HOST = "localhost";
-	public static final int SEQ_PORT = 5000;
-	public static final int MSG_BUF = 4096;
-	public static final int MAX_QUEUE_SIZE = 8;
+	public static final int MAX_DATAGRAM_SIZE = 4096;
 	
 	private Logger logger = null;
+	private ServerInfo sqInfo = null;
+	private HashMap<String, ServerInfo> replicaManagerGroup;
 	private volatile QueuePool opQueuePool = null;
-	private volatile BlockingQueue<UDPMessage> queue = null;
-	
-	private ProcessStubGroup replicaManagerGroup;
-	private ProcessStub sequencerStub;
 	
 	/**
 	 * Constructor
@@ -54,19 +54,14 @@ public class FrontEnd extends FrontEndPOA {
 	public FrontEnd(Logger logger, QueuePool opQueuePool) {
 		
 		super();
-		
+
 		this.logger = logger;
 		this.opQueuePool = opQueuePool;
-		this.queue = new ArrayBlockingQueue<UDPMessage>(MAX_QUEUE_SIZE);
 
-		// Set up the config of processes to which this component must connect
-		this.replicaManagerGroup = new ProcessStubGroup();
-		this.replicaManagerGroup.put("rm1", new ProcessStub("rm1", new InetSocketAddress("localhost", 21000)));
-		this.replicaManagerGroup.put("rm2", new ProcessStub("rm2", new InetSocketAddress("localhost", 22000)));
-		this.replicaManagerGroup.put("rm3", new ProcessStub("rm3", new InetSocketAddress("localhost", 23000)));
-		this.replicaManagerGroup.put("rm4", new ProcessStub("rm4", new InetSocketAddress("localhost", 24000)));
+		// Load the configuration
+		Env.loadSettings();
 		
-		ProcessStub sequencerStub = new ProcessStub("sequencer", new InetSocketAddress("localhost", 5000));
+		this.sqInfo = Env.getSequencerServerInfo();
 	}
 
 	@Override
@@ -78,95 +73,44 @@ public class FrontEnd extends FrontEndPOA {
 
 	@Override
 	public String printCustomerInfo(String bankId) throws AppException {
-
+		
+		//
 		logger.info("FrontEnd: Client invoked printCustomerInfo(" + bankId + ")");
 		
-		// Create the operation message and send it to the sequencer. the
-		// sequencer will reply with the sequence number
+		BlockingQueue<String> resultQueue = new ArrayBlockingQueue<String>(1);
 		PrintCustomerInfoMessage opMessage = new PrintCustomerInfoMessage(bankId);
-		long sequenceNbr = 0;
+		ResultSetListener<String> resultsListener = null;
+		long opSequenceNbr = 0;
+		String result = null;
 		
+		// Send the operation to the sequencer and get the sequence number
 		try {
-			sequenceNbr = this.forwardToSequencer(opMessage);
+			opSequenceNbr = this.forwardToSequencer(opMessage);
 		} catch (AppException e) {
-			logger.info("FrontEnd: " + e.getMessage());
+			logger.info("FrontEnd: " + e.reason);
 			throw e;
 		}
+		
+		// Listen for the operation result on the blocking queue - resultQueue
+		resultsListener = new ResultSetListener<String>(logger, this.opQueuePool, opSequenceNbr, resultQueue);
+		resultsListener.start();
+		
+		//
+		logger.info("FrontEnd: Sequencer replied to printCustomerInfo operation with sequence number " + opSequenceNbr);
 
-		// Add this thread's blocking queue to the queue pool for the replica
-		// listener thread
-		opQueuePool.put(sequenceNbr, this.queue);
-		
-		logger.info("FrontEnd: Sequencer replied to printCustomerInfo operation with sequence number " + sequenceNbr);
+		try {
+			result = resultQueue.poll(5000, TimeUnit.MILLISECONDS);
+		} catch (InterruptedException e) {
+			throw new AppException("FrontEnd: InterruptedException while waiting for the operation result");
+		}
 
-		// Now we just have to wait for the messages to go around and come back from the replica
+		// Timeout!
+		if (result == null) {
+			throw new AppException("FrontEnd: The backend timed out");
+		}
 		
-		//flagProcessFailure(String BankId, long opSequenceNbr)
-		
-		
-		
-		
-		
-		// Create a thread to handle the reception of replica results
-//		ReplicaMessageHandler responseThread = new ReplicaMessageHandler(sequenceNbr, OperationType.PrintCustomerInfo);
-//		responseThread.start();
-		
-		
-		// Add this thread to the thread pool
-		
-		// Wait for a the response thread to to get two valid results from the replicas then forward the result to the client
-//		synchronized (this) {
-//
-//			try {
-//				responseThread.wait();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		
-		
-//		int r = randomWithRange(1,5);
-//		System.out.println("Random: " + r);
-//		try {
-//			Thread.sleep(r*1000);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		
-//		for (int i = 0; i < 1000000; i++) {
-//			int j = i % 2;
-//		}
-//		
-//		long threadId = Thread.currentThread().getId();
-//		System.out.println("Thread # " + threadId + " is doing this task");
-        
-		// clean up the blocking queue from the pool
-		opQueuePool.remove(sequenceNbr);
-		
-		return "Op printCustomerInfo: Sequence Number: " + sequenceNbr++;
+		return result;
 	}
-
-//	public static void test() {
-//		RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
-//		 
-//		String jvmName = runtimeBean.getName();
-//		System.out.println("JVM Name = " + jvmName);
-//		long pid = Long.valueOf(jvmName.split("@")[0]);
-//		System.out.println("JVM PID  = " + pid);
-// 
-//		ThreadMXBean bean = ManagementFactory.getThreadMXBean();
-// 
-//		int peakThreadCount = bean.getPeakThreadCount();
-//		System.out.println("Peak Thread Count = " + peakThreadCount);
-//	}
-
-//	public int randomWithRange(int min, int max)
-//	{
-//	   int range = (max - min) + 1;     
-//	   return (int)(Math.random() * range) + min;
-//	}
 	
 	@Override
 	public int transferLoan(String bankId, int loanId, String currentBankId, String otherBankId) throws AppException {
@@ -199,10 +143,10 @@ public class FrontEnd extends FrontEndPOA {
 
 		UDPMessage udpMessage = new UDPMessage(opMessage);
 		DatagramSocket clientSocket = null;
-		InetSocketAddress remoteAddr = new InetSocketAddress(SEQ_HOST, SEQ_PORT); // The Sequencer IP address
+		InetSocketAddress remoteAddr = new InetSocketAddress(sqInfo.getIpAddress(), sqInfo.getPort()); // The Sequencer IP address
 		long opSequenceNbr = 0;
 		int retryCntr = 3;
-		final byte[] incomingDataBuffer = new byte[MSG_BUF];	
+		final byte[] incomingDataBuffer = new byte[MAX_DATAGRAM_SIZE];	
 		DatagramPacket incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
 		DatagramPacket outgoingPacket = null;
 		final byte[] outgoingData;
@@ -292,104 +236,96 @@ public class FrontEnd extends FrontEndPOA {
 		return opSequenceNbr;
 	}
 	
-	/**
-	 * Sends a message to each replica manager saying that a replica failed
-	 * 
-	 * @param BankId
-	 * @param opSequenceNbr
-	 */
-	private void flagProcessFailure(String bankName) {
-		
-		ExecutorService pool;
-		Set<Future<Boolean>> set;
-		
-		// Prepare the threads to call other banks to get the loan sum for this account
-		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
-	    set = new HashSet<Future<Boolean>>();
-
-	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", FailureType.failure);
-	    byte[] outgoingData;
-		try {
-			outgoingData = Serializer.serialize(udpMessage);
-		} catch (IOException e1) {
-			logger.info("FrontEnd: Unable to serialize UDP message to replica managers");
-			return;
-		}
-
-		try {
-
-			// Get the loan sum for all banks and approve or not the new loan
-			for (ProcessStub rmStub : this.replicaManagerGroup.values()) {
-				Callable<Boolean> callable = new UdpSend(outgoingData, rmStub.addr);
-				logger.info("FrontEnd: Sending failed process message to replica manager " + rmStub.id);
-				Future<Boolean> future = pool.submit(callable);
-				set.add(future);
-			}
-
-			for (Future<Boolean> future : set) {
-
-				try {
-					//Boolean result = future.get();
-					future.get();
-				} catch (ExecutionException | InterruptedException e) {
-					logger.info("FrontEnd: Exception in sending message to replica managers. "  + e.getCause().getMessage());
-					//throw e.getCause();
-				}
-			}
-
-		} finally {
-			pool.shutdown();
-		}
-	}
-
-	/**
-	 * Sends a message to each replica manager saying that a replica result was different than others
-	 * 
-	 * @param BankId
-	 * @param opSequenceNbr
-	 */
-	private void flagProcessBug(String bankName) {
-		
-		ExecutorService pool;
-		Set<Future<Boolean>> set;
-		
-		// Prepare the threads to call other banks to get the loan sum for this account
-		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
-	    set = new HashSet<Future<Boolean>>();
-	    
-	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", FailureType.error);
-	    byte[] outgoingData;
-		try {
-			outgoingData = Serializer.serialize(udpMessage);
-		} catch (IOException e1) {
-			logger.info("FrontEnd: Unable to serialize UDP message to replica managers");
-			return;
-		}
-
-		try {
-
-			// Get the loan sum for all banks and approve or not the new loan
-			for (ProcessStub rmStub : this.replicaManagerGroup.values()) {
-				Callable<Boolean> callable = new UdpSend(outgoingData, rmStub.addr);
-				logger.info("FrontEnd: Sending failed process message to replica manager " + rmStub.id);
-				Future<Boolean> future = pool.submit(callable);
-				set.add(future);
-			}
-
-			for (Future<Boolean> future : set) {
-
-				try {
-					//Boolean result = future.get();
-					future.get();
-				} catch (ExecutionException | InterruptedException e) {
-					logger.info("FrontEnd: Exception in sending message to replica managers. "  + e.getCause().getMessage());
-					//throw e.getCause();
-				}
-			}
-
-		} finally {
-			pool.shutdown();
-		}
-	}
+//
+//	/**
+//	 * Sends a message to each replica manager saying that a replica result was different than others
+//	 * 
+//	 * @param BankId
+//	 * @param opSequenceNbr
+//	 */
+//	private void flagProcessBug(String bankName) {
+//		
+//		ExecutorService pool;
+//		Set<Future<Boolean>> set;
+//		
+//		// Prepare the threads to call other banks to get the loan sum for this account
+//		pool = Executors.newFixedThreadPool(this.replicaManagerGroup.size());
+//	    set = new HashSet<Future<Boolean>>();
+//	    
+//	    ReplicaStatusMessage udpMessage = new ReplicaStatusMessage(Bank.fromString(bankName), "", FailureType.error);
+//	    byte[] outgoingData;
+//		try {
+//			outgoingData = Serializer.serialize(udpMessage);
+//		} catch (IOException e1) {
+//			logger.info("FrontEnd: Unable to serialize UDP message to replica managers");
+//			return;
+//		}
+//
+//		try {
+//
+//			// Get the loan sum for all banks and approve or not the new loan
+//			for (ServerInfo rmStub : this.replicaManagerGroup.values()) {
+//				Callable<Boolean> callable = new UdpSend(outgoingData,
+//						new InetSocketAddress(rmStub.getIpAddress(), rmStub.getPort()));
+//				logger.info("FrontEnd: Sending failed process message to " + rmStub.getServerName() + "'s replica manager");
+//				Future<Boolean> future = pool.submit(callable);
+//				set.add(future);
+//			}
+//
+//			for (Future<Boolean> future : set) {
+//
+//				try {
+//					//Boolean result = future.get();
+//					future.get();
+//				} catch (ExecutionException | InterruptedException e) {
+//					logger.info("FrontEnd: Exception in sending message to replica managers. "  + e.getCause().getMessage());
+//					//throw e.getCause();
+//				}
+//			}
+//
+//		} finally {
+//			pool.shutdown();
+//		}
+//	}
+//	
+	
+	
+	
+//	public void runThread() {
+//		
+//		ExecutorService executor = Executors.newSingleThreadExecutor();
+//		UdpTransferLoanCallable callable = new UdpTransferLoanCallable(this.bank, otherBankStub, loanId, 0, this.logger);
+//		Future<MessageResponseTransferLoan> future = executor.submit(callable);
+//
+//		try {
+//			MessageResponseTransferLoan resp = future.get(5, TimeUnit.SECONDS);
+//			if (resp.status) {
+//			
+//				// Loan transfered successfully. It must now be deleted locally.
+//				// If it can't be deleted, we have to roll back!
+//				if (!this.bank.deleteLoan(loanId)) {
+//					// Of course, this one too could fail...
+//					rollbackLoanTransfer(otherBankStub, resp.loanId);
+//				}
+//				
+//				logger.info(this.bank.getTextId() + ": Loan transfer " + loanId + " to " + otherBankStub.id + " successful");
+//				return resp.loanId;
+//			}
+//			else {
+//				logger.info(this.bank.getTextId() + ": Loan transfer failed. " + resp.message);
+//				throw new AppException("Loan transfer failed. " + resp.message);
+//			}
+//		} catch (ExecutionException ee) {
+//			throw new AppException("Callable threw an execution exception: " + ee.getMessage());
+//		} catch (InterruptedException e) {
+//			throw new AppException("Callable was interrupted: " + e.getMessage());
+//		} catch (TimeoutException e) {
+//			throw new AppException("Callable transfer loan timed out: " + e.getMessage());
+//		} finally {
+//			executor.shutdown();
+//		}
+//		
+//		
+//	}
 
 }

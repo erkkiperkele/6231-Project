@@ -8,21 +8,15 @@ import java.net.SocketException;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Logger;
 
+import shared.data.ServerInfo;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
+import shared.util.Env;
 
-/**
- * This is the UDP listener class/thread which receives the operation results
- * from the replicas and makes it available to the thread corresponding to the
- * original request from the client
- * 
- * @author mat
- * 
- */
-public class ReplicaListener extends Thread {
+public class ReplicaManagerListener {
 
-	private static final String FE_HOST = "localhost";
-	private static final int FE_PORT = 15000;
+//	private static final String FE_HOST = "localhost";
+//	private static final int FE_PORT = 15000;
 	private static final int UDP_PACKET_SIZE = 4096;
 
 	protected Logger logger;
@@ -34,18 +28,18 @@ public class ReplicaListener extends Thread {
 	 * @param logger
 	 * @return 
 	 */
-	public ReplicaListener(Logger logger, QueuePool opThreadPool) {
+	public ReplicaManagerListener(Logger logger) {
 		
 		super();
 		this.logger = logger;
 		this.opThreadPool = opThreadPool;
 	}
 
-	@Override
 	public void run() {
 
 		DatagramSocket serverSocket = null;
-		InetSocketAddress localAddr = new InetSocketAddress(FE_HOST, FE_PORT);
+		ServerInfo feInfo = Env.getFrontEndServerInfo();
+		InetSocketAddress localAddr = new InetSocketAddress(feInfo.getIpAddress(), feInfo.getPort());
 
 		try {
 
@@ -58,7 +52,7 @@ public class ReplicaListener extends Thread {
 				// LISTENER
 				//
 				
-				logger.info("FrontEnd: Waiting for replica messages on " + FE_HOST + ":" + FE_PORT);
+				logger.info("FrontEnd: Waiting for replica messages on " + feInfo.getIpAddress() + ":" + feInfo.getPort());
 				
 				receiveData = new byte[UDP_PACKET_SIZE];
 				final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);

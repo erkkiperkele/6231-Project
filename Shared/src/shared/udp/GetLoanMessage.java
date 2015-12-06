@@ -29,6 +29,18 @@ public class GetLoanMessage implements Serializable, IOperationMessage {
 	{
 		return OperationType.GetLoan;
 	}
+
+	@Override
+	public String getBank() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getMachineName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
 

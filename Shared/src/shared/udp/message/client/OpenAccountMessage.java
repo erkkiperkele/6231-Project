@@ -86,4 +86,8 @@ public class OpenAccountMessage implements Serializable, IOperationMessage
 	public void setMachineName(String machineName) {
 		this.machineName = machineName;
 	}
+	@Override
+	public String getMachineName() {
+		return machineName;
+	}
 }

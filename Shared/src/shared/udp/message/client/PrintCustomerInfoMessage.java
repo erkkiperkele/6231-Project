@@ -3,10 +3,11 @@ package shared.udp.message.client;
 import java.io.Serializable;
 
 import shared.udp.IOperationMessage;
+import shared.udp.IOperationResult;
 import shared.udp.OperationType;
 
 @SuppressWarnings("serial")
-public class PrintCustomerInfoMessage implements Serializable, IOperationMessage 
+public class PrintCustomerInfoMessage implements Serializable, IOperationMessage, IOperationResult<String>
 {
 	private String bank;
 	private String result;
@@ -22,6 +23,21 @@ public class PrintCustomerInfoMessage implements Serializable, IOperationMessage
 	public OperationType getOperationType()
 	{
 		return OperationType.PrintCustomerInfo;
+	}
+	
+	/**
+	 * Used to compare this object's result with another, for use in the front
+	 * end so that it doesn't have to worry about types
+	 * 
+	 * @param msg
+	 * @return
+	 */
+	public boolean isResultEqual(IOperationResult<String> altMessage) {
+
+		if (this.result == null || altMessage == null) {
+			return false;
+		}
+		return this.result.equals(altMessage.getResult());
 	}
 
 	public String getBank() {
@@ -45,5 +61,9 @@ public class PrintCustomerInfoMessage implements Serializable, IOperationMessage
 
 	public void setMachineName(String machineName) {
 		this.machineName = machineName;
+	}
+	@Override
+	public String getMachineName() {
+		return machineName;
 	}
 }
