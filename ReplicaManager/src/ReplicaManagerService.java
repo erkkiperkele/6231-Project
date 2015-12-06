@@ -1,6 +1,8 @@
+import jdk.nashorn.internal.ir.RuntimeNode;
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
 import shared.udp.UDPClient;
+import shared.udp.message.client.RequestSynchronize;
 import shared.util.Constant;
 import shared.util.Env;
 
@@ -13,11 +15,11 @@ import java.util.HashMap;
 
 public class ReplicaManagerService implements IReplicaManagerService {
 
-    private UDPClient udpFrontEnd;
+    private UDPClient udpClient;
     private HashMap<Bank, Integer> errorCount;
 
     public ReplicaManagerService() {
-        this.udpFrontEnd = new UDPClient();
+        this.udpClient = new UDPClient();
         this.errorCount = new HashMap<>();
         errorCount.put(Bank.Royal, 0);
         errorCount.put(Bank.Dominion, 0);
@@ -163,7 +165,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         while (isStopped != Constant.FE_STOPPED && retryCount < 5) {
             try {
-                byte[] answer = udpFrontEnd.sendMessage(Constant.STOP_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                byte[] answer = udpClient.sendMessage(Constant.STOP_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
                 isStopped = new String(answer, "UTF-8").trim();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -178,7 +180,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         while (isStarted != Constant.FE_STARTED && retryCount < 5) {
             try {
-                byte[] answer = udpFrontEnd.sendMessage(Constant.START_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
+                byte[] answer = udpClient.sendMessage(Constant.START_FE.getBytes(), Constant.FE_TO_RM_LISTENER_PORT);
                 isStarted = new String(answer, "UTF-8").trim();
             } catch (IOException e) {
                 e.printStackTrace();

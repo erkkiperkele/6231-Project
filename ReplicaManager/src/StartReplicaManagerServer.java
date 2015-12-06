@@ -10,8 +10,6 @@ public class StartReplicaManagerServer {
 
     public static void main(String[] args) {
 
-        //TODO:
-
         ReplicaManagerService replicaManager = new ReplicaManagerService();
 		Env.loadSettings();
         String implementationName = Env.getMachineName();

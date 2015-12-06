@@ -48,22 +48,25 @@ public class CommandBuilder {
 
 
         String os = System.getProperty("os.name");
-        String separator = os.contains("Mac OS")
-                ? ":"
-                : ";";
+        String separator = ";";
+        String cmdCommand = "cmd /c start";
+
+        if (os.contains("Mac OS")){
+            separator = ":";
+            cmdCommand = "";
+        }
 
         System.err.println(os);
-//        String separator = System.getProperty("os.name")
-
 
         return String.format(
-                "cmd /c start java -cp %1$s%2$s%3$s%2$s%4$s %5$s %6$s",
+                "%7$s java -cp %1$s%2$s%3$s%2$s%4$s %5$s %6$s",
                 modulePathReplica,
                 separator,
                 modulePathShared,
                 modulePathSequencer,
                 classPath,
-                mainArgument
+                mainArgument,
+                cmdCommand
         );
     }
 
