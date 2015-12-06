@@ -1,0 +1,30 @@
+module DLMS {
+	interface BankServerInterface {
+		string openAccount(
+			in string bank,
+			in string FirstName,
+			in string LastName,
+			in string EmailAddress,
+			in string PhoneNumber,
+			in string Password);
+		
+		string getLoan(
+			in string Bank,
+			in string AccountNumber,
+			in string Password,
+			in double Amount);
+	
+		string delayPayment(
+			in string Bank,
+			in string LoanID,
+			in string CurrentDueDate,
+			in string NewDueDate);
+	
+		string printCustomerInfo(in string Bank);
+		
+		string transferLoan(
+			in string LoanID,
+			in string CurrentBank,
+			in string OtherBank);
+	};
+};
