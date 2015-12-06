@@ -336,6 +336,14 @@ public class Env
 	 * getReplicaManagerServerInfo
 	 * @return
 	 */
+	public static ServerInfo getReplicaManagerServerInfo() {
+		return replicaManagerSvInfoSet.get(Env.getMachineName());
+	}
+
+	/**
+	 * getReplicaManagerServerInfo
+	 * @return
+	 */
 	public static ServerInfo getReplicaManagerServerInfo(String machineName) {
 		return replicaManagerSvInfoSet.get(machineName);
 	}
