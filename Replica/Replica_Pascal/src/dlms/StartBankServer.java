@@ -25,17 +25,7 @@ public class StartBankServer
 		Env.loadSettings();
 		Env.log("Server Started <" + Env.getMachineName() + "> " + Env.getCurrentBank());
 
-		String bankName;
-		if (args == null || args.length == 0)
-		{
-			bankName = shared.data.Bank.Royal.toString();
-		}
-		else
-		{
-			bankName = args[0];
-		}
-		
-		ServerInfo server = getServerInformation(bankName);
+		ServerInfo server = Env.getReplicaServerInfo();
 		if(serverIsValid(server))
 		{
 			try

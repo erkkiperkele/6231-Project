@@ -126,15 +126,15 @@ public class ReadConfig
 				replicaSvInfoSet.get(bankmachineName).put(Bank.Royal, new ServerInfo(bankmachineName, replicaRoyalIp, Integer.parseInt(replicaRoyalPort)));
 				
 				replicaIntranetSvInfoSet.put(bankmachineName, new HashMap<Bank, ServerInfo>());
-				replicaSvInfoSet.get(bankmachineName).put(Bank.Dominion, new ServerInfo(bankmachineName, replicaIntranetDominionIp, Integer.parseInt(replicaIntranetDominionPort)));
-				replicaSvInfoSet.get(bankmachineName).put(Bank.National, new ServerInfo(bankmachineName, replicaIntranetNationalIp, Integer.parseInt(replicaIntranetNationalPort)));
-				replicaSvInfoSet.get(bankmachineName).put(Bank.Royal, new ServerInfo(bankmachineName, replicaIntranetRoyalIp, Integer.parseInt(replicaIntranetRoyalPort)));
+				replicaIntranetSvInfoSet.get(bankmachineName).put(Bank.Dominion, new ServerInfo(bankmachineName, replicaIntranetDominionIp, Integer.parseInt(replicaIntranetDominionPort)));
+				replicaIntranetSvInfoSet.get(bankmachineName).put(Bank.National, new ServerInfo(bankmachineName, replicaIntranetNationalIp, Integer.parseInt(replicaIntranetNationalPort)));
+				replicaIntranetSvInfoSet.get(bankmachineName).put(Bank.Royal, new ServerInfo(bankmachineName, replicaIntranetRoyalIp, Integer.parseInt(replicaIntranetRoyalPort)));
 				
 				
 				replicaRMSvInfoSet.put(bankmachineName, new HashMap<Bank, ServerInfo>());
-				replicaSvInfoSet.get(bankmachineName).put(Bank.Dominion, new ServerInfo(bankmachineName, replicaRMDominionIp, Integer.parseInt(replicaRMDominionPort)));
-				replicaSvInfoSet.get(bankmachineName).put(Bank.National, new ServerInfo(bankmachineName, replicaRMNationalIp, Integer.parseInt(replicaRMNationalPort)));
-				replicaSvInfoSet.get(bankmachineName).put(Bank.Royal, new ServerInfo(bankmachineName, replicaRMRoyalIp, Integer.parseInt(replicaRMRoyalPort)));
+				replicaRMSvInfoSet.get(bankmachineName).put(Bank.Dominion, new ServerInfo(bankmachineName, replicaRMDominionIp, Integer.parseInt(replicaRMDominionPort)));
+				replicaRMSvInfoSet.get(bankmachineName).put(Bank.National, new ServerInfo(bankmachineName, replicaRMNationalIp, Integer.parseInt(replicaRMNationalPort)));
+				replicaRMSvInfoSet.get(bankmachineName).put(Bank.Royal, new ServerInfo(bankmachineName, replicaRMRoyalIp, Integer.parseInt(replicaRMRoyalPort)));
 
 				serverCounter++;
 			}

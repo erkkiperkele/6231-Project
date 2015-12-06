@@ -15,8 +15,6 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 	public UDPReplicaToReplicaManagerThread(AbstractServerBank bank) throws Exception
 	{
 		t = new Thread();
-		t.start();
-		
 		ServerInfo sv = Env.getReplicaToReplicaManagerServerInfo();
 		System.out.println("Binding to port " + sv.getPort() + " for " + sv.getIpAddress());
 		aSocket = new DatagramSocket(sv.getPort());
