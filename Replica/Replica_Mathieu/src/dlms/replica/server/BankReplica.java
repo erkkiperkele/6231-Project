@@ -490,6 +490,6 @@ public class BankReplica extends AbstractServerBank {
 	@Override
 	public void setCurrentState(BankState state) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

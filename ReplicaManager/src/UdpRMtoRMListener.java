@@ -31,8 +31,8 @@ public class UdpRMtoRMListener extends Thread {
 
     @Override
     public void run() {
-        //HACK to get the serverInfos.
-        Env.setCurrentBank(Bank.Royal);
+
+        Env.setCurrentBank(Bank.Royal); //HACK to get the serverInfos.
         int serverPortRMtoRMListener = Env.getReplicaToReplicaManagerServerInfo().getPort();
 
         DatagramSocket listenerSocket = null;

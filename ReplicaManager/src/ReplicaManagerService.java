@@ -212,8 +212,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
 
         String machineName = Env.getMachineName();
-//        ServerInfo otherServerInfo = Env.getReplicaManagerServerInfo(machineToGetStateFrom);
-        ServerInfo otherServerInfo = Env.getReplicaServerInfo(machineToGetStateFrom, bank);
+        ServerInfo otherServerInfo = Env.getReplicaToReplicaManagerServerInfo(machineToGetStateFrom, bank);
 
         RequestSynchronize operationMessage = new RequestSynchronize(
                 machineName,
@@ -230,16 +229,12 @@ public class ReplicaManagerService implements IReplicaManagerService {
             System.err.println(
                     "Request initial state to: "
                             + machineToGetStateFrom + " "
-                            + otherServerInfo.getAddress() + " "
+                            + otherServerInfo.getIpAddress() + " "
                             + otherServerInfo.getPort()
             );
             udpClient.sendMessage(data, otherServerInfo.getIpAddress(), otherServerInfo.getPort());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        //getstate reliably
-        //write state on disk
     }
 }

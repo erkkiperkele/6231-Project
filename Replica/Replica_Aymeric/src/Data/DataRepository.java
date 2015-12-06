@@ -53,6 +53,8 @@ public class DataRepository {
     }
 
     public void resetBankSate(BankState state) {
+        SessionService.getInstance().log().warn("resetting current bank state.");
+
         this.loans = null;
         this.accounts = null;
 
@@ -77,6 +79,7 @@ public class DataRepository {
                 getLoansAtIndex(index).add(loan);
             }
         }
+        SessionService.getInstance().log().warn("finished resetting current bank state.");
     }
 
     /**
