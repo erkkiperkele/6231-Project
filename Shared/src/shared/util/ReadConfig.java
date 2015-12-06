@@ -38,7 +38,8 @@ public class ReadConfig
     		Map<String, Map<Bank, ServerInfo>> replicaIntranetSvInfoSet = new HashMap<String, Map<Bank, ServerInfo>>();
     		Map<String, Map<Bank, ServerInfo>> replicaRMSvInfoSet = new HashMap<String, Map<Bank, ServerInfo>>();
 
-			String machineName = prop.getProperty("current-machine-name");
+			String machineName = prop.getProperty("current-machine-name");			
+			String bankName = prop.getProperty("current-bank-name");
 			
 			String logConsoleEnabled = prop.getProperty("log-console-enabled");
 			String logFileEnabled = prop.getProperty("log-file-enabled");
@@ -50,7 +51,6 @@ public class ReadConfig
 			String sequencerIp = prop.getProperty("bank-sequencer-ip");
 			String sequencerPort = prop.getProperty("bank-sequencer-port");
 			
-			String bankName = prop.getProperty("current-bank-name");
 			if(bankName != null)
 			{
 				currentBank = Bank.fromString(bankName);
@@ -150,9 +150,7 @@ public class ReadConfig
 	    	Env.setLogConsoleEnabled(isLogConsoleEnabled);
 	    	Env.setLogPath(logFilePath);
 	    	
-	    	Env.setMachineName(machineName);
-			
-	    	Env.loadSettings(currentBank, bankmachineName, sequencerSvInfo, frontEndSvInfo, 
+	    	Env.loadSettings(currentBank, machineName, sequencerSvInfo, frontEndSvInfo, 
 	    			replicaManagerSvInfoSet, replicaSvInfoSet, replicaIntranetSvInfoSet, replicaRMSvInfoSet);
 		}
 		catch (IOException ex)

@@ -5,6 +5,7 @@ import java.util.logging.Level;
 
 import dlms.model.*;
 import shared.data.ServerInfo;
+import shared.udp.UDPReplicaToReplicaManagerThread;
 import shared.util.Constant;
 import shared.util.Env;
 
@@ -21,8 +22,8 @@ public class StartBankServer
 	 */
 	public static void main(String[] args)
 	{
-		// Load server settings
-		Env.setMachineName(Constant.MACHINE_NAME_PASCAL);
+		Env.loadSettings();
+		Env.log("Server Started <" + Env.getMachineName() + "> " + Env.getCurrentBank());
 
 		String bankName;
 		if (args == null || args.length == 0)
@@ -41,7 +42,10 @@ public class StartBankServer
 			{
 				// Start instance listening on UDP
 				ServerBank bankServer = new ServerBank(server, true);
+				UDPReplicaToReplicaManagerThread replicaManager = new UDPReplicaToReplicaManagerThread(bankServer);
+				replicaManager.start();
 				bankServer.waitUntilUDPServiceEnd();
+				replicaManager.join();
 			}
 			catch (Exception e)
 			{

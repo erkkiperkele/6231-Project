@@ -33,8 +33,9 @@ public class Env
 		
 	/**
 	 * Static constructor
+	 * @return 
 	 */
-    static 
+    public static void loadSettings()
     {
 		// Load server settings
     	try
@@ -68,6 +69,7 @@ public class Env
     		Map<String, Map<Bank, ServerInfo>> replicaIntranetSvInfoSet,
     		Map<String, Map<Bank, ServerInfo>> replicaRMSvInfoSet) 
     {
+    	Env.setCurrentBank(currentBank);
     	Env.machineName = machineName;
     	Env.sequencerSvInfo = sequencerSvInfo;
     	Env.frontEndSvInfo = frontEndSvInfo;
@@ -440,10 +442,6 @@ public class Env
 
 	public static void setLogPath(String logFilePath) {
 		Env.logPath = logFilePath;
-	}
-
-	public static void setMachineName(String machineName) {
-		Env.machineName = machineName;
 	}
 
 	public static String getMachineName() {

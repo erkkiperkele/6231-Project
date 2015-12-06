@@ -28,7 +28,7 @@ public class StartBankServer {
      */
     public static void main(String[] args) {
 
-        Env.setMachineName(Constant.MACHINE_NAME_AYMERIC);
+		Env.loadSettings();
 
         String serverArg = args.length > 0
                 ? args[0]

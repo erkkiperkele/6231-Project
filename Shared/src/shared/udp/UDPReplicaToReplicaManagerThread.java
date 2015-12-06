@@ -27,4 +27,11 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 		
 	}
 
+	public void start() {
+		t.start();
+	}
+
+	public void join() throws InterruptedException {
+		t.join();
+	}
 }

@@ -13,7 +13,7 @@ public class StartReplicaManagerServer {
         //TODO:
 
         ReplicaManagerService replicaManager = new ReplicaManagerService();
-        Env.setMachineName(Constant.MACHINE_NAME_AYMERIC);
+		Env.loadSettings();
 
         String implementationName = "Aymeric";
         ReplicaManagerServer server = new ReplicaManagerServer();

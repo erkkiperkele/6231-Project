@@ -19,7 +19,8 @@ public class StartSequencer
 	{
 		try
 		{
-			Env.setMachineName(Constant.MACHINE_NAME_SEQUENCER);
+			Env.loadSettings();
+			Env.log("Server Started <" + Env.getMachineName() + "> " + Env.getCurrentBank());
 			UDPServerThread server = new UDPServerThread(Env.getSequencerServerInfo().getServerName(), Env.getSequencerServerInfo().getPort());
 			server.start();
 			server.executeTestMessage();

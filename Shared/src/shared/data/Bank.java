@@ -30,13 +30,13 @@ public enum Bank {
     public static Bank fromString(String bankName)
     {
         switch (bankName.toUpperCase()) {
-            case "RBC":
+            case "ROYAL":
                 return Royal;
 
-            case "BMO":
+            case "NATIONAL":
                 return National;
 
-            case "DESJARDINS":
+            case "DOMINION":
                 return Dominion;
 
             default:
