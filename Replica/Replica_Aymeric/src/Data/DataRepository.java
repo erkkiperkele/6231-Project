@@ -416,6 +416,10 @@ public class DataRepository {
         return this.loanNumber;
     }
 
+    public int getCurrentCustomerNumber(){
+        return this.customerNumber;
+    }
+
     /**
      * Some dummy data initialization
      */

@@ -180,7 +180,7 @@ public class BankService implements IBankService {
     public BankState getCurrentState() {
         List customers = this.repository.getCustomersForStateTransfer();
         List loans = this.repository.getLoansForStateTransfer();
-        int nextCustomerId = this.repository.getCurrentAccountNumber() + 1;
+        int nextCustomerId = this.repository.getCurrentCustomerNumber() + 1;
         int nextloanId = this.repository.getCurrentLoanNumber() +1;
         return new BankState(loans, customers, nextCustomerId, nextloanId);
     }
