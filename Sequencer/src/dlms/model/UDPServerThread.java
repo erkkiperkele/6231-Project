@@ -49,5 +49,23 @@ public class UDPServerThread extends shared.udp.UDPServerThread
 	public void executeTestMessage() {
 		UDPServerHandleRequestThread thread = getUDPServerHandleRequestThread();
 		thread.initialize("", bank, aSocket, null, new UDPMessage(new OpenAccountMessage(Bank.Dominion.toString(), "Pascal", "Tozzi", "ptozzi@example.com", "555-555-5555", "123456")), null);
+
+		for(int i = 0; i < 1000; i++)
+		{
+			thread = getUDPServerHandleRequestThread();
+			thread.initialize("", bank, aSocket, null, new UDPMessage(new OpenAccountMessage(Bank.Dominion.toString(), "Pascal" + i, "Tozzi" + i, "ptozzi@example.com" + i, "555-555-5555", "123456" + i)), null);
+		}
+
+		for(int i = 0; i < 1000; i++)
+		{
+			thread = getUDPServerHandleRequestThread();
+			thread.initialize("", bank, aSocket, null, new UDPMessage(new OpenAccountMessage(Bank.National.toString(), "Pascal" + i, "Tozzi" + i, "ptozzi@example.com" + i, "555-555-5555", "123456" + i)), null);
+		}
+
+		for(int i = 0; i < 1000; i++)
+		{
+			thread = getUDPServerHandleRequestThread();
+			thread.initialize("", bank, aSocket, null, new UDPMessage(new OpenAccountMessage(Bank.Royal.toString(), "Pascal" + i, "Tozzi" + i, "ptozzi@example.com" + i, "555-555-5555", "123456" + i)), null);
+		}
 	}
 }
