@@ -2,20 +2,16 @@ package impl;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 
 import shared.data.*;
 import shared.util.Env;
-import shared.udp.UDPMessage;
+import shared.udp.UDPServerThread;
 import shared.exception.*;
 
 public class BankServer extends AbstractServerBank {
@@ -24,10 +20,12 @@ public class BankServer extends AbstractServerBank {
 
 	private BankStore bankStore;
 	private int port;
-	private DatagramSocket socket;
+	private String name;
+	private UDPServerThread udpServer = null;
+	private UDPIntranetListenerThread listener = null;
 	private static int LoanNumber = 0;
 	private static int CustomerNumber = 0;
-	private UDPListenerThread listener;
+	
 	
 	private static synchronized int incrementCustomerNumber() {
 		return ++CustomerNumber;
@@ -40,16 +38,17 @@ public class BankServer extends AbstractServerBank {
 	public BankServer(BankStore bankStore, ServerInfo svInfo) {
 		this.bankStore = bankStore;
 		this.port = svInfo.getPort();
+		this.name = Env.getCurrentBank().toString();
 		
+		// Start UDPServerThread
 		try {
-			this.socket = new DatagramSocket(port);
+			udpServer = new UDPServerThread("Richard replica implementation", port, this);
+			listener = new UDPIntranetListenerThread(bankStore);
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}
-		
-		// Start UDP listener thread
-		listener = new UDPListenerThread(this.bankStore, this.socket);
 		listener.start();
+		udpServer.start();
 	}
 
 	@Override
@@ -69,6 +68,11 @@ public class BankServer extends AbstractServerBank {
 			throw new ExceptionNotValidCustomerAccountID();
 		}
 
+		// Verify that customer does not already have a loan
+		if (bankStore.getLoanByCustomer(c.getAccountNumber()) != null) {
+			throw new ExceptionOnlyOneLoanPerCustomer();
+		}
+		
 		// Password check
 		if (!c.getPassword().equals(Password)) {
 			throw new ExceptionInvalidPassword();
@@ -77,27 +81,22 @@ public class BankServer extends AbstractServerBank {
 		String fn = c.getFirstName();
 		String ln = c.getLastName();
 		
-		ArrayList<String> bankResponses = new ArrayList<String>(NUMOFBANKS);
+		ArrayList<Long> bankResponses = new ArrayList<Long>(NUMOFBANKS);
 		CountDownLatch latch = new CountDownLatch(NUMOFBANKS-1);
 		for (int i = 0; i < NUMOFBANKS; ++i) {
 			
 			int udpport = Env.getReplicaIntranetServerInfo(Bank.getBanks()[i]).getPort();
 			// Check own bank
 			if (udpport == this.port) {
-				Loan l = bankStore.getLoan(AccountNumber);
 				synchronized(bankResponses) {
-					if (l == null) {
-						bankResponses.add("0.0");
-					} else {
-						bankResponses.add(String.valueOf(l.getAmount()));
-					}
+						bankResponses.add((long)0);
 				}
 				continue;
 			}
 			
 			// Spawn new thread to poll BankServer
 			// Response from thread is automatically added to responses.
-			new UDPRequesterThread(udpport, fn + " " + ln, bankResponses, latch).run();
+			new UDPLoanRequesterThread(udpport, fn + " " + ln, bankResponses, latch).run();
 		}
 		// Wait for all threads to finish
 		try {
@@ -109,7 +108,7 @@ public class BankServer extends AbstractServerBank {
 		// Parse responses from all banks
 		double customerLoans = 0.0;
 		for (int i = 0; i < NUMOFBANKS; ++i) {
-			customerLoans += Double.parseDouble(bankResponses.get(i));
+			customerLoans += bankResponses.get(i);
 		}
 
 		if ((Amount + customerLoans) > c.getCreditLimit()) {
@@ -182,93 +181,65 @@ public class BankServer extends AbstractServerBank {
 		return result;
 	}
 
-	private class UDPListenerThread extends Thread {
+	/**
+	 * Listens for communication from other BankServers. Launches responders
+	 * @author Richard
+	 *
+	 */
+	private class UDPIntranetListenerThread extends Thread {
 		public static final int BUFFER_SIZE = 4096;
 		
-		BankStore bank;
-		DatagramSocket socket;
-		long lastSequenceNumber = 0;
+		private BankSocket socket;
+		private BankStore bank;
 		byte[] buffer = new byte[BUFFER_SIZE];
 
-		public UDPListenerThread(BankStore bank, DatagramSocket socket) {
+		public UDPIntranetListenerThread(BankStore bank) {
 			this.bank = bank;
-			this.socket = socket;
+			try {
+				this.socket = new BankSocket(Env.getReplicaIntranetServerInfo(bank.getName()).getPort());
+			} catch (SocketException e) {
+				e.printStackTrace();
+			}
 		}
 
 		public void run() {
 			while(true) {
 				try {
 					// Get message and sender information
-					DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-					socket.receive(packet);
-					ByteArrayInputStream bis = new ByteArrayInputStream(buffer);
-					ObjectInputStream ois = new ObjectInputStream(bis);
-					UDPMessage inc = (UDPMessage)ois.readObject();
-					lastSequenceNumber = inc.getSequenceNumber();
+					String msg = socket.recvMessage();
 					// Handle request
+					if (msg.equals("Loan Transfer Request")) {
+						new UDPLoanReceiverThread(bank, socket.getInetAddress(), socket.getPort());
+					} else {
+						// Incoming message was name of Customer
+						String[] name = msg.split(" ");
+						Customer c = bank.getCustomer(name[0], name[1]);
+						if (c == null) {
+							socket.sendReply("0");
+						} else {
+							Loan l = bank.getLoan(c.getAccountNumber());
+							if (l == null) {
+								socket.sendReply("0");
+							} else {
+								socket.sendReply(String.valueOf(l.getAmount()));
+							}
+						}
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 					continue;
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
 				}
 			}
 		}
 	}
 
-	private class UDPResponderThread extends Thread {
-		private BankStore bank;
-		private BankSocket socket;
-		private InetAddress remoteHost;
-		private int remotePort;
-		private String command;
-
-		public UDPResponderThread(BankStore bank, String command, InetAddress rh, int rp) {
-			this.bank = bank;
-			try {
-				this.socket = new BankSocket();
-				this.remoteHost = rh;
-				this.remotePort = rp;
-			} catch (SocketException e) {
-				e.printStackTrace();
-			}
-			this.command = command;
-		}
-
-		public void run() {
-			String[] sp = command.split(" ");
-			// Search accounts for matching person (same name)
-			String response = null;
-			Customer c = bank.getCustomer(sp[0], sp[1].trim());
-			if (c == null) {
-				// Reply 0.0
-				response = "0.0";
-			} else {
-				// Search for loan from person
-				Loan l = bank.getLoanByCustomer(c.getId());
-				if (l == null) {
-					// Reply 0.0
-					response = "0.0";
-				} else {
-					response = String.valueOf(l.getAmount());
-				}
-			}
-			// Reply loan amount
-			try {
-				socket.sendMessage(remoteHost, remotePort, response);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	private class UDPRequesterThread extends Thread {
+	private class UDPLoanRequesterThread extends Thread {
 		private int remoteport;
 		private String msg;
 		private String response;
-		private ArrayList<String> responses;
+		private ArrayList<Long> responses;
 		private CountDownLatch latch;
-		public UDPRequesterThread(int remoteport, String msg, ArrayList<String> responses, CountDownLatch latch) {
+		public UDPLoanRequesterThread(int remoteport, String msg, ArrayList<Long> responses, CountDownLatch latch) {
 			this.remoteport = remoteport;
 			this.msg = msg;
 			this.responses = responses;
@@ -285,7 +256,7 @@ public class BankServer extends AbstractServerBank {
 				response = b.recvMessage();
 				b.close();
 				synchronized(responses) {
-					responses.add(response);
+					responses.add(Long.parseLong(response));
 				}
 				// When thread finishes evaluating, call countDown()
 				latch.countDown();
@@ -352,7 +323,7 @@ public class BankServer extends AbstractServerBank {
 
 	@Override
 	public String getServerName() {
-		return this.bankStore.getName().toString();
+		return this.name;
 	}
 
 	@Override
@@ -366,7 +337,7 @@ public class BankServer extends AbstractServerBank {
 	}
 	
 	public void waitUntilFinished() throws InterruptedException {
-		listener.join();
+		udpServer.join();
 	}
 }
 
