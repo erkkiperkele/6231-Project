@@ -1,0 +1,12 @@
+2015-12-07 00:41:57.053: Binding to port 4509 for 127.0.0.1
+2015-12-07 00:43:44.613: Binding to port 4509 for 127.0.0.1
+2015-12-07 00:48:17.39: Binding to port 4509 for 127.0.0.1
+2015-12-07 00:55:49.636: Binding to port 4509 for 127.0.0.1
+2015-12-07 00:58:23.805: Binding to port 4507 for 127.0.0.1
+2015-12-07 01:00:33.86: Binding to port 4507 for 127.0.0.1
+2015-12-07 01:05:01.437: Binding to port 4507 for 127.0.0.1
+2015-12-07 01:09:08.218: Binding to port 4507 for 127.0.0.1
+2015-12-07 01:14:34.57: Binding to port 4507 for 127.0.0.1
+2015-12-07 01:14:54.14: [Sync] Received RequestSynchronize from 127.0.0.1:61379
+2015-12-07 01:15:51.851: Binding to port 4507 for 127.0.0.1
+2015-12-07 01:16:11.52: [Sync] Received RequestSynchronize from 127.0.0.1:61379

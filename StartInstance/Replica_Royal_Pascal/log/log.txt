@@ -3033,3 +3033,73 @@
 2015-12-07 00:08:59.643: FINE Pascal998,Tozzi998: Adding the account.
 2015-12-07 00:08:59.643: FINE Pascal998,Tozzi998: Commit() to XML
 2015-12-07 00:08:59.659: FINE Pascal998,Tozzi998: Created.
+2015-12-07 00:41:56.904: Server Started <pascal> Royal
+2015-12-07 00:41:56.935: FINE Starting server service for pascal
+2015-12-07 00:41:56.937: FINE Loading Loans and Customers files
+2015-12-07 00:41:56.939: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 00:41:57.295: FINE Starting UDP port 4526
+2015-12-07 00:41:57.304: Binding to port 4529 for 127.0.0.1
+2015-12-07 00:41:57.305: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:43:44.259: Server Started <pascal> Royal
+2015-12-07 00:43:44.283: FINE Starting server service for pascal
+2015-12-07 00:43:44.284: FINE Loading Loans and Customers files
+2015-12-07 00:43:44.285: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 00:43:44.585: FINE Starting UDP port 4526
+2015-12-07 00:43:44.598: Binding to port 4529 for 127.0.0.1
+2015-12-07 00:43:44.599: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:48:16.956: Server Started <pascal> Royal
+2015-12-07 00:48:16.972: FINE Starting server service for pascal
+2015-12-07 00:48:16.987: FINE Loading Loans and Customers files
+2015-12-07 00:48:16.987: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 00:48:17.352: FINE Starting UDP port 4526
+2015-12-07 00:48:17.362: Binding to port 4529 for 127.0.0.1
+2015-12-07 00:48:17.365: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:55:49.163: Server Started <pascal> Royal
+2015-12-07 00:55:49.194: FINE Starting server service for pascal
+2015-12-07 00:55:49.194: FINE Loading Loans and Customers files
+2015-12-07 00:55:49.194: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 00:55:49.491: FINE Starting UDP port 4526
+2015-12-07 00:55:49.522: Binding to port 4529 for 127.0.0.1
+2015-12-07 00:55:49.538: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:58:23.43: Server Started <pascal> Royal
+2015-12-07 00:58:23.445: FINE Starting server service for pascal
+2015-12-07 00:58:23.445: FINE Loading Loans and Customers files
+2015-12-07 00:58:23.461: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 00:58:23.752: FINE Starting UDP port 4526
+2015-12-07 00:58:23.785: Binding to port 4529 for 127.0.0.1
+2015-12-07 00:58:23.79: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:00:33.524: Server Started <pascal> Royal
+2015-12-07 01:00:33.539: FINE Starting server service for pascal
+2015-12-07 01:00:33.539: FINE Loading Loans and Customers files
+2015-12-07 01:00:33.539: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 01:00:33.805: FINE Starting UDP port 4526
+2015-12-07 01:00:33.805: Binding to port 4529 for 127.0.0.1
+2015-12-07 01:00:33.821: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:05:01.04: Server Started <pascal> Royal
+2015-12-07 01:05:01.066: FINE Starting server service for pascal
+2015-12-07 01:05:01.067: FINE Loading Loans and Customers files
+2015-12-07 01:05:01.069: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 01:05:01.388: FINE Starting UDP port 4526
+2015-12-07 01:05:01.4: Binding to port 4529 for 127.0.0.1
+2015-12-07 01:05:01.404: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:09:07.783: Server Started <pascal> Royal
+2015-12-07 01:09:07.799: FINE Starting server service for pascal
+2015-12-07 01:09:07.799: FINE Loading Loans and Customers files
+2015-12-07 01:09:07.799: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 01:09:08.117: FINE Starting UDP port 4526
+2015-12-07 01:09:08.133: Binding to port 4529 for 127.0.0.1
+2015-12-07 01:09:08.149: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:14:34.172: Server Started <pascal> Royal
+2015-12-07 01:14:34.187: FINE Starting server service for pascal
+2015-12-07 01:14:34.187: FINE Loading Loans and Customers files
+2015-12-07 01:14:34.187: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 01:14:34.5: FINE Starting UDP port 4526
+2015-12-07 01:14:34.516: Binding to port 4529 for 127.0.0.1
+2015-12-07 01:14:34.532: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:15:51.554: Server Started <pascal> Royal
+2015-12-07 01:15:51.578: FINE Starting server service for pascal
+2015-12-07 01:15:51.58: FINE Loading Loans and Customers files
+2015-12-07 01:15:51.581: FINE Loading Customers: Royal_p_Customers.xml
+2015-12-07 01:15:51.989: FINE Starting UDP port 4526
+2015-12-07 01:15:51.991: Binding to port 4529 for 127.0.0.1
+2015-12-07 01:15:51.992: [UDP] SYNC SERVER STARTED (Pascal Implementation)

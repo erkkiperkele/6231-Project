@@ -29,7 +29,7 @@ public class ReplicaManagerServer {
         String masterMachine = Constant.MASTER_MACHINE_NAME;
         if (!Env.getMachineName().equals(masterMachine)) {
             for (Bank bank : banks) {
-                replicaManagerService.resetState(masterMachine, bank);
+                replicaManagerService.resetState(masterMachine, Env.getMachineName(), bank);
             }
         }
     }

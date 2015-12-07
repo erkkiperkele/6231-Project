@@ -12,5 +12,5 @@ public interface IReplicaManagerService {
     void onError(Bank bank, String serverAddress);
     void onFailure(Bank bank, String serverAddress);
     void spawnNewProcess(String implementationName, String bankName) throws IOException;
-    void resetState(String machineToGetStateFrom, Bank bank);
+    void resetState(String machineToGetStateFrom, String implementationName, Bank bank);
 }

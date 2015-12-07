@@ -122,7 +122,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         stopBankServer(bank);
         spawnNewProcess(implementationName, bank.name());
-        resetState(Constant.MASTER_MACHINE_NAME, bank);
+        resetState(Constant.MASTER_MACHINE_NAME, implementationName, bank);
     }
 
     private static String getCommand(String implementationName, String bankName) {
@@ -224,17 +224,20 @@ public class ReplicaManagerService implements IReplicaManagerService {
     }
 
     @Override
-    public void resetState(String machineToGetStateFrom, Bank bank) {
-
+    public void resetState(String machineToGetStateFrom, String implementationName, Bank bank) {
+    	if(machineToGetStateFrom == implementationName)
+    		return;
+    	
         String machineName = Env.getMachineName();
         Env.getReplicaToReplicaManagerServerInfo();
-        ServerInfo otherServerInfo = Env.getReplicaServerInfo(machineToGetStateFrom, bank);
+        ServerInfo otherServerInforequestFrom = Env.getReplicaToReplicaManagerServerInfo(machineToGetStateFrom, bank);
+        ServerInfo otherServerInfo = Env.getReplicaToReplicaManagerServerInfo(implementationName, bank);
 
         RequestSynchronize operationMessage = new RequestSynchronize(
                 machineName,
                 bank.name(),
-                otherServerInfo.getIpAddress(),
-                otherServerInfo.getPort()
+                otherServerInforequestFrom.getIpAddress(),
+                otherServerInforequestFrom.getPort()
         );
 
         UDPMessage message = new UDPMessage(operationMessage);

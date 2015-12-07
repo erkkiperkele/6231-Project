@@ -2023,3 +2023,89 @@
 2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2970
 2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2987
 2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2995
+2015-12-07 00:41:56.973: Server Started <pascal> Dominion
+2015-12-07 00:41:57.005: FINE Starting server service for pascal
+2015-12-07 00:41:57.009: FINE Loading Loans and Customers files
+2015-12-07 00:41:57.014: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 00:41:57.355: FINE Starting UDP port 4524
+2015-12-07 00:41:57.357: Binding to port 4527 for 127.0.0.1
+2015-12-07 00:41:57.357: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:42:16.793: Received Packet: RequestSynchronize From 127.0.0.1:61377 Seq:-1
+2015-12-07 00:43:44.345: Server Started <pascal> Dominion
+2015-12-07 00:43:44.384: FINE Starting server service for pascal
+2015-12-07 00:43:44.387: FINE Loading Loans and Customers files
+2015-12-07 00:43:44.388: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 00:43:44.688: FINE Starting UDP port 4524
+2015-12-07 00:43:44.691: Binding to port 4527 for 127.0.0.1
+2015-12-07 00:43:44.692: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:44:04.218: Received Packet: RequestSynchronize From 127.0.0.1:61378 Seq:-1
+2015-12-07 00:48:17.034: Server Started <pascal> Dominion
+2015-12-07 00:48:17.066: FINE Starting server service for pascal
+2015-12-07 00:48:17.066: FINE Loading Loans and Customers files
+2015-12-07 00:48:17.066: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 00:48:17.372: FINE Starting UDP port 4524
+2015-12-07 00:48:17.376: Binding to port 4527 for 127.0.0.1
+2015-12-07 00:48:17.378: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:48:36.916: Received Packet: RequestSynchronize From 127.0.0.1:61379 Seq:-1
+2015-12-07 00:55:49.257: Server Started <pascal> Dominion
+2015-12-07 00:55:49.288: FINE Starting server service for pascal
+2015-12-07 00:55:49.288: FINE Loading Loans and Customers files
+2015-12-07 00:55:49.288: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 00:55:49.585: FINE Starting UDP port 4524
+2015-12-07 00:55:49.6: Binding to port 4527 for 127.0.0.1
+2015-12-07 00:55:49.632: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:58:23.524: Server Started <pascal> Dominion
+2015-12-07 00:58:23.555: FINE Starting server service for pascal
+2015-12-07 00:58:23.555: FINE Loading Loans and Customers files
+2015-12-07 00:58:23.555: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 00:58:23.862: FINE Starting UDP port 4524
+2015-12-07 00:58:23.865: Binding to port 4527 for 127.0.0.1
+2015-12-07 00:58:23.866: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 00:58:43.393: Received Packet: RequestSynchronize From 127.0.0.1:61378 Seq:-1
+2015-12-07 01:00:33.602: Server Started <pascal> Dominion
+2015-12-07 01:00:33.633: FINE Starting server service for pascal
+2015-12-07 01:00:33.649: FINE Loading Loans and Customers files
+2015-12-07 01:00:33.649: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 01:00:33.95: FINE Starting UDP port 4524
+2015-12-07 01:00:33.952: Binding to port 4527 for 127.0.0.1
+2015-12-07 01:00:33.953: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:00:53.491: Received Packet: RequestSynchronize From 127.0.0.1:61378 Seq:-1
+2015-12-07 01:05:01.143: Server Started <pascal> Dominion
+2015-12-07 01:05:01.174: FINE Starting server service for pascal
+2015-12-07 01:05:01.18: FINE Loading Loans and Customers files
+2015-12-07 01:05:01.181: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 01:05:01.488: FINE Starting UDP port 4524
+2015-12-07 01:05:01.489: Binding to port 4527 for 127.0.0.1
+2015-12-07 01:05:01.49: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:05:21.0: [Sync] Received RequestSynchronize from 127.0.0.1:50292
+2015-12-07 01:05:21.024: [Sync] Received SynchronizeCustomer from 127.0.0.1:4527
+2015-12-07 01:05:21.024: [Sync] Received Customer #0 of 0
+2015-12-07 01:09:07.861: Server Started <pascal> Dominion
+2015-12-07 01:09:07.893: FINE Starting server service for pascal
+2015-12-07 01:09:07.893: FINE Loading Loans and Customers files
+2015-12-07 01:09:07.893: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 01:09:08.183: FINE Starting UDP port 4524
+2015-12-07 01:09:08.19: Binding to port 4527 for 127.0.0.1
+2015-12-07 01:09:08.191: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:09:27.741: Received Packet: RequestSynchronize From 127.0.0.1:50089 Seq:-1
+2015-12-07 01:14:34.266: Server Started <pascal> Dominion
+2015-12-07 01:14:34.297: FINE Starting server service for pascal
+2015-12-07 01:14:34.297: FINE Loading Loans and Customers files
+2015-12-07 01:14:34.297: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 01:14:34.611: FINE Starting UDP port 4524
+2015-12-07 01:14:34.615: Binding to port 4527 for 127.0.0.1
+2015-12-07 01:14:34.616: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:14:54.187: Received Packet: SynchronizeCustomer From 127.0.0.1:4507 Seq:-1
+2015-12-07 01:14:54.187: Received Packet: SynchronizeCustomer From 127.0.0.1:4507 Seq:-1
+2015-12-07 01:14:54.187: Received Packet: SynchronizeCustomer From 127.0.0.1:4507 Seq:-1
+2015-12-07 01:14:54.187: Received Packet: SynchronizeCustomer From 127.0.0.1:4507 Seq:-1
+2015-12-07 01:14:54.187: Received Packet: SynchronizeCustomer From 127.0.0.1:4507 Seq:-1
+2015-12-07 01:14:54.187: Received Packet: SynchronizeCustomer From 127.0.0.1:4507 Seq:-1
+2015-12-07 01:15:51.639: Server Started <pascal> Dominion
+2015-12-07 01:15:51.669: FINE Starting server service for pascal
+2015-12-07 01:15:51.672: FINE Loading Loans and Customers files
+2015-12-07 01:15:51.674: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 01:15:51.951: FINE Starting UDP port 4524
+2015-12-07 01:15:51.959: Binding to port 4527 for 127.0.0.1
+2015-12-07 01:15:51.963: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:16:11.551: [Sync] Received SynchronizeCustomer from 127.0.0.1:4507

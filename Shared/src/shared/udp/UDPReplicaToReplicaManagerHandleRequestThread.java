@@ -293,7 +293,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 				processRequestSynchronize(udpMessage);
 				break;
 			default:
-				System.out.println("Unknown processRequest! " + udpMessage.getOperation().toString());
+				System.out.println("Unknown Sync processRequest! " + udpMessage.getOperation().toString());
 				break;
 		}
 		delaySeconds = 0;
