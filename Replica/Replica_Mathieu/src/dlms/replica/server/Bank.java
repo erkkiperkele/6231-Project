@@ -25,8 +25,8 @@ public class Bank {
 	public HashMap<String, ThreadSafeHashMap<Integer, Loan>> loans;
 	public HashMap<String, Object> locks;
 	
-	protected static int nextAccountNbr = 100;
-	protected static int nextLoanId = 1000;
+	protected static int nextAccountNbr = 1;
+	protected static int nextLoanId = 1;
 	
 	/**
 	 * Constructor
