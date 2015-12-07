@@ -68,11 +68,11 @@ class TestThread extends Thread {
 		} catch (InterruptedException e) {}
 		// Skew tree descent in favor of creating valid accounts
 		// This ensures that future tests are run
-		if (choice < 13.0/16.0) {
+		if (choice < 15.0/18.0) {
 			CreateValidAccount();
-		} else if (choice < 14.0/16.0) {
+		} else if (choice < 16.0/18.0) {
 			CreateInvalidAccount();
-		} else if (choice < 15.0/16.0) {
+		} else if (choice < 17.0/18.0) {
 			PrintValidInfo();
 		} else {
 			PrintInvalidInfo();
@@ -100,15 +100,15 @@ class TestThread extends Thread {
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {}
-			if (choice < 8.0/13.0) {
+			if (choice < 9.0/14.0) {
 				CreateValidLoan();
-			} else if (choice < 9.0/13.0) {
+			} else if (choice < 10.0/14.0) {
 				CreateInvalidLoan();
-			} else if (choice < 10.0/13.0) {
+			} else if (choice < 11.0/14.0) {
 				CreateLoanAtInvalidBank();
-			} else if (choice < 11.0/13.0) {
+			} else if (choice < 12.0/14.0) {
 				CreateLoanWithInvalidAccount();
-			} else if (choice < 12.0/13.0){
+			} else if (choice < 13.0/14.0){
 				CreateLoanWithInsufficientCredit();
 			} else {
 				// Create duplicate account
