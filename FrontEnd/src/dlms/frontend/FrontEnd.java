@@ -369,9 +369,8 @@ public class FrontEnd extends FrontEndPOA {
 			opSequenceNbr = assumedSequenceNbr++;
 			
 			
-			
-			
-			
+	// Leave handling replies commented out!		
+
 //		
 //			// Get back the operation sequence number		
 //			incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
