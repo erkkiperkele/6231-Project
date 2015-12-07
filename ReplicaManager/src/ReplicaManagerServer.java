@@ -26,6 +26,13 @@ public class ReplicaManagerServer {
     }
 
     public void initializeBankServers() {
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         String masterMachine = Constant.MASTER_MACHINE_NAME;
         if (!Env.getMachineName().equals(masterMachine)) {
             for (Bank bank : banks) {

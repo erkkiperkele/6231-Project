@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.util.HashMap;
 
 
@@ -122,7 +123,9 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         stopBankServer(bank);
         spawnNewProcess(implementationName, bank.name());
-        resetState(Constant.MASTER_MACHINE_NAME, implementationName, bank);
+
+        String machineToGetStateFrom = getMachineToGetStateFrom();
+        resetState(machineToGetStateFrom, implementationName, bank);
     }
 
     private static String getCommand(String implementationName, String bankName) {
@@ -202,7 +205,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
 //        }
     }
 
-    private static ServerInfo getFEServerInfo(){
+    private static ServerInfo getFEServerInfo() {
         ServerInfo serverInfo = Env.getFrontEndServerInfo();
         serverInfo.setPort(Constant.FE_TO_RM_LISTENER_PORT);
         return serverInfo;
@@ -216,28 +219,22 @@ public class ReplicaManagerService implements IReplicaManagerService {
         ReplicaManagerSession.getInstance().unregisterServer(bank.name());
     }
 
-    private boolean isSelf(String machineName) {
-
-        String myself = Env.getMachineName();
-
-        return machineName.toLowerCase().equals(myself.toLowerCase());
-    }
-
     @Override
     public void resetState(String machineToGetStateFrom, String implementationName, Bank bank) {
-    	if(machineToGetStateFrom == implementationName)
-    		return;
-    	
+        if (isSelf(machineToGetStateFrom)) {
+            return;
+        }
+
         String machineName = Env.getMachineName();
-        Env.getReplicaToReplicaManagerServerInfo();
-        ServerInfo otherServerInforequestFrom = Env.getReplicaToReplicaManagerServerInfo(machineToGetStateFrom, bank);
-        ServerInfo otherServerInfo = Env.getReplicaToReplicaManagerServerInfo(implementationName, bank);
+
+        ServerInfo replicaFaulty = Env.getReplicaToReplicaManagerServerInfo(implementationName, bank);
+        ServerInfo replicaNonFaulty = Env.getReplicaToReplicaManagerServerInfo(machineToGetStateFrom, bank);
 
         RequestSynchronize operationMessage = new RequestSynchronize(
                 machineName,
                 bank.name(),
-                otherServerInforequestFrom.getIpAddress(),
-                otherServerInforequestFrom.getPort()
+                replicaFaulty.getIpAddress(),
+                replicaFaulty.getPort()
         );
 
         UDPMessage message = new UDPMessage(operationMessage);
@@ -248,13 +245,35 @@ public class ReplicaManagerService implements IReplicaManagerService {
             System.err.println(
                     "Request initial state to: "
                             + machineToGetStateFrom + " "
-                            + otherServerInfo.getIpAddress() + " "
-                            + otherServerInfo.getPort() + " "
+                            + replicaNonFaulty.getIpAddress() + " "
+                            + replicaNonFaulty.getPort() + " "
                             + bank.name()
             );
-            udpClient.sendMessage(data, otherServerInfo.getIpAddress(), otherServerInfo.getPort());
+
+
+            //TODO: Should receive an answer from synchronizer rather than a dangerous Fire and Forget.
+            udpClient.sendMessageAndForget(data, InetAddress.getByName(replicaNonFaulty.getIpAddress()), replicaNonFaulty.getPort());
+//            udpClient.sendMessage(data, replicaNonFaulty.getIpAddress(), replicaNonFaulty.getPort());
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getMachineToGetStateFrom() {
+
+        //TODO: What if master is down? Need to
+        // -select next replica to ask
+        // -ping it
+        // -if answer, return this replica, else try next
+
+        return isSelf(Constant.MASTER_MACHINE_NAME)
+                ? Constant.MACHINE_NAME_AYMERIC
+                : Constant.MASTER_MACHINE_NAME;
+    }
+
+    private boolean isSelf(String candidateMachineName) {
+
+        String myself = Env.getMachineName();
+        return candidateMachineName.toLowerCase().equals(myself.toLowerCase());
     }
 }

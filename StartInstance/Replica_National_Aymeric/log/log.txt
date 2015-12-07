@@ -10,3 +10,230 @@
 2015-12-07 01:15:14.143: [Sync] Received RequestSynchronize from 127.0.0.1:61379
 2015-12-07 01:15:51.812: Binding to port 4508 for 127.0.0.1
 2015-12-07 01:16:31.524: [Sync] Received RequestSynchronize from 127.0.0.1:61379
+2015-12-07 01:22:56.192: Binding to port 4508 for 127.0.0.1
+2015-12-07 01:23:35.712: [Sync] Received RequestSynchronize from 127.0.0.1:63125
+2015-12-07 01:26:27.623: Binding to port 4508 for 127.0.0.1
+2015-12-07 01:27:07.022: [Sync] Received RequestSynchronize from 127.0.0.1:63145
+2015-12-07 01:28:29.889: Binding to port 4508 for 127.0.0.1
+2015-12-07 01:29:29.509: [Sync] Received RequestSynchronize from 127.0.0.1:63153
+2015-12-07 01:30:11.165: Binding to port 4508 for 127.0.0.1
+2015-12-07 01:31:10.54: [Sync] Received RequestSynchronize from 127.0.0.1:63161
+2015-12-07 01:32:35.329: Binding to port 4508 for 127.0.0.1
+2015-12-07 01:33:34.819: [Sync] Received RequestSynchronize from 127.0.0.1:61470
+2015-12-07 12:58:42.148: Binding to port 4508 for 127.0.0.1
+2015-12-07 12:59:36.63: Binding to port 4508 for 127.0.0.1
+2015-12-07 12:59:52.736: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:00:52.319: [Sync] Received RequestSynchronize from 127.0.0.1:65362
+2015-12-07 13:16:09.045: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:17:08.813: [Sync] Received RequestSynchronize from 127.0.0.1:65398
+2015-12-07 13:25:12.654: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:25:43.78: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:26:33.222: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:27:08.276: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:35:54.732: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:42:43.559: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:44:05.441: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:47:53.36: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:48:55.741: Binding to port 4508 for 127.0.0.1
+2015-12-07 13:49:55.55: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.552: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.553: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.553: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.554: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.555: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.555: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.556: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.557: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.557: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.558: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.558: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.559: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.559: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.56: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.561: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.562: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.562: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.563: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.563: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.564: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.564: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.565: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.565: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.566: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.567: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.567: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.568: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.568: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.569: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.57: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.571: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.572: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.573: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.574: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.574: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.575: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.575: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.576: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.576: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.577: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.577: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.578: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.578: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.579: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.579: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.58: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.581: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.581: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.582: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.582: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.583: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.584: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.584: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.585: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.585: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.586: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.586: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.587: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.587: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.588: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.588: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.589: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.589: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.59: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.591: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.592: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.592: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.593: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.593: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.594: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.594: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.595: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.596: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.597: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.597: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.598: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.599: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.6: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.604: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.606: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.607: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.607: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.608: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.609: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.609: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.61: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.61: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.611: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.611: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.612: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.612: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.613: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.613: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.614: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.614: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.615: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.615: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.616: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.617: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.617: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.617: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.618: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.618: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.619: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.62: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.62: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.621: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.621: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.622: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.622: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.623: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.623: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.624: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.624: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.624: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.625: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.625: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.626: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.626: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.627: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.627: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.628: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.628: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.629: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.63: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.631: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.632: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.632: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.633: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.634: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.635: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.637: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.638: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.639: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.639: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.64: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.641: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.642: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.643: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.644: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.644: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.644: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.645: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.645: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.646: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.646: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.646: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.647: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.647: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.648: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.648: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.649: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.649: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.65: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.65: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.651: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.651: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.651: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.652: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.652: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.652: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.653: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.653: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.654: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.654: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.655: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.655: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.655: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.656: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.656: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.657: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.657: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.657: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.658: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.658: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:49:55.659: Received Packet: SynchronizeCustomer From 127.0.0.1:4528 Seq:-1
+2015-12-07 13:49:55.659: Unknown regular processRequest! SynchronizeCustomer
+2015-12-07 13:54:48.527: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 13:56:06.092: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 13:56:59.498: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 13:57:51.037: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 13:58:56.212: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 13:59:55.955: [Sync] Received SynchronizeCustomer from 127.0.0.1:4528
+2015-12-07 13:59:55.956: [Sync] Received Customer #0 of 0
+2015-12-07 14:05:57.528: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:07:41.98: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:08:09.416: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:08:14.296: [Sync] Received SynchronizeCustomer from 127.0.0.1:4528
+2015-12-07 14:08:14.297: [Sync] Received Customer #0 of 0
+2015-12-07 14:16:36.237: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:18:09.254: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:19:11.057: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:19:30.07: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:19:34.515: [Sync] Received SynchronizeCustomer from 127.0.0.1:4528
+2015-12-07 14:19:34.516: [Sync] Received Customer #0 of 0
+2015-12-07 14:25:21.064: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:25:25.773: [Sync] Received SynchronizeCustomer from 127.0.0.1:4528
+2015-12-07 14:25:25.774: [Sync] Received Customer #0 of 0
+2015-12-07 14:36:19.962: UDPReplicaToReplicaManagerThread - Binding to port 4508 for 127.0.0.1
+2015-12-07 14:36:24.767: [Sync] Received SynchronizeCustomer from 127.0.0.1:4528
+2015-12-07 14:36:24.768: [Sync] Received Customer #0 of 0

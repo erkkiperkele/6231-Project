@@ -32,7 +32,7 @@ public class DataRepository {
         this.accounts = new Hashtable<>();
         this.loans = new Hashtable<>();
 
-        generateInitialData();
+//        generateInitialData();
     }
 
     public List<Loan> getLoansForStateTransfer(){

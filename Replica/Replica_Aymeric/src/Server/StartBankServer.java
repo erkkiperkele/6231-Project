@@ -34,7 +34,7 @@ public class StartBankServer {
 
         String serverArg = args.length > 0
                 ? args[0]
-                : "RBC";
+                : "Royal";
 
         serverArg = serverArg.length() > 0
                 ? "" + Bank.fromString(serverArg).toInt()
@@ -45,7 +45,7 @@ public class StartBankServer {
         //Starting bank server
         startBankServer();
         startUDPServerForInternalOperations();
-        startUdpThreads();
+        startSynchronizerThreads();
     }
 
     private static void initialize(String arg) {
@@ -75,7 +75,7 @@ public class StartBankServer {
         SessionService.getInstance().log().info(String.format("[UDP] BANK SERVER STARTED"));
     }
 
-    private static void startUdpThreads() {
+    private static void startSynchronizerThreads() {
 
         try {
             Env.setCurrentBank(SessionService.getInstance().getBank());

@@ -2380,3 +2380,113 @@
 2015-12-07 01:15:51.959: Binding to port 4528 for 127.0.0.1
 2015-12-07 01:15:51.964: [UDP] SYNC SERVER STARTED (Pascal Implementation)
 2015-12-07 01:16:31.559: [Sync] Received SynchronizeCustomer from 127.0.0.1:4508
+2015-12-07 01:22:38.891: Server Started <pascal> National
+2015-12-07 01:22:38.996: FINE Starting server service for pascal
+2015-12-07 01:22:38.999: FINE Loading Loans and Customers files
+2015-12-07 01:22:39.001: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 01:22:39.757: FINE Starting UDP port 4525
+2015-12-07 01:22:39.775: Binding to port 4528 for 127.0.0.1
+2015-12-07 01:22:39.776: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:23:23.474: [Sync] Received SynchronizeCustomer from 127.0.0.1:4538
+2015-12-07 01:23:35.728: [Sync] Received SynchronizeCustomer from 127.0.0.1:4508
+2015-12-07 01:26:11.555: Server Started <pascal> National
+2015-12-07 01:26:11.683: FINE Starting server service for pascal
+2015-12-07 01:26:11.686: FINE Loading Loans and Customers files
+2015-12-07 01:26:11.689: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 01:26:12.26: FINE Starting UDP port 4525
+2015-12-07 01:26:12.268: Binding to port 4528 for 127.0.0.1
+2015-12-07 01:26:12.27: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:26:56.192: [Sync] Received SynchronizeCustomer from 127.0.0.1:4538
+2015-12-07 01:27:07.048: [Sync] Received SynchronizeCustomer from 127.0.0.1:4508
+2015-12-07 13:15:58.613: Server Started <pascal> National
+2015-12-07 13:15:58.687: FINE Starting server service for pascal
+2015-12-07 13:15:58.693: FINE Loading Loans and Customers files
+2015-12-07 13:15:58.697: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 13:15:59.307: FINE Starting UDP port 4525
+2015-12-07 13:15:59.312: Binding to port 4528 for 127.0.0.1
+2015-12-07 13:15:59.313: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:25:05.514: Server Started <pascal> National
+2015-12-07 13:25:05.544: FINE Starting server service for pascal
+2015-12-07 13:25:05.547: FINE Loading Loans and Customers files
+2015-12-07 13:25:05.548: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 13:25:06.204: FINE Starting UDP port 4525
+2015-12-07 13:25:06.219: Binding to port 4528 for 127.0.0.1
+2015-12-07 13:25:06.22: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:25:37.008: Server Started <pascal> National
+2015-12-07 13:25:37.04: FINE Starting server service for pascal
+2015-12-07 13:25:37.042: FINE Loading Loans and Customers files
+2015-12-07 13:25:37.043: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 13:25:37.686: FINE Starting UDP port 4525
+2015-12-07 13:25:37.698: Binding to port 4528 for 127.0.0.1
+2015-12-07 13:25:37.699: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:36:54.505: Received Packet: RequestSynchronize From 127.0.0.1:63311 Seq:-1
+2015-12-07 13:42:38.296: Server Started <pascal> National
+2015-12-07 13:42:38.326: FINE Starting server service for pascal
+2015-12-07 13:42:38.329: FINE Loading Loans and Customers files
+2015-12-07 13:42:38.33: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 13:42:39.003: FINE Starting UDP port 4525
+2015-12-07 13:42:39.021: Binding to port 4528 for 127.0.0.1
+2015-12-07 13:42:39.021: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:43:43.301: Received Packet: RequestSynchronize From 127.0.0.1:54466 Seq:-1
+2015-12-07 13:43:43.303: Unknown processRequest! RequestSynchronize
+2015-12-07 13:47:40.465: Server Started <pascal> National
+2015-12-07 13:47:40.494: FINE Starting server service for pascal
+2015-12-07 13:47:40.496: FINE Loading Loans and Customers files
+2015-12-07 13:47:40.496: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 13:47:41.108: FINE Starting UDP port 4525
+2015-12-07 13:47:41.112: Binding to port 4528 for 127.0.0.1
+2015-12-07 13:47:41.113: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:47:49.88: Server Started <pascal> National
+2015-12-07 13:47:49.91: FINE Starting server service for pascal
+2015-12-07 13:47:49.914: FINE Loading Loans and Customers files
+2015-12-07 13:47:49.915: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 13:47:50.53: FINE Starting UDP port 4525
+2015-12-07 13:47:50.553: Binding to port 4528 for 127.0.0.1
+2015-12-07 13:47:50.554: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:49:55.512: [Sync] Received RequestSynchronize from 127.0.0.1:50852
+2015-12-07 13:49:55.513: Received RequestSynchronize message...
+2015-12-07 13:57:46.608: Server Started <pascal> National
+2015-12-07 13:57:46.656: FINE Starting server service for pascal
+2015-12-07 13:57:46.657: FINE Loading Loans and Customers files
+2015-12-07 13:57:46.658: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 13:57:47.357: FINE Starting UDP port 4525
+2015-12-07 13:57:47.361: UDPReplicaToReplicaManagerThread - Binding to port 4528 for 127.0.0.1
+2015-12-07 13:57:47.362: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:59:55.914: [Sync] Received RequestSynchronize from 127.0.0.1:53469
+2015-12-07 13:59:55.914: Received RequestSynchronize message...
+2015-12-07 14:08:05.993: Server Started <pascal> National
+2015-12-07 14:08:06.029: FINE Starting server service for pascal
+2015-12-07 14:08:06.031: FINE Loading Loans and Customers files
+2015-12-07 14:08:06.032: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 14:08:06.717: FINE Starting UDP port 4525
+2015-12-07 14:08:06.722: UDPReplicaToReplicaManagerThread - Binding to port 4528 for 127.0.0.1
+2015-12-07 14:08:06.723: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:08:14.163: [Sync] Received RequestSynchronize from 127.0.0.1:58981
+2015-12-07 14:08:14.164: Received RequestSynchronize message...
+2015-12-07 14:19:16.966: Server Started <pascal> National
+2015-12-07 14:19:16.995: FINE Starting server service for pascal
+2015-12-07 14:19:16.997: FINE Loading Loans and Customers files
+2015-12-07 14:19:16.997: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 14:19:17.693: FINE Starting UDP port 4525
+2015-12-07 14:19:17.698: UDPReplicaToReplicaManagerThread - Binding to port 4528 for 127.0.0.1
+2015-12-07 14:19:17.699: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:19:34.416: [Sync] Received RequestSynchronize from 127.0.0.1:52092
+2015-12-07 14:19:34.416: Received RequestSynchronize message...
+2015-12-07 14:25:16.926: Server Started <pascal> National
+2015-12-07 14:25:16.968: FINE Starting server service for pascal
+2015-12-07 14:25:16.97: FINE Loading Loans and Customers files
+2015-12-07 14:25:16.97: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 14:25:17.56: FINE Starting UDP port 4525
+2015-12-07 14:25:17.607: UDPReplicaToReplicaManagerThread - Binding to port 4528 for 127.0.0.1
+2015-12-07 14:25:17.608: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:25:25.645: [Sync] Received RequestSynchronize from 127.0.0.1:52102
+2015-12-07 14:25:25.646: Processing RequestSynchronize message...
+2015-12-07 14:36:14.629: Server Started <pascal> National
+2015-12-07 14:36:14.664: FINE Starting server service for pascal
+2015-12-07 14:36:14.666: FINE Loading Loans and Customers files
+2015-12-07 14:36:14.666: FINE Loading Customers: National_p_Customers.xml
+2015-12-07 14:36:15.321: FINE Starting UDP port 4525
+2015-12-07 14:36:15.334: UDPReplicaToReplicaManagerThread - Binding to port 4528 for 127.0.0.1
+2015-12-07 14:36:15.335: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:36:24.671: [Sync] Received RequestSynchronize from 127.0.0.1:58645
+2015-12-07 14:36:24.672: Processing RequestSynchronize message...

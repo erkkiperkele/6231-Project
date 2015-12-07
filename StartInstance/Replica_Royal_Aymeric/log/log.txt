@@ -8,3 +8,43 @@
 2015-12-07 01:09:08.2: Binding to port 4509 for 127.0.0.1
 2015-12-07 01:14:34.328: Binding to port 4509 for 127.0.0.1
 2015-12-07 01:15:51.847: Binding to port 4509 for 127.0.0.1
+2015-12-07 01:22:56.14: Binding to port 4509 for 127.0.0.1
+2015-12-07 01:26:27.481: Binding to port 4509 for 127.0.0.1
+2015-12-07 01:28:29.785: Binding to port 4509 for 127.0.0.1
+2015-12-07 01:30:11.08: Binding to port 4509 for 127.0.0.1
+2015-12-07 01:32:35.341: Binding to port 4509 for 127.0.0.1
+2015-12-07 12:58:42.044: Binding to port 4509 for 127.0.0.1
+2015-12-07 12:59:36.614: Binding to port 4509 for 127.0.0.1
+2015-12-07 12:59:52.594: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:16:08.996: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:25:12.24: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:25:43.792: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:26:33.268: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:27:08.059: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:35:54.733: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:42:43.448: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:44:05.312: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:47:53.306: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:48:55.725: Binding to port 4509 for 127.0.0.1
+2015-12-07 13:54:48.462: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 13:56:06.11: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 13:56:59.407: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 13:57:50.939: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 13:58:56.125: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:05:57.416: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:07:41.931: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:08:09.338: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:08:14.285: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 14:08:14.286: [Sync] Received Customer #0 of 0
+2015-12-07 14:16:36.141: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:18:08.963: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:19:10.85: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:19:29.923: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:19:34.579: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 14:19:34.58: [Sync] Received Customer #0 of 0
+2015-12-07 14:25:21.04: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:25:25.743: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 14:25:25.744: [Sync] Received Customer #0 of 0
+2015-12-07 14:36:19.903: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 14:36:24.797: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 14:36:24.798: [Sync] Received Customer #0 of 0

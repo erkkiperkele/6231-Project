@@ -13,6 +13,11 @@ import shared.data.Bank;
 public class TestRunner extends Client {
 	private static final int THREADS_TO_RUN = 5;
 	
+	public static void main(String[] args) {
+		System.out.println("Starting tests");
+		new TestRunner();
+	}
+	
 	public TestRunner() {
 		super();
 		System.out.println("TestRunner created.");
