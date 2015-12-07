@@ -145,25 +145,28 @@ public class BankReplica extends AbstractServerBank {
 			String password) throws Exception {
 
 		int newAccountNbr = -1;
-
+		
 		logger.info("-------------------------------\n" + this.bank.id + ": Client invoked openAccount(firstName:"
 				+ firstName + ", lastName:" + lastName + ", emailAddress:" + emailAddress + ", phoneNumber:"
 				+ phoneNumber + ", password:" + password + ")");
-
-		try {
-			newAccountNbr = this.bank.createAccount(firstName, lastName, emailAddress, phoneNumber, password);
-		} catch (ValidationException e) {
-			logger.info(this.bank.id + ": " + e.getMessage());
-			throw new Exception(this.bank.id + ": " + e.getMessage());
-		}
 		
-		if (newAccountNbr > 0) {
-			logger.info(this.bank.id + ": successfully opened an account for user " + emailAddress
-					+ " with account number " + newAccountNbr);
-		}
-		else {
-			logger.info(this.bank.id + ": Invalid new account number created");
-			throw new Exception(this.bank.id + ": Unable to create new account.");
+		synchronized(this) {
+	
+			try {
+				newAccountNbr = this.bank.createAccount(firstName, lastName, emailAddress, phoneNumber, password);
+			} catch (ValidationException e) {
+				logger.info(this.bank.id + ": " + e.getMessage());
+				throw new Exception(this.bank.id + ": " + e.getMessage());
+			}
+			
+			if (newAccountNbr > 0) {
+				logger.info(this.bank.id + ": successfully opened an account for user " + emailAddress
+						+ " with account number " + newAccountNbr);
+			}
+			else {
+				logger.info(this.bank.id + ": Invalid new account number created");
+				throw new Exception(this.bank.id + ": Unable to create new account.");
+			}
 		}
 
 		return newAccountNbr;
@@ -226,7 +229,7 @@ public class BankReplica extends AbstractServerBank {
 		
 		lock = this.bank.getLockObject(loan.getEmailAddress());
 
-		synchronized (lock) {
+		synchronized (this) {
 			
 			loan = this.bank.getLoan(loanID);
 			if (loan == null) {
@@ -467,7 +470,7 @@ public class BankReplica extends AbstractServerBank {
 	@Override
 	public BankState getCurrentState() {
 
-		logger.info("Getting the current bank state");
+		logger.info("Init getting the current bank state");
 		
 		// Get the list of all loans
 		List<shared.data.Loan> loanList = new ArrayList<shared.data.Loan>();
@@ -495,6 +498,8 @@ public class BankReplica extends AbstractServerBank {
 			}
 		}
 
+		logger.info("Finished getting the current bank state");
+		
 		return new BankState(loanList, customerList, this.bank.nextAccountNbr, this.bank.nextLoanId);
 	}
 
@@ -509,7 +514,7 @@ public class BankReplica extends AbstractServerBank {
 	@Override
 	public void setCurrentState(BankState state) {
 
-		logger.info("Setting the current bank state");
+		logger.info("Init setting the current bank state");
 			
 		// Get the list of all loans
 		List<shared.data.Loan> loanList = state.getLoanList();
@@ -517,12 +522,13 @@ public class BankReplica extends AbstractServerBank {
 		HashMap<Integer, String> mapAccNbrToEmail = new HashMap<Integer, String>();
 
 		synchronized(this) {
-			
+
 			this.bank.resetData();
 			
 			// Set the list of accounts
 			for (Customer customer : customerList) {
 				
+				// Add a mapping of account number to email address
 				mapAccNbrToEmail.put(customer.getAccountNumber(), customer.getEmail());
 				
 				String firstLetter = customer.getUserName().substring(0, 1).toUpperCase();
@@ -546,6 +552,11 @@ public class BankReplica extends AbstractServerBank {
 				ThreadSafeHashMap<Integer, Loan> loansList = this.bank.loans.get(firstLetter);
 				loansList.put(loan.getLoanNumber(), newLoan);
 			}
+
+			this.bank.nextAccountNbr = state.getNextCustomerID();
+			this.bank.nextLoanId = state.getNextLoanID();
 		}
+		
+		logger.info("Finished setting the current bank state");
 	}
 }
