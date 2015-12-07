@@ -50,11 +50,11 @@ public class StartBankServer {
     }
 
     private static void initialize(String arg) {
-        shared.data.Bank serverName = shared.data.Bank.fromInt(Integer.parseInt(arg));
-        SessionService.getInstance().setBank(serverName);
+        Bank bank = Bank.fromInt(Integer.parseInt(arg));
+        SessionService.getInstance().setBank(bank);
+        Env.setCurrentBank(bank);
         bankService = new BankService();
         udpInternal = new UDPServer(bankService);
-
     }
 
     private static void startUDPServerForInternalOperations() {
@@ -79,7 +79,7 @@ public class StartBankServer {
     private static void startUdpThreads() {
 
         try {
-            Env.setCurrentBank(Bank.Royal);     //HACK To get the Thread initialization working.
+            Env.setCurrentBank(SessionService.getInstance().getBank());
 
             ServerInfo sv = Env.getReplicaToReplicaManagerServerInfo();
             System.err.println(sv.getPort() + " <-- CE PORT LA!");
