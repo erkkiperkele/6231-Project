@@ -364,3 +364,21 @@ Sat Dec 05 23:45:06 EST 2015 INFO: Thread #1 CREATED account for Max
 Sat Dec 05 23:45:06 EST 2015 INFO: new account created for Max (account #5)
 Sat Dec 05 23:45:06 EST 2015 INFO: [UDP] BANK SERVER STARTED
 Sat Dec 05 23:45:06 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Alex
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Alex (account #2)
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Justin
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Justin (account #3)
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Maria
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Maria (account #4)
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Max
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Max (account #5)
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Alex
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Alex (account #2)
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Justin
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Justin (account #3)
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Maria
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Maria (account #4)
+Sun Dec 06 18:33:29 EST 2015 INFO: Thread #1 CREATED account for Max
+Sun Dec 06 18:33:29 EST 2015 INFO: new account created for Max (account #5)
+Sun Dec 06 18:33:29 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Sun Dec 06 18:33:29 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED

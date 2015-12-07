@@ -13,6 +13,8 @@ public class Loan implements Serializable {
     private long amount;
     private Date dueDate;
 
+    public Loan() {}
+    
     public Loan(int loanNumber, int customerAccountNumber, long amount, Date dueDate) {
         this.loanNumber = loanNumber;
         this.customerAccountNumber = customerAccountNumber;
@@ -24,12 +26,24 @@ public class Loan implements Serializable {
         return this.loanNumber;
     }
 
+    public void setLoanNumber(int loanNumber) {
+        this.loanNumber = loanNumber;
+    }
+
     public int getCustomerAccountNumber() {
         return this.customerAccountNumber;
     }
 
+    public void setCustomerAccountNumber(int customerAccountNumber) {
+        this.customerAccountNumber = customerAccountNumber;
+    }
+
     public long getAmount() {
         return this.amount;
+    }
+
+    public void setAmount(long amount) {
+        this.amount = amount;
     }
 
     public Date getDueDate() {

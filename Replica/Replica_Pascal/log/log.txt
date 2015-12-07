@@ -55,3 +55,132 @@
 2015-12-06 18:29:44.442: FINE Starting server service for pascal
 2015-12-06 18:29:44.442: FINE Loading Loans and Customers files
 2015-12-06 18:29:44.442: FINE Starting UDP port 4524
+2015-12-06 18:48:22.828: Server Started <pascal> Dominion
+2015-12-06 18:48:22.844: FINE Starting server service for pascal
+2015-12-06 18:48:22.844: FINE Loading Loans and Customers files
+2015-12-06 18:48:22.844: FINE Starting UDP port 4524
+2015-12-06 18:49:32.237: Server Started <pascal> Dominion
+2015-12-06 18:49:32.252: FINE Starting server service for pascal
+2015-12-06 18:49:32.252: FINE Loading Loans and Customers files
+2015-12-06 18:49:32.252: FINE Starting UDP port 4524
+2015-12-06 18:49:44.322: Server Started <pascal> Dominion
+2015-12-06 18:49:44.338: FINE Starting server service for pascal
+2015-12-06 18:49:44.354: FINE Loading Loans and Customers files
+2015-12-06 18:49:44.354: FINE Starting UDP port 4524
+2015-12-06 18:50:03.831: Server Started <pascal> Dominion
+2015-12-06 18:50:06.758: FINE Starting server service for pascal
+2015-12-06 18:50:06.758: FINE Loading Loans and Customers files
+2015-12-06 18:50:06.758: FINE Starting UDP port 4524
+2015-12-06 18:51:41.253: Server Started <pascal> Dominion
+2015-12-06 18:51:41.269: FINE Starting server service for pascal
+2015-12-06 18:51:41.269: FINE Loading Loans and Customers files
+2015-12-06 18:51:41.269: FINE Starting UDP port 4524
+2015-12-06 18:53:58.251: Server Started <pascal> Dominion
+2015-12-06 18:54:05.809: FINE Starting server service for pascal
+2015-12-06 18:54:05.809: FINE Loading Loans and Customers files
+2015-12-06 18:54:05.809: FINE Starting UDP port 4524
+2015-12-06 18:59:20.235: Received Packet From 127.0.0.1:4401
+2015-12-06 18:59:26.741: Server Started <pascal> Dominion
+2015-12-06 18:59:26.757: FINE Starting server service for pascal
+2015-12-06 18:59:26.758: FINE Loading Loans and Customers files
+2015-12-06 18:59:26.759: FINE Starting UDP port 4524
+2015-12-06 18:59:32.729: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 18:59:39.265: Server Started <pascal> Dominion
+2015-12-06 18:59:39.281: FINE Starting server service for pascal
+2015-12-06 18:59:39.281: FINE Loading Loans and Customers files
+2015-12-06 18:59:39.281: FINE Starting UDP port 4524
+2015-12-06 19:00:00.699: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:18:20.007: Server Started <pascal> Dominion
+2015-12-06 19:18:20.023: FINE Starting server service for pascal
+2015-12-06 19:18:20.023: FINE Loading Loans and Customers files
+2015-12-06 19:18:20.038: FINE Starting UDP port 4524
+2015-12-06 19:18:30.656: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:22:16.86: Server Started <pascal> Dominion
+2015-12-06 19:22:16.876: FINE Starting server service for pascal
+2015-12-06 19:22:16.876: FINE Loading Loans and Customers files
+2015-12-06 19:22:16.876: FINE Starting UDP port 4524
+2015-12-06 19:22:34.389: Server Started <pascal> Dominion
+2015-12-06 19:22:34.405: FINE Starting server service for pascal
+2015-12-06 19:22:34.405: FINE Loading Loans and Customers files
+2015-12-06 19:22:34.405: FINE Starting UDP port 4524
+2015-12-06 19:22:42.51: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:23:55.434: Server Started <pascal> Dominion
+2015-12-06 19:23:55.45: FINE Starting server service for pascal
+2015-12-06 19:23:55.45: FINE Loading Loans and Customers files
+2015-12-06 19:23:55.45: FINE Starting UDP port 4524
+2015-12-06 19:23:58.54: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:25:07.095: Server Started <pascal> Dominion
+2015-12-06 19:25:07.111: SEVERE Service is currently running on the UDP port 4524
+2015-12-06 19:25:07.111: SEVERE Change the port and try again or close the service instance.
+2015-12-06 19:25:12.08: Server Started <pascal> Dominion
+2015-12-06 19:25:12.095: FINE Starting server service for pascal
+2015-12-06 19:25:12.095: FINE Loading Loans and Customers files
+2015-12-06 19:25:12.095: FINE Starting UDP port 4524
+2015-12-06 19:25:15.085: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:26:46.051: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:26:48.501: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:26:48.564: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:26:48.674: FINE Pascal,Tozzi: Created.
+2015-12-06 19:27:24.445: Server Started <pascal> Dominion
+2015-12-06 19:27:24.461: FINE Starting server service for pascal
+2015-12-06 19:27:24.476: FINE Loading Loans and Customers files
+2015-12-06 19:27:24.476: FINE Loading Customers: pascal_p_Customers.xml
+2015-12-06 19:27:24.617: FINE Starting UDP port 4524
+2015-12-06 19:27:30.407: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:27:36.037: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:27:36.037: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:27:36.069: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:31:45.284: Server Started <pascal> Dominion
+2015-12-06 19:31:45.299: FINE Starting server service for pascal
+2015-12-06 19:31:45.299: FINE Loading Loans and Customers files
+2015-12-06 19:31:45.315: FINE Starting UDP port 4524
+2015-12-06 19:31:50.426: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:31:50.426: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:31:50.426: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:31:50.458: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:31:50.506: FINE Pascal,Tozzi: Created.
+2015-12-06 19:32:14.505: Server Started <pascal> Dominion
+2015-12-06 19:32:14.52: FINE Starting server service for pascal
+2015-12-06 19:32:14.536: FINE Loading Loans and Customers files
+2015-12-06 19:32:14.536: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 19:32:14.567: FINE Starting UDP port 4524
+2015-12-06 19:32:16.695: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:32:16.695: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:32:16.695: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:32:16.743: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:34:35.734: Server Started <pascal> Dominion
+2015-12-06 19:34:35.765: FINE Starting server service for pascal
+2015-12-06 19:34:35.765: FINE Loading Loans and Customers files
+2015-12-06 19:34:35.765: FINE Starting UDP port 4524
+2015-12-06 19:34:47.496: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:34:47.496: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:34:47.496: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:34:47.544: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:38:58.684: Server Started <pascal> Dominion
+2015-12-06 19:38:58.7: FINE Starting server service for pascal
+2015-12-06 19:38:58.7: FINE Loading Loans and Customers files
+2015-12-06 19:38:58.7: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 19:38:58.746: FINE Starting UDP port 4524
+2015-12-06 19:39:16.298: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:39:16.298: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:39:16.298: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:39:16.346: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:44:39.938: Server Started <pascal> Dominion
+2015-12-06 19:44:39.953: FINE Starting server service for pascal
+2015-12-06 19:44:39.953: FINE Loading Loans and Customers files
+2015-12-06 19:44:39.953: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 19:44:39.984: FINE Starting UDP port 4524
+2015-12-06 19:44:44.951: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:44:44.951: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:44:44.951: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:44:44.984: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:50:51.259: Server Started <pascal> Dominion
+2015-12-06 19:50:51.275: FINE Starting server service for pascal
+2015-12-06 19:50:51.275: FINE Loading Loans and Customers files
+2015-12-06 19:50:51.275: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 19:50:51.306: FINE Starting UDP port 4524
+2015-12-06 19:51:22.169: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 19:51:22.169: FINE openAccount(Pascal,Tozzi)
+2015-12-06 19:51:22.169: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 19:51:22.201: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 19:51:22.248: FINE Pascal,Tozzi: Created.

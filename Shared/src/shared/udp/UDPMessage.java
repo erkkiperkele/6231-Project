@@ -11,8 +11,6 @@ public class UDPMessage implements Serializable {
     private IOperationMessage message;
 
     private boolean isClientMessage;
-    private String clientIP;
-    private int clientPort;
     private long sequenceNumber = -1;
 
     private boolean isDestinationOverwritten = false;
@@ -27,8 +25,6 @@ public class UDPMessage implements Serializable {
     public UDPMessage(IOperationMessage message) {
         this.message = message;
         isClientMessage = false;
-        clientIP = "";
-        clientPort = -1;
     }
 
     public IOperationMessage getMessage() {
@@ -37,22 +33,6 @@ public class UDPMessage implements Serializable {
 
     public OperationType getOperation() {
         return message.getOperationType();
-    }
-    
-    /**
-     * Key used to handle packet from multiple host simultaneously by the same port
-     * @return
-     */
-    public String getKey() 
-    {
-    	if(isClientMessage())
-    	{
-        	return this.getClientIP() + ":" + this.getClientPort() + ":" + this.getSequenceNumber();
-    	}
-    	else
-    	{
-        	return this.getClientIP() + ":" + this.getClientPort();
-    	}
     }
     
     /**
@@ -106,21 +86,5 @@ public class UDPMessage implements Serializable {
 	 */
 	public boolean isClientMessage() {
 		return isClientMessage;
-	}
-
-	public int getClientPort() {
-		return clientPort;
-	}
-
-	public void setClientPort(int clientPort) {
-		this.clientPort = clientPort;
-	}
-
-	public String getClientIP() {
-		return clientIP;
-	}
-
-	public void setClientIP(String clientIP) {
-		this.clientIP = clientIP;
 	}
 }

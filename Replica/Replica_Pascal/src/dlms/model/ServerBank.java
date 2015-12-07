@@ -33,7 +33,7 @@ public class ServerBank extends AbstractServerBank
 
 	public ServerBank(ServerInfo server)
 	{
-		this.name = server.getServerName();
+		this.name = Env.getCurrentBank().toString();
 	}
 
 	/**
