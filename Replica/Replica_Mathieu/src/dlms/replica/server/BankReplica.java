@@ -29,17 +29,17 @@ import dlms.replica.udpmessage.MessageResponseTransferLoan;
 import shared.data.AbstractServerBank;
 import shared.data.BankState;
 
-
 /**
  * The bank replica acts as a bank server and proxy for the underlying bank
  * entity
  * 
  * @author mat
- *
+ * 
  */
 public class BankReplica extends AbstractServerBank {
-	
-	private static final boolean ENABLE_FILE_LOGGING = false;
+
+	public static final int MAX_DATAGRAM_SIZE = 4096;
+	public static final boolean ENABLE_FILE_LOGGING = false;
 	
 	private BankReplicaStubGroup group = null;
 	private Logger logger = null;
@@ -56,6 +56,10 @@ public class BankReplica extends AbstractServerBank {
 	 */
 	public BankReplica(String bankId, BankReplicaStubGroup replicaStubs, int sequencerListenerPort) {
 
+		if (replicaStubs.get(bankId) == null) {
+			throw new RuntimeException("Replica: " + bankId + " does not belong to the group of replicas provided");
+		}
+		
 		this.group = replicaStubs;
 		this.bank = new Bank(bankId, replicaStubs.get(bankId).addr);
 		
@@ -90,7 +94,7 @@ public class BankReplica extends AbstractServerBank {
 		}
 		udpServer.start();
 
-	    // Start the bank's UDP listener
+	    // Start the bank's internal UDP listener
 		udpListener = new UdpListener(this.bank, this.logger);
 		udpListenerThread = new Thread(udpListener);
 		udpListenerThread.start();
@@ -150,16 +154,17 @@ public class BankReplica extends AbstractServerBank {
 
 		int newAccountNbr = -1;
 
-		logger.info("-------------------------------\n" + this.bank.id
-				+ ": Client invoked openAccount(bankId: " + " emailAddress:" + emailAddress + ")");
-		
+		logger.info("-------------------------------\n" + this.bank.id + ": Client invoked openAccount(firstName:"
+				+ firstName + ", lastName:" + lastName + ", emailAddress:" + emailAddress + ", phoneNumber:"
+				+ phoneNumber + ", password:" + password + ")");
+
 		try {
 			newAccountNbr = this.bank.createAccount(firstName, lastName, emailAddress, phoneNumber, password);
 		} catch (ValidationException e) {
 			return -1; // Something went wrong when trying to create the account
 		}
 		if (newAccountNbr > 0) {
-			logger.info("ReplicaManager: Bank " + this.bank.id + " successfully opened an account for user " + emailAddress
+			logger.info("Replica: Bank " + this.bank.id + " successfully opened an account for user " + emailAddress
 					+ " with account number " + newAccountNbr);
 		}
 

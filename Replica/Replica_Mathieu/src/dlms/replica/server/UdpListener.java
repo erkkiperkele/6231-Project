@@ -28,8 +28,6 @@ import dlms.replica.udpmessage.MessageResponseTransferLoan;
  */
 public class UdpListener implements Runnable {
 
-	private static final int RECV_BUFFER_SIZE = 1024;
-
 	protected volatile Bank bank;
 	protected Logger logger;
 	
@@ -55,8 +53,8 @@ public class UdpListener implements Runnable {
 		try {
 
 			serverSocket = new DatagramSocket(this.bank.udpAddress);
-			byte[] receiveData = new byte[RECV_BUFFER_SIZE];
-			byte[] sendData = new byte[RECV_BUFFER_SIZE];
+			byte[] receiveData = new byte[BankReplica.MAX_DATAGRAM_SIZE];
+			byte[] sendData = new byte[BankReplica.MAX_DATAGRAM_SIZE];
 
 			while (true) {
 
@@ -64,7 +62,7 @@ public class UdpListener implements Runnable {
 				// LISTENER
 				//
 				
-				receiveData = new byte[RECV_BUFFER_SIZE];
+				receiveData = new byte[BankReplica.MAX_DATAGRAM_SIZE];
 				final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 
 				// Wait for the packet
