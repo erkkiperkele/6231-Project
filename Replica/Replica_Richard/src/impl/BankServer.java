@@ -2,6 +2,7 @@ package impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -55,7 +56,7 @@ public class BankServer extends AbstractServerBank {
 	public int openAccount(String FirstName, String LastName, String EmailAddress, String PhoneNumber,
 			String Password) {
 		Customer c = new Customer(FirstName, LastName, EmailAddress, PhoneNumber, Password);
-		bankStore.storeAccount(c);
+		bankStore.storeCustomer(c);
 		return c.getId();
 	}
 
@@ -327,7 +328,7 @@ public class BankServer extends AbstractServerBank {
 					custAcc = new Customer(custRecv.getFirstName(), custRecv.getLastName(),
 							custRecv.getPassword(), custRecv.getEmail(), custRecv.getPhone());
 					custAcc.setAccountNumber(incrementCustomerNumber());
-					b.storeAccount(custAcc);
+					b.storeCustomer(custAcc);
 				}
 				custAcc.setAccountNumber(incrementCustomerNumber());
 
@@ -356,14 +357,12 @@ public class BankServer extends AbstractServerBank {
 
 	@Override
 	public BankState getCurrentState() {
-		// TODO Auto-generated method stub
-		return null;
+		return new BankState(bankStore.getLoanState(), bankStore.getCustomerState(), CustomerNumber + 1, LoanNumber + 1);
 	}
 
 	@Override
 	public void setCurrentState(BankState state) {
-		// TODO Auto-generated method stub
-		
+		bankStore.setCurrentState(state);
 	}
 	
 	public void waitUntilFinished() throws InterruptedException {

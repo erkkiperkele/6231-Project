@@ -13,13 +13,15 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import shared.data.*;
 import sun.reflect.generics.tree.ReturnType;
 
 public class BankStore {
 	private Bank name;
-	private HashMap<String, ArrayList<Customer>> accounts;
+	private HashMap<String, ArrayList<Customer>> customers;
 	private HashMap<String, ArrayList<Loan>> loans;
 	
 	public BankStore(Bank name) {
@@ -31,7 +33,7 @@ public class BankStore {
 		if (facc.exists() && floan.exists()) {
 			try {
 				ObjectInputStream ois = new ObjectInputStream(new FileInputStream(facc));
-				this.accounts = (HashMap<String, ArrayList<Customer>>)ois.readObject();
+				this.customers = (HashMap<String, ArrayList<Customer>>)ois.readObject();
 
 				ois = new ObjectInputStream(new FileInputStream(floan));
 				this.loans = (HashMap<String, ArrayList<Loan>>)ois.readObject();
@@ -40,10 +42,10 @@ public class BankStore {
 				e.printStackTrace();
 			}
 		} else {
-			accounts = new HashMap<String, ArrayList<Customer>>();
+			customers = new HashMap<String, ArrayList<Customer>>();
 			loans = new HashMap<String, ArrayList<Loan>>();
 			for (char i = 'A'; i <= 'Z'; ++i) {
-				accounts.put(String.valueOf(i), new ArrayList<Customer>());
+				customers.put(String.valueOf(i), new ArrayList<Customer>());
 				loans.put(String.valueOf(i), new ArrayList<Loan>());
 			}
 			try {
@@ -115,7 +117,7 @@ public class BankStore {
 	}
 	
 	public Customer getCustomer(int id) {
-		return this.accounts.values()
+		return this.customers.values()
                 .stream()
                 .flatMap(a -> a.stream())
                 .filter(a -> a.getId() == id)
@@ -124,17 +126,17 @@ public class BankStore {
 	}
 	
 	public Customer getCustomer(String fn, String ln) {
-		return this.accounts.get(fn.charAt(0))
+		return this.customers.get(fn.charAt(0))
 				.stream()
 				.filter(a -> a.getFirstName().equals(fn) && a.getLastName().equals(ln))
 				.findFirst()
 				.orElse(null);
 	}
 	
-	public void storeAccount(Customer account) {
+	public void storeCustomer(Customer account) {
 		String fn = account.getFirstName().substring(0,1);
-		synchronized(accounts.get(fn)) {
-			accounts.get(fn).add(account);
+		synchronized(customers.get(fn)) {
+			customers.get(fn).add(account);
 		}
 		synchronized (this) {
 			try {
@@ -202,7 +204,7 @@ public class BankStore {
 		
 		StringWriter sw = new StringWriter();
 		// Write CustomerAccount Information
-		Collection<ArrayList<Customer>> as = accounts.values();
+		Collection<ArrayList<Customer>> as = customers.values();
 		Iterator<ArrayList<Customer>> ait = as.iterator();
 		while (ait.hasNext()) {
 			Iterator<Customer> cit = ait.next().iterator();
@@ -230,11 +232,40 @@ public class BankStore {
 		return sw.toString();
 	}
 	
+	public List<Loan> getLoanState() {
+		return loans.values()
+				.stream()
+				.flatMap(a -> a.stream())
+				.collect(Collectors.toList());
+	}
+	
+	public List<Customer> getCustomerState() {
+		return customers.values()
+				.stream()
+				.flatMap(a -> a.stream())
+				.collect(Collectors.toList());
+	}
+	
+	public void setCurrentState(BankState state) {
+		setCustomers(state.getCustomerList());
+		setLoans(state.getLoanList());
+	}
+	
+	private void setLoans(List<Loan> list) {
+		loans = new HashMap<String, ArrayList<Loan>>();
+		list.stream().forEach(a -> storeLoan(getCustomer(a.getCustomerAccountNumber()), a));
+	}
+
+	private void setCustomers(List<Customer> list) {
+		customers = new HashMap<String, ArrayList<Customer>>();
+		list.stream().forEach(a -> storeCustomer(a));
+	}
+	
 	private void SerializeAccounts() {
 		try {
 			FileOutputStream fout = new FileOutputStream("./" + name + "/accounts.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
-			oos.writeObject(accounts);
+			oos.writeObject(customers);
 			oos.close();
 		} catch (Exception e) {
 			e.printStackTrace();
