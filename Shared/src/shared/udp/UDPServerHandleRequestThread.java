@@ -40,6 +40,15 @@ public class UDPServerHandleRequestThread implements Runnable
 		t = new Thread(this);
 		t.start();
 	}
+	
+	public void join() {
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public void resumeNextUdpMessageReceived(DatagramPacket receivedDatagram, UDPMessage udpMessage) 
 	{
