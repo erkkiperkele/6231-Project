@@ -6,10 +6,10 @@ import Exceptions.RecordNotFoundException;
 import Exceptions.TransferException;
 import shared.udp.*;
 import shared.data.*;
+import shared.util.Env;
 
 import javax.security.auth.login.FailedLoginException;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -352,9 +352,7 @@ public class BankService implements IBankService {
         String userName = account.getOwner().getUserName();
 
         if (currentCredit < account.getCreditLimit()) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(calendar.MONTH, 6);
-            Date dueDate = calendar.getTime();
+            Date dueDate = Env.getNewLoanDueDate();
 
             newLoan = this.repository.createLoan(userName, loanAmount, dueDate);
             SessionService.getInstance().log().info(
