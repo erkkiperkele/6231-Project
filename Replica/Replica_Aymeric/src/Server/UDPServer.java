@@ -4,6 +4,7 @@ import Contracts.ICustomerService;
 import Services.BankService;
 import Services.SessionService;
 import shared.data.ServerInfo;
+import shared.data.ServerPorts;
 import shared.udp.*;
 import shared.util.Env;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -25,15 +26,15 @@ public class UDPServer {
 
     public void startServer() {
 
-        ServerInfo serverInfo = Env.getReplicaServerInfo();
+        int serverPort = ServerPorts.getUDPPort(SessionService.getInstance().getBank());
         DatagramSocket aSocket = null;
 
         try {
             //Setup the socket
-            aSocket = new DatagramSocket(serverInfo.getAddress());
+            aSocket = new DatagramSocket(serverPort);
             byte[] buffer = new byte[4096];
 
-            System.out.println("Replica listening on UDP port: " + aSocket.getPort());
+            System.out.println("Replica listening on UDP port: " + serverPort);
 
             //Setup the loop to process request
             while (true) {

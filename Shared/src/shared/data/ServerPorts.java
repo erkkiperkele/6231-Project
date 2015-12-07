@@ -46,13 +46,13 @@ public class ServerPorts {
     public static int getUDPPort(Bank bank) {
         switch (bank) {
             case Royal:
-                return 4201;
+                return 42201;
 
             case National:
-                return 4202;
+                return 42202;
 
             case Dominion:
-                return 4203;
+                return 42203;
 
             default:
                 return 0;

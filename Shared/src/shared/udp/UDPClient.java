@@ -11,7 +11,7 @@ public class UDPClient implements Closeable {
 
     private DatagramSocket socket;
     private InetAddress host;
-    private static final int TIME_OUT = 20000;
+    private static final int TIME_OUT = 5000;
 
 
     public UDPClient() {
@@ -59,6 +59,14 @@ public class UDPClient implements Closeable {
         System.out.println(String.format("UDP CLIENT received answer!"));
 
         return reply.getData();
+    }
+
+    public void sendMessageAndForget(byte[] message, InetAddress serverAddress, int serverPort) throws IOException {
+
+        DatagramPacket request = new DatagramPacket(message, message.length, serverAddress, serverPort);
+        this.socket.send(request);
+
+        System.out.println(String.format("UDP CLIENT fired and forgot."));
     }
 
     @Override

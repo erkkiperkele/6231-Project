@@ -25,11 +25,11 @@ public class BankServerUdp extends AbstractServerBank {
         this.bank = SessionService.getInstance().getBank();
         this.bankService = bankService;
         Env.setCurrentBank(this.bank);
-        Env.getReplicaServerInfo();
 
         ServerInfo serverInfo = Env.getReplicaServerInfo();
 
         try {
+            System.out.println(serverInfo.getPort() + " UDPServerThread");
             udpServer = new UDPServerThread("Replica Aymeric", serverInfo.getPort(), this);
         } catch (SocketException e) {
             e.printStackTrace();

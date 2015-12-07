@@ -2109,3 +2109,119 @@
 2015-12-07 01:15:51.959: Binding to port 4527 for 127.0.0.1
 2015-12-07 01:15:51.963: [UDP] SYNC SERVER STARTED (Pascal Implementation)
 2015-12-07 01:16:11.551: [Sync] Received SynchronizeCustomer from 127.0.0.1:4507
+2015-12-07 01:22:38.901: Server Started <pascal> Dominion
+2015-12-07 01:22:38.932: FINE Starting server service for pascal
+2015-12-07 01:22:38.936: FINE Loading Loans and Customers files
+2015-12-07 01:22:38.937: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 01:22:39.791: FINE Starting UDP port 4524
+2015-12-07 01:22:39.796: Binding to port 4527 for 127.0.0.1
+2015-12-07 01:22:39.796: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:23:03.485: [Sync] Received SynchronizeCustomer from 127.0.0.1:4537
+2015-12-07 01:23:15.718: [Sync] Received SynchronizeCustomer from 127.0.0.1:4507
+2015-12-07 01:26:11.577: Server Started <pascal> Dominion
+2015-12-07 01:26:11.676: FINE Starting server service for pascal
+2015-12-07 01:26:11.681: FINE Loading Loans and Customers files
+2015-12-07 01:26:11.681: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 01:26:12.314: FINE Starting UDP port 4524
+2015-12-07 01:26:12.321: Binding to port 4527 for 127.0.0.1
+2015-12-07 01:26:12.322: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 01:26:36.188: [Sync] Received SynchronizeCustomer from 127.0.0.1:4537
+2015-12-07 01:26:47.033: [Sync] Received SynchronizeCustomer from 127.0.0.1:4507
+2015-12-07 13:15:58.627: Server Started <pascal> Dominion
+2015-12-07 13:15:58.668: FINE Starting server service for pascal
+2015-12-07 13:15:58.671: FINE Loading Loans and Customers files
+2015-12-07 13:15:58.672: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 13:15:59.345: FINE Starting UDP port 4524
+2015-12-07 13:15:59.355: Binding to port 4527 for 127.0.0.1
+2015-12-07 13:15:59.356: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:25:05.492: Server Started <pascal> Dominion
+2015-12-07 13:25:05.522: FINE Starting server service for pascal
+2015-12-07 13:25:05.525: FINE Loading Loans and Customers files
+2015-12-07 13:25:05.526: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 13:25:06.224: FINE Starting UDP port 4524
+2015-12-07 13:25:06.228: Binding to port 4527 for 127.0.0.1
+2015-12-07 13:25:06.229: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:25:37.001: Server Started <pascal> Dominion
+2015-12-07 13:25:37.027: FINE Starting server service for pascal
+2015-12-07 13:25:37.029: FINE Loading Loans and Customers files
+2015-12-07 13:25:37.03: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 13:25:37.761: FINE Starting UDP port 4524
+2015-12-07 13:25:37.766: Binding to port 4527 for 127.0.0.1
+2015-12-07 13:25:37.767: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:36:24.503: Received Packet: RequestSynchronize From 127.0.0.1:63311 Seq:-1
+2015-12-07 13:42:38.277: Server Started <pascal> Dominion
+2015-12-07 13:42:38.304: FINE Starting server service for pascal
+2015-12-07 13:42:38.306: FINE Loading Loans and Customers files
+2015-12-07 13:42:38.306: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 13:42:39.008: FINE Starting UDP port 4524
+2015-12-07 13:42:39.016: Binding to port 4527 for 127.0.0.1
+2015-12-07 13:42:39.016: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:43:13.291: Received Packet: RequestSynchronize From 127.0.0.1:54466 Seq:-1
+2015-12-07 13:43:13.293: Unknown processRequest! RequestSynchronize
+2015-12-07 13:44:35.138: [Sync] Received RequestSynchronize from 127.0.0.1:54474
+2015-12-07 13:44:35.139: Received RequestSynchronize message...
+2015-12-07 13:47:40.469: Server Started <pascal> Dominion
+2015-12-07 13:47:40.537: FINE Starting server service for pascal
+2015-12-07 13:47:40.586: FINE Loading Loans and Customers files
+2015-12-07 13:47:40.587: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 13:47:41.222: FINE Starting UDP port 4524
+2015-12-07 13:47:41.226: Binding to port 4527 for 127.0.0.1
+2015-12-07 13:47:41.228: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:47:49.914: Server Started <pascal> Dominion
+2015-12-07 13:47:49.965: FINE Starting server service for pascal
+2015-12-07 13:47:49.987: FINE Loading Loans and Customers files
+2015-12-07 13:47:50.004: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 13:47:50.566: FINE Starting UDP port 4524
+2015-12-07 13:47:50.581: Binding to port 4527 for 127.0.0.1
+2015-12-07 13:47:50.587: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:48:23.24: [Sync] Received RequestSynchronize from 127.0.0.1:50844
+2015-12-07 13:48:23.24: Received RequestSynchronize message...
+2015-12-07 13:49:25.486: [Sync] Received RequestSynchronize from 127.0.0.1:50852
+2015-12-07 13:49:25.486: Received RequestSynchronize message...
+2015-12-07 13:57:46.631: Server Started <pascal> Dominion
+2015-12-07 13:57:46.692: FINE Starting server service for pascal
+2015-12-07 13:57:46.694: FINE Loading Loans and Customers files
+2015-12-07 13:57:46.694: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 13:57:47.34: FINE Starting UDP port 4524
+2015-12-07 13:57:47.345: UDPReplicaToReplicaManagerThread - Binding to port 4527 for 127.0.0.1
+2015-12-07 13:57:47.345: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 13:58:20.774: [Sync] Received RequestSynchronize from 127.0.0.1:53461
+2015-12-07 13:58:20.775: Received RequestSynchronize message...
+2015-12-07 13:59:25.883: [Sync] Received RequestSynchronize from 127.0.0.1:53469
+2015-12-07 13:59:25.883: Received RequestSynchronize message...
+2015-12-07 14:08:05.977: Server Started <pascal> Dominion
+2015-12-07 14:08:06.069: FINE Starting server service for pascal
+2015-12-07 14:08:06.099: FINE Loading Loans and Customers files
+2015-12-07 14:08:06.1: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 14:08:06.752: FINE Starting UDP port 4524
+2015-12-07 14:08:06.755: UDPReplicaToReplicaManagerThread - Binding to port 4527 for 127.0.0.1
+2015-12-07 14:08:06.756: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:08:14.215: [Sync] Received RequestSynchronize from 127.0.0.1:58981
+2015-12-07 14:08:14.216: Received RequestSynchronize message...
+2015-12-07 14:19:16.913: Server Started <pascal> Dominion
+2015-12-07 14:19:16.964: FINE Starting server service for pascal
+2015-12-07 14:19:16.969: FINE Loading Loans and Customers files
+2015-12-07 14:19:16.97: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 14:19:17.664: FINE Starting UDP port 4524
+2015-12-07 14:19:17.667: UDPReplicaToReplicaManagerThread - Binding to port 4527 for 127.0.0.1
+2015-12-07 14:19:17.668: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:19:34.423: [Sync] Received RequestSynchronize from 127.0.0.1:52092
+2015-12-07 14:19:34.424: Received RequestSynchronize message...
+2015-12-07 14:25:16.911: Server Started <pascal> Dominion
+2015-12-07 14:25:16.944: FINE Starting server service for pascal
+2015-12-07 14:25:16.962: FINE Loading Loans and Customers files
+2015-12-07 14:25:16.965: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 14:25:17.621: FINE Starting UDP port 4524
+2015-12-07 14:25:17.625: UDPReplicaToReplicaManagerThread - Binding to port 4527 for 127.0.0.1
+2015-12-07 14:25:17.626: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:25:25.65: [Sync] Received RequestSynchronize from 127.0.0.1:52102
+2015-12-07 14:25:25.651: Processing RequestSynchronize message...
+2015-12-07 14:36:14.629: Server Started <pascal> Dominion
+2015-12-07 14:36:14.657: FINE Starting server service for pascal
+2015-12-07 14:36:14.66: FINE Loading Loans and Customers files
+2015-12-07 14:36:14.661: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 14:36:15.311: FINE Starting UDP port 4524
+2015-12-07 14:36:15.316: UDPReplicaToReplicaManagerThread - Binding to port 4527 for 127.0.0.1
+2015-12-07 14:36:15.317: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 14:36:24.674: [Sync] Received RequestSynchronize from 127.0.0.1:58645
+2015-12-07 14:36:24.675: Processing RequestSynchronize message...

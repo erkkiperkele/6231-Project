@@ -199,7 +199,7 @@ public class UDPServerHandleRequestThread implements Runnable
 				processTransferLoan(udpMessage);
 				break;
 			default:
-				System.err.println("Unknown processRequest! " + udpMessage.getOperation().toString());
+				Env.log("Unknown regular processRequest! " + udpMessage.getOperation().toString());
 				break;
 		}
 	}
