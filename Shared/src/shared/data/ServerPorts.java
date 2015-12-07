@@ -1,5 +1,8 @@
 package shared.data;
 
+import shared.util.Constant;
+import shared.util.Env;
+
 public class ServerPorts {
     
     /**
@@ -43,21 +46,25 @@ public class ServerPorts {
      * @param bank
      * @return
      */
-    public static int getUDPPort(Bank bank) {
-        switch (bank) {
-            case Royal:
-                return 42201;
+//    public static int getUDPPort(Bank bank) {
+//        switch (bank) {
+//            case Royal:
+//                return 42201;
+//
+//            case National:
+//                return 42202;
+//
+//            case Dominion:
+//                return 42203;
+//
+//            default:
+//                return 0;
+//        }
+//    }
 
-            case National:
-                return 42202;
-
-            case Dominion:
-                return 42203;
-
-            default:
-                return 0;
+        public static int getUDPPort(Bank bank) {
+            return Env.getReplicaIntranetServerInfo(Env.getMachineName(), bank).getPort();
         }
-    }
 
     /**
      * maps each bank to another local port for its UDP server.

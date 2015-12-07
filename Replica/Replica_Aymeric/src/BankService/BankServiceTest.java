@@ -5,6 +5,7 @@ import Exceptions.RecordNotFoundException;
 import Exceptions.TransferException;
 import Services.BankService;
 import Services.SessionService;
+import shared.util.Env;
 
 import javax.security.auth.login.FailedLoginException;
 import java.text.DateFormat;
@@ -34,6 +35,9 @@ public class BankServiceTest {
 
     private static void initialize(String arg) {
         bank = shared.data.Bank.fromInt(Integer.parseInt(arg));
+        Env.loadSettings();
+        Env.setCurrentBank(bank);
+
         anotherBank = bank == shared.data.Bank.Royal
                 ? shared.data.Bank.National
                 : shared.data.Bank.Royal;
