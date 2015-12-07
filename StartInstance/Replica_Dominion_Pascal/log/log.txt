@@ -1155,3 +1155,871 @@
 2015-12-06 23:34:34.711: Received Packet: RequestSynchronize From 127.0.0.1:52038 Seq:-1
 2015-12-06 23:34:39.961: Received Packet: RequestSynchronize From 127.0.0.1:52046 Seq:-1
 2015-12-06 23:34:48.459: Received Packet: RequestSynchronize From 127.0.0.1:52048 Seq:-1
+2015-12-07 00:08:49.208: Server Started <pascal> Dominion
+2015-12-07 00:08:49.239: FINE Starting server service for pascal
+2015-12-07 00:08:49.239: FINE Loading Loans and Customers files
+2015-12-07 00:08:49.239: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 00:08:49.333: FINE Starting UDP port 4524
+2015-12-07 00:08:52.106: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-07 00:08:52.106: FINE openAccount(Pascal,Tozzi)
+2015-12-07 00:08:52.122: FINE Pascal,Tozzi: Adding the account.
+2015-12-07 00:08:52.122: FINE Pascal,Tozzi: Commit() to XML
+2015-12-07 00:08:52.231: FINE Pascal,Tozzi: Created.
+2015-12-07 00:08:52.231: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2
+2015-12-07 00:08:52.231: FINE openAccount(Pascal0,Tozzi0)
+2015-12-07 00:08:52.231: FINE Pascal0,Tozzi0: Adding the account.
+2015-12-07 00:08:52.231: FINE Pascal0,Tozzi0: Commit() to XML
+2015-12-07 00:08:52.247: FINE Pascal0,Tozzi0: Created.
+2015-12-07 00:08:52.247: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:3
+2015-12-07 00:08:52.247: FINE openAccount(Pascal1,Tozzi1)
+2015-12-07 00:08:52.247: FINE Pascal1,Tozzi1: Adding the account.
+2015-12-07 00:08:52.247: FINE Pascal1,Tozzi1: Commit() to XML
+2015-12-07 00:08:52.263: FINE Pascal1,Tozzi1: Created.
+2015-12-07 00:08:52.278: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:4
+2015-12-07 00:08:52.278: FINE openAccount(Pascal2,Tozzi2)
+2015-12-07 00:08:52.278: FINE Pascal2,Tozzi2: Adding the account.
+2015-12-07 00:08:52.278: FINE Pascal2,Tozzi2: Commit() to XML
+2015-12-07 00:08:52.294: FINE Pascal2,Tozzi2: Created.
+2015-12-07 00:08:52.294: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:5
+2015-12-07 00:08:52.294: FINE openAccount(Pascal3,Tozzi3)
+2015-12-07 00:08:52.294: FINE Pascal3,Tozzi3: Adding the account.
+2015-12-07 00:08:52.294: FINE Pascal3,Tozzi3: Commit() to XML
+2015-12-07 00:08:52.31: FINE Pascal3,Tozzi3: Created.
+2015-12-07 00:08:52.31: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:6
+2015-12-07 00:08:52.31: FINE openAccount(Pascal4,Tozzi4)
+2015-12-07 00:08:52.31: FINE Pascal4,Tozzi4: Adding the account.
+2015-12-07 00:08:52.325: FINE Pascal4,Tozzi4: Commit() to XML
+2015-12-07 00:08:52.325: FINE Pascal4,Tozzi4: Created.
+2015-12-07 00:08:52.325: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:7
+2015-12-07 00:08:52.341: FINE openAccount(Pascal5,Tozzi5)
+2015-12-07 00:08:52.341: FINE Pascal5,Tozzi5: Adding the account.
+2015-12-07 00:08:52.341: FINE Pascal5,Tozzi5: Commit() to XML
+2015-12-07 00:08:52.356: FINE Pascal5,Tozzi5: Created.
+2015-12-07 00:08:52.356: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:8
+2015-12-07 00:08:52.356: FINE openAccount(Pascal6,Tozzi6)
+2015-12-07 00:08:52.356: FINE Pascal6,Tozzi6: Adding the account.
+2015-12-07 00:08:52.356: FINE Pascal6,Tozzi6: Commit() to XML
+2015-12-07 00:08:52.372: FINE Pascal6,Tozzi6: Created.
+2015-12-07 00:08:52.372: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:9
+2015-12-07 00:08:52.372: FINE openAccount(Pascal7,Tozzi7)
+2015-12-07 00:08:52.372: FINE Pascal7,Tozzi7: Adding the account.
+2015-12-07 00:08:52.372: FINE Pascal7,Tozzi7: Commit() to XML
+2015-12-07 00:08:52.388: FINE Pascal7,Tozzi7: Created.
+2015-12-07 00:08:52.388: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:10
+2015-12-07 00:08:52.388: FINE openAccount(Pascal8,Tozzi8)
+2015-12-07 00:08:52.388: FINE Pascal8,Tozzi8: Adding the account.
+2015-12-07 00:08:52.388: FINE Pascal8,Tozzi8: Commit() to XML
+2015-12-07 00:08:52.403: FINE Pascal8,Tozzi8: Created.
+2015-12-07 00:08:52.403: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:11
+2015-12-07 00:08:52.403: FINE openAccount(Pascal9,Tozzi9)
+2015-12-07 00:08:52.403: FINE Pascal9,Tozzi9: Adding the account.
+2015-12-07 00:08:52.419: FINE Pascal9,Tozzi9: Commit() to XML
+2015-12-07 00:08:52.435: FINE Pascal9,Tozzi9: Created.
+2015-12-07 00:08:52.435: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:12
+2015-12-07 00:08:52.435: FINE openAccount(Pascal10,Tozzi10)
+2015-12-07 00:08:52.435: FINE Pascal10,Tozzi10: Adding the account.
+2015-12-07 00:08:52.435: FINE Pascal10,Tozzi10: Commit() to XML
+2015-12-07 00:08:52.45: FINE Pascal10,Tozzi10: Created.
+2015-12-07 00:08:52.45: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:13
+2015-12-07 00:08:52.45: FINE openAccount(Pascal11,Tozzi11)
+2015-12-07 00:08:52.45: FINE Pascal11,Tozzi11: Adding the account.
+2015-12-07 00:08:52.45: FINE Pascal11,Tozzi11: Commit() to XML
+2015-12-07 00:08:52.466: FINE Pascal11,Tozzi11: Created.
+2015-12-07 00:08:52.466: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:14
+2015-12-07 00:08:52.481: FINE openAccount(Pascal12,Tozzi12)
+2015-12-07 00:08:52.481: FINE Pascal12,Tozzi12: Adding the account.
+2015-12-07 00:08:52.481: FINE Pascal12,Tozzi12: Commit() to XML
+2015-12-07 00:08:52.514: FINE Pascal12,Tozzi12: Created.
+2015-12-07 00:08:52.518: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:15
+2015-12-07 00:08:52.52: FINE openAccount(Pascal13,Tozzi13)
+2015-12-07 00:08:52.521: FINE Pascal13,Tozzi13: Adding the account.
+2015-12-07 00:08:52.523: FINE Pascal13,Tozzi13: Commit() to XML
+2015-12-07 00:08:52.545: FINE Pascal13,Tozzi13: Created.
+2015-12-07 00:08:52.549: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:16
+2015-12-07 00:08:52.557: FINE openAccount(Pascal14,Tozzi14)
+2015-12-07 00:08:52.557: FINE Pascal14,Tozzi14: Adding the account.
+2015-12-07 00:08:52.557: FINE Pascal14,Tozzi14: Commit() to XML
+2015-12-07 00:08:52.573: FINE Pascal14,Tozzi14: Created.
+2015-12-07 00:08:52.573: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:17
+2015-12-07 00:08:52.573: FINE openAccount(Pascal15,Tozzi15)
+2015-12-07 00:08:52.573: FINE Pascal15,Tozzi15: Adding the account.
+2015-12-07 00:08:52.588: FINE Pascal15,Tozzi15: Commit() to XML
+2015-12-07 00:08:52.604: FINE Pascal15,Tozzi15: Created.
+2015-12-07 00:08:52.604: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:18
+2015-12-07 00:08:52.62: FINE openAccount(Pascal16,Tozzi16)
+2015-12-07 00:08:52.62: FINE Pascal16,Tozzi16: Adding the account.
+2015-12-07 00:08:52.62: FINE Pascal16,Tozzi16: Commit() to XML
+2015-12-07 00:08:52.635: FINE Pascal16,Tozzi16: Created.
+2015-12-07 00:08:52.651: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:19
+2015-12-07 00:08:52.651: FINE openAccount(Pascal17,Tozzi17)
+2015-12-07 00:08:52.651: FINE Pascal17,Tozzi17: Adding the account.
+2015-12-07 00:08:52.666: FINE Pascal17,Tozzi17: Commit() to XML
+2015-12-07 00:08:52.682: FINE Pascal17,Tozzi17: Created.
+2015-12-07 00:08:52.682: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:20
+2015-12-07 00:08:52.682: FINE openAccount(Pascal18,Tozzi18)
+2015-12-07 00:08:52.682: FINE Pascal18,Tozzi18: Adding the account.
+2015-12-07 00:08:52.698: FINE Pascal18,Tozzi18: Commit() to XML
+2015-12-07 00:08:52.713: FINE Pascal18,Tozzi18: Created.
+2015-12-07 00:08:52.713: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:21
+2015-12-07 00:08:52.713: FINE openAccount(Pascal19,Tozzi19)
+2015-12-07 00:08:52.729: FINE Pascal19,Tozzi19: Adding the account.
+2015-12-07 00:08:52.729: FINE Pascal19,Tozzi19: Commit() to XML
+2015-12-07 00:08:52.745: FINE Pascal19,Tozzi19: Created.
+2015-12-07 00:08:52.745: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:22
+2015-12-07 00:08:52.76: FINE openAccount(Pascal20,Tozzi20)
+2015-12-07 00:08:52.76: FINE Pascal20,Tozzi20: Adding the account.
+2015-12-07 00:08:52.76: FINE Pascal20,Tozzi20: Commit() to XML
+2015-12-07 00:08:52.823: FINE Pascal20,Tozzi20: Created.
+2015-12-07 00:08:52.823: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:23
+2015-12-07 00:08:52.838: FINE openAccount(Pascal21,Tozzi21)
+2015-12-07 00:08:52.843: FINE Pascal21,Tozzi21: Adding the account.
+2015-12-07 00:08:52.846: FINE Pascal21,Tozzi21: Commit() to XML
+2015-12-07 00:08:52.874: FINE Pascal21,Tozzi21: Created.
+2015-12-07 00:08:52.877: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:24
+2015-12-07 00:08:52.884: FINE openAccount(Pascal22,Tozzi22)
+2015-12-07 00:08:52.888: FINE Pascal22,Tozzi22: Adding the account.
+2015-12-07 00:08:52.96: FINE Pascal22,Tozzi22: Commit() to XML
+2015-12-07 00:08:52.992: FINE Pascal22,Tozzi22: Created.
+2015-12-07 00:08:52.992: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:25
+2015-12-07 00:08:53.007: FINE openAccount(Pascal23,Tozzi23)
+2015-12-07 00:08:53.007: FINE Pascal23,Tozzi23: Adding the account.
+2015-12-07 00:08:53.007: FINE Pascal23,Tozzi23: Commit() to XML
+2015-12-07 00:08:53.023: FINE Pascal23,Tozzi23: Created.
+2015-12-07 00:08:53.023: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:26
+2015-12-07 00:08:53.038: FINE openAccount(Pascal24,Tozzi24)
+2015-12-07 00:08:53.038: FINE Pascal24,Tozzi24: Adding the account.
+2015-12-07 00:08:53.038: FINE Pascal24,Tozzi24: Commit() to XML
+2015-12-07 00:08:53.07: FINE Pascal24,Tozzi24: Created.
+2015-12-07 00:08:53.07: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:27
+2015-12-07 00:08:53.088: FINE openAccount(Pascal25,Tozzi25)
+2015-12-07 00:08:53.088: FINE Pascal25,Tozzi25: Adding the account.
+2015-12-07 00:08:53.088: FINE Pascal25,Tozzi25: Commit() to XML
+2015-12-07 00:08:53.104: FINE Pascal25,Tozzi25: Created.
+2015-12-07 00:08:53.104: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:28
+2015-12-07 00:08:53.104: FINE openAccount(Pascal26,Tozzi26)
+2015-12-07 00:08:53.104: FINE Pascal26,Tozzi26: Adding the account.
+2015-12-07 00:08:53.104: FINE Pascal26,Tozzi26: Commit() to XML
+2015-12-07 00:08:53.135: FINE Pascal26,Tozzi26: Created.
+2015-12-07 00:08:53.135: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:29
+2015-12-07 00:08:53.135: FINE openAccount(Pascal27,Tozzi27)
+2015-12-07 00:08:53.135: FINE Pascal27,Tozzi27: Adding the account.
+2015-12-07 00:08:53.151: FINE Pascal27,Tozzi27: Commit() to XML
+2015-12-07 00:08:53.166: FINE Pascal27,Tozzi27: Created.
+2015-12-07 00:08:53.166: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:30
+2015-12-07 00:08:53.166: FINE openAccount(Pascal28,Tozzi28)
+2015-12-07 00:08:53.166: FINE Pascal28,Tozzi28: Adding the account.
+2015-12-07 00:08:53.166: FINE Pascal28,Tozzi28: Commit() to XML
+2015-12-07 00:08:53.198: FINE Pascal28,Tozzi28: Created.
+2015-12-07 00:08:53.198: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:31
+2015-12-07 00:08:53.198: FINE openAccount(Pascal29,Tozzi29)
+2015-12-07 00:08:53.198: FINE Pascal29,Tozzi29: Adding the account.
+2015-12-07 00:08:53.198: FINE Pascal29,Tozzi29: Commit() to XML
+2015-12-07 00:08:53.213: FINE Pascal29,Tozzi29: Created.
+2015-12-07 00:08:53.213: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:32
+2015-12-07 00:08:53.213: FINE openAccount(Pascal30,Tozzi30)
+2015-12-07 00:08:53.229: FINE Pascal30,Tozzi30: Adding the account.
+2015-12-07 00:08:53.229: FINE Pascal30,Tozzi30: Commit() to XML
+2015-12-07 00:08:53.245: FINE Pascal30,Tozzi30: Created.
+2015-12-07 00:08:53.26: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:33
+2015-12-07 00:08:53.26: FINE openAccount(Pascal31,Tozzi31)
+2015-12-07 00:08:53.26: FINE Pascal31,Tozzi31: Adding the account.
+2015-12-07 00:08:53.26: FINE Pascal31,Tozzi31: Commit() to XML
+2015-12-07 00:08:53.291: FINE Pascal31,Tozzi31: Created.
+2015-12-07 00:08:53.291: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:34
+2015-12-07 00:08:53.291: FINE openAccount(Pascal32,Tozzi32)
+2015-12-07 00:08:53.291: FINE Pascal32,Tozzi32: Adding the account.
+2015-12-07 00:08:53.291: FINE Pascal32,Tozzi32: Commit() to XML
+2015-12-07 00:08:53.307: FINE Pascal32,Tozzi32: Created.
+2015-12-07 00:08:53.323: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:35
+2015-12-07 00:08:53.323: FINE openAccount(Pascal33,Tozzi33)
+2015-12-07 00:08:53.323: FINE Pascal33,Tozzi33: Adding the account.
+2015-12-07 00:08:53.323: FINE Pascal33,Tozzi33: Commit() to XML
+2015-12-07 00:08:53.338: FINE Pascal33,Tozzi33: Created.
+2015-12-07 00:08:53.338: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:36
+2015-12-07 00:08:53.338: FINE openAccount(Pascal34,Tozzi34)
+2015-12-07 00:08:53.338: FINE Pascal34,Tozzi34: Adding the account.
+2015-12-07 00:08:53.338: FINE Pascal34,Tozzi34: Commit() to XML
+2015-12-07 00:08:53.37: FINE Pascal34,Tozzi34: Created.
+2015-12-07 00:08:53.37: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:37
+2015-12-07 00:08:53.37: FINE openAccount(Pascal35,Tozzi35)
+2015-12-07 00:08:53.37: FINE Pascal35,Tozzi35: Adding the account.
+2015-12-07 00:08:53.37: FINE Pascal35,Tozzi35: Commit() to XML
+2015-12-07 00:08:53.401: FINE Pascal35,Tozzi35: Created.
+2015-12-07 00:08:53.401: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:38
+2015-12-07 00:08:53.401: FINE openAccount(Pascal36,Tozzi36)
+2015-12-07 00:08:53.401: FINE Pascal36,Tozzi36: Adding the account.
+2015-12-07 00:08:53.401: FINE Pascal36,Tozzi36: Commit() to XML
+2015-12-07 00:08:53.432: FINE Pascal36,Tozzi36: Created.
+2015-12-07 00:08:53.432: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:39
+2015-12-07 00:08:53.432: FINE openAccount(Pascal37,Tozzi37)
+2015-12-07 00:08:53.448: FINE Pascal37,Tozzi37: Adding the account.
+2015-12-07 00:08:53.448: FINE Pascal37,Tozzi37: Commit() to XML
+2015-12-07 00:08:53.463: FINE Pascal37,Tozzi37: Created.
+2015-12-07 00:08:53.463: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:40
+2015-12-07 00:08:53.481: FINE openAccount(Pascal38,Tozzi38)
+2015-12-07 00:08:53.482: FINE Pascal38,Tozzi38: Adding the account.
+2015-12-07 00:08:53.484: FINE Pascal38,Tozzi38: Commit() to XML
+2015-12-07 00:08:53.521: FINE Pascal38,Tozzi38: Created.
+2015-12-07 00:08:53.53: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:41
+2015-12-07 00:08:53.531: FINE openAccount(Pascal39,Tozzi39)
+2015-12-07 00:08:53.539: FINE Pascal39,Tozzi39: Adding the account.
+2015-12-07 00:08:53.539: FINE Pascal39,Tozzi39: Commit() to XML
+2015-12-07 00:08:53.569: FINE Pascal39,Tozzi39: Created.
+2015-12-07 00:08:53.574: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:42
+2015-12-07 00:08:53.575: FINE openAccount(Pascal40,Tozzi40)
+2015-12-07 00:08:53.576: FINE Pascal40,Tozzi40: Adding the account.
+2015-12-07 00:08:53.577: FINE Pascal40,Tozzi40: Commit() to XML
+2015-12-07 00:08:53.607: FINE Pascal40,Tozzi40: Created.
+2015-12-07 00:08:53.609: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:43
+2015-12-07 00:08:53.612: FINE openAccount(Pascal41,Tozzi41)
+2015-12-07 00:08:53.613: FINE Pascal41,Tozzi41: Adding the account.
+2015-12-07 00:08:53.613: FINE Pascal41,Tozzi41: Commit() to XML
+2015-12-07 00:08:53.641: FINE Pascal41,Tozzi41: Created.
+2015-12-07 00:08:53.653: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:44
+2015-12-07 00:08:53.656: FINE openAccount(Pascal42,Tozzi42)
+2015-12-07 00:08:53.657: FINE Pascal42,Tozzi42: Adding the account.
+2015-12-07 00:08:53.659: FINE Pascal42,Tozzi42: Commit() to XML
+2015-12-07 00:08:53.684: FINE Pascal42,Tozzi42: Created.
+2015-12-07 00:08:53.686: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:45
+2015-12-07 00:08:53.688: FINE openAccount(Pascal43,Tozzi43)
+2015-12-07 00:08:53.688: FINE Pascal43,Tozzi43: Adding the account.
+2015-12-07 00:08:53.688: FINE Pascal43,Tozzi43: Commit() to XML
+2015-12-07 00:08:53.708: FINE Pascal43,Tozzi43: Created.
+2015-12-07 00:08:53.711: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:46
+2015-12-07 00:08:53.714: FINE openAccount(Pascal44,Tozzi44)
+2015-12-07 00:08:53.716: FINE Pascal44,Tozzi44: Adding the account.
+2015-12-07 00:08:53.718: FINE Pascal44,Tozzi44: Commit() to XML
+2015-12-07 00:08:53.736: FINE Pascal44,Tozzi44: Created.
+2015-12-07 00:08:53.737: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:47
+2015-12-07 00:08:53.74: FINE openAccount(Pascal45,Tozzi45)
+2015-12-07 00:08:53.741: FINE Pascal45,Tozzi45: Adding the account.
+2015-12-07 00:08:53.745: FINE Pascal45,Tozzi45: Commit() to XML
+2015-12-07 00:08:53.762: FINE Pascal45,Tozzi45: Created.
+2015-12-07 00:08:53.763: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:48
+2015-12-07 00:08:53.764: FINE openAccount(Pascal46,Tozzi46)
+2015-12-07 00:08:53.765: FINE Pascal46,Tozzi46: Adding the account.
+2015-12-07 00:08:53.766: FINE Pascal46,Tozzi46: Commit() to XML
+2015-12-07 00:08:53.78: FINE Pascal46,Tozzi46: Created.
+2015-12-07 00:08:53.78: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:49
+2015-12-07 00:08:53.796: FINE openAccount(Pascal47,Tozzi47)
+2015-12-07 00:08:53.796: FINE Pascal47,Tozzi47: Adding the account.
+2015-12-07 00:08:53.796: FINE Pascal47,Tozzi47: Commit() to XML
+2015-12-07 00:08:53.811: FINE Pascal47,Tozzi47: Created.
+2015-12-07 00:08:53.811: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:50
+2015-12-07 00:08:53.811: FINE openAccount(Pascal48,Tozzi48)
+2015-12-07 00:08:53.811: FINE Pascal48,Tozzi48: Adding the account.
+2015-12-07 00:08:53.827: FINE Pascal48,Tozzi48: Commit() to XML
+2015-12-07 00:08:53.843: FINE Pascal48,Tozzi48: Created.
+2015-12-07 00:08:53.843: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:51
+2015-12-07 00:08:53.843: FINE openAccount(Pascal49,Tozzi49)
+2015-12-07 00:08:53.843: FINE Pascal49,Tozzi49: Adding the account.
+2015-12-07 00:08:53.843: FINE Pascal49,Tozzi49: Commit() to XML
+2015-12-07 00:08:53.858: FINE Pascal49,Tozzi49: Created.
+2015-12-07 00:08:53.874: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:52
+2015-12-07 00:08:53.89: FINE openAccount(Pascal50,Tozzi50)
+2015-12-07 00:08:53.89: FINE Pascal50,Tozzi50: Adding the account.
+2015-12-07 00:08:53.89: FINE Pascal50,Tozzi50: Commit() to XML
+2015-12-07 00:08:53.905: FINE Pascal50,Tozzi50: Created.
+2015-12-07 00:08:53.905: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:53
+2015-12-07 00:08:53.905: FINE openAccount(Pascal51,Tozzi51)
+2015-12-07 00:08:53.905: FINE Pascal51,Tozzi51: Adding the account.
+2015-12-07 00:08:53.905: FINE Pascal51,Tozzi51: Commit() to XML
+2015-12-07 00:08:53.936: FINE Pascal51,Tozzi51: Created.
+2015-12-07 00:08:53.936: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:54
+2015-12-07 00:08:53.936: FINE openAccount(Pascal52,Tozzi52)
+2015-12-07 00:08:53.936: FINE Pascal52,Tozzi52: Adding the account.
+2015-12-07 00:08:53.936: FINE Pascal52,Tozzi52: Commit() to XML
+2015-12-07 00:08:53.952: FINE Pascal52,Tozzi52: Created.
+2015-12-07 00:08:53.952: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:55
+2015-12-07 00:08:53.952: FINE openAccount(Pascal53,Tozzi53)
+2015-12-07 00:08:53.952: FINE Pascal53,Tozzi53: Adding the account.
+2015-12-07 00:08:53.968: FINE Pascal53,Tozzi53: Commit() to XML
+2015-12-07 00:08:53.983: FINE Pascal53,Tozzi53: Created.
+2015-12-07 00:08:53.983: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:56
+2015-12-07 00:08:53.983: FINE openAccount(Pascal54,Tozzi54)
+2015-12-07 00:08:53.999: FINE Pascal54,Tozzi54: Adding the account.
+2015-12-07 00:08:53.999: FINE Pascal54,Tozzi54: Commit() to XML
+2015-12-07 00:08:54.015: FINE Pascal54,Tozzi54: Created.
+2015-12-07 00:08:54.015: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:57
+2015-12-07 00:08:54.015: FINE openAccount(Pascal55,Tozzi55)
+2015-12-07 00:08:54.015: FINE Pascal55,Tozzi55: Adding the account.
+2015-12-07 00:08:54.015: FINE Pascal55,Tozzi55: Commit() to XML
+2015-12-07 00:08:54.046: FINE Pascal55,Tozzi55: Created.
+2015-12-07 00:08:54.046: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:58
+2015-12-07 00:08:54.046: FINE openAccount(Pascal56,Tozzi56)
+2015-12-07 00:08:54.061: FINE Pascal56,Tozzi56: Adding the account.
+2015-12-07 00:08:54.061: FINE Pascal56,Tozzi56: Commit() to XML
+2015-12-07 00:08:54.077: FINE Pascal56,Tozzi56: Created.
+2015-12-07 00:08:54.077: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:59
+2015-12-07 00:08:54.093: FINE openAccount(Pascal57,Tozzi57)
+2015-12-07 00:08:54.093: FINE Pascal57,Tozzi57: Adding the account.
+2015-12-07 00:08:54.093: FINE Pascal57,Tozzi57: Commit() to XML
+2015-12-07 00:08:54.14: FINE Pascal57,Tozzi57: Created.
+2015-12-07 00:08:54.14: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:60
+2015-12-07 00:08:54.14: FINE openAccount(Pascal58,Tozzi58)
+2015-12-07 00:08:54.14: FINE Pascal58,Tozzi58: Adding the account.
+2015-12-07 00:08:54.14: FINE Pascal58,Tozzi58: Commit() to XML
+2015-12-07 00:08:54.155: FINE Pascal58,Tozzi58: Created.
+2015-12-07 00:08:54.155: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:61
+2015-12-07 00:08:54.155: FINE openAccount(Pascal59,Tozzi59)
+2015-12-07 00:08:54.155: FINE Pascal59,Tozzi59: Adding the account.
+2015-12-07 00:08:54.155: FINE Pascal59,Tozzi59: Commit() to XML
+2015-12-07 00:08:54.186: FINE Pascal59,Tozzi59: Created.
+2015-12-07 00:08:54.186: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:62
+2015-12-07 00:08:54.186: FINE openAccount(Pascal60,Tozzi60)
+2015-12-07 00:08:54.186: FINE Pascal60,Tozzi60: Adding the account.
+2015-12-07 00:08:54.186: FINE Pascal60,Tozzi60: Commit() to XML
+2015-12-07 00:08:54.202: FINE Pascal60,Tozzi60: Created.
+2015-12-07 00:08:54.218: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:63
+2015-12-07 00:08:54.218: FINE openAccount(Pascal61,Tozzi61)
+2015-12-07 00:08:54.218: FINE Pascal61,Tozzi61: Adding the account.
+2015-12-07 00:08:54.218: FINE Pascal61,Tozzi61: Commit() to XML
+2015-12-07 00:08:54.233: FINE Pascal61,Tozzi61: Created.
+2015-12-07 00:08:54.233: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:64
+2015-12-07 00:08:54.249: FINE openAccount(Pascal62,Tozzi62)
+2015-12-07 00:08:54.249: FINE Pascal62,Tozzi62: Adding the account.
+2015-12-07 00:08:54.249: FINE Pascal62,Tozzi62: Commit() to XML
+2015-12-07 00:08:54.265: FINE Pascal62,Tozzi62: Created.
+2015-12-07 00:08:54.265: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:65
+2015-12-07 00:08:54.265: FINE openAccount(Pascal63,Tozzi63)
+2015-12-07 00:08:54.28: FINE Pascal63,Tozzi63: Adding the account.
+2015-12-07 00:08:54.436: FINE Pascal63,Tozzi63: Commit() to XML
+2015-12-07 00:08:54.468: FINE Pascal63,Tozzi63: Created.
+2015-12-07 00:08:54.468: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:66
+2015-12-07 00:08:54.468: FINE openAccount(Pascal64,Tozzi64)
+2015-12-07 00:08:54.468: FINE Pascal64,Tozzi64: Adding the account.
+2015-12-07 00:08:54.468: FINE Pascal64,Tozzi64: Commit() to XML
+2015-12-07 00:08:54.53: FINE Pascal64,Tozzi64: Created.
+2015-12-07 00:08:54.53: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:67
+2015-12-07 00:08:54.53: FINE openAccount(Pascal65,Tozzi65)
+2015-12-07 00:08:54.53: FINE Pascal65,Tozzi65: Adding the account.
+2015-12-07 00:08:54.53: FINE Pascal65,Tozzi65: Commit() to XML
+2015-12-07 00:08:54.546: FINE Pascal65,Tozzi65: Created.
+2015-12-07 00:08:54.546: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:68
+2015-12-07 00:08:54.546: FINE openAccount(Pascal66,Tozzi66)
+2015-12-07 00:08:54.546: FINE Pascal66,Tozzi66: Adding the account.
+2015-12-07 00:08:54.546: FINE Pascal66,Tozzi66: Commit() to XML
+2015-12-07 00:08:54.561: FINE Pascal66,Tozzi66: Created.
+2015-12-07 00:08:54.561: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:69
+2015-12-07 00:08:54.561: FINE openAccount(Pascal67,Tozzi67)
+2015-12-07 00:08:54.561: FINE Pascal67,Tozzi67: Adding the account.
+2015-12-07 00:08:54.561: FINE Pascal67,Tozzi67: Commit() to XML
+2015-12-07 00:08:54.594: FINE Pascal67,Tozzi67: Created.
+2015-12-07 00:08:54.594: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:70
+2015-12-07 00:08:54.594: FINE openAccount(Pascal68,Tozzi68)
+2015-12-07 00:08:54.594: FINE Pascal68,Tozzi68: Adding the account.
+2015-12-07 00:08:54.594: FINE Pascal68,Tozzi68: Commit() to XML
+2015-12-07 00:08:54.609: FINE Pascal68,Tozzi68: Created.
+2015-12-07 00:08:54.625: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:71
+2015-12-07 00:08:54.625: FINE openAccount(Pascal69,Tozzi69)
+2015-12-07 00:08:54.625: FINE Pascal69,Tozzi69: Adding the account.
+2015-12-07 00:08:54.625: FINE Pascal69,Tozzi69: Commit() to XML
+2015-12-07 00:08:54.656: FINE Pascal69,Tozzi69: Created.
+2015-12-07 00:08:54.656: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:72
+2015-12-07 00:08:54.656: FINE openAccount(Pascal70,Tozzi70)
+2015-12-07 00:08:54.656: FINE Pascal70,Tozzi70: Adding the account.
+2015-12-07 00:08:54.672: FINE Pascal70,Tozzi70: Commit() to XML
+2015-12-07 00:08:54.687: FINE Pascal70,Tozzi70: Created.
+2015-12-07 00:08:54.687: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:73
+2015-12-07 00:08:54.687: FINE openAccount(Pascal71,Tozzi71)
+2015-12-07 00:08:54.687: FINE Pascal71,Tozzi71: Adding the account.
+2015-12-07 00:08:54.687: FINE Pascal71,Tozzi71: Commit() to XML
+2015-12-07 00:08:54.719: FINE Pascal71,Tozzi71: Created.
+2015-12-07 00:08:54.734: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:74
+2015-12-07 00:08:54.75: FINE openAccount(Pascal72,Tozzi72)
+2015-12-07 00:08:54.75: FINE Pascal72,Tozzi72: Adding the account.
+2015-12-07 00:08:54.75: FINE Pascal72,Tozzi72: Commit() to XML
+2015-12-07 00:08:54.766: FINE Pascal72,Tozzi72: Created.
+2015-12-07 00:08:54.781: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:75
+2015-12-07 00:08:54.781: FINE openAccount(Pascal73,Tozzi73)
+2015-12-07 00:08:54.781: FINE Pascal73,Tozzi73: Adding the account.
+2015-12-07 00:08:54.781: FINE Pascal73,Tozzi73: Commit() to XML
+2015-12-07 00:08:54.812: FINE Pascal73,Tozzi73: Created.
+2015-12-07 00:08:54.812: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:76
+2015-12-07 00:08:54.812: FINE openAccount(Pascal74,Tozzi74)
+2015-12-07 00:08:54.812: FINE Pascal74,Tozzi74: Adding the account.
+2015-12-07 00:08:54.812: FINE Pascal74,Tozzi74: Commit() to XML
+2015-12-07 00:08:54.859: FINE Pascal74,Tozzi74: Created.
+2015-12-07 00:08:54.875: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:77
+2015-12-07 00:08:54.875: FINE openAccount(Pascal75,Tozzi75)
+2015-12-07 00:08:54.922: FINE Pascal75,Tozzi75: Adding the account.
+2015-12-07 00:08:54.922: FINE Pascal75,Tozzi75: Commit() to XML
+2015-12-07 00:08:54.953: FINE Pascal75,Tozzi75: Created.
+2015-12-07 00:08:54.953: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:78
+2015-12-07 00:08:54.976: FINE openAccount(Pascal76,Tozzi76)
+2015-12-07 00:08:54.977: FINE Pascal76,Tozzi76: Adding the account.
+2015-12-07 00:08:54.978: FINE Pascal76,Tozzi76: Commit() to XML
+2015-12-07 00:08:55.027: FINE Pascal76,Tozzi76: Created.
+2015-12-07 00:08:55.034: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:79
+2015-12-07 00:08:55.056: FINE openAccount(Pascal77,Tozzi77)
+2015-12-07 00:08:55.06: FINE Pascal77,Tozzi77: Adding the account.
+2015-12-07 00:08:55.062: FINE Pascal77,Tozzi77: Commit() to XML
+2015-12-07 00:08:55.093: FINE Pascal77,Tozzi77: Created.
+2015-12-07 00:08:55.095: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:80
+2015-12-07 00:08:55.103: FINE openAccount(Pascal78,Tozzi78)
+2015-12-07 00:08:55.117: FINE Pascal78,Tozzi78: Adding the account.
+2015-12-07 00:08:55.123: FINE Pascal78,Tozzi78: Commit() to XML
+2015-12-07 00:08:55.164: FINE Pascal78,Tozzi78: Created.
+2015-12-07 00:08:55.165: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:81
+2015-12-07 00:08:55.175: FINE openAccount(Pascal79,Tozzi79)
+2015-12-07 00:08:55.176: FINE Pascal79,Tozzi79: Adding the account.
+2015-12-07 00:08:55.177: FINE Pascal79,Tozzi79: Commit() to XML
+2015-12-07 00:08:55.209: FINE Pascal79,Tozzi79: Created.
+2015-12-07 00:08:55.222: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:82
+2015-12-07 00:08:55.234: FINE openAccount(Pascal80,Tozzi80)
+2015-12-07 00:08:55.24: FINE Pascal80,Tozzi80: Adding the account.
+2015-12-07 00:08:55.242: FINE Pascal80,Tozzi80: Commit() to XML
+2015-12-07 00:08:55.302: FINE Pascal80,Tozzi80: Created.
+2015-12-07 00:08:55.313: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:83
+2015-12-07 00:08:55.321: FINE openAccount(Pascal81,Tozzi81)
+2015-12-07 00:08:55.326: FINE Pascal81,Tozzi81: Adding the account.
+2015-12-07 00:08:55.327: FINE Pascal81,Tozzi81: Commit() to XML
+2015-12-07 00:08:55.381: FINE Pascal81,Tozzi81: Created.
+2015-12-07 00:08:55.394: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:84
+2015-12-07 00:08:55.4: FINE openAccount(Pascal82,Tozzi82)
+2015-12-07 00:08:55.401: FINE Pascal82,Tozzi82: Adding the account.
+2015-12-07 00:08:55.403: FINE Pascal82,Tozzi82: Commit() to XML
+2015-12-07 00:08:55.451: FINE Pascal82,Tozzi82: Created.
+2015-12-07 00:08:55.454: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:85
+2015-12-07 00:08:55.472: FINE openAccount(Pascal83,Tozzi83)
+2015-12-07 00:08:55.473: FINE Pascal83,Tozzi83: Adding the account.
+2015-12-07 00:08:55.484: FINE Pascal83,Tozzi83: Commit() to XML
+2015-12-07 00:08:55.531: FINE Pascal83,Tozzi83: Created.
+2015-12-07 00:08:55.532: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:86
+2015-12-07 00:08:55.533: FINE openAccount(Pascal84,Tozzi84)
+2015-12-07 00:08:55.533: FINE Pascal84,Tozzi84: Adding the account.
+2015-12-07 00:08:55.533: FINE Pascal84,Tozzi84: Commit() to XML
+2015-12-07 00:08:55.563: FINE Pascal84,Tozzi84: Created.
+2015-12-07 00:08:55.564: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:87
+2015-12-07 00:08:55.565: FINE openAccount(Pascal85,Tozzi85)
+2015-12-07 00:08:55.565: FINE Pascal85,Tozzi85: Adding the account.
+2015-12-07 00:08:55.565: FINE Pascal85,Tozzi85: Commit() to XML
+2015-12-07 00:08:55.592: FINE Pascal85,Tozzi85: Created.
+2015-12-07 00:08:55.592: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:88
+2015-12-07 00:08:55.593: FINE openAccount(Pascal86,Tozzi86)
+2015-12-07 00:08:55.593: FINE Pascal86,Tozzi86: Adding the account.
+2015-12-07 00:08:55.594: FINE Pascal86,Tozzi86: Commit() to XML
+2015-12-07 00:08:55.61: FINE Pascal86,Tozzi86: Created.
+2015-12-07 00:08:55.641: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:89
+2015-12-07 00:08:55.641: FINE openAccount(Pascal87,Tozzi87)
+2015-12-07 00:08:55.75: FINE Pascal87,Tozzi87: Adding the account.
+2015-12-07 00:08:55.75: FINE Pascal87,Tozzi87: Commit() to XML
+2015-12-07 00:08:55.782: FINE Pascal87,Tozzi87: Created.
+2015-12-07 00:08:55.782: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:90
+2015-12-07 00:08:55.782: FINE openAccount(Pascal88,Tozzi88)
+2015-12-07 00:08:55.782: FINE Pascal88,Tozzi88: Adding the account.
+2015-12-07 00:08:55.782: FINE Pascal88,Tozzi88: Commit() to XML
+2015-12-07 00:08:55.813: FINE Pascal88,Tozzi88: Created.
+2015-12-07 00:08:55.813: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:91
+2015-12-07 00:08:55.813: FINE openAccount(Pascal89,Tozzi89)
+2015-12-07 00:08:55.829: FINE Pascal89,Tozzi89: Adding the account.
+2015-12-07 00:08:55.829: FINE Pascal89,Tozzi89: Commit() to XML
+2015-12-07 00:08:55.844: FINE Pascal89,Tozzi89: Created.
+2015-12-07 00:08:55.86: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:92
+2015-12-07 00:08:55.86: FINE openAccount(Pascal90,Tozzi90)
+2015-12-07 00:08:55.86: FINE Pascal90,Tozzi90: Adding the account.
+2015-12-07 00:08:55.86: FINE Pascal90,Tozzi90: Commit() to XML
+2015-12-07 00:08:55.891: FINE Pascal90,Tozzi90: Created.
+2015-12-07 00:08:55.891: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:93
+2015-12-07 00:08:55.891: FINE openAccount(Pascal91,Tozzi91)
+2015-12-07 00:08:55.891: FINE Pascal91,Tozzi91: Adding the account.
+2015-12-07 00:08:55.891: FINE Pascal91,Tozzi91: Commit() to XML
+2015-12-07 00:08:55.922: FINE Pascal91,Tozzi91: Created.
+2015-12-07 00:08:55.922: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:94
+2015-12-07 00:08:55.922: FINE openAccount(Pascal92,Tozzi92)
+2015-12-07 00:08:55.922: FINE Pascal92,Tozzi92: Adding the account.
+2015-12-07 00:08:55.922: FINE Pascal92,Tozzi92: Commit() to XML
+2015-12-07 00:08:55.969: FINE Pascal92,Tozzi92: Created.
+2015-12-07 00:08:55.969: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:95
+2015-12-07 00:08:55.969: FINE openAccount(Pascal93,Tozzi93)
+2015-12-07 00:08:55.969: FINE Pascal93,Tozzi93: Adding the account.
+2015-12-07 00:08:55.969: FINE Pascal93,Tozzi93: Commit() to XML
+2015-12-07 00:08:56.016: FINE Pascal93,Tozzi93: Created.
+2015-12-07 00:08:56.032: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:96
+2015-12-07 00:08:56.032: FINE openAccount(Pascal94,Tozzi94)
+2015-12-07 00:08:56.032: FINE Pascal94,Tozzi94: Adding the account.
+2015-12-07 00:08:56.032: FINE Pascal94,Tozzi94: Commit() to XML
+2015-12-07 00:08:56.079: FINE Pascal94,Tozzi94: Created.
+2015-12-07 00:08:56.079: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:97
+2015-12-07 00:08:56.079: FINE openAccount(Pascal95,Tozzi95)
+2015-12-07 00:08:56.079: FINE Pascal95,Tozzi95: Adding the account.
+2015-12-07 00:08:56.079: FINE Pascal95,Tozzi95: Commit() to XML
+2015-12-07 00:08:56.11: FINE Pascal95,Tozzi95: Created.
+2015-12-07 00:08:56.11: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:98
+2015-12-07 00:08:56.11: FINE openAccount(Pascal96,Tozzi96)
+2015-12-07 00:08:56.11: FINE Pascal96,Tozzi96: Adding the account.
+2015-12-07 00:08:56.11: FINE Pascal96,Tozzi96: Commit() to XML
+2015-12-07 00:08:56.141: FINE Pascal96,Tozzi96: Created.
+2015-12-07 00:08:56.141: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:99
+2015-12-07 00:08:56.141: FINE openAccount(Pascal97,Tozzi97)
+2015-12-07 00:08:56.141: FINE Pascal97,Tozzi97: Adding the account.
+2015-12-07 00:08:56.141: FINE Pascal97,Tozzi97: Commit() to XML
+2015-12-07 00:08:56.204: FINE Pascal97,Tozzi97: Created.
+2015-12-07 00:08:56.204: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:100
+2015-12-07 00:08:56.204: FINE openAccount(Pascal98,Tozzi98)
+2015-12-07 00:08:56.219: FINE Pascal98,Tozzi98: Adding the account.
+2015-12-07 00:08:56.219: FINE Pascal98,Tozzi98: Commit() to XML
+2015-12-07 00:08:56.266: FINE Pascal98,Tozzi98: Created.
+2015-12-07 00:08:56.266: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:101
+2015-12-07 00:08:56.266: FINE openAccount(Pascal99,Tozzi99)
+2015-12-07 00:08:56.266: FINE Pascal99,Tozzi99: Adding the account.
+2015-12-07 00:08:56.266: FINE Pascal99,Tozzi99: Commit() to XML
+2015-12-07 00:08:56.297: FINE Pascal99,Tozzi99: Created.
+2015-12-07 00:08:56.297: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:102
+2015-12-07 00:08:56.297: FINE openAccount(Pascal100,Tozzi100)
+2015-12-07 00:08:56.297: FINE Pascal100,Tozzi100: Adding the account.
+2015-12-07 00:08:56.297: FINE Pascal100,Tozzi100: Commit() to XML
+2015-12-07 00:08:56.329: FINE Pascal100,Tozzi100: Created.
+2015-12-07 00:08:56.329: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:103
+2015-12-07 00:08:56.329: FINE openAccount(Pascal101,Tozzi101)
+2015-12-07 00:08:56.329: FINE Pascal101,Tozzi101: Adding the account.
+2015-12-07 00:08:56.329: FINE Pascal101,Tozzi101: Commit() to XML
+2015-12-07 00:08:56.375: FINE Pascal101,Tozzi101: Created.
+2015-12-07 00:08:56.375: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:104
+2015-12-07 00:08:56.375: FINE openAccount(Pascal102,Tozzi102)
+2015-12-07 00:08:56.375: FINE Pascal102,Tozzi102: Adding the account.
+2015-12-07 00:08:56.375: FINE Pascal102,Tozzi102: Commit() to XML
+2015-12-07 00:08:56.407: FINE Pascal102,Tozzi102: Created.
+2015-12-07 00:08:56.407: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:105
+2015-12-07 00:08:56.407: FINE openAccount(Pascal103,Tozzi103)
+2015-12-07 00:08:56.407: FINE Pascal103,Tozzi103: Adding the account.
+2015-12-07 00:08:56.407: FINE Pascal103,Tozzi103: Commit() to XML
+2015-12-07 00:08:56.438: FINE Pascal103,Tozzi103: Created.
+2015-12-07 00:08:56.438: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:106
+2015-12-07 00:08:56.438: FINE openAccount(Pascal104,Tozzi104)
+2015-12-07 00:08:56.438: FINE Pascal104,Tozzi104: Adding the account.
+2015-12-07 00:08:56.438: FINE Pascal104,Tozzi104: Commit() to XML
+2015-12-07 00:08:56.469: FINE Pascal104,Tozzi104: Created.
+2015-12-07 00:08:56.469: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:107
+2015-12-07 00:08:56.469: FINE openAccount(Pascal105,Tozzi105)
+2015-12-07 00:08:56.469: FINE Pascal105,Tozzi105: Adding the account.
+2015-12-07 00:08:56.469: FINE Pascal105,Tozzi105: Commit() to XML
+2015-12-07 00:08:56.5: FINE Pascal105,Tozzi105: Created.
+2015-12-07 00:08:56.5: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:108
+2015-12-07 00:08:56.5: FINE openAccount(Pascal106,Tozzi106)
+2015-12-07 00:08:56.5: FINE Pascal106,Tozzi106: Adding the account.
+2015-12-07 00:08:56.5: FINE Pascal106,Tozzi106: Commit() to XML
+2015-12-07 00:08:56.516: FINE Pascal106,Tozzi106: Created.
+2015-12-07 00:08:56.516: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:109
+2015-12-07 00:08:56.516: FINE openAccount(Pascal107,Tozzi107)
+2015-12-07 00:08:56.516: FINE Pascal107,Tozzi107: Adding the account.
+2015-12-07 00:08:56.516: FINE Pascal107,Tozzi107: Commit() to XML
+2015-12-07 00:08:56.547: FINE Pascal107,Tozzi107: Created.
+2015-12-07 00:08:56.547: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:110
+2015-12-07 00:08:56.547: FINE openAccount(Pascal108,Tozzi108)
+2015-12-07 00:08:56.547: FINE Pascal108,Tozzi108: Adding the account.
+2015-12-07 00:08:56.547: FINE Pascal108,Tozzi108: Commit() to XML
+2015-12-07 00:08:56.563: FINE Pascal108,Tozzi108: Created.
+2015-12-07 00:08:56.563: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:111
+2015-12-07 00:08:56.563: FINE openAccount(Pascal109,Tozzi109)
+2015-12-07 00:08:56.563: FINE Pascal109,Tozzi109: Adding the account.
+2015-12-07 00:08:56.563: FINE Pascal109,Tozzi109: Commit() to XML
+2015-12-07 00:08:56.594: FINE Pascal109,Tozzi109: Created.
+2015-12-07 00:08:56.594: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:112
+2015-12-07 00:08:56.594: FINE openAccount(Pascal110,Tozzi110)
+2015-12-07 00:08:56.594: FINE Pascal110,Tozzi110: Adding the account.
+2015-12-07 00:08:56.594: FINE Pascal110,Tozzi110: Commit() to XML
+2015-12-07 00:08:56.61: FINE Pascal110,Tozzi110: Created.
+2015-12-07 00:08:56.61: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:113
+2015-12-07 00:08:56.61: FINE openAccount(Pascal111,Tozzi111)
+2015-12-07 00:08:56.61: FINE Pascal111,Tozzi111: Adding the account.
+2015-12-07 00:08:56.61: FINE Pascal111,Tozzi111: Commit() to XML
+2015-12-07 00:08:56.641: FINE Pascal111,Tozzi111: Created.
+2015-12-07 00:08:56.641: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:114
+2015-12-07 00:08:56.641: FINE openAccount(Pascal112,Tozzi112)
+2015-12-07 00:08:56.641: FINE Pascal112,Tozzi112: Adding the account.
+2015-12-07 00:08:56.641: FINE Pascal112,Tozzi112: Commit() to XML
+2015-12-07 00:08:56.672: FINE Pascal112,Tozzi112: Created.
+2015-12-07 00:08:56.672: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:115
+2015-12-07 00:08:56.672: FINE openAccount(Pascal113,Tozzi113)
+2015-12-07 00:08:56.672: FINE Pascal113,Tozzi113: Adding the account.
+2015-12-07 00:08:56.672: FINE Pascal113,Tozzi113: Commit() to XML
+2015-12-07 00:08:56.688: FINE Pascal113,Tozzi113: Created.
+2015-12-07 00:08:56.688: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:116
+2015-12-07 00:08:56.704: FINE openAccount(Pascal114,Tozzi114)
+2015-12-07 00:08:56.704: FINE Pascal114,Tozzi114: Adding the account.
+2015-12-07 00:08:56.704: FINE Pascal114,Tozzi114: Commit() to XML
+2015-12-07 00:08:56.735: FINE Pascal114,Tozzi114: Created.
+2015-12-07 00:08:56.735: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:117
+2015-12-07 00:08:56.735: FINE openAccount(Pascal115,Tozzi115)
+2015-12-07 00:08:56.735: FINE Pascal115,Tozzi115: Adding the account.
+2015-12-07 00:08:56.735: FINE Pascal115,Tozzi115: Commit() to XML
+2015-12-07 00:08:56.766: FINE Pascal115,Tozzi115: Created.
+2015-12-07 00:08:56.766: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:174
+2015-12-07 00:08:56.766: FINE openAccount(Pascal172,Tozzi172)
+2015-12-07 00:08:56.766: FINE Pascal172,Tozzi172: Adding the account.
+2015-12-07 00:08:56.766: FINE Pascal172,Tozzi172: Commit() to XML
+2015-12-07 00:08:56.797: FINE Pascal172,Tozzi172: Created.
+2015-12-07 00:08:56.797: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:190
+2015-12-07 00:08:56.797: FINE openAccount(Pascal188,Tozzi188)
+2015-12-07 00:08:56.797: FINE Pascal188,Tozzi188: Adding the account.
+2015-12-07 00:08:56.797: FINE Pascal188,Tozzi188: Commit() to XML
+2015-12-07 00:08:56.813: FINE Pascal188,Tozzi188: Created.
+2015-12-07 00:08:56.813: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:206
+2015-12-07 00:08:56.813: FINE openAccount(Pascal204,Tozzi204)
+2015-12-07 00:08:56.813: FINE Pascal204,Tozzi204: Adding the account.
+2015-12-07 00:08:56.829: FINE Pascal204,Tozzi204: Commit() to XML
+2015-12-07 00:08:56.844: FINE Pascal204,Tozzi204: Created.
+2015-12-07 00:08:56.844: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:223
+2015-12-07 00:08:56.844: FINE openAccount(Pascal221,Tozzi221)
+2015-12-07 00:08:56.844: FINE Pascal221,Tozzi221: Adding the account.
+2015-12-07 00:08:56.844: FINE Pascal221,Tozzi221: Commit() to XML
+2015-12-07 00:08:56.875: FINE Pascal221,Tozzi221: Created.
+2015-12-07 00:08:56.875: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:243
+2015-12-07 00:08:56.875: FINE openAccount(Pascal241,Tozzi241)
+2015-12-07 00:08:56.875: FINE Pascal241,Tozzi241: Adding the account.
+2015-12-07 00:08:56.875: FINE Pascal241,Tozzi241: Commit() to XML
+2015-12-07 00:08:56.907: FINE Pascal241,Tozzi241: Created.
+2015-12-07 00:08:56.907: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:256
+2015-12-07 00:08:56.907: FINE openAccount(Pascal254,Tozzi254)
+2015-12-07 00:08:56.907: FINE Pascal254,Tozzi254: Adding the account.
+2015-12-07 00:08:56.907: FINE Pascal254,Tozzi254: Commit() to XML
+2015-12-07 00:08:56.954: FINE Pascal254,Tozzi254: Created.
+2015-12-07 00:08:56.954: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:266
+2015-12-07 00:08:56.954: FINE openAccount(Pascal264,Tozzi264)
+2015-12-07 00:08:56.954: FINE Pascal264,Tozzi264: Adding the account.
+2015-12-07 00:08:56.954: FINE Pascal264,Tozzi264: Commit() to XML
+2015-12-07 00:08:56.985: FINE Pascal264,Tozzi264: Created.
+2015-12-07 00:08:56.985: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:274
+2015-12-07 00:08:56.985: FINE openAccount(Pascal272,Tozzi272)
+2015-12-07 00:08:56.985: FINE Pascal272,Tozzi272: Adding the account.
+2015-12-07 00:08:56.985: FINE Pascal272,Tozzi272: Commit() to XML
+2015-12-07 00:08:57.329: FINE Pascal272,Tozzi272: Created.
+2015-12-07 00:08:57.329: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:295
+2015-12-07 00:08:57.329: FINE openAccount(Pascal293,Tozzi293)
+2015-12-07 00:08:57.329: FINE Pascal293,Tozzi293: Adding the account.
+2015-12-07 00:08:57.329: FINE Pascal293,Tozzi293: Commit() to XML
+2015-12-07 00:08:57.36: FINE Pascal293,Tozzi293: Created.
+2015-12-07 00:08:57.36: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:320
+2015-12-07 00:08:57.36: FINE openAccount(Pascal318,Tozzi318)
+2015-12-07 00:08:57.36: FINE Pascal318,Tozzi318: Adding the account.
+2015-12-07 00:08:57.36: FINE Pascal318,Tozzi318: Commit() to XML
+2015-12-07 00:08:57.391: FINE Pascal318,Tozzi318: Created.
+2015-12-07 00:08:57.391: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:342
+2015-12-07 00:08:57.391: FINE openAccount(Pascal340,Tozzi340)
+2015-12-07 00:08:57.391: FINE Pascal340,Tozzi340: Adding the account.
+2015-12-07 00:08:57.391: FINE Pascal340,Tozzi340: Commit() to XML
+2015-12-07 00:08:57.438: FINE Pascal340,Tozzi340: Created.
+2015-12-07 00:08:57.438: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:358
+2015-12-07 00:08:57.438: FINE openAccount(Pascal356,Tozzi356)
+2015-12-07 00:08:57.438: FINE Pascal356,Tozzi356: Adding the account.
+2015-12-07 00:08:57.438: FINE Pascal356,Tozzi356: Commit() to XML
+2015-12-07 00:08:57.469: FINE Pascal356,Tozzi356: Created.
+2015-12-07 00:08:57.469: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:374
+2015-12-07 00:08:57.469: FINE openAccount(Pascal372,Tozzi372)
+2015-12-07 00:08:57.469: FINE Pascal372,Tozzi372: Adding the account.
+2015-12-07 00:08:57.469: FINE Pascal372,Tozzi372: Commit() to XML
+2015-12-07 00:08:57.501: FINE Pascal372,Tozzi372: Created.
+2015-12-07 00:08:57.501: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:394
+2015-12-07 00:08:57.501: FINE openAccount(Pascal392,Tozzi392)
+2015-12-07 00:08:57.516: FINE Pascal392,Tozzi392: Adding the account.
+2015-12-07 00:08:57.516: FINE Pascal392,Tozzi392: Commit() to XML
+2015-12-07 00:08:57.547: FINE Pascal392,Tozzi392: Created.
+2015-12-07 00:08:57.547: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:407
+2015-12-07 00:08:57.547: FINE openAccount(Pascal405,Tozzi405)
+2015-12-07 00:08:57.547: FINE Pascal405,Tozzi405: Adding the account.
+2015-12-07 00:08:57.547: FINE Pascal405,Tozzi405: Commit() to XML
+2015-12-07 00:08:57.579: FINE Pascal405,Tozzi405: Created.
+2015-12-07 00:08:57.579: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:416
+2015-12-07 00:08:57.579: FINE openAccount(Pascal414,Tozzi414)
+2015-12-07 00:08:57.579: FINE Pascal414,Tozzi414: Adding the account.
+2015-12-07 00:08:57.579: FINE Pascal414,Tozzi414: Commit() to XML
+2015-12-07 00:08:57.594: FINE Pascal414,Tozzi414: Created.
+2015-12-07 00:08:57.594: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:433
+2015-12-07 00:08:57.594: FINE openAccount(Pascal431,Tozzi431)
+2015-12-07 00:08:57.61: FINE Pascal431,Tozzi431: Adding the account.
+2015-12-07 00:08:57.61: FINE Pascal431,Tozzi431: Commit() to XML
+2015-12-07 00:08:57.641: FINE Pascal431,Tozzi431: Created.
+2015-12-07 00:08:57.641: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:440
+2015-12-07 00:08:57.641: FINE openAccount(Pascal438,Tozzi438)
+2015-12-07 00:08:57.641: FINE Pascal438,Tozzi438: Adding the account.
+2015-12-07 00:08:57.641: FINE Pascal438,Tozzi438: Commit() to XML
+2015-12-07 00:08:57.672: FINE Pascal438,Tozzi438: Created.
+2015-12-07 00:08:57.672: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:453
+2015-12-07 00:08:57.672: FINE openAccount(Pascal451,Tozzi451)
+2015-12-07 00:08:57.672: FINE Pascal451,Tozzi451: Adding the account.
+2015-12-07 00:08:57.672: FINE Pascal451,Tozzi451: Commit() to XML
+2015-12-07 00:08:57.704: FINE Pascal451,Tozzi451: Created.
+2015-12-07 00:08:57.704: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:466
+2015-12-07 00:08:57.704: FINE openAccount(Pascal464,Tozzi464)
+2015-12-07 00:08:57.704: FINE Pascal464,Tozzi464: Adding the account.
+2015-12-07 00:08:57.704: FINE Pascal464,Tozzi464: Commit() to XML
+2015-12-07 00:08:57.735: FINE Pascal464,Tozzi464: Created.
+2015-12-07 00:08:57.735: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:475
+2015-12-07 00:08:57.735: FINE openAccount(Pascal473,Tozzi473)
+2015-12-07 00:08:57.735: FINE Pascal473,Tozzi473: Adding the account.
+2015-12-07 00:08:57.735: FINE Pascal473,Tozzi473: Commit() to XML
+2015-12-07 00:08:57.766: FINE Pascal473,Tozzi473: Created.
+2015-12-07 00:08:57.766: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:500
+2015-12-07 00:08:57.766: FINE openAccount(Pascal498,Tozzi498)
+2015-12-07 00:08:57.766: FINE Pascal498,Tozzi498: Adding the account.
+2015-12-07 00:08:57.766: FINE Pascal498,Tozzi498: Commit() to XML
+2015-12-07 00:08:57.986: FINE Pascal498,Tozzi498: Created.
+2015-12-07 00:08:57.986: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:511
+2015-12-07 00:08:57.986: FINE openAccount(Pascal509,Tozzi509)
+2015-12-07 00:08:57.986: FINE Pascal509,Tozzi509: Adding the account.
+2015-12-07 00:08:57.986: FINE Pascal509,Tozzi509: Commit() to XML
+2015-12-07 00:08:58.002: FINE Pascal509,Tozzi509: Created.
+2015-12-07 00:08:58.002: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:626
+2015-12-07 00:08:58.002: FINE openAccount(Pascal624,Tozzi624)
+2015-12-07 00:08:58.017: FINE Pascal624,Tozzi624: Adding the account.
+2015-12-07 00:08:58.017: FINE Pascal624,Tozzi624: Commit() to XML
+2015-12-07 00:08:58.048: FINE Pascal624,Tozzi624: Created.
+2015-12-07 00:08:58.048: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:630
+2015-12-07 00:08:58.048: FINE openAccount(Pascal628,Tozzi628)
+2015-12-07 00:08:58.048: FINE Pascal628,Tozzi628: Adding the account.
+2015-12-07 00:08:58.048: FINE Pascal628,Tozzi628: Commit() to XML
+2015-12-07 00:08:58.08: FINE Pascal628,Tozzi628: Created.
+2015-12-07 00:08:58.08: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:637
+2015-12-07 00:08:58.08: FINE openAccount(Pascal635,Tozzi635)
+2015-12-07 00:08:58.08: FINE Pascal635,Tozzi635: Adding the account.
+2015-12-07 00:08:58.08: FINE Pascal635,Tozzi635: Commit() to XML
+2015-12-07 00:08:58.127: FINE Pascal635,Tozzi635: Created.
+2015-12-07 00:08:58.127: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:659
+2015-12-07 00:08:58.127: FINE openAccount(Pascal657,Tozzi657)
+2015-12-07 00:08:58.127: FINE Pascal657,Tozzi657: Adding the account.
+2015-12-07 00:08:58.127: FINE Pascal657,Tozzi657: Commit() to XML
+2015-12-07 00:08:58.173: FINE Pascal657,Tozzi657: Created.
+2015-12-07 00:08:58.173: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:685
+2015-12-07 00:08:58.173: FINE openAccount(Pascal683,Tozzi683)
+2015-12-07 00:08:58.173: FINE Pascal683,Tozzi683: Adding the account.
+2015-12-07 00:08:58.173: FINE Pascal683,Tozzi683: Commit() to XML
+2015-12-07 00:08:58.205: FINE Pascal683,Tozzi683: Created.
+2015-12-07 00:08:58.205: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:712
+2015-12-07 00:08:58.205: FINE openAccount(Pascal710,Tozzi710)
+2015-12-07 00:08:58.205: FINE Pascal710,Tozzi710: Adding the account.
+2015-12-07 00:08:58.205: FINE Pascal710,Tozzi710: Commit() to XML
+2015-12-07 00:08:58.22: FINE Pascal710,Tozzi710: Created.
+2015-12-07 00:08:58.22: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:719
+2015-12-07 00:08:58.236: FINE openAccount(Pascal717,Tozzi717)
+2015-12-07 00:08:58.236: FINE Pascal717,Tozzi717: Adding the account.
+2015-12-07 00:08:58.236: FINE Pascal717,Tozzi717: Commit() to XML
+2015-12-07 00:08:58.267: FINE Pascal717,Tozzi717: Created.
+2015-12-07 00:08:58.267: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:730
+2015-12-07 00:08:58.267: FINE openAccount(Pascal728,Tozzi728)
+2015-12-07 00:08:58.267: FINE Pascal728,Tozzi728: Adding the account.
+2015-12-07 00:08:58.267: FINE Pascal728,Tozzi728: Commit() to XML
+2015-12-07 00:08:58.314: FINE Pascal728,Tozzi728: Created.
+2015-12-07 00:08:58.314: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:741
+2015-12-07 00:08:58.314: FINE openAccount(Pascal739,Tozzi739)
+2015-12-07 00:08:58.314: FINE Pascal739,Tozzi739: Adding the account.
+2015-12-07 00:08:58.314: FINE Pascal739,Tozzi739: Commit() to XML
+2015-12-07 00:08:58.345: FINE Pascal739,Tozzi739: Created.
+2015-12-07 00:08:58.345: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:760
+2015-12-07 00:08:58.345: FINE openAccount(Pascal758,Tozzi758)
+2015-12-07 00:08:58.345: FINE Pascal758,Tozzi758: Adding the account.
+2015-12-07 00:08:58.345: FINE Pascal758,Tozzi758: Commit() to XML
+2015-12-07 00:08:58.486: FINE Pascal758,Tozzi758: Created.
+2015-12-07 00:08:58.486: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:769
+2015-12-07 00:08:58.486: FINE openAccount(Pascal767,Tozzi767)
+2015-12-07 00:08:58.486: FINE Pascal767,Tozzi767: Adding the account.
+2015-12-07 00:08:58.486: FINE Pascal767,Tozzi767: Commit() to XML
+2015-12-07 00:08:58.517: FINE Pascal767,Tozzi767: Created.
+2015-12-07 00:08:58.517: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:803
+2015-12-07 00:08:58.517: FINE openAccount(Pascal801,Tozzi801)
+2015-12-07 00:08:58.517: FINE Pascal801,Tozzi801: Adding the account.
+2015-12-07 00:08:58.517: FINE Pascal801,Tozzi801: Commit() to XML
+2015-12-07 00:08:58.548: FINE Pascal801,Tozzi801: Created.
+2015-12-07 00:08:58.548: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:815
+2015-12-07 00:08:58.548: FINE openAccount(Pascal813,Tozzi813)
+2015-12-07 00:08:58.548: FINE Pascal813,Tozzi813: Adding the account.
+2015-12-07 00:08:58.548: FINE Pascal813,Tozzi813: Commit() to XML
+2015-12-07 00:08:58.58: FINE Pascal813,Tozzi813: Created.
+2015-12-07 00:08:58.58: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:823
+2015-12-07 00:08:58.58: FINE openAccount(Pascal821,Tozzi821)
+2015-12-07 00:08:58.58: FINE Pascal821,Tozzi821: Adding the account.
+2015-12-07 00:08:58.58: FINE Pascal821,Tozzi821: Commit() to XML
+2015-12-07 00:08:58.612: FINE Pascal821,Tozzi821: Created.
+2015-12-07 00:08:58.612: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:846
+2015-12-07 00:08:58.612: FINE openAccount(Pascal844,Tozzi844)
+2015-12-07 00:08:58.612: FINE Pascal844,Tozzi844: Adding the account.
+2015-12-07 00:08:58.612: FINE Pascal844,Tozzi844: Commit() to XML
+2015-12-07 00:08:58.659: FINE Pascal844,Tozzi844: Created.
+2015-12-07 00:08:58.659: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:865
+2015-12-07 00:08:58.659: FINE openAccount(Pascal863,Tozzi863)
+2015-12-07 00:08:58.659: FINE Pascal863,Tozzi863: Adding the account.
+2015-12-07 00:08:58.659: FINE Pascal863,Tozzi863: Commit() to XML
+2015-12-07 00:08:58.69: FINE Pascal863,Tozzi863: Created.
+2015-12-07 00:08:58.69: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:887
+2015-12-07 00:08:58.69: FINE openAccount(Pascal885,Tozzi885)
+2015-12-07 00:08:58.69: FINE Pascal885,Tozzi885: Adding the account.
+2015-12-07 00:08:58.69: FINE Pascal885,Tozzi885: Commit() to XML
+2015-12-07 00:08:58.721: FINE Pascal885,Tozzi885: Created.
+2015-12-07 00:08:58.721: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:900
+2015-12-07 00:08:58.721: FINE openAccount(Pascal898,Tozzi898)
+2015-12-07 00:08:58.721: FINE Pascal898,Tozzi898: Adding the account.
+2015-12-07 00:08:58.721: FINE Pascal898,Tozzi898: Commit() to XML
+2015-12-07 00:08:58.753: FINE Pascal898,Tozzi898: Created.
+2015-12-07 00:08:58.753: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:910
+2015-12-07 00:08:58.753: FINE openAccount(Pascal908,Tozzi908)
+2015-12-07 00:08:58.753: FINE Pascal908,Tozzi908: Adding the account.
+2015-12-07 00:08:58.753: FINE Pascal908,Tozzi908: Commit() to XML
+2015-12-07 00:08:58.799: FINE Pascal908,Tozzi908: Created.
+2015-12-07 00:08:58.799: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:916
+2015-12-07 00:08:58.799: FINE openAccount(Pascal914,Tozzi914)
+2015-12-07 00:08:58.799: FINE Pascal914,Tozzi914: Adding the account.
+2015-12-07 00:08:58.799: FINE Pascal914,Tozzi914: Commit() to XML
+2015-12-07 00:08:58.831: FINE Pascal914,Tozzi914: Created.
+2015-12-07 00:08:58.831: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:937
+2015-12-07 00:08:58.831: FINE openAccount(Pascal935,Tozzi935)
+2015-12-07 00:08:58.831: FINE Pascal935,Tozzi935: Adding the account.
+2015-12-07 00:08:58.831: FINE Pascal935,Tozzi935: Commit() to XML
+2015-12-07 00:08:58.862: FINE Pascal935,Tozzi935: Created.
+2015-12-07 00:08:58.862: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:961
+2015-12-07 00:08:58.862: FINE openAccount(Pascal959,Tozzi959)
+2015-12-07 00:08:58.862: FINE Pascal959,Tozzi959: Adding the account.
+2015-12-07 00:08:58.862: FINE Pascal959,Tozzi959: Commit() to XML
+2015-12-07 00:08:58.893: FINE Pascal959,Tozzi959: Created.
+2015-12-07 00:08:58.893: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:992
+2015-12-07 00:08:58.893: FINE openAccount(Pascal990,Tozzi990)
+2015-12-07 00:08:58.893: FINE Pascal990,Tozzi990: Adding the account.
+2015-12-07 00:08:58.893: FINE Pascal990,Tozzi990: Commit() to XML
+2015-12-07 00:08:58.909: FINE Pascal990,Tozzi990: Created.
+2015-12-07 00:08:58.909: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1032
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1061
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1076
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1087
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1104
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1176
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1210
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1235
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1294
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1332
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1345
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1377
+2015-12-07 00:08:58.924: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1395
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1420
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1445
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1447
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1495
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1531
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2199
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2236
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2245
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2251
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2303
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2345
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2356
+2015-12-07 00:08:58.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2383
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2395
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2396
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2406
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2422
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2436
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2447
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2454
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2466
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2474
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2490
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2500
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2507
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2534
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2581
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2654
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2696
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2853
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2862
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2896
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2970
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2987
+2015-12-07 00:08:58.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2995
