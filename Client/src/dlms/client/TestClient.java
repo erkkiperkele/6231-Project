@@ -43,9 +43,8 @@ public class TestClient {
 			@Override
 			public void run() {
 				mc.printCustomerInfo("rbc");
-
-				long threadId = Thread.currentThread().getId();
-				System.out.println("Thread tc1 # " + threadId + " is doing this task");
+				//long threadId = Thread.currentThread().getId();
+				//System.out.println("Thread tc1 # " + threadId + " is doing this task");
 			}
 		};
 	
@@ -53,8 +52,8 @@ public class TestClient {
 			@Override
 			public void run() {
 				mc.printCustomerInfo("bmo");
-				long threadId = Thread.currentThread().getId();
-				System.out.println("Thread tc2 # " + threadId + " is doing this task");
+				//long threadId = Thread.currentThread().getId();
+				//System.out.println("Thread tc2 # " + threadId + " is doing this task");
 			}
 		};
 	
@@ -62,8 +61,8 @@ public class TestClient {
 			@Override
 			public void run() {
 				mc.printCustomerInfo("cibc");
-				long threadId = Thread.currentThread().getId();
-				System.out.println("Thread tc3 # " + threadId + " is doing this task");
+				//long threadId = Thread.currentThread().getId();
+				//System.out.println("Thread tc3 # " + threadId + " is doing this task");
 			}
 		};
 
@@ -74,8 +73,6 @@ public class TestClient {
 		tc2.join();
 		tc3.join();
 	}
-	
-	
 	
 	public static void test() {
 		RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
@@ -90,6 +87,5 @@ public class TestClient {
 		int peakThreadCount = bean.getPeakThreadCount();
 		System.out.println("Peak Thread Count = " + peakThreadCount);
 	}
-	
-	
+
 }
