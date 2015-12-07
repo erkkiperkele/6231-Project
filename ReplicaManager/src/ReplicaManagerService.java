@@ -114,6 +114,7 @@ public class ReplicaManagerService implements IReplicaManagerService {
             e.printStackTrace();
         }
         ReplicaManagerSession.getInstance().registerServer(bankName, p);
+        ReplicaManagerSession.getInstance().setCurrentImplementation(implementationName);
 
         Thread outputServer1 = getProcessOutputThread(p, implementationName, bankName);
         outputServer1.start();
