@@ -4,7 +4,8 @@ import Contracts.IBankService;
 import Services.BankService;
 import Services.SessionService;
 import shared.data.Bank;
-import shared.util.Constant;
+import shared.udp.UDPReplicaToReplicaManagerHandleRequestThread;
+import shared.udp.UDPReplicaToReplicaManagerThread;
 import shared.util.Env;
 
 /**
@@ -17,6 +18,8 @@ public class StartBankServer {
 
     private static UDPServer udpInternal;
     private static BankServerUdp bankServerUdp;
+    private static UDPReplicaToReplicaManagerThread udpRtoRM;
+    private static UDPReplicaToReplicaManagerHandleRequestThread udpRtoRMRequest;
 
 
     /**
@@ -28,7 +31,7 @@ public class StartBankServer {
      */
     public static void main(String[] args) {
 
-		Env.loadSettings();
+        Env.loadSettings();
 
         String serverArg = args.length > 0
                 ? args[0]
@@ -43,6 +46,20 @@ public class StartBankServer {
         //Starting bank server
         startBankServer();
         startUDPServerForInternalOperations();
+        startUdpThreads();
+    }
+
+    private static void startUdpThreads() {
+
+        try {
+            Env.setCurrentBank(Bank.Royal);     //HACK To get the Thread initialization working.
+            udpRtoRM = new UDPReplicaToReplicaManagerThread(bankServerUdp);
+            udpRtoRMRequest = new UDPReplicaToReplicaManagerHandleRequestThread();
+            udpRtoRM.start();
+            udpRtoRMRequest.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static void initialize(String arg) {

@@ -223,8 +223,6 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
     @Override
     public void resetState(String machineToGetStateFrom, Bank bank) {
-        //TODO!!! How to reset the state!
-
 
         String machineName = Env.getMachineName();
         ServerInfo otherServerInfo = Env.getReplicaToReplicaManagerServerInfo(machineToGetStateFrom, bank);
