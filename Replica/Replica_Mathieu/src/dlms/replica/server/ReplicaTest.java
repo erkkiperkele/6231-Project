@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import shared.data.Bank;
+import shared.data.BankState;
 import shared.data.ServerInfo;
 import shared.util.Constant;
 import shared.util.Env;
@@ -35,12 +36,11 @@ public class ReplicaTest {
 		
 		startReplicas();
 
-		testOpenAccount();
+		//testOpenAccount();
 		testGetLoan();
-		
-		
 		//testTransferLoan();
 		//testDelayPayment();
+		testStateTransfer();
 	}
 
 	public static void main(String[] args) throws InterruptedException {
@@ -246,6 +246,7 @@ public class ReplicaTest {
 
 		// Before loan transfer
 		System.out.println(roy.printCustomerInfo());
+		System.out.println(nat.printCustomerInfo());
 		System.out.println(dom.printCustomerInfo());
 		
 		// Transfer a loan
@@ -258,6 +259,7 @@ public class ReplicaTest {
 		
 		// After loan transfer
 		System.out.println(roy.printCustomerInfo());
+		System.out.println(nat.printCustomerInfo());
 		System.out.println(dom.printCustomerInfo());
 	}
 	
@@ -331,6 +333,30 @@ public class ReplicaTest {
 		replicaStubs.put(Bank.Dominion.name(), new BankReplicaStub(Bank.Dominion.name(), new InetSocketAddress(bank3Info.getIpAddress(), bank3Info.getPort())));
 		
 		return replicaStubs;
+	}
+	
+	/**
+	 * 
+	 */
+	public void testStateTransfer() {
+		
+		// After loan transfer
+		System.out.println("BEFORE TRANSFER");
+		System.out.println(roy.printCustomerInfo());
+		System.out.println(nat.printCustomerInfo());
+		System.out.println(dom.printCustomerInfo());
+
+		BankState state1 = roy.getCurrentState();
+		roy.setCurrentState(state1);
+		BankState state2 = nat.getCurrentState();
+		nat.setCurrentState(state2);
+		BankState state3 = dom.getCurrentState();
+		dom.setCurrentState(state3);
+
+		System.out.println("AFTER TRANSFER");
+		System.out.println(roy.printCustomerInfo());
+		System.out.println(nat.printCustomerInfo());
+		System.out.println(dom.printCustomerInfo());
 	}
 	
 	/**

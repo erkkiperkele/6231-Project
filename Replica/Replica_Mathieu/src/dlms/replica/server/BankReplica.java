@@ -48,7 +48,6 @@ public class BankReplica extends AbstractServerBank {
 	private UdpListener udpListener;
 	private volatile Bank bank;
 	private UDPServerThread udpServer;
-	private BankState state;
 	
 	/**
 	 * Constructor
@@ -229,7 +228,7 @@ public class BankReplica extends AbstractServerBank {
 		
 		lock = this.bank.getLockObject(loan.getEmailAddress());
 
-		synchronized (this) {
+		synchronized (lock) {
 			
 			loan = this.bank.getLoan(loanID);
 			if (loan == null) {
