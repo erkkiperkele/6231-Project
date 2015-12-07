@@ -34,7 +34,7 @@ public class SynchronizeLoan implements Serializable, IOperationMessage
 
 	public OperationType getOperationType()
 	{
-		return OperationType.SynchronizeCustomer;
+		return OperationType.SynchronizeLoan;
 	}
 
 	public String getBank() {

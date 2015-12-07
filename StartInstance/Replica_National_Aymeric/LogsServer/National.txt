@@ -1036,3 +1036,475 @@ Mon Dec 07 14:25:21 EST 2015 INFO: [UDP] SYNC SERVER STARTED
 Mon Dec 07 14:36:19 EST 2015 INFO: [UDP] BANK SERVER STARTED
 Mon Dec 07 14:36:19 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
 Mon Dec 07 14:36:19 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:23:47 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:23:47 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:23:47 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:23:47 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:23:47 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:25:22 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:25:22 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:25:22 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:25:22 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:25:22 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:26:53 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:26:53 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:26:53 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:26:53 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:26:53 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:28:17 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:28:17 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:28:17 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:28:17 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:28:17 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:29:48 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:29:48 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:29:48 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:29:48 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:29:48 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:31:30 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:31:30 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:31:30 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:31:30 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:31:30 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:33:30 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:33:30 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:33:30 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:33:30 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:33:30 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:33:30 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:33:30 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:33:30 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:33:31 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:33:31 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:33:31 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:33:31 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:33:31 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:33:31 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:33:31 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:33:31 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:33:31 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:33:31 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:33:31 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:36:20 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:36:20 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:36:21 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:36:21 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:36:21 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:36:21 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:36:21 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:36:21 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:36:21 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:36:21 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:36:21 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:36:21 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:36:21 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:36:21 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:36:21 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:36:21 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:36:21 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:36:21 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:36:21 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:40:56 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:40:56 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:40:56 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:40:56 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:40:56 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:40:56 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:40:56 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:40:56 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:40:57 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:40:57 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:40:57 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:40:57 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:40:57 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:40:57 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:40:57 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:40:57 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:40:57 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:40:57 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:40:57 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:41:45 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:41:45 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:41:45 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:41:45 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:41:45 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:43:31 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:43:31 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:43:31 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:43:31 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:43:31 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:47:45 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:47:45 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:47:45 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:47:45 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:47:45 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:50:25 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:50:25 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:50:25 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:50:25 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:50:25 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:53:10 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:53:10 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:53:35 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:53:35 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:53:35 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:53:35 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:53:35 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:53:35 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:53:35 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:53:35 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:53:36 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 17:53:36 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 17:53:36 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 17:53:36 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 17:53:36 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 17:53:36 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 17:53:36 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 17:53:36 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 17:53:36 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 17:53:36 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 17:53:36 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:01:55 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:01:55 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:01:55 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:01:55 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:01:56 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:04:37 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:04:37 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:04:37 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:04:37 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:04:37 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:06:22 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:06:22 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:06:22 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:06:22 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:06:22 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:06:22 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:06:22 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:06:22 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:06:22 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:06:22 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:06:22 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:06:23 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:06:23 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:06:23 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:06:23 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:06:23 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:06:23 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:06:23 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:06:23 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:07:34 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:07:34 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:07:34 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:07:34 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:07:34 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:08:48 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:08:48 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:08:48 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:08:48 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:08:48 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:09:29 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:09:30 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:09:30 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:09:30 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:09:30 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:09:30 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:09:30 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:09:30 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:09:30 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:09:30 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:09:30 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:09:30 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:10:03 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:10:03 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:10:03 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:10:03 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:10:03 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:11:55 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:11:55 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:11:55 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:11:55 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:11:55 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:15:26 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:15:26 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:15:26 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:15:26 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:15:27 EST 2015 INFO: [UDP] SYNC SERVER STARTED
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Alex
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Alex (account #2)
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Justin
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Justin (account #3)
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Maria
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Maria (account #4)
+Mon Dec 07 18:16:30 EST 2015 INFO: Thread #1 CREATED account for Pascal
+Mon Dec 07 18:16:30 EST 2015 INFO: new account created for Pascal (account #5)
+Mon Dec 07 18:16:30 EST 2015 INFO: [UDP] BANK SERVER STARTED
+Mon Dec 07 18:16:30 EST 2015 INFO: [UDP] INTERNAL SERVER STARTED
+Mon Dec 07 18:16:30 EST 2015 INFO: [UDP] SYNC SERVER STARTED

@@ -1,7 +1,6 @@
 package dlms;
 
 import dlms.model.UDPServerThread;
-import shared.util.Constant;
 import shared.util.Env;
 
 /**
@@ -23,7 +22,7 @@ public class StartSequencer
 			Env.log("Server Started <" + Env.getMachineName() + "> " + Env.getCurrentBank());
 			UDPServerThread server = new UDPServerThread(Env.getSequencerServerInfo().getServerName(), Env.getSequencerServerInfo().getPort());
 			server.start();
-//			server.executeTestMessage();
+			//server.executeTestMessage();
 			server.join();
 		}
 		catch (Exception e)

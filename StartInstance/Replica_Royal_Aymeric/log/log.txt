@@ -48,3 +48,3181 @@
 2015-12-07 14:36:19.903: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
 2015-12-07 14:36:24.797: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
 2015-12-07 14:36:24.798: [Sync] Received Customer #0 of 0
+2015-12-07 17:23:47.683: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:23:52.23: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:23:52.277: [Sync] Received Customer #0 of 0
+2015-12-07 17:25:22.915: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:25:27.275: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:25:27.275: [Sync] Received Customer #0 of 914
+2015-12-07 17:26:54.143: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:26:58.331: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:26:58.331: [Sync] Received Customer #0 of 914
+2015-12-07 17:28:18.115: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:28:22.162: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:28:22.162: [Sync] Received Customer #0 of 914
+2015-12-07 17:29:49.219: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:29:53.293: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:29:53.293: [Sync] Received Customer #0 of 914
+2015-12-07 17:31:30.195: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:31:34.921: Received SynchronizeCustomer
+2015-12-07 17:31:34.926: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:31:34.93: [Sync] Received Customer #0 of 914
+2015-12-07 17:31:34.958: Received SynchronizeCustomer
+2015-12-07 17:31:35.011: Received SynchronizeCustomer
+2015-12-07 17:31:35.065: Received SynchronizeCustomer
+2015-12-07 17:31:35.125: Received SynchronizeCustomer
+2015-12-07 17:31:35.187: Received SynchronizeCustomer
+2015-12-07 17:31:35.249: Received SynchronizeCustomer
+2015-12-07 17:31:35.312: Received SynchronizeCustomer
+2015-12-07 17:31:35.374: Received SynchronizeCustomer
+2015-12-07 17:31:35.437: Received SynchronizeCustomer
+2015-12-07 17:31:35.499: Received SynchronizeCustomer
+2015-12-07 17:31:35.703: Received SynchronizeCustomer
+2015-12-07 17:31:35.749: Received SynchronizeCustomer
+2015-12-07 17:31:35.812: Received SynchronizeCustomer
+2015-12-07 17:31:35.875: Received SynchronizeCustomer
+2015-12-07 17:31:35.937: Received SynchronizeCustomer
+2015-12-07 17:31:36.0: Received SynchronizeCustomer
+2015-12-07 17:31:36.062: Received SynchronizeCustomer
+2015-12-07 17:31:36.125: Received SynchronizeCustomer
+2015-12-07 17:31:36.187: Received SynchronizeCustomer
+2015-12-07 17:31:36.25: Received SynchronizeCustomer
+2015-12-07 17:31:36.312: Received SynchronizeCustomer
+2015-12-07 17:31:36.374: Received SynchronizeCustomer
+2015-12-07 17:31:36.437: Received SynchronizeCustomer
+2015-12-07 17:31:36.5: Received SynchronizeCustomer
+2015-12-07 17:31:36.562: Received SynchronizeCustomer
+2015-12-07 17:31:36.625: Received SynchronizeCustomer
+2015-12-07 17:31:36.687: Received SynchronizeCustomer
+2015-12-07 17:31:36.75: Received SynchronizeCustomer
+2015-12-07 17:31:36.812: Received SynchronizeCustomer
+2015-12-07 17:31:36.875: Received SynchronizeCustomer
+2015-12-07 17:31:36.937: Received SynchronizeCustomer
+2015-12-07 17:31:37.0: Received SynchronizeCustomer
+2015-12-07 17:31:37.062: Received SynchronizeCustomer
+2015-12-07 17:31:37.125: Received SynchronizeCustomer
+2015-12-07 17:31:37.187: Received SynchronizeCustomer
+2015-12-07 17:31:37.25: Received SynchronizeCustomer
+2015-12-07 17:31:37.312: Received SynchronizeCustomer
+2015-12-07 17:31:37.375: Received SynchronizeCustomer
+2015-12-07 17:31:37.437: Received SynchronizeCustomer
+2015-12-07 17:31:37.5: Received SynchronizeCustomer
+2015-12-07 17:31:37.562: Received SynchronizeCustomer
+2015-12-07 17:31:37.625: Received SynchronizeCustomer
+2015-12-07 17:31:37.687: Received SynchronizeCustomer
+2015-12-07 17:31:37.75: Received SynchronizeCustomer
+2015-12-07 17:31:37.812: Received SynchronizeCustomer
+2015-12-07 17:31:37.875: Received SynchronizeCustomer
+2015-12-07 17:31:37.937: Received SynchronizeCustomer
+2015-12-07 17:31:38.0: Received SynchronizeCustomer
+2015-12-07 17:31:38.062: Received SynchronizeCustomer
+2015-12-07 17:31:38.125: Received SynchronizeCustomer
+2015-12-07 17:31:38.187: Received SynchronizeCustomer
+2015-12-07 17:31:38.25: Received SynchronizeCustomer
+2015-12-07 17:31:38.312: Received SynchronizeCustomer
+2015-12-07 17:31:38.375: Received SynchronizeCustomer
+2015-12-07 17:31:38.437: Received SynchronizeCustomer
+2015-12-07 17:31:38.5: Received SynchronizeCustomer
+2015-12-07 17:31:38.562: Received SynchronizeCustomer
+2015-12-07 17:31:38.625: Received SynchronizeCustomer
+2015-12-07 17:31:38.687: Received SynchronizeCustomer
+2015-12-07 17:31:38.75: Received SynchronizeCustomer
+2015-12-07 17:31:38.812: Received SynchronizeCustomer
+2015-12-07 17:31:38.875: Received SynchronizeCustomer
+2015-12-07 17:31:38.937: Received SynchronizeCustomer
+2015-12-07 17:31:39.0: Received SynchronizeCustomer
+2015-12-07 17:31:39.062: Received SynchronizeCustomer
+2015-12-07 17:31:39.125: Received SynchronizeCustomer
+2015-12-07 17:31:39.187: Received SynchronizeCustomer
+2015-12-07 17:31:39.25: Received SynchronizeCustomer
+2015-12-07 17:31:39.312: Received SynchronizeCustomer
+2015-12-07 17:31:39.375: Received SynchronizeCustomer
+2015-12-07 17:31:39.437: Received SynchronizeCustomer
+2015-12-07 17:31:39.5: Received SynchronizeCustomer
+2015-12-07 17:31:39.562: Received SynchronizeCustomer
+2015-12-07 17:31:39.625: Received SynchronizeCustomer
+2015-12-07 17:31:39.687: Received SynchronizeCustomer
+2015-12-07 17:31:39.75: Received SynchronizeCustomer
+2015-12-07 17:31:39.812: Received SynchronizeCustomer
+2015-12-07 17:31:39.875: Received SynchronizeCustomer
+2015-12-07 17:31:39.937: Received SynchronizeCustomer
+2015-12-07 17:31:40.0: Received SynchronizeCustomer
+2015-12-07 17:31:40.062: Received SynchronizeCustomer
+2015-12-07 17:31:40.125: Received SynchronizeCustomer
+2015-12-07 17:31:40.187: Received SynchronizeCustomer
+2015-12-07 17:31:40.25: Received SynchronizeCustomer
+2015-12-07 17:31:40.312: Received SynchronizeCustomer
+2015-12-07 17:31:40.375: Received SynchronizeCustomer
+2015-12-07 17:31:40.437: Received SynchronizeCustomer
+2015-12-07 17:31:40.5: Received SynchronizeCustomer
+2015-12-07 17:31:40.562: Received SynchronizeCustomer
+2015-12-07 17:31:40.625: Received SynchronizeCustomer
+2015-12-07 17:31:40.687: Received SynchronizeCustomer
+2015-12-07 17:31:40.75: Received SynchronizeCustomer
+2015-12-07 17:31:40.812: Received SynchronizeCustomer
+2015-12-07 17:31:40.867: Received SynchronizeCustomer
+2015-12-07 17:31:40.919: Received SynchronizeCustomer
+2015-12-07 17:31:40.972: Received SynchronizeCustomer
+2015-12-07 17:31:41.025: Received SynchronizeCustomer
+2015-12-07 17:31:41.079: Received SynchronizeCustomer
+2015-12-07 17:31:41.143: Received SynchronizeCustomer
+2015-12-07 17:31:41.206: Received SynchronizeCustomer
+2015-12-07 17:31:41.268: Received SynchronizeCustomer
+2015-12-07 17:31:41.331: Received SynchronizeCustomer
+2015-12-07 17:31:41.393: Received SynchronizeCustomer
+2015-12-07 17:31:41.456: Received SynchronizeCustomer
+2015-12-07 17:31:41.518: Received SynchronizeCustomer
+2015-12-07 17:31:41.581: Received SynchronizeCustomer
+2015-12-07 17:31:41.643: Received SynchronizeCustomer
+2015-12-07 17:31:41.706: Received SynchronizeCustomer
+2015-12-07 17:31:41.768: Received SynchronizeCustomer
+2015-12-07 17:31:41.831: Received SynchronizeCustomer
+2015-12-07 17:31:41.893: Received SynchronizeCustomer
+2015-12-07 17:31:41.956: Received SynchronizeCustomer
+2015-12-07 17:31:42.018: Received SynchronizeCustomer
+2015-12-07 17:31:42.081: Received SynchronizeCustomer
+2015-12-07 17:31:42.143: Received SynchronizeCustomer
+2015-12-07 17:31:42.206: Received SynchronizeCustomer
+2015-12-07 17:33:31.046: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:33:35.8: Received SynchronizeCustomer
+2015-12-07 17:33:35.8: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:33:35.8: [Sync] Received Customer #0 of 914
+2015-12-07 17:33:35.847: Received SynchronizeCustomer
+2015-12-07 17:36:21.655: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:36:25.811: Received SynchronizeCustomer
+2015-12-07 17:36:25.827: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:36:25.827: [Sync] Received Customer #0 of 914
+2015-12-07 17:36:25.858: Received SynchronizeCustomer
+2015-12-07 17:36:25.921: Received SynchronizeCustomer
+2015-12-07 17:36:25.983: Received SynchronizeCustomer
+2015-12-07 17:36:26.046: Received SynchronizeCustomer
+2015-12-07 17:36:26.108: Received SynchronizeCustomer
+2015-12-07 17:36:26.171: Received SynchronizeCustomer
+2015-12-07 17:36:26.233: Received SynchronizeCustomer
+2015-12-07 17:36:26.296: Received SynchronizeCustomer
+2015-12-07 17:36:26.358: Received SynchronizeCustomer
+2015-12-07 17:36:26.421: Received SynchronizeCustomer
+2015-12-07 17:36:26.483: Received SynchronizeCustomer
+2015-12-07 17:36:26.546: Received SynchronizeCustomer
+2015-12-07 17:36:26.599: Received SynchronizeCustomer
+2015-12-07 17:36:26.652: Received SynchronizeCustomer
+2015-12-07 17:36:26.706: Received SynchronizeCustomer
+2015-12-07 17:36:26.758: Received SynchronizeCustomer
+2015-12-07 17:36:26.812: Received SynchronizeCustomer
+2015-12-07 17:36:26.865: Received SynchronizeCustomer
+2015-12-07 17:36:26.928: Received SynchronizeCustomer
+2015-12-07 17:36:26.99: Received SynchronizeCustomer
+2015-12-07 17:36:27.053: Received SynchronizeCustomer
+2015-12-07 17:36:27.115: Received SynchronizeCustomer
+2015-12-07 17:36:27.178: Received SynchronizeCustomer
+2015-12-07 17:36:27.24: Received SynchronizeCustomer
+2015-12-07 17:36:27.303: Received SynchronizeCustomer
+2015-12-07 17:36:27.365: Received SynchronizeCustomer
+2015-12-07 17:36:27.428: Received SynchronizeCustomer
+2015-12-07 17:36:27.49: Received SynchronizeCustomer
+2015-12-07 17:36:27.553: Received SynchronizeCustomer
+2015-12-07 17:36:27.615: Received SynchronizeCustomer
+2015-12-07 17:36:27.678: Received SynchronizeCustomer
+2015-12-07 17:36:27.74: Received SynchronizeCustomer
+2015-12-07 17:36:27.803: Received SynchronizeCustomer
+2015-12-07 17:36:27.865: Received SynchronizeCustomer
+2015-12-07 17:36:27.928: Received SynchronizeCustomer
+2015-12-07 17:36:27.99: Received SynchronizeCustomer
+2015-12-07 17:36:28.053: Received SynchronizeCustomer
+2015-12-07 17:36:28.115: Received SynchronizeCustomer
+2015-12-07 17:36:28.178: Received SynchronizeCustomer
+2015-12-07 17:36:28.24: Received SynchronizeCustomer
+2015-12-07 17:36:28.303: Received SynchronizeCustomer
+2015-12-07 17:36:28.365: Received SynchronizeCustomer
+2015-12-07 17:36:28.428: Received SynchronizeCustomer
+2015-12-07 17:36:28.49: Received SynchronizeCustomer
+2015-12-07 17:36:28.553: Received SynchronizeCustomer
+2015-12-07 17:36:28.615: Received SynchronizeCustomer
+2015-12-07 17:36:28.678: Received SynchronizeCustomer
+2015-12-07 17:36:28.74: Received SynchronizeCustomer
+2015-12-07 17:36:28.803: Received SynchronizeCustomer
+2015-12-07 17:36:28.865: Received SynchronizeCustomer
+2015-12-07 17:36:28.928: Received SynchronizeCustomer
+2015-12-07 17:36:28.99: Received SynchronizeCustomer
+2015-12-07 17:36:29.053: Received SynchronizeCustomer
+2015-12-07 17:36:29.115: Received SynchronizeCustomer
+2015-12-07 17:36:29.178: Received SynchronizeCustomer
+2015-12-07 17:36:29.24: Received SynchronizeCustomer
+2015-12-07 17:36:29.303: Received SynchronizeCustomer
+2015-12-07 17:36:29.365: Received SynchronizeCustomer
+2015-12-07 17:36:29.428: Received SynchronizeCustomer
+2015-12-07 17:36:29.49: Received SynchronizeCustomer
+2015-12-07 17:36:29.553: Received SynchronizeCustomer
+2015-12-07 17:36:29.615: Received SynchronizeCustomer
+2015-12-07 17:36:29.678: Received SynchronizeCustomer
+2015-12-07 17:36:29.74: Received SynchronizeCustomer
+2015-12-07 17:36:29.803: Received SynchronizeCustomer
+2015-12-07 17:36:29.865: Received SynchronizeCustomer
+2015-12-07 17:36:29.928: Received SynchronizeCustomer
+2015-12-07 17:36:29.99: Received SynchronizeCustomer
+2015-12-07 17:36:30.053: Received SynchronizeCustomer
+2015-12-07 17:36:30.115: Received SynchronizeCustomer
+2015-12-07 17:36:30.178: Received SynchronizeCustomer
+2015-12-07 17:36:30.24: Received SynchronizeCustomer
+2015-12-07 17:36:30.303: Received SynchronizeCustomer
+2015-12-07 17:36:30.365: Received SynchronizeCustomer
+2015-12-07 17:36:30.428: Received SynchronizeCustomer
+2015-12-07 17:36:30.49: Received SynchronizeCustomer
+2015-12-07 17:36:30.553: Received SynchronizeCustomer
+2015-12-07 17:36:30.615: Received SynchronizeCustomer
+2015-12-07 17:36:30.678: Received SynchronizeCustomer
+2015-12-07 17:36:30.74: Received SynchronizeCustomer
+2015-12-07 17:36:30.803: Received SynchronizeCustomer
+2015-12-07 17:36:30.865: Received SynchronizeCustomer
+2015-12-07 17:36:30.928: Received SynchronizeCustomer
+2015-12-07 17:36:30.99: Received SynchronizeCustomer
+2015-12-07 17:36:31.053: Received SynchronizeCustomer
+2015-12-07 17:36:31.115: Received SynchronizeCustomer
+2015-12-07 17:36:31.178: Received SynchronizeCustomer
+2015-12-07 17:36:31.24: Received SynchronizeCustomer
+2015-12-07 17:36:31.303: Received SynchronizeCustomer
+2015-12-07 17:36:31.365: Received SynchronizeCustomer
+2015-12-07 17:36:31.428: Received SynchronizeCustomer
+2015-12-07 17:36:31.49: Received SynchronizeCustomer
+2015-12-07 17:36:31.553: Received SynchronizeCustomer
+2015-12-07 17:36:31.615: Received SynchronizeCustomer
+2015-12-07 17:36:31.678: Received SynchronizeCustomer
+2015-12-07 17:36:31.74: Received SynchronizeCustomer
+2015-12-07 17:36:31.803: Received SynchronizeCustomer
+2015-12-07 17:36:31.856: Received SynchronizeCustomer
+2015-12-07 17:36:31.909: Received SynchronizeCustomer
+2015-12-07 17:36:31.962: Received SynchronizeCustomer
+2015-12-07 17:36:32.02: Received SynchronizeCustomer
+2015-12-07 17:36:32.083: Received SynchronizeCustomer
+2015-12-07 17:36:32.145: Received SynchronizeCustomer
+2015-12-07 17:36:32.208: Received SynchronizeCustomer
+2015-12-07 17:36:32.27: Received SynchronizeCustomer
+2015-12-07 17:36:32.333: Received SynchronizeCustomer
+2015-12-07 17:36:32.395: Received SynchronizeCustomer
+2015-12-07 17:36:32.458: Received SynchronizeCustomer
+2015-12-07 17:36:32.52: Received SynchronizeCustomer
+2015-12-07 17:36:32.583: Received SynchronizeCustomer
+2015-12-07 17:36:32.645: Received SynchronizeCustomer
+2015-12-07 17:36:32.708: Received SynchronizeCustomer
+2015-12-07 17:36:32.77: Received SynchronizeCustomer
+2015-12-07 17:36:32.833: Received SynchronizeCustomer
+2015-12-07 17:36:32.895: Received SynchronizeCustomer
+2015-12-07 17:36:32.958: Received SynchronizeCustomer
+2015-12-07 17:36:33.02: Received SynchronizeCustomer
+2015-12-07 17:36:33.083: Received SynchronizeCustomer
+2015-12-07 17:36:33.145: Received SynchronizeCustomer
+2015-12-07 17:36:33.208: Received SynchronizeCustomer
+2015-12-07 17:36:33.27: Received SynchronizeCustomer
+2015-12-07 17:36:33.333: Received SynchronizeCustomer
+2015-12-07 17:36:33.395: Received SynchronizeCustomer
+2015-12-07 17:36:33.458: Received SynchronizeCustomer
+2015-12-07 17:36:33.52: Received SynchronizeCustomer
+2015-12-07 17:36:33.587: Received SynchronizeCustomer
+2015-12-07 17:36:33.642: Received SynchronizeCustomer
+2015-12-07 17:36:33.695: Received SynchronizeCustomer
+2015-12-07 17:36:33.747: Received SynchronizeCustomer
+2015-12-07 17:36:33.801: Received SynchronizeCustomer
+2015-12-07 17:36:33.862: Received SynchronizeCustomer
+2015-12-07 17:36:33.924: Received SynchronizeCustomer
+2015-12-07 17:36:33.987: Received SynchronizeCustomer
+2015-12-07 17:36:34.049: Received SynchronizeCustomer
+2015-12-07 17:36:34.112: Received SynchronizeCustomer
+2015-12-07 17:36:34.174: Received SynchronizeCustomer
+2015-12-07 17:36:34.237: Received SynchronizeCustomer
+2015-12-07 17:36:34.299: Received SynchronizeCustomer
+2015-12-07 17:36:34.362: Received SynchronizeCustomer
+2015-12-07 17:36:34.424: Received SynchronizeCustomer
+2015-12-07 17:36:34.487: Received SynchronizeCustomer
+2015-12-07 17:36:34.549: Received SynchronizeCustomer
+2015-12-07 17:36:34.612: Received SynchronizeCustomer
+2015-12-07 17:36:34.674: Received SynchronizeCustomer
+2015-12-07 17:36:34.737: Received SynchronizeCustomer
+2015-12-07 17:36:34.799: Received SynchronizeCustomer
+2015-12-07 17:36:34.862: Received SynchronizeCustomer
+2015-12-07 17:36:34.924: Received SynchronizeCustomer
+2015-12-07 17:36:34.987: Received SynchronizeCustomer
+2015-12-07 17:36:35.049: Received SynchronizeCustomer
+2015-12-07 17:36:35.112: Received SynchronizeCustomer
+2015-12-07 17:36:35.174: Received SynchronizeCustomer
+2015-12-07 17:36:35.237: Received SynchronizeCustomer
+2015-12-07 17:36:35.299: Received SynchronizeCustomer
+2015-12-07 17:36:35.362: Received SynchronizeCustomer
+2015-12-07 17:36:35.424: Received SynchronizeCustomer
+2015-12-07 17:36:35.487: Received SynchronizeCustomer
+2015-12-07 17:36:35.549: Received SynchronizeCustomer
+2015-12-07 17:36:35.612: Received SynchronizeCustomer
+2015-12-07 17:36:35.674: Received SynchronizeCustomer
+2015-12-07 17:36:35.737: Received SynchronizeCustomer
+2015-12-07 17:36:35.799: Received SynchronizeCustomer
+2015-12-07 17:36:35.862: Received SynchronizeCustomer
+2015-12-07 17:36:35.924: Received SynchronizeCustomer
+2015-12-07 17:36:35.987: Received SynchronizeCustomer
+2015-12-07 17:36:36.049: Received SynchronizeCustomer
+2015-12-07 17:36:36.112: Received SynchronizeCustomer
+2015-12-07 17:36:36.174: Received SynchronizeCustomer
+2015-12-07 17:36:36.237: Received SynchronizeCustomer
+2015-12-07 17:36:36.299: Received SynchronizeCustomer
+2015-12-07 17:36:36.362: Received SynchronizeCustomer
+2015-12-07 17:36:36.424: Received SynchronizeCustomer
+2015-12-07 17:36:36.487: Received SynchronizeCustomer
+2015-12-07 17:36:36.549: Received SynchronizeCustomer
+2015-12-07 17:36:36.612: Received SynchronizeCustomer
+2015-12-07 17:36:36.674: Received SynchronizeCustomer
+2015-12-07 17:36:36.737: Received SynchronizeCustomer
+2015-12-07 17:36:36.799: Received SynchronizeCustomer
+2015-12-07 17:36:36.862: Received SynchronizeCustomer
+2015-12-07 17:36:36.924: Received SynchronizeCustomer
+2015-12-07 17:36:36.987: Received SynchronizeCustomer
+2015-12-07 17:36:37.049: Received SynchronizeCustomer
+2015-12-07 17:36:37.112: Received SynchronizeCustomer
+2015-12-07 17:36:37.174: Received SynchronizeCustomer
+2015-12-07 17:36:37.237: Received SynchronizeCustomer
+2015-12-07 17:36:37.299: Received SynchronizeCustomer
+2015-12-07 17:36:48.941: Received SynchronizeCustomer
+2015-12-07 17:36:48.941: Received SynchronizeCustomer
+2015-12-07 17:36:48.941: Received SynchronizeCustomer
+2015-12-07 17:36:48.957: Received SynchronizeCustomer
+2015-12-07 17:36:48.957: Received SynchronizeCustomer
+2015-12-07 17:36:48.957: Received SynchronizeCustomer
+2015-12-07 17:36:48.972: Received SynchronizeCustomer
+2015-12-07 17:36:48.972: Received SynchronizeCustomer
+2015-12-07 17:36:48.972: Received SynchronizeCustomer
+2015-12-07 17:36:48.988: Received SynchronizeCustomer
+2015-12-07 17:36:48.988: Received SynchronizeCustomer
+2015-12-07 17:36:48.988: Received SynchronizeCustomer
+2015-12-07 17:36:49.004: Received SynchronizeCustomer
+2015-12-07 17:36:49.004: Received SynchronizeCustomer
+2015-12-07 17:36:49.019: Received SynchronizeCustomer
+2015-12-07 17:36:49.019: Received SynchronizeCustomer
+2015-12-07 17:36:49.019: Received SynchronizeCustomer
+2015-12-07 17:36:49.035: Received SynchronizeCustomer
+2015-12-07 17:36:49.04: Received SynchronizeCustomer
+2015-12-07 17:36:49.046: Received SynchronizeCustomer
+2015-12-07 17:36:49.05: Received SynchronizeCustomer
+2015-12-07 17:36:49.055: Received SynchronizeCustomer
+2015-12-07 17:36:49.061: Received SynchronizeCustomer
+2015-12-07 17:36:49.064: Received SynchronizeCustomer
+2015-12-07 17:36:49.064: Received SynchronizeCustomer
+2015-12-07 17:36:49.064: Received SynchronizeCustomer
+2015-12-07 17:36:49.08: Received SynchronizeCustomer
+2015-12-07 17:36:49.08: Received SynchronizeCustomer
+2015-12-07 17:36:49.08: Received SynchronizeCustomer
+2015-12-07 17:36:49.08: Received SynchronizeCustomer
+2015-12-07 17:36:49.096: Received SynchronizeCustomer
+2015-12-07 17:36:49.096: Received SynchronizeCustomer
+2015-12-07 17:36:49.096: Received SynchronizeCustomer
+2015-12-07 17:36:49.111: Received SynchronizeCustomer
+2015-12-07 17:36:49.111: Received SynchronizeCustomer
+2015-12-07 17:36:49.111: Received SynchronizeCustomer
+2015-12-07 17:36:49.127: Received SynchronizeCustomer
+2015-12-07 17:36:49.127: Received SynchronizeCustomer
+2015-12-07 17:36:49.127: Received SynchronizeCustomer
+2015-12-07 17:36:49.142: Received SynchronizeCustomer
+2015-12-07 17:36:49.142: Received SynchronizeCustomer
+2015-12-07 17:36:49.142: Received SynchronizeCustomer
+2015-12-07 17:36:49.158: Received SynchronizeCustomer
+2015-12-07 17:36:49.158: Received SynchronizeCustomer
+2015-12-07 17:36:49.158: Received SynchronizeCustomer
+2015-12-07 17:36:49.174: Received SynchronizeCustomer
+2015-12-07 17:36:49.174: Received SynchronizeCustomer
+2015-12-07 17:36:49.174: Received SynchronizeCustomer
+2015-12-07 17:36:49.189: Received SynchronizeCustomer
+2015-12-07 17:36:49.189: Received SynchronizeCustomer
+2015-12-07 17:36:49.189: Received SynchronizeCustomer
+2015-12-07 17:36:49.189: Received SynchronizeCustomer
+2015-12-07 17:36:49.205: Received SynchronizeCustomer
+2015-12-07 17:36:49.205: Received SynchronizeCustomer
+2015-12-07 17:36:49.205: Received SynchronizeCustomer
+2015-12-07 17:36:49.205: Received SynchronizeCustomer
+2015-12-07 17:36:49.205: Received SynchronizeCustomer
+2015-12-07 17:36:49.221: Received SynchronizeCustomer
+2015-12-07 17:36:49.221: Received SynchronizeCustomer
+2015-12-07 17:36:49.221: Received SynchronizeCustomer
+2015-12-07 17:36:49.221: Received SynchronizeCustomer
+2015-12-07 17:36:49.221: Received SynchronizeCustomer
+2015-12-07 17:36:49.221: Received SynchronizeCustomer
+2015-12-07 17:36:49.236: Received SynchronizeCustomer
+2015-12-07 17:36:49.236: Received SynchronizeCustomer
+2015-12-07 17:36:49.236: Received SynchronizeCustomer
+2015-12-07 17:36:49.236: Received SynchronizeCustomer
+2015-12-07 17:36:49.252: Received SynchronizeCustomer
+2015-12-07 17:36:49.252: Received SynchronizeCustomer
+2015-12-07 17:36:49.252: Received SynchronizeCustomer
+2015-12-07 17:36:49.252: Received SynchronizeCustomer
+2015-12-07 17:36:49.267: Received SynchronizeCustomer
+2015-12-07 17:36:49.267: Received SynchronizeCustomer
+2015-12-07 17:36:49.267: Received SynchronizeCustomer
+2015-12-07 17:36:49.283: Received SynchronizeCustomer
+2015-12-07 17:36:49.283: Received SynchronizeCustomer
+2015-12-07 17:36:49.283: Received SynchronizeCustomer
+2015-12-07 17:36:49.299: Received SynchronizeCustomer
+2015-12-07 17:36:49.299: Received SynchronizeCustomer
+2015-12-07 17:36:49.314: Received SynchronizeCustomer
+2015-12-07 17:36:49.314: Received SynchronizeCustomer
+2015-12-07 17:36:49.33: Received SynchronizeCustomer
+2015-12-07 17:36:49.33: Received SynchronizeCustomer
+2015-12-07 17:36:49.33: Received SynchronizeCustomer
+2015-12-07 17:36:49.346: Received SynchronizeCustomer
+2015-12-07 17:36:49.346: Received SynchronizeCustomer
+2015-12-07 17:36:49.346: Received SynchronizeCustomer
+2015-12-07 17:36:49.361: Received SynchronizeCustomer
+2015-12-07 17:36:49.361: Received SynchronizeCustomer
+2015-12-07 17:36:49.377: Received SynchronizeCustomer
+2015-12-07 17:36:49.377: Received SynchronizeCustomer
+2015-12-07 17:36:49.392: Received SynchronizeCustomer
+2015-12-07 17:36:49.392: Received SynchronizeCustomer
+2015-12-07 17:36:49.408: Received SynchronizeCustomer
+2015-12-07 17:36:49.408: Received SynchronizeCustomer
+2015-12-07 17:36:49.424: Received SynchronizeCustomer
+2015-12-07 17:36:49.424: Received SynchronizeCustomer
+2015-12-07 17:36:49.439: Received SynchronizeCustomer
+2015-12-07 17:36:49.439: Received SynchronizeCustomer
+2015-12-07 17:36:49.455: Received SynchronizeCustomer
+2015-12-07 17:36:49.455: Received SynchronizeCustomer
+2015-12-07 17:36:49.486: Received SynchronizeCustomer
+2015-12-07 17:36:49.549: Received SynchronizeCustomer
+2015-12-07 17:36:49.611: Received SynchronizeCustomer
+2015-12-07 17:36:49.674: Received SynchronizeCustomer
+2015-12-07 17:36:49.736: Received SynchronizeCustomer
+2015-12-07 17:36:49.799: Received SynchronizeCustomer
+2015-12-07 17:36:49.861: Received SynchronizeCustomer
+2015-12-07 17:36:49.924: Received SynchronizeCustomer
+2015-12-07 17:36:49.986: Received SynchronizeCustomer
+2015-12-07 17:36:50.049: Received SynchronizeCustomer
+2015-12-07 17:36:50.111: Received SynchronizeCustomer
+2015-12-07 17:36:50.174: Received SynchronizeCustomer
+2015-12-07 17:36:50.236: Received SynchronizeCustomer
+2015-12-07 17:36:50.299: Received SynchronizeCustomer
+2015-12-07 17:36:50.361: Received SynchronizeCustomer
+2015-12-07 17:36:50.424: Received SynchronizeCustomer
+2015-12-07 17:36:50.486: Received SynchronizeCustomer
+2015-12-07 17:36:50.549: Received SynchronizeCustomer
+2015-12-07 17:36:50.611: Received SynchronizeCustomer
+2015-12-07 17:36:50.674: Received SynchronizeCustomer
+2015-12-07 17:36:50.736: Received SynchronizeCustomer
+2015-12-07 17:36:50.799: Received SynchronizeCustomer
+2015-12-07 17:36:50.861: Received SynchronizeCustomer
+2015-12-07 17:36:50.924: Received SynchronizeCustomer
+2015-12-07 17:36:50.986: Received SynchronizeCustomer
+2015-12-07 17:36:51.049: Received SynchronizeCustomer
+2015-12-07 17:36:51.111: Received SynchronizeCustomer
+2015-12-07 17:36:51.174: Received SynchronizeCustomer
+2015-12-07 17:36:51.236: Received SynchronizeCustomer
+2015-12-07 17:36:51.299: Received SynchronizeCustomer
+2015-12-07 17:36:51.361: Received SynchronizeCustomer
+2015-12-07 17:36:51.414: Received SynchronizeCustomer
+2015-12-07 17:36:51.47: Received SynchronizeCustomer
+2015-12-07 17:36:51.532: Received SynchronizeCustomer
+2015-12-07 17:36:51.595: Received SynchronizeCustomer
+2015-12-07 17:36:51.657: Received SynchronizeCustomer
+2015-12-07 17:36:51.72: Received SynchronizeCustomer
+2015-12-07 17:36:51.782: Received SynchronizeCustomer
+2015-12-07 17:36:51.845: Received SynchronizeCustomer
+2015-12-07 17:36:51.907: Received SynchronizeCustomer
+2015-12-07 17:36:51.97: Received SynchronizeCustomer
+2015-12-07 17:36:52.032: Received SynchronizeCustomer
+2015-12-07 17:36:52.095: Received SynchronizeCustomer
+2015-12-07 17:36:52.157: Received SynchronizeCustomer
+2015-12-07 17:36:52.22: Received SynchronizeCustomer
+2015-12-07 17:36:52.282: Received SynchronizeCustomer
+2015-12-07 17:36:52.345: Received SynchronizeCustomer
+2015-12-07 17:36:52.407: Received SynchronizeCustomer
+2015-12-07 17:36:52.47: Received SynchronizeCustomer
+2015-12-07 17:36:52.532: Received SynchronizeCustomer
+2015-12-07 17:36:52.595: Received SynchronizeCustomer
+2015-12-07 17:36:52.657: Received SynchronizeCustomer
+2015-12-07 17:36:52.72: Received SynchronizeCustomer
+2015-12-07 17:36:52.782: Received SynchronizeCustomer
+2015-12-07 17:36:52.845: Received SynchronizeCustomer
+2015-12-07 17:36:52.907: Received SynchronizeCustomer
+2015-12-07 17:36:52.97: Received SynchronizeCustomer
+2015-12-07 17:36:53.032: Received SynchronizeCustomer
+2015-12-07 17:36:53.095: Received SynchronizeCustomer
+2015-12-07 17:36:53.157: Received SynchronizeCustomer
+2015-12-07 17:36:53.22: Received SynchronizeCustomer
+2015-12-07 17:36:53.282: Received SynchronizeCustomer
+2015-12-07 17:36:53.345: Received SynchronizeCustomer
+2015-12-07 17:36:53.407: Received SynchronizeCustomer
+2015-12-07 17:36:53.47: Received SynchronizeCustomer
+2015-12-07 17:36:53.532: Received SynchronizeCustomer
+2015-12-07 17:36:53.595: Received SynchronizeCustomer
+2015-12-07 17:36:53.657: Received SynchronizeCustomer
+2015-12-07 17:36:53.72: Received SynchronizeCustomer
+2015-12-07 17:36:53.782: Received SynchronizeCustomer
+2015-12-07 17:36:53.845: Received SynchronizeCustomer
+2015-12-07 17:36:53.907: Received SynchronizeCustomer
+2015-12-07 17:36:53.97: Received SynchronizeCustomer
+2015-12-07 17:36:54.032: Received SynchronizeCustomer
+2015-12-07 17:36:54.095: Received SynchronizeCustomer
+2015-12-07 17:36:54.157: Received SynchronizeCustomer
+2015-12-07 17:36:54.22: Received SynchronizeCustomer
+2015-12-07 17:36:54.282: Received SynchronizeCustomer
+2015-12-07 17:36:54.345: Received SynchronizeCustomer
+2015-12-07 17:36:54.407: Received SynchronizeCustomer
+2015-12-07 17:36:54.47: Received SynchronizeCustomer
+2015-12-07 17:36:54.532: Received SynchronizeCustomer
+2015-12-07 17:36:54.595: Received SynchronizeCustomer
+2015-12-07 17:36:54.657: Received SynchronizeCustomer
+2015-12-07 17:36:54.72: Received SynchronizeCustomer
+2015-12-07 17:36:54.782: Received SynchronizeCustomer
+2015-12-07 17:36:54.845: Received SynchronizeCustomer
+2015-12-07 17:36:54.907: Received SynchronizeCustomer
+2015-12-07 17:36:54.97: Received SynchronizeCustomer
+2015-12-07 17:36:55.032: Received SynchronizeCustomer
+2015-12-07 17:36:55.095: Received SynchronizeCustomer
+2015-12-07 17:36:55.157: Received SynchronizeCustomer
+2015-12-07 17:36:55.22: Received SynchronizeCustomer
+2015-12-07 17:36:55.282: Received SynchronizeCustomer
+2015-12-07 17:36:55.345: Received SynchronizeCustomer
+2015-12-07 17:36:55.407: Received SynchronizeCustomer
+2015-12-07 17:36:55.47: Received SynchronizeCustomer
+2015-12-07 17:36:55.532: Received SynchronizeCustomer
+2015-12-07 17:36:55.595: Received SynchronizeCustomer
+2015-12-07 17:36:55.657: Received SynchronizeCustomer
+2015-12-07 17:36:55.72: Received SynchronizeCustomer
+2015-12-07 17:36:55.782: Received SynchronizeCustomer
+2015-12-07 17:36:55.86: Received SynchronizeCustomer
+2015-12-07 17:36:55.923: Received SynchronizeCustomer
+2015-12-07 17:36:55.985: Received SynchronizeCustomer
+2015-12-07 17:36:56.048: Received SynchronizeCustomer
+2015-12-07 17:36:56.11: Received SynchronizeCustomer
+2015-12-07 17:36:56.173: Received SynchronizeCustomer
+2015-12-07 17:36:56.235: Received SynchronizeCustomer
+2015-12-07 17:36:56.298: Received SynchronizeCustomer
+2015-12-07 17:36:56.36: Received SynchronizeCustomer
+2015-12-07 17:36:56.423: Received SynchronizeCustomer
+2015-12-07 17:36:56.485: Received SynchronizeCustomer
+2015-12-07 17:36:56.548: Received SynchronizeCustomer
+2015-12-07 17:36:56.61: Received SynchronizeCustomer
+2015-12-07 17:36:56.673: Received SynchronizeCustomer
+2015-12-07 17:36:56.735: Received SynchronizeCustomer
+2015-12-07 17:36:56.798: Received SynchronizeCustomer
+2015-12-07 17:36:56.86: Received SynchronizeCustomer
+2015-12-07 17:36:56.923: Received SynchronizeCustomer
+2015-12-07 17:36:56.985: Received SynchronizeCustomer
+2015-12-07 17:36:57.048: Received SynchronizeCustomer
+2015-12-07 17:36:57.11: Received SynchronizeCustomer
+2015-12-07 17:36:57.173: Received SynchronizeCustomer
+2015-12-07 17:36:57.235: Received SynchronizeCustomer
+2015-12-07 17:36:57.298: Received SynchronizeCustomer
+2015-12-07 17:36:57.36: Received SynchronizeCustomer
+2015-12-07 17:36:57.423: Received SynchronizeCustomer
+2015-12-07 17:36:57.485: Received SynchronizeCustomer
+2015-12-07 17:36:57.548: Received SynchronizeCustomer
+2015-12-07 17:36:57.61: Received SynchronizeCustomer
+2015-12-07 17:36:57.673: Received SynchronizeCustomer
+2015-12-07 17:36:57.736: Received SynchronizeCustomer
+2015-12-07 17:36:57.798: Received SynchronizeCustomer
+2015-12-07 17:36:57.861: Received SynchronizeCustomer
+2015-12-07 17:36:57.923: Received SynchronizeCustomer
+2015-12-07 17:36:57.985: Received SynchronizeCustomer
+2015-12-07 17:36:58.048: Received SynchronizeCustomer
+2015-12-07 17:36:58.11: Received SynchronizeCustomer
+2015-12-07 17:36:58.173: Received SynchronizeCustomer
+2015-12-07 17:36:58.236: Received SynchronizeCustomer
+2015-12-07 17:36:58.298: Received SynchronizeCustomer
+2015-12-07 17:36:58.361: Received SynchronizeCustomer
+2015-12-07 17:36:58.423: Received SynchronizeCustomer
+2015-12-07 17:36:58.486: Received SynchronizeCustomer
+2015-12-07 17:36:58.548: Received SynchronizeCustomer
+2015-12-07 17:36:58.61: Received SynchronizeCustomer
+2015-12-07 17:36:58.673: Received SynchronizeCustomer
+2015-12-07 17:36:58.735: Received SynchronizeCustomer
+2015-12-07 17:36:58.798: Received SynchronizeCustomer
+2015-12-07 17:36:58.86: Received SynchronizeCustomer
+2015-12-07 17:36:58.923: Received SynchronizeCustomer
+2015-12-07 17:36:58.986: Received SynchronizeCustomer
+2015-12-07 17:36:59.048: Received SynchronizeCustomer
+2015-12-07 17:40:57.072: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:41:01.809: Received SynchronizeCustomer
+2015-12-07 17:41:01.809: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:41:01.824: [Sync] Received Customer #0 of 914
+2015-12-07 17:41:01.824: Thread Ended: null
+2015-12-07 17:41:01.824: Thread Ended.
+2015-12-07 17:41:01.856: Received SynchronizeCustomer
+2015-12-07 17:41:01.856: Append SynchronizeCustomer
+2015-12-07 17:41:01.918: Received SynchronizeCustomer
+2015-12-07 17:41:01.918: Append SynchronizeCustomer
+2015-12-07 17:41:01.981: Received SynchronizeCustomer
+2015-12-07 17:41:01.981: Append SynchronizeCustomer
+2015-12-07 17:41:02.043: Received SynchronizeCustomer
+2015-12-07 17:41:02.043: Append SynchronizeCustomer
+2015-12-07 17:41:02.106: Received SynchronizeCustomer
+2015-12-07 17:41:02.106: Append SynchronizeCustomer
+2015-12-07 17:41:02.168: Received SynchronizeCustomer
+2015-12-07 17:41:02.168: Append SynchronizeCustomer
+2015-12-07 17:41:02.231: Received SynchronizeCustomer
+2015-12-07 17:41:02.231: Append SynchronizeCustomer
+2015-12-07 17:41:02.293: Received SynchronizeCustomer
+2015-12-07 17:41:02.293: Append SynchronizeCustomer
+2015-12-07 17:41:02.356: Received SynchronizeCustomer
+2015-12-07 17:41:02.356: Append SynchronizeCustomer
+2015-12-07 17:41:02.418: Received SynchronizeCustomer
+2015-12-07 17:41:02.418: Append SynchronizeCustomer
+2015-12-07 17:41:02.481: Received SynchronizeCustomer
+2015-12-07 17:41:02.481: Append SynchronizeCustomer
+2015-12-07 17:41:02.543: Received SynchronizeCustomer
+2015-12-07 17:41:02.543: Append SynchronizeCustomer
+2015-12-07 17:41:02.606: Received SynchronizeCustomer
+2015-12-07 17:41:02.606: Append SynchronizeCustomer
+2015-12-07 17:41:02.668: Received SynchronizeCustomer
+2015-12-07 17:41:02.668: Append SynchronizeCustomer
+2015-12-07 17:41:02.731: Received SynchronizeCustomer
+2015-12-07 17:41:02.731: Append SynchronizeCustomer
+2015-12-07 17:41:02.793: Received SynchronizeCustomer
+2015-12-07 17:41:02.793: Append SynchronizeCustomer
+2015-12-07 17:41:02.856: Received SynchronizeCustomer
+2015-12-07 17:41:02.856: Append SynchronizeCustomer
+2015-12-07 17:41:02.918: Received SynchronizeCustomer
+2015-12-07 17:41:02.918: Append SynchronizeCustomer
+2015-12-07 17:41:02.981: Received SynchronizeCustomer
+2015-12-07 17:41:02.981: Append SynchronizeCustomer
+2015-12-07 17:41:03.043: Received SynchronizeCustomer
+2015-12-07 17:41:03.043: Append SynchronizeCustomer
+2015-12-07 17:41:03.106: Received SynchronizeCustomer
+2015-12-07 17:41:03.106: Append SynchronizeCustomer
+2015-12-07 17:41:03.168: Received SynchronizeCustomer
+2015-12-07 17:41:03.168: Append SynchronizeCustomer
+2015-12-07 17:41:03.231: Received SynchronizeCustomer
+2015-12-07 17:41:03.231: Append SynchronizeCustomer
+2015-12-07 17:41:03.286: Received SynchronizeCustomer
+2015-12-07 17:41:03.29: Append SynchronizeCustomer
+2015-12-07 17:41:03.339: Received SynchronizeCustomer
+2015-12-07 17:41:03.343: Append SynchronizeCustomer
+2015-12-07 17:41:03.392: Received SynchronizeCustomer
+2015-12-07 17:41:03.398: Append SynchronizeCustomer
+2015-12-07 17:41:03.445: Received SynchronizeCustomer
+2015-12-07 17:41:03.451: Append SynchronizeCustomer
+2015-12-07 17:41:03.498: Received SynchronizeCustomer
+2015-12-07 17:41:03.502: Append SynchronizeCustomer
+2015-12-07 17:41:03.551: Received SynchronizeCustomer
+2015-12-07 17:41:03.555: Append SynchronizeCustomer
+2015-12-07 17:41:03.604: Received SynchronizeCustomer
+2015-12-07 17:41:03.608: Append SynchronizeCustomer
+2015-12-07 17:41:03.657: Received SynchronizeCustomer
+2015-12-07 17:41:03.659: Append SynchronizeCustomer
+2015-12-07 17:41:03.722: Received SynchronizeCustomer
+2015-12-07 17:41:03.722: Append SynchronizeCustomer
+2015-12-07 17:41:03.784: Received SynchronizeCustomer
+2015-12-07 17:41:03.784: Append SynchronizeCustomer
+2015-12-07 17:41:03.847: Received SynchronizeCustomer
+2015-12-07 17:41:03.847: Append SynchronizeCustomer
+2015-12-07 17:41:03.909: Received SynchronizeCustomer
+2015-12-07 17:41:03.909: Append SynchronizeCustomer
+2015-12-07 17:41:03.972: Received SynchronizeCustomer
+2015-12-07 17:41:03.972: Append SynchronizeCustomer
+2015-12-07 17:41:04.034: Received SynchronizeCustomer
+2015-12-07 17:41:04.034: Append SynchronizeCustomer
+2015-12-07 17:41:04.097: Received SynchronizeCustomer
+2015-12-07 17:41:04.097: Append SynchronizeCustomer
+2015-12-07 17:41:04.159: Received SynchronizeCustomer
+2015-12-07 17:41:04.159: Append SynchronizeCustomer
+2015-12-07 17:41:04.222: Received SynchronizeCustomer
+2015-12-07 17:41:04.222: Append SynchronizeCustomer
+2015-12-07 17:41:04.284: Received SynchronizeCustomer
+2015-12-07 17:41:04.284: Append SynchronizeCustomer
+2015-12-07 17:41:04.347: Received SynchronizeCustomer
+2015-12-07 17:41:04.347: Append SynchronizeCustomer
+2015-12-07 17:41:04.409: Received SynchronizeCustomer
+2015-12-07 17:41:04.409: Append SynchronizeCustomer
+2015-12-07 17:41:04.472: Received SynchronizeCustomer
+2015-12-07 17:41:04.472: Append SynchronizeCustomer
+2015-12-07 17:41:04.534: Received SynchronizeCustomer
+2015-12-07 17:41:04.534: Append SynchronizeCustomer
+2015-12-07 17:41:04.597: Received SynchronizeCustomer
+2015-12-07 17:41:04.597: Append SynchronizeCustomer
+2015-12-07 17:41:04.659: Received SynchronizeCustomer
+2015-12-07 17:41:04.659: Append SynchronizeCustomer
+2015-12-07 17:41:04.722: Received SynchronizeCustomer
+2015-12-07 17:41:04.722: Append SynchronizeCustomer
+2015-12-07 17:41:04.784: Received SynchronizeCustomer
+2015-12-07 17:41:04.784: Append SynchronizeCustomer
+2015-12-07 17:41:04.847: Received SynchronizeCustomer
+2015-12-07 17:41:04.847: Append SynchronizeCustomer
+2015-12-07 17:41:04.909: Received SynchronizeCustomer
+2015-12-07 17:41:04.909: Append SynchronizeCustomer
+2015-12-07 17:41:04.972: Received SynchronizeCustomer
+2015-12-07 17:41:04.972: Append SynchronizeCustomer
+2015-12-07 17:41:05.034: Received SynchronizeCustomer
+2015-12-07 17:41:05.034: Append SynchronizeCustomer
+2015-12-07 17:41:05.097: Received SynchronizeCustomer
+2015-12-07 17:41:05.097: Append SynchronizeCustomer
+2015-12-07 17:41:05.159: Received SynchronizeCustomer
+2015-12-07 17:41:05.159: Append SynchronizeCustomer
+2015-12-07 17:41:05.222: Received SynchronizeCustomer
+2015-12-07 17:41:05.222: Append SynchronizeCustomer
+2015-12-07 17:41:05.284: Received SynchronizeCustomer
+2015-12-07 17:41:05.284: Append SynchronizeCustomer
+2015-12-07 17:41:05.347: Received SynchronizeCustomer
+2015-12-07 17:41:05.347: Append SynchronizeCustomer
+2015-12-07 17:41:05.409: Received SynchronizeCustomer
+2015-12-07 17:41:05.409: Append SynchronizeCustomer
+2015-12-07 17:41:05.472: Received SynchronizeCustomer
+2015-12-07 17:41:05.472: Append SynchronizeCustomer
+2015-12-07 17:41:05.534: Received SynchronizeCustomer
+2015-12-07 17:41:05.534: Append SynchronizeCustomer
+2015-12-07 17:41:05.597: Received SynchronizeCustomer
+2015-12-07 17:41:05.597: Append SynchronizeCustomer
+2015-12-07 17:41:05.659: Received SynchronizeCustomer
+2015-12-07 17:41:05.659: Append SynchronizeCustomer
+2015-12-07 17:41:05.722: Received SynchronizeCustomer
+2015-12-07 17:41:05.722: Append SynchronizeCustomer
+2015-12-07 17:41:05.784: Received SynchronizeCustomer
+2015-12-07 17:41:05.784: Append SynchronizeCustomer
+2015-12-07 17:41:05.847: Received SynchronizeCustomer
+2015-12-07 17:41:05.847: Append SynchronizeCustomer
+2015-12-07 17:41:05.909: Received SynchronizeCustomer
+2015-12-07 17:41:05.909: Append SynchronizeCustomer
+2015-12-07 17:41:05.972: Received SynchronizeCustomer
+2015-12-07 17:41:05.972: Append SynchronizeCustomer
+2015-12-07 17:41:06.034: Received SynchronizeCustomer
+2015-12-07 17:41:06.034: Append SynchronizeCustomer
+2015-12-07 17:41:06.097: Received SynchronizeCustomer
+2015-12-07 17:41:06.097: Append SynchronizeCustomer
+2015-12-07 17:41:06.159: Received SynchronizeCustomer
+2015-12-07 17:41:06.159: Append SynchronizeCustomer
+2015-12-07 17:41:06.222: Received SynchronizeCustomer
+2015-12-07 17:41:06.222: Append SynchronizeCustomer
+2015-12-07 17:41:06.284: Received SynchronizeCustomer
+2015-12-07 17:41:06.284: Append SynchronizeCustomer
+2015-12-07 17:41:06.347: Received SynchronizeCustomer
+2015-12-07 17:41:06.347: Append SynchronizeCustomer
+2015-12-07 17:41:06.409: Received SynchronizeCustomer
+2015-12-07 17:41:06.409: Append SynchronizeCustomer
+2015-12-07 17:41:06.472: Received SynchronizeCustomer
+2015-12-07 17:41:06.472: Append SynchronizeCustomer
+2015-12-07 17:41:06.534: Received SynchronizeCustomer
+2015-12-07 17:41:06.534: Append SynchronizeCustomer
+2015-12-07 17:41:06.597: Received SynchronizeCustomer
+2015-12-07 17:41:06.597: Append SynchronizeCustomer
+2015-12-07 17:41:06.659: Received SynchronizeCustomer
+2015-12-07 17:41:06.659: Append SynchronizeCustomer
+2015-12-07 17:41:06.722: Received SynchronizeCustomer
+2015-12-07 17:41:06.722: Append SynchronizeCustomer
+2015-12-07 17:41:06.784: Received SynchronizeCustomer
+2015-12-07 17:41:06.784: Append SynchronizeCustomer
+2015-12-07 17:41:06.847: Received SynchronizeCustomer
+2015-12-07 17:41:06.847: Append SynchronizeCustomer
+2015-12-07 17:41:06.909: Received SynchronizeCustomer
+2015-12-07 17:41:06.909: Append SynchronizeCustomer
+2015-12-07 17:41:06.972: Received SynchronizeCustomer
+2015-12-07 17:41:06.972: Append SynchronizeCustomer
+2015-12-07 17:41:07.034: Received SynchronizeCustomer
+2015-12-07 17:41:07.034: Append SynchronizeCustomer
+2015-12-07 17:41:07.097: Received SynchronizeCustomer
+2015-12-07 17:41:07.097: Append SynchronizeCustomer
+2015-12-07 17:41:07.159: Received SynchronizeCustomer
+2015-12-07 17:41:07.159: Append SynchronizeCustomer
+2015-12-07 17:41:07.222: Received SynchronizeCustomer
+2015-12-07 17:41:07.222: Append SynchronizeCustomer
+2015-12-07 17:41:07.284: Received SynchronizeCustomer
+2015-12-07 17:41:07.284: Append SynchronizeCustomer
+2015-12-07 17:41:07.347: Received SynchronizeCustomer
+2015-12-07 17:41:07.347: Append SynchronizeCustomer
+2015-12-07 17:41:07.409: Received SynchronizeCustomer
+2015-12-07 17:41:07.409: Append SynchronizeCustomer
+2015-12-07 17:41:07.464: Received SynchronizeCustomer
+2015-12-07 17:41:07.47: Append SynchronizeCustomer
+2015-12-07 17:41:07.516: Received SynchronizeCustomer
+2015-12-07 17:41:07.521: Append SynchronizeCustomer
+2015-12-07 17:41:07.569: Received SynchronizeCustomer
+2015-12-07 17:41:07.576: Append SynchronizeCustomer
+2015-12-07 17:41:07.622: Received SynchronizeCustomer
+2015-12-07 17:41:07.626: Append SynchronizeCustomer
+2015-12-07 17:41:07.676: Received SynchronizeCustomer
+2015-12-07 17:41:07.68: Append SynchronizeCustomer
+2015-12-07 17:41:07.728: Received SynchronizeCustomer
+2015-12-07 17:41:07.733: Append SynchronizeCustomer
+2015-12-07 17:41:07.791: Received SynchronizeCustomer
+2015-12-07 17:41:07.791: Append SynchronizeCustomer
+2015-12-07 17:41:07.853: Received SynchronizeCustomer
+2015-12-07 17:41:07.853: Append SynchronizeCustomer
+2015-12-07 17:41:07.916: Received SynchronizeCustomer
+2015-12-07 17:41:07.916: Append SynchronizeCustomer
+2015-12-07 17:41:07.978: Received SynchronizeCustomer
+2015-12-07 17:41:07.978: Append SynchronizeCustomer
+2015-12-07 17:41:08.041: Received SynchronizeCustomer
+2015-12-07 17:41:08.041: Append SynchronizeCustomer
+2015-12-07 17:41:08.103: Received SynchronizeCustomer
+2015-12-07 17:41:08.103: Append SynchronizeCustomer
+2015-12-07 17:41:08.166: Received SynchronizeCustomer
+2015-12-07 17:41:08.166: Append SynchronizeCustomer
+2015-12-07 17:41:08.228: Received SynchronizeCustomer
+2015-12-07 17:41:08.228: Append SynchronizeCustomer
+2015-12-07 17:41:08.291: Received SynchronizeCustomer
+2015-12-07 17:41:08.291: Append SynchronizeCustomer
+2015-12-07 17:41:08.353: Received SynchronizeCustomer
+2015-12-07 17:41:08.353: Append SynchronizeCustomer
+2015-12-07 17:41:08.416: Received SynchronizeCustomer
+2015-12-07 17:41:08.416: Append SynchronizeCustomer
+2015-12-07 17:41:08.478: Received SynchronizeCustomer
+2015-12-07 17:41:08.478: Append SynchronizeCustomer
+2015-12-07 17:41:08.541: Received SynchronizeCustomer
+2015-12-07 17:41:08.541: Append SynchronizeCustomer
+2015-12-07 17:41:08.603: Received SynchronizeCustomer
+2015-12-07 17:41:08.603: Append SynchronizeCustomer
+2015-12-07 17:41:08.666: Received SynchronizeCustomer
+2015-12-07 17:41:08.666: Append SynchronizeCustomer
+2015-12-07 17:41:08.728: Received SynchronizeCustomer
+2015-12-07 17:41:08.728: Append SynchronizeCustomer
+2015-12-07 17:41:08.791: Received SynchronizeCustomer
+2015-12-07 17:41:08.791: Append SynchronizeCustomer
+2015-12-07 17:41:08.853: Received SynchronizeCustomer
+2015-12-07 17:41:08.853: Append SynchronizeCustomer
+2015-12-07 17:41:08.916: Received SynchronizeCustomer
+2015-12-07 17:41:08.916: Append SynchronizeCustomer
+2015-12-07 17:41:08.978: Received SynchronizeCustomer
+2015-12-07 17:41:08.978: Append SynchronizeCustomer
+2015-12-07 17:41:09.041: Received SynchronizeCustomer
+2015-12-07 17:41:09.041: Append SynchronizeCustomer
+2015-12-07 17:41:09.103: Received SynchronizeCustomer
+2015-12-07 17:41:09.103: Append SynchronizeCustomer
+2015-12-07 17:41:09.166: Received SynchronizeCustomer
+2015-12-07 17:41:09.166: Append SynchronizeCustomer
+2015-12-07 17:41:09.228: Received SynchronizeCustomer
+2015-12-07 17:41:09.228: Append SynchronizeCustomer
+2015-12-07 17:41:09.291: Received SynchronizeCustomer
+2015-12-07 17:41:09.291: Append SynchronizeCustomer
+2015-12-07 17:41:09.353: Received SynchronizeCustomer
+2015-12-07 17:41:09.353: Append SynchronizeCustomer
+2015-12-07 17:41:09.416: Received SynchronizeCustomer
+2015-12-07 17:41:09.416: Append SynchronizeCustomer
+2015-12-07 17:41:09.478: Received SynchronizeCustomer
+2015-12-07 17:41:09.478: Append SynchronizeCustomer
+2015-12-07 17:41:09.541: Received SynchronizeCustomer
+2015-12-07 17:41:09.541: Append SynchronizeCustomer
+2015-12-07 17:41:09.603: Received SynchronizeCustomer
+2015-12-07 17:41:09.603: Append SynchronizeCustomer
+2015-12-07 17:41:09.666: Received SynchronizeCustomer
+2015-12-07 17:41:09.666: Append SynchronizeCustomer
+2015-12-07 17:41:09.728: Received SynchronizeCustomer
+2015-12-07 17:41:09.728: Append SynchronizeCustomer
+2015-12-07 17:41:09.791: Received SynchronizeCustomer
+2015-12-07 17:41:09.791: Append SynchronizeCustomer
+2015-12-07 17:41:09.853: Received SynchronizeCustomer
+2015-12-07 17:41:09.853: Append SynchronizeCustomer
+2015-12-07 17:41:09.916: Received SynchronizeCustomer
+2015-12-07 17:41:09.916: Append SynchronizeCustomer
+2015-12-07 17:41:09.978: Received SynchronizeCustomer
+2015-12-07 17:41:09.978: Append SynchronizeCustomer
+2015-12-07 17:41:10.041: Received SynchronizeCustomer
+2015-12-07 17:41:10.041: Append SynchronizeCustomer
+2015-12-07 17:41:10.103: Received SynchronizeCustomer
+2015-12-07 17:41:10.103: Append SynchronizeCustomer
+2015-12-07 17:41:10.166: Received SynchronizeCustomer
+2015-12-07 17:41:10.166: Append SynchronizeCustomer
+2015-12-07 17:41:10.228: Received SynchronizeCustomer
+2015-12-07 17:41:10.228: Append SynchronizeCustomer
+2015-12-07 17:41:10.291: Received SynchronizeCustomer
+2015-12-07 17:41:10.291: Append SynchronizeCustomer
+2015-12-07 17:41:10.353: Received SynchronizeCustomer
+2015-12-07 17:41:10.353: Append SynchronizeCustomer
+2015-12-07 17:41:10.416: Received SynchronizeCustomer
+2015-12-07 17:41:10.416: Append SynchronizeCustomer
+2015-12-07 17:41:10.478: Received SynchronizeCustomer
+2015-12-07 17:41:10.478: Append SynchronizeCustomer
+2015-12-07 17:41:10.541: Received SynchronizeCustomer
+2015-12-07 17:41:10.541: Append SynchronizeCustomer
+2015-12-07 17:41:10.603: Received SynchronizeCustomer
+2015-12-07 17:41:10.603: Append SynchronizeCustomer
+2015-12-07 17:41:10.666: Received SynchronizeCustomer
+2015-12-07 17:41:10.666: Append SynchronizeCustomer
+2015-12-07 17:41:10.728: Received SynchronizeCustomer
+2015-12-07 17:41:10.728: Append SynchronizeCustomer
+2015-12-07 17:41:10.791: Received SynchronizeCustomer
+2015-12-07 17:41:10.791: Append SynchronizeCustomer
+2015-12-07 17:41:10.853: Received SynchronizeCustomer
+2015-12-07 17:41:10.853: Append SynchronizeCustomer
+2015-12-07 17:41:10.916: Received SynchronizeCustomer
+2015-12-07 17:41:10.916: Append SynchronizeCustomer
+2015-12-07 17:41:10.978: Received SynchronizeCustomer
+2015-12-07 17:41:10.978: Append SynchronizeCustomer
+2015-12-07 17:41:11.041: Received SynchronizeCustomer
+2015-12-07 17:41:11.041: Append SynchronizeCustomer
+2015-12-07 17:41:11.103: Received SynchronizeCustomer
+2015-12-07 17:41:11.103: Append SynchronizeCustomer
+2015-12-07 17:41:11.166: Received SynchronizeCustomer
+2015-12-07 17:41:11.166: Append SynchronizeCustomer
+2015-12-07 17:41:11.228: Received SynchronizeCustomer
+2015-12-07 17:41:11.228: Append SynchronizeCustomer
+2015-12-07 17:41:11.291: Received SynchronizeCustomer
+2015-12-07 17:41:11.291: Append SynchronizeCustomer
+2015-12-07 17:41:11.353: Received SynchronizeCustomer
+2015-12-07 17:41:11.353: Append SynchronizeCustomer
+2015-12-07 17:41:11.416: Received SynchronizeCustomer
+2015-12-07 17:41:11.416: Append SynchronizeCustomer
+2015-12-07 17:41:11.478: Received SynchronizeCustomer
+2015-12-07 17:41:11.478: Append SynchronizeCustomer
+2015-12-07 17:41:11.541: Received SynchronizeCustomer
+2015-12-07 17:41:11.541: Append SynchronizeCustomer
+2015-12-07 17:41:11.603: Received SynchronizeCustomer
+2015-12-07 17:41:11.603: Append SynchronizeCustomer
+2015-12-07 17:41:11.666: Received SynchronizeCustomer
+2015-12-07 17:41:11.666: Append SynchronizeCustomer
+2015-12-07 17:41:11.728: Received SynchronizeCustomer
+2015-12-07 17:41:11.728: Append SynchronizeCustomer
+2015-12-07 17:41:11.791: Received SynchronizeCustomer
+2015-12-07 17:41:11.791: Append SynchronizeCustomer
+2015-12-07 17:41:11.853: Received SynchronizeCustomer
+2015-12-07 17:41:11.853: Append SynchronizeCustomer
+2015-12-07 17:41:11.916: Received SynchronizeCustomer
+2015-12-07 17:41:11.916: Append SynchronizeCustomer
+2015-12-07 17:41:11.978: Received SynchronizeCustomer
+2015-12-07 17:41:11.978: Append SynchronizeCustomer
+2015-12-07 17:41:12.041: Received SynchronizeCustomer
+2015-12-07 17:41:12.041: Append SynchronizeCustomer
+2015-12-07 17:41:12.103: Received SynchronizeCustomer
+2015-12-07 17:41:12.103: Append SynchronizeCustomer
+2015-12-07 17:41:12.166: Received SynchronizeCustomer
+2015-12-07 17:41:12.166: Append SynchronizeCustomer
+2015-12-07 17:41:12.228: Received SynchronizeCustomer
+2015-12-07 17:41:12.228: Append SynchronizeCustomer
+2015-12-07 17:41:12.291: Received SynchronizeCustomer
+2015-12-07 17:41:12.291: Append SynchronizeCustomer
+2015-12-07 17:41:12.353: Received SynchronizeCustomer
+2015-12-07 17:41:12.353: Append SynchronizeCustomer
+2015-12-07 17:41:12.416: Received SynchronizeCustomer
+2015-12-07 17:41:12.416: Append SynchronizeCustomer
+2015-12-07 17:41:12.478: Received SynchronizeCustomer
+2015-12-07 17:41:12.478: Append SynchronizeCustomer
+2015-12-07 17:41:12.541: Received SynchronizeCustomer
+2015-12-07 17:41:12.541: Append SynchronizeCustomer
+2015-12-07 17:41:12.603: Received SynchronizeCustomer
+2015-12-07 17:41:12.603: Append SynchronizeCustomer
+2015-12-07 17:41:12.666: Received SynchronizeCustomer
+2015-12-07 17:41:12.666: Append SynchronizeCustomer
+2015-12-07 17:41:12.728: Received SynchronizeCustomer
+2015-12-07 17:41:12.728: Append SynchronizeCustomer
+2015-12-07 17:41:12.791: Received SynchronizeCustomer
+2015-12-07 17:41:12.791: Append SynchronizeCustomer
+2015-12-07 17:41:12.853: Received SynchronizeCustomer
+2015-12-07 17:41:12.853: Append SynchronizeCustomer
+2015-12-07 17:41:12.916: Received SynchronizeCustomer
+2015-12-07 17:41:12.916: Append SynchronizeCustomer
+2015-12-07 17:41:12.978: Received SynchronizeCustomer
+2015-12-07 17:41:12.978: Append SynchronizeCustomer
+2015-12-07 17:41:13.041: Received SynchronizeCustomer
+2015-12-07 17:41:13.041: Append SynchronizeCustomer
+2015-12-07 17:41:13.104: Received SynchronizeCustomer
+2015-12-07 17:41:13.104: Append SynchronizeCustomer
+2015-12-07 17:41:13.166: Received SynchronizeCustomer
+2015-12-07 17:41:13.166: Append SynchronizeCustomer
+2015-12-07 17:41:13.229: Received SynchronizeCustomer
+2015-12-07 17:41:13.229: Append SynchronizeCustomer
+2015-12-07 17:41:13.291: Received SynchronizeCustomer
+2015-12-07 17:41:13.291: Append SynchronizeCustomer
+2015-12-07 17:41:13.354: Received SynchronizeCustomer
+2015-12-07 17:41:13.354: Append SynchronizeCustomer
+2015-12-07 17:41:13.416: Received SynchronizeCustomer
+2015-12-07 17:41:13.416: Append SynchronizeCustomer
+2015-12-07 17:41:13.478: Received SynchronizeCustomer
+2015-12-07 17:41:13.478: Append SynchronizeCustomer
+2015-12-07 17:41:13.541: Received SynchronizeCustomer
+2015-12-07 17:41:13.541: Append SynchronizeCustomer
+2015-12-07 17:41:13.604: Received SynchronizeCustomer
+2015-12-07 17:41:13.604: Append SynchronizeCustomer
+2015-12-07 17:41:13.666: Received SynchronizeCustomer
+2015-12-07 17:41:13.666: Append SynchronizeCustomer
+2015-12-07 17:41:13.729: Received SynchronizeCustomer
+2015-12-07 17:41:13.729: Append SynchronizeCustomer
+2015-12-07 17:41:13.791: Received SynchronizeCustomer
+2015-12-07 17:41:13.791: Append SynchronizeCustomer
+2015-12-07 17:41:13.854: Received SynchronizeCustomer
+2015-12-07 17:41:13.854: Append SynchronizeCustomer
+2015-12-07 17:41:13.916: Received SynchronizeCustomer
+2015-12-07 17:41:13.916: Append SynchronizeCustomer
+2015-12-07 17:41:13.979: Received SynchronizeCustomer
+2015-12-07 17:41:13.979: Append SynchronizeCustomer
+2015-12-07 17:41:14.041: Received SynchronizeCustomer
+2015-12-07 17:41:14.041: Append SynchronizeCustomer
+2015-12-07 17:41:14.104: Received SynchronizeCustomer
+2015-12-07 17:41:14.104: Append SynchronizeCustomer
+2015-12-07 17:41:14.166: Received SynchronizeCustomer
+2015-12-07 17:41:14.166: Append SynchronizeCustomer
+2015-12-07 17:41:14.228: Received SynchronizeCustomer
+2015-12-07 17:41:14.228: Append SynchronizeCustomer
+2015-12-07 17:41:14.291: Received SynchronizeCustomer
+2015-12-07 17:41:14.291: Append SynchronizeCustomer
+2015-12-07 17:41:14.354: Received SynchronizeCustomer
+2015-12-07 17:41:14.354: Append SynchronizeCustomer
+2015-12-07 17:41:14.416: Received SynchronizeCustomer
+2015-12-07 17:41:14.416: Append SynchronizeCustomer
+2015-12-07 17:41:14.478: Received SynchronizeCustomer
+2015-12-07 17:41:14.478: Append SynchronizeCustomer
+2015-12-07 17:41:14.541: Received SynchronizeCustomer
+2015-12-07 17:41:14.541: Append SynchronizeCustomer
+2015-12-07 17:41:14.604: Received SynchronizeCustomer
+2015-12-07 17:41:14.604: Append SynchronizeCustomer
+2015-12-07 17:41:14.666: Received SynchronizeCustomer
+2015-12-07 17:41:14.666: Append SynchronizeCustomer
+2015-12-07 17:41:14.729: Received SynchronizeCustomer
+2015-12-07 17:41:14.729: Append SynchronizeCustomer
+2015-12-07 17:41:14.791: Received SynchronizeCustomer
+2015-12-07 17:41:14.791: Append SynchronizeCustomer
+2015-12-07 17:41:14.854: Received SynchronizeCustomer
+2015-12-07 17:41:14.854: Append SynchronizeCustomer
+2015-12-07 17:41:14.907: Received SynchronizeCustomer
+2015-12-07 17:41:14.911: Append SynchronizeCustomer
+2015-12-07 17:41:14.96: Received SynchronizeCustomer
+2015-12-07 17:41:14.964: Append SynchronizeCustomer
+2015-12-07 17:41:15.013: Received SynchronizeCustomer
+2015-12-07 17:41:15.017: Append SynchronizeCustomer
+2015-12-07 17:41:15.071: Received SynchronizeCustomer
+2015-12-07 17:41:15.071: Append SynchronizeCustomer
+2015-12-07 17:41:15.134: Received SynchronizeCustomer
+2015-12-07 17:41:15.134: Append SynchronizeCustomer
+2015-12-07 17:41:15.196: Received SynchronizeCustomer
+2015-12-07 17:41:15.196: Append SynchronizeCustomer
+2015-12-07 17:41:15.259: Received SynchronizeCustomer
+2015-12-07 17:41:15.259: Append SynchronizeCustomer
+2015-12-07 17:41:15.321: Received SynchronizeCustomer
+2015-12-07 17:41:15.321: Append SynchronizeCustomer
+2015-12-07 17:41:15.374: Received SynchronizeCustomer
+2015-12-07 17:41:15.382: Append SynchronizeCustomer
+2015-12-07 17:41:15.428: Received SynchronizeCustomer
+2015-12-07 17:41:15.432: Append SynchronizeCustomer
+2015-12-07 17:41:15.481: Received SynchronizeCustomer
+2015-12-07 17:41:15.485: Append SynchronizeCustomer
+2015-12-07 17:41:15.538: Received SynchronizeCustomer
+2015-12-07 17:41:15.538: Append SynchronizeCustomer
+2015-12-07 17:41:15.601: Received SynchronizeCustomer
+2015-12-07 17:41:15.601: Append SynchronizeCustomer
+2015-12-07 17:41:15.663: Received SynchronizeCustomer
+2015-12-07 17:41:15.663: Append SynchronizeCustomer
+2015-12-07 17:41:15.726: Received SynchronizeCustomer
+2015-12-07 17:41:15.726: Append SynchronizeCustomer
+2015-12-07 17:41:15.788: Received SynchronizeCustomer
+2015-12-07 17:41:15.788: Append SynchronizeCustomer
+2015-12-07 17:41:15.851: Received SynchronizeCustomer
+2015-12-07 17:41:15.851: Append SynchronizeCustomer
+2015-12-07 17:41:15.904: Received SynchronizeCustomer
+2015-12-07 17:41:15.908: Append SynchronizeCustomer
+2015-12-07 17:41:15.957: Received SynchronizeCustomer
+2015-12-07 17:41:15.961: Append SynchronizeCustomer
+2015-12-07 17:41:16.01: Received SynchronizeCustomer
+2015-12-07 17:41:16.013: Append SynchronizeCustomer
+2015-12-07 17:41:16.062: Received SynchronizeCustomer
+2015-12-07 17:41:16.063: Append SynchronizeCustomer
+2015-12-07 17:41:16.126: Received SynchronizeCustomer
+2015-12-07 17:41:16.126: Append SynchronizeCustomer
+2015-12-07 17:41:16.188: Received SynchronizeCustomer
+2015-12-07 17:41:16.188: Append SynchronizeCustomer
+2015-12-07 17:41:16.251: Received SynchronizeCustomer
+2015-12-07 17:41:16.251: Append SynchronizeCustomer
+2015-12-07 17:41:16.313: Received SynchronizeCustomer
+2015-12-07 17:41:16.313: Append SynchronizeCustomer
+2015-12-07 17:41:16.376: Received SynchronizeCustomer
+2015-12-07 17:41:16.376: Append SynchronizeCustomer
+2015-12-07 17:41:16.438: Received SynchronizeCustomer
+2015-12-07 17:41:16.438: Append SynchronizeCustomer
+2015-12-07 17:41:16.501: Received SynchronizeCustomer
+2015-12-07 17:41:16.501: Append SynchronizeCustomer
+2015-12-07 17:41:16.563: Received SynchronizeCustomer
+2015-12-07 17:41:16.563: Append SynchronizeCustomer
+2015-12-07 17:41:16.626: Received SynchronizeCustomer
+2015-12-07 17:41:16.626: Append SynchronizeCustomer
+2015-12-07 17:41:16.688: Received SynchronizeCustomer
+2015-12-07 17:41:16.688: Append SynchronizeCustomer
+2015-12-07 17:41:16.751: Received SynchronizeCustomer
+2015-12-07 17:41:16.751: Append SynchronizeCustomer
+2015-12-07 17:41:16.813: Received SynchronizeCustomer
+2015-12-07 17:41:16.813: Append SynchronizeCustomer
+2015-12-07 17:41:16.876: Received SynchronizeCustomer
+2015-12-07 17:41:16.876: Append SynchronizeCustomer
+2015-12-07 17:41:16.938: Received SynchronizeCustomer
+2015-12-07 17:41:16.938: Append SynchronizeCustomer
+2015-12-07 17:41:17.001: Received SynchronizeCustomer
+2015-12-07 17:41:17.001: Append SynchronizeCustomer
+2015-12-07 17:41:17.063: Received SynchronizeCustomer
+2015-12-07 17:41:17.063: Append SynchronizeCustomer
+2015-12-07 17:41:17.126: Received SynchronizeCustomer
+2015-12-07 17:41:17.126: Append SynchronizeCustomer
+2015-12-07 17:41:17.188: Received SynchronizeCustomer
+2015-12-07 17:41:17.188: Append SynchronizeCustomer
+2015-12-07 17:41:17.251: Received SynchronizeCustomer
+2015-12-07 17:41:17.251: Append SynchronizeCustomer
+2015-12-07 17:41:17.313: Received SynchronizeCustomer
+2015-12-07 17:41:17.313: Append SynchronizeCustomer
+2015-12-07 17:41:17.367: Received SynchronizeCustomer
+2015-12-07 17:41:17.372: Append SynchronizeCustomer
+2015-12-07 17:41:17.42: Received SynchronizeCustomer
+2015-12-07 17:41:17.425: Append SynchronizeCustomer
+2015-12-07 17:41:17.474: Received SynchronizeCustomer
+2015-12-07 17:41:17.479: Append SynchronizeCustomer
+2015-12-07 17:41:17.537: Received SynchronizeCustomer
+2015-12-07 17:41:17.537: Append SynchronizeCustomer
+2015-12-07 17:41:17.6: Received SynchronizeCustomer
+2015-12-07 17:41:17.6: Append SynchronizeCustomer
+2015-12-07 17:41:17.662: Received SynchronizeCustomer
+2015-12-07 17:41:17.662: Append SynchronizeCustomer
+2015-12-07 17:41:17.725: Received SynchronizeCustomer
+2015-12-07 17:41:17.725: Append SynchronizeCustomer
+2015-12-07 17:41:17.787: Received SynchronizeCustomer
+2015-12-07 17:41:17.787: Append SynchronizeCustomer
+2015-12-07 17:41:17.85: Received SynchronizeCustomer
+2015-12-07 17:41:17.85: Append SynchronizeCustomer
+2015-12-07 17:41:17.912: Received SynchronizeCustomer
+2015-12-07 17:41:17.912: Append SynchronizeCustomer
+2015-12-07 17:41:17.975: Received SynchronizeCustomer
+2015-12-07 17:41:17.975: Append SynchronizeCustomer
+2015-12-07 17:41:18.037: Received SynchronizeCustomer
+2015-12-07 17:41:18.037: Append SynchronizeCustomer
+2015-12-07 17:41:18.092: Received SynchronizeCustomer
+2015-12-07 17:41:18.096: Append SynchronizeCustomer
+2015-12-07 17:41:18.144: Received SynchronizeCustomer
+2015-12-07 17:41:18.148: Append SynchronizeCustomer
+2015-12-07 17:41:18.198: Received SynchronizeCustomer
+2015-12-07 17:41:18.203: Append SynchronizeCustomer
+2015-12-07 17:41:18.251: Received SynchronizeCustomer
+2015-12-07 17:41:18.255: Append SynchronizeCustomer
+2015-12-07 17:41:18.304: Received SynchronizeCustomer
+2015-12-07 17:41:18.308: Append SynchronizeCustomer
+2015-12-07 17:41:18.369: Received SynchronizeCustomer
+2015-12-07 17:41:18.369: Append SynchronizeCustomer
+2015-12-07 17:41:18.432: Received SynchronizeCustomer
+2015-12-07 17:41:18.432: Append SynchronizeCustomer
+2015-12-07 17:41:18.494: Received SynchronizeCustomer
+2015-12-07 17:41:18.494: Append SynchronizeCustomer
+2015-12-07 17:41:18.556: Received SynchronizeCustomer
+2015-12-07 17:41:18.556: Append SynchronizeCustomer
+2015-12-07 17:41:18.619: Received SynchronizeCustomer
+2015-12-07 17:41:18.619: Append SynchronizeCustomer
+2015-12-07 17:41:18.681: Received SynchronizeCustomer
+2015-12-07 17:41:18.681: Append SynchronizeCustomer
+2015-12-07 17:41:18.744: Received SynchronizeCustomer
+2015-12-07 17:41:18.744: Append SynchronizeCustomer
+2015-12-07 17:41:18.807: Received SynchronizeCustomer
+2015-12-07 17:41:18.807: Append SynchronizeCustomer
+2015-12-07 17:41:18.869: Received SynchronizeCustomer
+2015-12-07 17:41:18.869: Append SynchronizeCustomer
+2015-12-07 17:41:18.932: Received SynchronizeCustomer
+2015-12-07 17:41:18.932: Append SynchronizeCustomer
+2015-12-07 17:41:18.994: Received SynchronizeCustomer
+2015-12-07 17:41:18.994: Append SynchronizeCustomer
+2015-12-07 17:41:19.057: Received SynchronizeCustomer
+2015-12-07 17:41:19.057: Append SynchronizeCustomer
+2015-12-07 17:41:19.119: Received SynchronizeCustomer
+2015-12-07 17:41:19.119: Append SynchronizeCustomer
+2015-12-07 17:41:19.182: Received SynchronizeCustomer
+2015-12-07 17:41:19.182: Append SynchronizeCustomer
+2015-12-07 17:41:19.244: Received SynchronizeCustomer
+2015-12-07 17:41:19.244: Append SynchronizeCustomer
+2015-12-07 17:41:19.307: Received SynchronizeCustomer
+2015-12-07 17:41:19.307: Append SynchronizeCustomer
+2015-12-07 17:41:19.369: Received SynchronizeCustomer
+2015-12-07 17:41:19.369: Append SynchronizeCustomer
+2015-12-07 17:41:19.432: Received SynchronizeCustomer
+2015-12-07 17:41:19.432: Append SynchronizeCustomer
+2015-12-07 17:41:19.494: Received SynchronizeCustomer
+2015-12-07 17:41:19.494: Append SynchronizeCustomer
+2015-12-07 17:41:19.557: Received SynchronizeCustomer
+2015-12-07 17:41:19.557: Append SynchronizeCustomer
+2015-12-07 17:41:19.619: Received SynchronizeCustomer
+2015-12-07 17:41:19.619: Append SynchronizeCustomer
+2015-12-07 17:41:19.682: Received SynchronizeCustomer
+2015-12-07 17:41:19.682: Append SynchronizeCustomer
+2015-12-07 17:41:19.744: Received SynchronizeCustomer
+2015-12-07 17:41:19.744: Append SynchronizeCustomer
+2015-12-07 17:41:19.807: Received SynchronizeCustomer
+2015-12-07 17:41:19.807: Append SynchronizeCustomer
+2015-12-07 17:41:19.869: Received SynchronizeCustomer
+2015-12-07 17:41:19.869: Append SynchronizeCustomer
+2015-12-07 17:41:19.932: Received SynchronizeCustomer
+2015-12-07 17:41:19.932: Append SynchronizeCustomer
+2015-12-07 17:41:19.994: Received SynchronizeCustomer
+2015-12-07 17:41:19.994: Append SynchronizeCustomer
+2015-12-07 17:41:20.057: Received SynchronizeCustomer
+2015-12-07 17:41:20.057: Append SynchronizeCustomer
+2015-12-07 17:41:20.119: Received SynchronizeCustomer
+2015-12-07 17:41:20.119: Append SynchronizeCustomer
+2015-12-07 17:41:20.182: Received SynchronizeCustomer
+2015-12-07 17:41:20.182: Append SynchronizeCustomer
+2015-12-07 17:41:20.244: Received SynchronizeCustomer
+2015-12-07 17:41:20.244: Append SynchronizeCustomer
+2015-12-07 17:41:20.307: Received SynchronizeCustomer
+2015-12-07 17:41:20.307: Append SynchronizeCustomer
+2015-12-07 17:41:20.369: Received SynchronizeCustomer
+2015-12-07 17:41:20.369: Append SynchronizeCustomer
+2015-12-07 17:41:20.432: Received SynchronizeCustomer
+2015-12-07 17:41:20.432: Append SynchronizeCustomer
+2015-12-07 17:41:20.494: Received SynchronizeCustomer
+2015-12-07 17:41:20.494: Append SynchronizeCustomer
+2015-12-07 17:41:20.557: Received SynchronizeCustomer
+2015-12-07 17:41:20.557: Append SynchronizeCustomer
+2015-12-07 17:41:20.619: Received SynchronizeCustomer
+2015-12-07 17:41:20.619: Append SynchronizeCustomer
+2015-12-07 17:41:20.682: Received SynchronizeCustomer
+2015-12-07 17:41:20.682: Append SynchronizeCustomer
+2015-12-07 17:41:20.744: Received SynchronizeCustomer
+2015-12-07 17:41:20.744: Append SynchronizeCustomer
+2015-12-07 17:41:20.807: Received SynchronizeCustomer
+2015-12-07 17:41:20.807: Append SynchronizeCustomer
+2015-12-07 17:41:20.869: Received SynchronizeCustomer
+2015-12-07 17:41:20.869: Append SynchronizeCustomer
+2015-12-07 17:41:20.932: Received SynchronizeCustomer
+2015-12-07 17:41:20.932: Append SynchronizeCustomer
+2015-12-07 17:41:20.994: Received SynchronizeCustomer
+2015-12-07 17:41:20.994: Append SynchronizeCustomer
+2015-12-07 17:41:21.057: Received SynchronizeCustomer
+2015-12-07 17:41:21.057: Append SynchronizeCustomer
+2015-12-07 17:41:21.119: Received SynchronizeCustomer
+2015-12-07 17:41:21.119: Append SynchronizeCustomer
+2015-12-07 17:41:21.182: Received SynchronizeCustomer
+2015-12-07 17:41:21.182: Append SynchronizeCustomer
+2015-12-07 17:41:21.244: Received SynchronizeCustomer
+2015-12-07 17:41:21.244: Append SynchronizeCustomer
+2015-12-07 17:41:21.307: Received SynchronizeCustomer
+2015-12-07 17:41:21.307: Append SynchronizeCustomer
+2015-12-07 17:41:21.369: Received SynchronizeCustomer
+2015-12-07 17:41:21.369: Append SynchronizeCustomer
+2015-12-07 17:41:21.432: Received SynchronizeCustomer
+2015-12-07 17:41:21.432: Append SynchronizeCustomer
+2015-12-07 17:41:21.494: Received SynchronizeCustomer
+2015-12-07 17:41:21.494: Append SynchronizeCustomer
+2015-12-07 17:41:21.557: Received SynchronizeCustomer
+2015-12-07 17:41:21.557: Append SynchronizeCustomer
+2015-12-07 17:41:21.619: Received SynchronizeCustomer
+2015-12-07 17:41:21.619: Append SynchronizeCustomer
+2015-12-07 17:41:21.682: Received SynchronizeCustomer
+2015-12-07 17:41:21.682: Append SynchronizeCustomer
+2015-12-07 17:41:21.744: Received SynchronizeCustomer
+2015-12-07 17:41:21.744: Append SynchronizeCustomer
+2015-12-07 17:41:21.807: Received SynchronizeCustomer
+2015-12-07 17:41:21.807: Append SynchronizeCustomer
+2015-12-07 17:41:21.869: Received SynchronizeCustomer
+2015-12-07 17:41:21.869: Append SynchronizeCustomer
+2015-12-07 17:41:21.932: Received SynchronizeCustomer
+2015-12-07 17:41:21.932: Append SynchronizeCustomer
+2015-12-07 17:41:21.994: Received SynchronizeCustomer
+2015-12-07 17:41:21.994: Append SynchronizeCustomer
+2015-12-07 17:41:22.057: Received SynchronizeCustomer
+2015-12-07 17:41:22.057: Append SynchronizeCustomer
+2015-12-07 17:41:22.119: Received SynchronizeCustomer
+2015-12-07 17:41:22.119: Append SynchronizeCustomer
+2015-12-07 17:41:22.182: Received SynchronizeCustomer
+2015-12-07 17:41:22.182: Append SynchronizeCustomer
+2015-12-07 17:41:22.244: Received SynchronizeCustomer
+2015-12-07 17:41:22.244: Append SynchronizeCustomer
+2015-12-07 17:41:22.307: Received SynchronizeCustomer
+2015-12-07 17:41:22.307: Append SynchronizeCustomer
+2015-12-07 17:41:22.369: Received SynchronizeCustomer
+2015-12-07 17:41:22.369: Append SynchronizeCustomer
+2015-12-07 17:41:22.432: Received SynchronizeCustomer
+2015-12-07 17:41:22.432: Append SynchronizeCustomer
+2015-12-07 17:41:22.494: Received SynchronizeCustomer
+2015-12-07 17:41:22.494: Append SynchronizeCustomer
+2015-12-07 17:41:22.557: Received SynchronizeCustomer
+2015-12-07 17:41:22.557: Append SynchronizeCustomer
+2015-12-07 17:41:22.619: Received SynchronizeCustomer
+2015-12-07 17:41:22.619: Append SynchronizeCustomer
+2015-12-07 17:41:22.682: Received SynchronizeCustomer
+2015-12-07 17:41:22.682: Append SynchronizeCustomer
+2015-12-07 17:41:22.744: Received SynchronizeCustomer
+2015-12-07 17:41:22.744: Append SynchronizeCustomer
+2015-12-07 17:41:22.807: Received SynchronizeCustomer
+2015-12-07 17:41:22.807: Append SynchronizeCustomer
+2015-12-07 17:41:22.869: Received SynchronizeCustomer
+2015-12-07 17:41:22.869: Append SynchronizeCustomer
+2015-12-07 17:41:22.932: Received SynchronizeCustomer
+2015-12-07 17:41:22.932: Append SynchronizeCustomer
+2015-12-07 17:41:22.994: Received SynchronizeCustomer
+2015-12-07 17:41:22.994: Append SynchronizeCustomer
+2015-12-07 17:41:23.057: Received SynchronizeCustomer
+2015-12-07 17:41:23.057: Append SynchronizeCustomer
+2015-12-07 17:41:23.119: Received SynchronizeCustomer
+2015-12-07 17:41:23.119: Append SynchronizeCustomer
+2015-12-07 17:41:23.182: Received SynchronizeCustomer
+2015-12-07 17:41:23.182: Append SynchronizeCustomer
+2015-12-07 17:41:23.244: Received SynchronizeCustomer
+2015-12-07 17:41:23.244: Append SynchronizeCustomer
+2015-12-07 17:41:23.307: Received SynchronizeCustomer
+2015-12-07 17:41:23.307: Append SynchronizeCustomer
+2015-12-07 17:41:23.369: Received SynchronizeCustomer
+2015-12-07 17:41:23.369: Append SynchronizeCustomer
+2015-12-07 17:41:23.432: Received SynchronizeCustomer
+2015-12-07 17:41:23.432: Append SynchronizeCustomer
+2015-12-07 17:41:23.494: Received SynchronizeCustomer
+2015-12-07 17:41:23.494: Append SynchronizeCustomer
+2015-12-07 17:41:23.557: Received SynchronizeCustomer
+2015-12-07 17:41:23.557: Append SynchronizeCustomer
+2015-12-07 17:41:23.619: Received SynchronizeCustomer
+2015-12-07 17:41:23.619: Append SynchronizeCustomer
+2015-12-07 17:41:23.682: Received SynchronizeCustomer
+2015-12-07 17:41:23.682: Append SynchronizeCustomer
+2015-12-07 17:41:23.734: Received SynchronizeCustomer
+2015-12-07 17:41:23.738: Append SynchronizeCustomer
+2015-12-07 17:41:23.786: Received SynchronizeCustomer
+2015-12-07 17:41:23.786: Append SynchronizeCustomer
+2015-12-07 17:41:23.849: Received SynchronizeCustomer
+2015-12-07 17:41:23.849: Append SynchronizeCustomer
+2015-12-07 17:41:23.911: Received SynchronizeCustomer
+2015-12-07 17:41:23.911: Append SynchronizeCustomer
+2015-12-07 17:41:23.974: Received SynchronizeCustomer
+2015-12-07 17:41:23.974: Append SynchronizeCustomer
+2015-12-07 17:41:24.036: Received SynchronizeCustomer
+2015-12-07 17:41:24.036: Append SynchronizeCustomer
+2015-12-07 17:41:24.099: Received SynchronizeCustomer
+2015-12-07 17:41:24.099: Append SynchronizeCustomer
+2015-12-07 17:41:24.161: Received SynchronizeCustomer
+2015-12-07 17:41:24.161: Append SynchronizeCustomer
+2015-12-07 17:41:24.224: Received SynchronizeCustomer
+2015-12-07 17:41:24.224: Append SynchronizeCustomer
+2015-12-07 17:41:24.286: Received SynchronizeCustomer
+2015-12-07 17:41:24.286: Append SynchronizeCustomer
+2015-12-07 17:41:24.349: Received SynchronizeCustomer
+2015-12-07 17:41:24.349: Append SynchronizeCustomer
+2015-12-07 17:41:24.411: Received SynchronizeCustomer
+2015-12-07 17:41:24.411: Append SynchronizeCustomer
+2015-12-07 17:41:24.474: Received SynchronizeCustomer
+2015-12-07 17:41:24.474: Append SynchronizeCustomer
+2015-12-07 17:41:24.536: Received SynchronizeCustomer
+2015-12-07 17:41:24.536: Append SynchronizeCustomer
+2015-12-07 17:41:24.599: Received SynchronizeCustomer
+2015-12-07 17:41:24.599: Append SynchronizeCustomer
+2015-12-07 17:41:24.661: Received SynchronizeCustomer
+2015-12-07 17:41:24.661: Append SynchronizeCustomer
+2015-12-07 17:41:24.724: Received SynchronizeCustomer
+2015-12-07 17:41:24.724: Append SynchronizeCustomer
+2015-12-07 17:41:24.786: Received SynchronizeCustomer
+2015-12-07 17:41:24.786: Append SynchronizeCustomer
+2015-12-07 17:41:24.849: Received SynchronizeCustomer
+2015-12-07 17:41:24.849: Append SynchronizeCustomer
+2015-12-07 17:41:24.911: Received SynchronizeCustomer
+2015-12-07 17:41:24.911: Append SynchronizeCustomer
+2015-12-07 17:41:24.974: Received SynchronizeCustomer
+2015-12-07 17:41:24.974: Append SynchronizeCustomer
+2015-12-07 17:41:25.036: Received SynchronizeCustomer
+2015-12-07 17:41:25.036: Append SynchronizeCustomer
+2015-12-07 17:41:25.099: Received SynchronizeCustomer
+2015-12-07 17:41:25.099: Append SynchronizeCustomer
+2015-12-07 17:41:25.161: Received SynchronizeCustomer
+2015-12-07 17:41:25.161: Append SynchronizeCustomer
+2015-12-07 17:41:25.224: Received SynchronizeCustomer
+2015-12-07 17:41:25.224: Append SynchronizeCustomer
+2015-12-07 17:41:25.286: Received SynchronizeCustomer
+2015-12-07 17:41:25.286: Append SynchronizeCustomer
+2015-12-07 17:41:25.349: Received SynchronizeCustomer
+2015-12-07 17:41:25.349: Append SynchronizeCustomer
+2015-12-07 17:41:25.411: Received SynchronizeCustomer
+2015-12-07 17:41:25.411: Append SynchronizeCustomer
+2015-12-07 17:41:25.474: Received SynchronizeCustomer
+2015-12-07 17:41:25.474: Append SynchronizeCustomer
+2015-12-07 17:41:25.536: Received SynchronizeCustomer
+2015-12-07 17:41:25.536: Append SynchronizeCustomer
+2015-12-07 17:41:25.599: Received SynchronizeCustomer
+2015-12-07 17:41:25.599: Append SynchronizeCustomer
+2015-12-07 17:41:25.661: Received SynchronizeCustomer
+2015-12-07 17:41:25.661: Append SynchronizeCustomer
+2015-12-07 17:41:25.724: Received SynchronizeCustomer
+2015-12-07 17:41:25.724: Append SynchronizeCustomer
+2015-12-07 17:41:25.786: Received SynchronizeCustomer
+2015-12-07 17:41:25.786: Append SynchronizeCustomer
+2015-12-07 17:41:25.849: Received SynchronizeCustomer
+2015-12-07 17:41:25.849: Append SynchronizeCustomer
+2015-12-07 17:41:25.911: Received SynchronizeCustomer
+2015-12-07 17:41:25.911: Append SynchronizeCustomer
+2015-12-07 17:41:25.974: Received SynchronizeCustomer
+2015-12-07 17:41:25.974: Append SynchronizeCustomer
+2015-12-07 17:41:26.036: Received SynchronizeCustomer
+2015-12-07 17:41:26.036: Append SynchronizeCustomer
+2015-12-07 17:41:26.099: Received SynchronizeCustomer
+2015-12-07 17:41:26.099: Append SynchronizeCustomer
+2015-12-07 17:41:26.161: Received SynchronizeCustomer
+2015-12-07 17:41:26.161: Append SynchronizeCustomer
+2015-12-07 17:41:26.224: Received SynchronizeCustomer
+2015-12-07 17:41:26.224: Append SynchronizeCustomer
+2015-12-07 17:41:26.286: Received SynchronizeCustomer
+2015-12-07 17:41:26.286: Append SynchronizeCustomer
+2015-12-07 17:41:26.349: Received SynchronizeCustomer
+2015-12-07 17:41:26.349: Append SynchronizeCustomer
+2015-12-07 17:41:26.411: Received SynchronizeCustomer
+2015-12-07 17:41:26.411: Append SynchronizeCustomer
+2015-12-07 17:41:26.474: Received SynchronizeCustomer
+2015-12-07 17:41:26.474: Append SynchronizeCustomer
+2015-12-07 17:41:26.536: Received SynchronizeCustomer
+2015-12-07 17:41:26.536: Append SynchronizeCustomer
+2015-12-07 17:41:26.589: Received SynchronizeCustomer
+2015-12-07 17:41:26.594: Append SynchronizeCustomer
+2015-12-07 17:41:26.642: Received SynchronizeCustomer
+2015-12-07 17:41:26.646: Append SynchronizeCustomer
+2015-12-07 17:41:26.694: Received SynchronizeCustomer
+2015-12-07 17:41:26.698: Append SynchronizeCustomer
+2015-12-07 17:41:26.747: Received SynchronizeCustomer
+2015-12-07 17:41:26.751: Append SynchronizeCustomer
+2015-12-07 17:41:26.799: Received SynchronizeCustomer
+2015-12-07 17:41:26.803: Append SynchronizeCustomer
+2015-12-07 17:41:26.854: Received SynchronizeCustomer
+2015-12-07 17:41:26.854: Append SynchronizeCustomer
+2015-12-07 17:41:26.917: Received SynchronizeCustomer
+2015-12-07 17:41:26.917: Append SynchronizeCustomer
+2015-12-07 17:41:26.979: Received SynchronizeCustomer
+2015-12-07 17:41:26.979: Append SynchronizeCustomer
+2015-12-07 17:41:27.042: Received SynchronizeCustomer
+2015-12-07 17:41:27.042: Append SynchronizeCustomer
+2015-12-07 17:41:27.104: Received SynchronizeCustomer
+2015-12-07 17:41:27.104: Append SynchronizeCustomer
+2015-12-07 17:41:27.167: Received SynchronizeCustomer
+2015-12-07 17:41:27.167: Append SynchronizeCustomer
+2015-12-07 17:41:27.229: Received SynchronizeCustomer
+2015-12-07 17:41:27.229: Append SynchronizeCustomer
+2015-12-07 17:41:27.292: Received SynchronizeCustomer
+2015-12-07 17:41:27.292: Append SynchronizeCustomer
+2015-12-07 17:41:27.354: Received SynchronizeCustomer
+2015-12-07 17:41:27.354: Append SynchronizeCustomer
+2015-12-07 17:41:27.417: Received SynchronizeCustomer
+2015-12-07 17:41:27.417: Append SynchronizeCustomer
+2015-12-07 17:41:27.479: Received SynchronizeCustomer
+2015-12-07 17:41:27.479: Append SynchronizeCustomer
+2015-12-07 17:41:27.542: Received SynchronizeCustomer
+2015-12-07 17:41:27.542: Append SynchronizeCustomer
+2015-12-07 17:41:27.604: Received SynchronizeCustomer
+2015-12-07 17:41:27.604: Append SynchronizeCustomer
+2015-12-07 17:41:27.667: Received SynchronizeCustomer
+2015-12-07 17:41:27.667: Append SynchronizeCustomer
+2015-12-07 17:41:27.729: Received SynchronizeCustomer
+2015-12-07 17:41:27.729: Append SynchronizeCustomer
+2015-12-07 17:41:27.792: Received SynchronizeCustomer
+2015-12-07 17:41:27.792: Append SynchronizeCustomer
+2015-12-07 17:41:27.854: Received SynchronizeCustomer
+2015-12-07 17:41:27.854: Append SynchronizeCustomer
+2015-12-07 17:41:27.917: Received SynchronizeCustomer
+2015-12-07 17:41:27.917: Append SynchronizeCustomer
+2015-12-07 17:41:27.979: Received SynchronizeCustomer
+2015-12-07 17:41:27.979: Append SynchronizeCustomer
+2015-12-07 17:41:28.042: Received SynchronizeCustomer
+2015-12-07 17:41:28.042: Append SynchronizeCustomer
+2015-12-07 17:41:28.104: Received SynchronizeCustomer
+2015-12-07 17:41:28.104: Append SynchronizeCustomer
+2015-12-07 17:41:28.167: Received SynchronizeCustomer
+2015-12-07 17:41:28.167: Append SynchronizeCustomer
+2015-12-07 17:41:28.229: Received SynchronizeCustomer
+2015-12-07 17:41:28.229: Append SynchronizeCustomer
+2015-12-07 17:41:28.292: Received SynchronizeCustomer
+2015-12-07 17:41:28.292: Append SynchronizeCustomer
+2015-12-07 17:41:28.354: Received SynchronizeCustomer
+2015-12-07 17:41:28.354: Append SynchronizeCustomer
+2015-12-07 17:41:28.417: Received SynchronizeCustomer
+2015-12-07 17:41:28.417: Append SynchronizeCustomer
+2015-12-07 17:41:28.47: Received SynchronizeCustomer
+2015-12-07 17:41:28.474: Append SynchronizeCustomer
+2015-12-07 17:41:28.523: Received SynchronizeCustomer
+2015-12-07 17:41:28.527: Append SynchronizeCustomer
+2015-12-07 17:41:28.575: Received SynchronizeCustomer
+2015-12-07 17:41:28.579: Append SynchronizeCustomer
+2015-12-07 17:41:28.628: Received SynchronizeCustomer
+2015-12-07 17:41:28.632: Append SynchronizeCustomer
+2015-12-07 17:41:28.68: Received SynchronizeCustomer
+2015-12-07 17:41:28.684: Append SynchronizeCustomer
+2015-12-07 17:41:28.732: Received SynchronizeCustomer
+2015-12-07 17:41:28.736: Append SynchronizeCustomer
+2015-12-07 17:41:28.795: Received SynchronizeCustomer
+2015-12-07 17:41:28.795: Append SynchronizeCustomer
+2015-12-07 17:41:28.858: Received SynchronizeCustomer
+2015-12-07 17:41:28.858: Append SynchronizeCustomer
+2015-12-07 17:41:28.92: Received SynchronizeCustomer
+2015-12-07 17:41:28.92: Append SynchronizeCustomer
+2015-12-07 17:41:28.983: Received SynchronizeCustomer
+2015-12-07 17:41:28.983: Append SynchronizeCustomer
+2015-12-07 17:41:29.045: Received SynchronizeCustomer
+2015-12-07 17:41:29.045: Append SynchronizeCustomer
+2015-12-07 17:41:29.108: Received SynchronizeCustomer
+2015-12-07 17:41:29.108: Append SynchronizeCustomer
+2015-12-07 17:41:29.17: Received SynchronizeCustomer
+2015-12-07 17:41:29.17: Append SynchronizeCustomer
+2015-12-07 17:41:29.233: Received SynchronizeCustomer
+2015-12-07 17:41:29.233: Append SynchronizeCustomer
+2015-12-07 17:41:29.295: Received SynchronizeCustomer
+2015-12-07 17:41:29.295: Append SynchronizeCustomer
+2015-12-07 17:41:29.358: Received SynchronizeCustomer
+2015-12-07 17:41:29.358: Append SynchronizeCustomer
+2015-12-07 17:41:29.42: Received SynchronizeCustomer
+2015-12-07 17:41:29.42: Append SynchronizeCustomer
+2015-12-07 17:41:29.483: Received SynchronizeCustomer
+2015-12-07 17:41:29.483: Append SynchronizeCustomer
+2015-12-07 17:41:29.545: Received SynchronizeCustomer
+2015-12-07 17:41:29.545: Append SynchronizeCustomer
+2015-12-07 17:41:29.608: Received SynchronizeCustomer
+2015-12-07 17:41:29.608: Append SynchronizeCustomer
+2015-12-07 17:41:29.67: Received SynchronizeCustomer
+2015-12-07 17:41:29.67: Append SynchronizeCustomer
+2015-12-07 17:41:29.723: Received SynchronizeCustomer
+2015-12-07 17:41:29.727: Append SynchronizeCustomer
+2015-12-07 17:41:29.776: Received SynchronizeCustomer
+2015-12-07 17:41:29.78: Append SynchronizeCustomer
+2015-12-07 17:41:29.828: Received SynchronizeCustomer
+2015-12-07 17:41:29.832: Append SynchronizeCustomer
+2015-12-07 17:41:29.882: Received SynchronizeCustomer
+2015-12-07 17:41:29.882: Append SynchronizeCustomer
+2015-12-07 17:41:29.944: Received SynchronizeCustomer
+2015-12-07 17:41:29.944: Append SynchronizeCustomer
+2015-12-07 17:41:30.007: Received SynchronizeCustomer
+2015-12-07 17:41:30.007: Append SynchronizeCustomer
+2015-12-07 17:41:30.069: Received SynchronizeCustomer
+2015-12-07 17:41:30.069: Append SynchronizeCustomer
+2015-12-07 17:41:30.132: Received SynchronizeCustomer
+2015-12-07 17:41:30.132: Append SynchronizeCustomer
+2015-12-07 17:41:30.195: Received SynchronizeCustomer
+2015-12-07 17:41:30.195: Append SynchronizeCustomer
+2015-12-07 17:41:30.257: Received SynchronizeCustomer
+2015-12-07 17:41:30.257: Append SynchronizeCustomer
+2015-12-07 17:41:30.32: Received SynchronizeCustomer
+2015-12-07 17:41:30.32: Append SynchronizeCustomer
+2015-12-07 17:41:30.382: Received SynchronizeCustomer
+2015-12-07 17:41:30.382: Append SynchronizeCustomer
+2015-12-07 17:41:30.445: Received SynchronizeCustomer
+2015-12-07 17:41:30.445: Append SynchronizeCustomer
+2015-12-07 17:41:30.507: Received SynchronizeCustomer
+2015-12-07 17:41:30.507: Append SynchronizeCustomer
+2015-12-07 17:41:30.57: Received SynchronizeCustomer
+2015-12-07 17:41:30.57: Append SynchronizeCustomer
+2015-12-07 17:41:30.632: Received SynchronizeCustomer
+2015-12-07 17:41:30.632: Append SynchronizeCustomer
+2015-12-07 17:41:30.695: Received SynchronizeCustomer
+2015-12-07 17:41:30.695: Append SynchronizeCustomer
+2015-12-07 17:41:30.757: Received SynchronizeCustomer
+2015-12-07 17:41:30.757: Append SynchronizeCustomer
+2015-12-07 17:41:30.809: Received SynchronizeCustomer
+2015-12-07 17:41:30.809: Append SynchronizeCustomer
+2015-12-07 17:41:30.872: Received SynchronizeCustomer
+2015-12-07 17:41:30.872: Append SynchronizeCustomer
+2015-12-07 17:41:30.934: Received SynchronizeCustomer
+2015-12-07 17:41:30.934: Append SynchronizeCustomer
+2015-12-07 17:41:30.997: Received SynchronizeCustomer
+2015-12-07 17:41:30.997: Append SynchronizeCustomer
+2015-12-07 17:41:31.059: Received SynchronizeCustomer
+2015-12-07 17:41:31.059: Append SynchronizeCustomer
+2015-12-07 17:41:31.122: Received SynchronizeCustomer
+2015-12-07 17:41:31.122: Append SynchronizeCustomer
+2015-12-07 17:41:31.184: Received SynchronizeCustomer
+2015-12-07 17:41:31.184: Append SynchronizeCustomer
+2015-12-07 17:41:31.247: Received SynchronizeCustomer
+2015-12-07 17:41:31.247: Append SynchronizeCustomer
+2015-12-07 17:41:31.309: Received SynchronizeCustomer
+2015-12-07 17:41:31.309: Append SynchronizeCustomer
+2015-12-07 17:41:31.372: Received SynchronizeCustomer
+2015-12-07 17:41:31.372: Append SynchronizeCustomer
+2015-12-07 17:41:31.425: Received SynchronizeCustomer
+2015-12-07 17:41:31.429: Append SynchronizeCustomer
+2015-12-07 17:41:45.941: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:41:50.678: Received SynchronizeCustomer
+2015-12-07 17:41:50.694: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:41:50.694: [Sync] Received Customer #0 of 914
+2015-12-07 17:41:50.694: Thread Ended: null
+2015-12-07 17:41:50.694: Thread Ended.
+2015-12-07 17:41:50.725: Received SynchronizeCustomer
+2015-12-07 17:41:50.725: Append SynchronizeCustomer
+2015-12-07 17:41:50.779: Received SynchronizeCustomer
+2015-12-07 17:41:50.784: Append SynchronizeCustomer
+2015-12-07 17:41:50.832: Received SynchronizeCustomer
+2015-12-07 17:41:50.839: Append SynchronizeCustomer
+2015-12-07 17:41:50.884: Received SynchronizeCustomer
+2015-12-07 17:41:50.889: Append SynchronizeCustomer
+2015-12-07 17:41:50.94: Received SynchronizeCustomer
+2015-12-07 17:41:50.94: Append SynchronizeCustomer
+2015-12-07 17:41:50.994: Received SynchronizeCustomer
+2015-12-07 17:41:51.0: Append SynchronizeCustomer
+2015-12-07 17:41:51.046: Received SynchronizeCustomer
+2015-12-07 17:41:51.051: Append SynchronizeCustomer
+2015-12-07 17:41:51.099: Received SynchronizeCustomer
+2015-12-07 17:41:51.106: Append SynchronizeCustomer
+2015-12-07 17:41:51.153: Received SynchronizeCustomer
+2015-12-07 17:41:51.158: Append SynchronizeCustomer
+2015-12-07 17:41:51.206: Received SynchronizeCustomer
+2015-12-07 17:41:51.208: Append SynchronizeCustomer
+2015-12-07 17:41:51.255: Received SynchronizeCustomer
+2015-12-07 17:41:51.255: Append SynchronizeCustomer
+2015-12-07 17:41:51.318: Received SynchronizeCustomer
+2015-12-07 17:41:51.318: Append SynchronizeCustomer
+2015-12-07 17:41:51.38: Received SynchronizeCustomer
+2015-12-07 17:41:51.38: Append SynchronizeCustomer
+2015-12-07 17:41:51.434: Received SynchronizeCustomer
+2015-12-07 17:41:51.438: Append SynchronizeCustomer
+2015-12-07 17:41:51.487: Received SynchronizeCustomer
+2015-12-07 17:41:51.491: Append SynchronizeCustomer
+2015-12-07 17:41:51.541: Received SynchronizeCustomer
+2015-12-07 17:41:51.545: Append SynchronizeCustomer
+2015-12-07 17:41:51.605: Received SynchronizeCustomer
+2015-12-07 17:41:51.605: Append SynchronizeCustomer
+2015-12-07 17:41:51.66: Received SynchronizeCustomer
+2015-12-07 17:41:51.667: Append SynchronizeCustomer
+2015-12-07 17:41:51.713: Received SynchronizeCustomer
+2015-12-07 17:41:51.721: Append SynchronizeCustomer
+2015-12-07 17:41:51.767: Received SynchronizeCustomer
+2015-12-07 17:41:51.775: Append SynchronizeCustomer
+2015-12-07 17:41:51.821: Received SynchronizeCustomer
+2015-12-07 17:41:51.827: Append SynchronizeCustomer
+2015-12-07 17:41:51.874: Received SynchronizeCustomer
+2015-12-07 17:41:51.88: Append SynchronizeCustomer
+2015-12-07 17:41:51.929: Received SynchronizeCustomer
+2015-12-07 17:41:51.937: Append SynchronizeCustomer
+2015-12-07 17:41:51.983: Received SynchronizeCustomer
+2015-12-07 17:41:51.989: Append SynchronizeCustomer
+2015-12-07 17:41:52.036: Received SynchronizeCustomer
+2015-12-07 17:41:52.041: Append SynchronizeCustomer
+2015-12-07 17:41:52.089: Received SynchronizeCustomer
+2015-12-07 17:41:52.093: Append SynchronizeCustomer
+2015-12-07 17:41:52.142: Received SynchronizeCustomer
+2015-12-07 17:41:52.146: Append SynchronizeCustomer
+2015-12-07 17:41:52.194: Received SynchronizeCustomer
+2015-12-07 17:41:52.198: Append SynchronizeCustomer
+2015-12-07 17:41:52.248: Received SynchronizeCustomer
+2015-12-07 17:41:52.252: Append SynchronizeCustomer
+2015-12-07 17:41:52.301: Received SynchronizeCustomer
+2015-12-07 17:41:52.307: Append SynchronizeCustomer
+2015-12-07 17:41:52.354: Received SynchronizeCustomer
+2015-12-07 17:41:52.36: Append SynchronizeCustomer
+2015-12-07 17:41:52.408: Received SynchronizeCustomer
+2015-12-07 17:41:52.414: Append SynchronizeCustomer
+2015-12-07 17:41:52.461: Received SynchronizeCustomer
+2015-12-07 17:41:52.47: Append SynchronizeCustomer
+2015-12-07 17:41:52.514: Received SynchronizeCustomer
+2015-12-07 17:41:52.518: Append SynchronizeCustomer
+2015-12-07 17:41:52.566: Received SynchronizeCustomer
+2015-12-07 17:41:52.574: Append SynchronizeCustomer
+2015-12-07 17:41:52.62: Received SynchronizeCustomer
+2015-12-07 17:41:52.627: Append SynchronizeCustomer
+2015-12-07 17:41:52.673: Received SynchronizeCustomer
+2015-12-07 17:41:52.678: Append SynchronizeCustomer
+2015-12-07 17:41:52.726: Received SynchronizeCustomer
+2015-12-07 17:41:52.73: Append SynchronizeCustomer
+2015-12-07 17:41:52.78: Received SynchronizeCustomer
+2015-12-07 17:41:52.787: Append SynchronizeCustomer
+2015-12-07 17:41:52.833: Received SynchronizeCustomer
+2015-12-07 17:41:52.838: Append SynchronizeCustomer
+2015-12-07 17:41:52.887: Received SynchronizeCustomer
+2015-12-07 17:41:52.891: Append SynchronizeCustomer
+2015-12-07 17:41:52.941: Received SynchronizeCustomer
+2015-12-07 17:41:52.945: Append SynchronizeCustomer
+2015-12-07 17:41:53.005: Received SynchronizeCustomer
+2015-12-07 17:41:53.005: Append SynchronizeCustomer
+2015-12-07 17:41:53.067: Received SynchronizeCustomer
+2015-12-07 17:41:53.067: Append SynchronizeCustomer
+2015-12-07 17:41:53.13: Received SynchronizeCustomer
+2015-12-07 17:41:53.13: Append SynchronizeCustomer
+2015-12-07 17:41:53.183: Received SynchronizeCustomer
+2015-12-07 17:41:53.187: Append SynchronizeCustomer
+2015-12-07 17:41:53.236: Received SynchronizeCustomer
+2015-12-07 17:41:53.24: Append SynchronizeCustomer
+2015-12-07 17:41:53.289: Received SynchronizeCustomer
+2015-12-07 17:41:53.293: Append SynchronizeCustomer
+2015-12-07 17:41:53.343: Received SynchronizeCustomer
+2015-12-07 17:41:53.347: Append SynchronizeCustomer
+2015-12-07 17:41:53.396: Received SynchronizeCustomer
+2015-12-07 17:41:53.4: Append SynchronizeCustomer
+2015-12-07 17:41:53.448: Received SynchronizeCustomer
+2015-12-07 17:41:53.453: Append SynchronizeCustomer
+2015-12-07 17:41:53.503: Received SynchronizeCustomer
+2015-12-07 17:41:53.507: Append SynchronizeCustomer
+2015-12-07 17:41:53.557: Received SynchronizeCustomer
+2015-12-07 17:41:53.563: Append SynchronizeCustomer
+2015-12-07 17:41:53.611: Received SynchronizeCustomer
+2015-12-07 17:41:53.615: Append SynchronizeCustomer
+2015-12-07 17:41:53.663: Received SynchronizeCustomer
+2015-12-07 17:41:53.669: Append SynchronizeCustomer
+2015-12-07 17:41:53.716: Received SynchronizeCustomer
+2015-12-07 17:41:53.721: Append SynchronizeCustomer
+2015-12-07 17:41:53.77: Received SynchronizeCustomer
+2015-12-07 17:41:53.775: Append SynchronizeCustomer
+2015-12-07 17:41:53.822: Received SynchronizeCustomer
+2015-12-07 17:41:53.827: Append SynchronizeCustomer
+2015-12-07 17:41:53.874: Received SynchronizeCustomer
+2015-12-07 17:41:53.879: Append SynchronizeCustomer
+2015-12-07 17:41:53.927: Received SynchronizeCustomer
+2015-12-07 17:41:53.931: Append SynchronizeCustomer
+2015-12-07 17:41:53.981: Received SynchronizeCustomer
+2015-12-07 17:41:53.986: Append SynchronizeCustomer
+2015-12-07 17:41:54.033: Received SynchronizeCustomer
+2015-12-07 17:41:54.038: Append SynchronizeCustomer
+2015-12-07 17:41:54.086: Received SynchronizeCustomer
+2015-12-07 17:41:54.092: Append SynchronizeCustomer
+2015-12-07 17:41:54.138: Received SynchronizeCustomer
+2015-12-07 17:41:54.142: Append SynchronizeCustomer
+2015-12-07 17:41:54.191: Received SynchronizeCustomer
+2015-12-07 17:41:54.196: Append SynchronizeCustomer
+2015-12-07 17:41:54.244: Received SynchronizeCustomer
+2015-12-07 17:41:54.248: Append SynchronizeCustomer
+2015-12-07 17:41:54.306: Received SynchronizeCustomer
+2015-12-07 17:41:54.306: Append SynchronizeCustomer
+2015-12-07 17:41:54.36: Received SynchronizeCustomer
+2015-12-07 17:41:54.364: Append SynchronizeCustomer
+2015-12-07 17:41:54.412: Received SynchronizeCustomer
+2015-12-07 17:41:54.416: Append SynchronizeCustomer
+2015-12-07 17:41:54.465: Received SynchronizeCustomer
+2015-12-07 17:41:54.469: Append SynchronizeCustomer
+2015-12-07 17:41:54.518: Received SynchronizeCustomer
+2015-12-07 17:41:54.522: Append SynchronizeCustomer
+2015-12-07 17:41:54.571: Received SynchronizeCustomer
+2015-12-07 17:41:54.575: Append SynchronizeCustomer
+2015-12-07 17:41:54.624: Received SynchronizeCustomer
+2015-12-07 17:41:54.629: Append SynchronizeCustomer
+2015-12-07 17:41:54.677: Received SynchronizeCustomer
+2015-12-07 17:41:54.681: Append SynchronizeCustomer
+2015-12-07 17:41:54.729: Received SynchronizeCustomer
+2015-12-07 17:41:54.733: Append SynchronizeCustomer
+2015-12-07 17:41:54.782: Received SynchronizeCustomer
+2015-12-07 17:41:54.787: Append SynchronizeCustomer
+2015-12-07 17:41:54.835: Received SynchronizeCustomer
+2015-12-07 17:41:54.839: Append SynchronizeCustomer
+2015-12-07 17:41:54.888: Received SynchronizeCustomer
+2015-12-07 17:41:54.892: Append SynchronizeCustomer
+2015-12-07 17:41:54.941: Received SynchronizeCustomer
+2015-12-07 17:41:54.945: Append SynchronizeCustomer
+2015-12-07 17:41:54.994: Received SynchronizeCustomer
+2015-12-07 17:41:54.998: Append SynchronizeCustomer
+2015-12-07 17:41:55.046: Received SynchronizeCustomer
+2015-12-07 17:41:55.051: Append SynchronizeCustomer
+2015-12-07 17:41:55.099: Received SynchronizeCustomer
+2015-12-07 17:41:55.104: Append SynchronizeCustomer
+2015-12-07 17:41:55.152: Received SynchronizeCustomer
+2015-12-07 17:41:55.157: Append SynchronizeCustomer
+2015-12-07 17:41:55.21: Received SynchronizeCustomer
+2015-12-07 17:41:55.21: Append SynchronizeCustomer
+2015-12-07 17:41:55.272: Received SynchronizeCustomer
+2015-12-07 17:41:55.272: Append SynchronizeCustomer
+2015-12-07 17:41:55.335: Received SynchronizeCustomer
+2015-12-07 17:41:55.335: Append SynchronizeCustomer
+2015-12-07 17:41:55.397: Received SynchronizeCustomer
+2015-12-07 17:41:55.397: Append SynchronizeCustomer
+2015-12-07 17:41:55.46: Received SynchronizeCustomer
+2015-12-07 17:41:55.46: Append SynchronizeCustomer
+2015-12-07 17:41:55.522: Received SynchronizeCustomer
+2015-12-07 17:41:55.522: Append SynchronizeCustomer
+2015-12-07 17:41:55.585: Received SynchronizeCustomer
+2015-12-07 17:41:55.585: Append SynchronizeCustomer
+2015-12-07 17:41:55.647: Received SynchronizeCustomer
+2015-12-07 17:41:55.647: Append SynchronizeCustomer
+2015-12-07 17:41:55.71: Received SynchronizeCustomer
+2015-12-07 17:41:55.71: Append SynchronizeCustomer
+2015-12-07 17:41:55.772: Received SynchronizeCustomer
+2015-12-07 17:41:55.772: Append SynchronizeCustomer
+2015-12-07 17:41:55.835: Received SynchronizeCustomer
+2015-12-07 17:41:55.835: Append SynchronizeCustomer
+2015-12-07 17:41:55.897: Received SynchronizeCustomer
+2015-12-07 17:41:55.897: Append SynchronizeCustomer
+2015-12-07 17:41:55.953: Received SynchronizeCustomer
+2015-12-07 17:41:55.957: Append SynchronizeCustomer
+2015-12-07 17:41:56.006: Received SynchronizeCustomer
+2015-12-07 17:41:56.01: Append SynchronizeCustomer
+2015-12-07 17:41:56.058: Received SynchronizeCustomer
+2015-12-07 17:41:56.062: Append SynchronizeCustomer
+2015-12-07 17:41:56.111: Received SynchronizeCustomer
+2015-12-07 17:41:56.115: Append SynchronizeCustomer
+2015-12-07 17:41:56.164: Received SynchronizeCustomer
+2015-12-07 17:41:56.168: Append SynchronizeCustomer
+2015-12-07 17:41:56.216: Received SynchronizeCustomer
+2015-12-07 17:41:56.221: Append SynchronizeCustomer
+2015-12-07 17:41:56.269: Received SynchronizeCustomer
+2015-12-07 17:41:56.274: Append SynchronizeCustomer
+2015-12-07 17:41:56.327: Received SynchronizeCustomer
+2015-12-07 17:41:56.327: Append SynchronizeCustomer
+2015-12-07 17:41:56.389: Received SynchronizeCustomer
+2015-12-07 17:41:56.389: Append SynchronizeCustomer
+2015-12-07 17:41:56.452: Received SynchronizeCustomer
+2015-12-07 17:41:56.452: Append SynchronizeCustomer
+2015-12-07 17:41:56.514: Received SynchronizeCustomer
+2015-12-07 17:41:56.514: Append SynchronizeCustomer
+2015-12-07 17:41:56.577: Received SynchronizeCustomer
+2015-12-07 17:41:56.577: Append SynchronizeCustomer
+2015-12-07 17:41:56.639: Received SynchronizeCustomer
+2015-12-07 17:41:56.639: Append SynchronizeCustomer
+2015-12-07 17:41:56.702: Received SynchronizeCustomer
+2015-12-07 17:41:56.702: Append SynchronizeCustomer
+2015-12-07 17:41:56.764: Received SynchronizeCustomer
+2015-12-07 17:41:56.764: Append SynchronizeCustomer
+2015-12-07 17:41:56.827: Received SynchronizeCustomer
+2015-12-07 17:41:56.827: Append SynchronizeCustomer
+2015-12-07 17:41:56.889: Received SynchronizeCustomer
+2015-12-07 17:41:56.889: Append SynchronizeCustomer
+2015-12-07 17:41:56.952: Received SynchronizeCustomer
+2015-12-07 17:41:56.952: Append SynchronizeCustomer
+2015-12-07 17:41:57.014: Received SynchronizeCustomer
+2015-12-07 17:41:57.014: Append SynchronizeCustomer
+2015-12-07 17:41:57.077: Received SynchronizeCustomer
+2015-12-07 17:41:57.077: Append SynchronizeCustomer
+2015-12-07 17:41:57.139: Received SynchronizeCustomer
+2015-12-07 17:41:57.139: Append SynchronizeCustomer
+2015-12-07 17:41:57.202: Received SynchronizeCustomer
+2015-12-07 17:41:57.202: Append SynchronizeCustomer
+2015-12-07 17:41:57.264: Received SynchronizeCustomer
+2015-12-07 17:41:57.264: Append SynchronizeCustomer
+2015-12-07 17:41:57.327: Received SynchronizeCustomer
+2015-12-07 17:41:57.327: Append SynchronizeCustomer
+2015-12-07 17:41:57.389: Received SynchronizeCustomer
+2015-12-07 17:41:57.389: Append SynchronizeCustomer
+2015-12-07 17:41:57.452: Received SynchronizeCustomer
+2015-12-07 17:41:57.452: Append SynchronizeCustomer
+2015-12-07 17:41:57.514: Received SynchronizeCustomer
+2015-12-07 17:41:57.514: Append SynchronizeCustomer
+2015-12-07 17:41:57.577: Received SynchronizeCustomer
+2015-12-07 17:41:57.577: Append SynchronizeCustomer
+2015-12-07 17:41:57.639: Received SynchronizeCustomer
+2015-12-07 17:41:57.639: Append SynchronizeCustomer
+2015-12-07 17:41:57.702: Received SynchronizeCustomer
+2015-12-07 17:41:57.702: Append SynchronizeCustomer
+2015-12-07 17:41:57.764: Received SynchronizeCustomer
+2015-12-07 17:41:57.764: Append SynchronizeCustomer
+2015-12-07 17:41:57.827: Received SynchronizeCustomer
+2015-12-07 17:41:57.827: Append SynchronizeCustomer
+2015-12-07 17:41:57.889: Received SynchronizeCustomer
+2015-12-07 17:41:57.889: Append SynchronizeCustomer
+2015-12-07 17:41:57.952: Received SynchronizeCustomer
+2015-12-07 17:41:57.952: Append SynchronizeCustomer
+2015-12-07 17:41:58.014: Received SynchronizeCustomer
+2015-12-07 17:41:58.014: Append SynchronizeCustomer
+2015-12-07 17:41:58.077: Received SynchronizeCustomer
+2015-12-07 17:41:58.077: Append SynchronizeCustomer
+2015-12-07 17:41:58.139: Received SynchronizeCustomer
+2015-12-07 17:41:58.139: Append SynchronizeCustomer
+2015-12-07 17:41:58.202: Received SynchronizeCustomer
+2015-12-07 17:41:58.202: Append SynchronizeCustomer
+2015-12-07 17:41:58.264: Received SynchronizeCustomer
+2015-12-07 17:41:58.264: Append SynchronizeCustomer
+2015-12-07 17:41:58.327: Received SynchronizeCustomer
+2015-12-07 17:41:58.327: Append SynchronizeCustomer
+2015-12-07 17:41:58.389: Received SynchronizeCustomer
+2015-12-07 17:41:58.389: Append SynchronizeCustomer
+2015-12-07 17:41:58.452: Received SynchronizeCustomer
+2015-12-07 17:41:58.452: Append SynchronizeCustomer
+2015-12-07 17:41:58.514: Received SynchronizeCustomer
+2015-12-07 17:41:58.514: Append SynchronizeCustomer
+2015-12-07 17:41:58.577: Received SynchronizeCustomer
+2015-12-07 17:41:58.577: Append SynchronizeCustomer
+2015-12-07 17:41:58.642: Received SynchronizeCustomer
+2015-12-07 17:41:58.646: Append SynchronizeCustomer
+2015-12-07 17:41:58.7: Received SynchronizeCustomer
+2015-12-07 17:41:58.7: Append SynchronizeCustomer
+2015-12-07 17:41:58.762: Received SynchronizeCustomer
+2015-12-07 17:41:58.762: Append SynchronizeCustomer
+2015-12-07 17:41:58.825: Received SynchronizeCustomer
+2015-12-07 17:41:58.825: Append SynchronizeCustomer
+2015-12-07 17:41:58.887: Received SynchronizeCustomer
+2015-12-07 17:41:58.887: Append SynchronizeCustomer
+2015-12-07 17:41:58.95: Received SynchronizeCustomer
+2015-12-07 17:41:58.95: Append SynchronizeCustomer
+2015-12-07 17:41:59.012: Received SynchronizeCustomer
+2015-12-07 17:41:59.012: Append SynchronizeCustomer
+2015-12-07 17:41:59.075: Received SynchronizeCustomer
+2015-12-07 17:41:59.075: Append SynchronizeCustomer
+2015-12-07 17:41:59.128: Received SynchronizeCustomer
+2015-12-07 17:41:59.133: Append SynchronizeCustomer
+2015-12-07 17:41:59.181: Received SynchronizeCustomer
+2015-12-07 17:41:59.185: Append SynchronizeCustomer
+2015-12-07 17:41:59.233: Received SynchronizeCustomer
+2015-12-07 17:41:59.238: Append SynchronizeCustomer
+2015-12-07 17:41:59.284: Received SynchronizeCustomer
+2015-12-07 17:41:59.284: Append SynchronizeCustomer
+2015-12-07 17:41:59.347: Received SynchronizeCustomer
+2015-12-07 17:41:59.347: Append SynchronizeCustomer
+2015-12-07 17:41:59.409: Received SynchronizeCustomer
+2015-12-07 17:41:59.409: Append SynchronizeCustomer
+2015-12-07 17:41:59.472: Received SynchronizeCustomer
+2015-12-07 17:41:59.472: Append SynchronizeCustomer
+2015-12-07 17:41:59.534: Received SynchronizeCustomer
+2015-12-07 17:41:59.534: Append SynchronizeCustomer
+2015-12-07 17:41:59.597: Received SynchronizeCustomer
+2015-12-07 17:41:59.597: Append SynchronizeCustomer
+2015-12-07 17:41:59.659: Received SynchronizeCustomer
+2015-12-07 17:41:59.659: Append SynchronizeCustomer
+2015-12-07 17:41:59.722: Received SynchronizeCustomer
+2015-12-07 17:41:59.722: Append SynchronizeCustomer
+2015-12-07 17:41:59.784: Received SynchronizeCustomer
+2015-12-07 17:41:59.784: Append SynchronizeCustomer
+2015-12-07 17:41:59.847: Received SynchronizeCustomer
+2015-12-07 17:41:59.847: Append SynchronizeCustomer
+2015-12-07 17:41:59.909: Received SynchronizeCustomer
+2015-12-07 17:41:59.909: Append SynchronizeCustomer
+2015-12-07 17:41:59.972: Received SynchronizeCustomer
+2015-12-07 17:41:59.972: Append SynchronizeCustomer
+2015-12-07 17:42:00.034: Received SynchronizeCustomer
+2015-12-07 17:42:00.034: Append SynchronizeCustomer
+2015-12-07 17:42:00.097: Received SynchronizeCustomer
+2015-12-07 17:42:00.112: Append SynchronizeCustomer
+2015-12-07 17:42:00.159: Received SynchronizeCustomer
+2015-12-07 17:42:00.159: Append SynchronizeCustomer
+2015-12-07 17:42:00.222: Received SynchronizeCustomer
+2015-12-07 17:42:00.222: Append SynchronizeCustomer
+2015-12-07 17:42:00.284: Received SynchronizeCustomer
+2015-12-07 17:42:00.284: Append SynchronizeCustomer
+2015-12-07 17:42:00.347: Received SynchronizeCustomer
+2015-12-07 17:42:00.347: Append SynchronizeCustomer
+2015-12-07 17:42:00.409: Received SynchronizeCustomer
+2015-12-07 17:42:00.409: Append SynchronizeCustomer
+2015-12-07 17:42:00.472: Received SynchronizeCustomer
+2015-12-07 17:42:00.472: Append SynchronizeCustomer
+2015-12-07 17:42:00.534: Received SynchronizeCustomer
+2015-12-07 17:42:00.534: Append SynchronizeCustomer
+2015-12-07 17:42:00.597: Received SynchronizeCustomer
+2015-12-07 17:42:00.597: Append SynchronizeCustomer
+2015-12-07 17:42:00.659: Received SynchronizeCustomer
+2015-12-07 17:42:00.659: Append SynchronizeCustomer
+2015-12-07 17:42:00.722: Received SynchronizeCustomer
+2015-12-07 17:42:00.722: Append SynchronizeCustomer
+2015-12-07 17:42:00.784: Received SynchronizeCustomer
+2015-12-07 17:42:00.784: Append SynchronizeCustomer
+2015-12-07 17:42:00.847: Received SynchronizeCustomer
+2015-12-07 17:42:00.847: Append SynchronizeCustomer
+2015-12-07 17:42:00.909: Received SynchronizeCustomer
+2015-12-07 17:42:00.909: Append SynchronizeCustomer
+2015-12-07 17:42:00.972: Received SynchronizeCustomer
+2015-12-07 17:42:00.972: Append SynchronizeCustomer
+2015-12-07 17:42:01.034: Received SynchronizeCustomer
+2015-12-07 17:42:01.034: Append SynchronizeCustomer
+2015-12-07 17:42:01.097: Received SynchronizeCustomer
+2015-12-07 17:42:01.097: Append SynchronizeCustomer
+2015-12-07 17:42:01.159: Received SynchronizeCustomer
+2015-12-07 17:42:01.159: Append SynchronizeCustomer
+2015-12-07 17:42:01.222: Received SynchronizeCustomer
+2015-12-07 17:42:01.222: Append SynchronizeCustomer
+2015-12-07 17:42:01.276: Received SynchronizeCustomer
+2015-12-07 17:42:01.283: Append SynchronizeCustomer
+2015-12-07 17:42:01.329: Received SynchronizeCustomer
+2015-12-07 17:42:01.333: Append SynchronizeCustomer
+2015-12-07 17:42:01.381: Received SynchronizeCustomer
+2015-12-07 17:42:01.385: Append SynchronizeCustomer
+2015-12-07 17:42:01.434: Received SynchronizeCustomer
+2015-12-07 17:42:01.439: Append SynchronizeCustomer
+2015-12-07 17:42:01.488: Received SynchronizeCustomer
+2015-12-07 17:42:01.492: Append SynchronizeCustomer
+2015-12-07 17:42:01.541: Received SynchronizeCustomer
+2015-12-07 17:42:01.547: Append SynchronizeCustomer
+2015-12-07 17:42:01.594: Received SynchronizeCustomer
+2015-12-07 17:42:01.599: Append SynchronizeCustomer
+2015-12-07 17:42:01.648: Received SynchronizeCustomer
+2015-12-07 17:42:01.653: Append SynchronizeCustomer
+2015-12-07 17:42:01.701: Received SynchronizeCustomer
+2015-12-07 17:42:01.707: Append SynchronizeCustomer
+2015-12-07 17:42:01.754: Received SynchronizeCustomer
+2015-12-07 17:42:01.758: Append SynchronizeCustomer
+2015-12-07 17:42:01.807: Received SynchronizeCustomer
+2015-12-07 17:42:01.807: Append SynchronizeCustomer
+2015-12-07 17:42:01.86: Received SynchronizeCustomer
+2015-12-07 17:42:01.866: Append SynchronizeCustomer
+2015-12-07 17:42:01.915: Received SynchronizeCustomer
+2015-12-07 17:42:01.92: Append SynchronizeCustomer
+2015-12-07 17:42:01.968: Received SynchronizeCustomer
+2015-12-07 17:42:01.973: Append SynchronizeCustomer
+2015-12-07 17:42:02.02: Received SynchronizeCustomer
+2015-12-07 17:42:02.026: Append SynchronizeCustomer
+2015-12-07 17:42:02.073: Received SynchronizeCustomer
+2015-12-07 17:42:02.077: Append SynchronizeCustomer
+2015-12-07 17:42:02.126: Received SynchronizeCustomer
+2015-12-07 17:42:02.13: Append SynchronizeCustomer
+2015-12-07 17:42:02.182: Received SynchronizeCustomer
+2015-12-07 17:42:02.182: Append SynchronizeCustomer
+2015-12-07 17:42:02.236: Received SynchronizeCustomer
+2015-12-07 17:42:02.24: Append SynchronizeCustomer
+2015-12-07 17:42:02.288: Received SynchronizeCustomer
+2015-12-07 17:42:02.292: Append SynchronizeCustomer
+2015-12-07 17:42:02.341: Received SynchronizeCustomer
+2015-12-07 17:42:02.345: Append SynchronizeCustomer
+2015-12-07 17:42:02.394: Received SynchronizeCustomer
+2015-12-07 17:42:02.395: Append SynchronizeCustomer
+2015-12-07 17:42:02.458: Received SynchronizeCustomer
+2015-12-07 17:42:02.458: Append SynchronizeCustomer
+2015-12-07 17:42:02.52: Received SynchronizeCustomer
+2015-12-07 17:42:02.52: Append SynchronizeCustomer
+2015-12-07 17:42:02.583: Received SynchronizeCustomer
+2015-12-07 17:42:02.583: Append SynchronizeCustomer
+2015-12-07 17:42:02.645: Received SynchronizeCustomer
+2015-12-07 17:42:02.645: Append SynchronizeCustomer
+2015-12-07 17:42:02.708: Received SynchronizeCustomer
+2015-12-07 17:42:02.708: Append SynchronizeCustomer
+2015-12-07 17:42:02.77: Received SynchronizeCustomer
+2015-12-07 17:42:02.77: Append SynchronizeCustomer
+2015-12-07 17:42:02.833: Received SynchronizeCustomer
+2015-12-07 17:42:02.833: Append SynchronizeCustomer
+2015-12-07 17:42:02.895: Received SynchronizeCustomer
+2015-12-07 17:42:02.895: Append SynchronizeCustomer
+2015-12-07 17:42:02.958: Received SynchronizeCustomer
+2015-12-07 17:42:02.958: Append SynchronizeCustomer
+2015-12-07 17:42:03.02: Received SynchronizeCustomer
+2015-12-07 17:42:03.02: Append SynchronizeCustomer
+2015-12-07 17:42:03.083: Received SynchronizeCustomer
+2015-12-07 17:42:03.083: Append SynchronizeCustomer
+2015-12-07 17:42:03.141: Received SynchronizeCustomer
+2015-12-07 17:42:03.141: Append SynchronizeCustomer
+2015-12-07 17:42:03.203: Received SynchronizeCustomer
+2015-12-07 17:42:03.203: Append SynchronizeCustomer
+2015-12-07 17:42:03.266: Received SynchronizeCustomer
+2015-12-07 17:42:03.266: Append SynchronizeCustomer
+2015-12-07 17:42:03.328: Received SynchronizeCustomer
+2015-12-07 17:42:03.328: Append SynchronizeCustomer
+2015-12-07 17:42:03.391: Received SynchronizeCustomer
+2015-12-07 17:42:03.391: Append SynchronizeCustomer
+2015-12-07 17:42:03.453: Received SynchronizeCustomer
+2015-12-07 17:42:03.453: Append SynchronizeCustomer
+2015-12-07 17:42:03.516: Received SynchronizeCustomer
+2015-12-07 17:42:03.516: Append SynchronizeCustomer
+2015-12-07 17:42:03.578: Received SynchronizeCustomer
+2015-12-07 17:42:03.578: Append SynchronizeCustomer
+2015-12-07 17:42:03.641: Received SynchronizeCustomer
+2015-12-07 17:42:03.641: Append SynchronizeCustomer
+2015-12-07 17:42:03.703: Received SynchronizeCustomer
+2015-12-07 17:42:03.703: Append SynchronizeCustomer
+2015-12-07 17:42:03.766: Received SynchronizeCustomer
+2015-12-07 17:42:03.766: Append SynchronizeCustomer
+2015-12-07 17:42:03.828: Received SynchronizeCustomer
+2015-12-07 17:42:03.828: Append SynchronizeCustomer
+2015-12-07 17:42:03.891: Received SynchronizeCustomer
+2015-12-07 17:42:03.891: Append SynchronizeCustomer
+2015-12-07 17:42:03.953: Received SynchronizeCustomer
+2015-12-07 17:42:03.953: Append SynchronizeCustomer
+2015-12-07 17:42:04.016: Received SynchronizeCustomer
+2015-12-07 17:42:04.016: Append SynchronizeCustomer
+2015-12-07 17:42:04.078: Received SynchronizeCustomer
+2015-12-07 17:42:04.078: Append SynchronizeCustomer
+2015-12-07 17:42:04.141: Received SynchronizeCustomer
+2015-12-07 17:42:04.141: Append SynchronizeCustomer
+2015-12-07 17:42:04.203: Received SynchronizeCustomer
+2015-12-07 17:42:04.203: Append SynchronizeCustomer
+2015-12-07 17:53:10.442: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:53:36.061: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 17:53:40.81: Received SynchronizeCustomer
+2015-12-07 17:53:40.81: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:40.826: [Sync] Received Customer #0 of 914
+2015-12-07 17:53:40.857: Received SynchronizeCustomer
+2015-12-07 17:53:40.857: Append SynchronizeCustomer
+2015-12-07 17:53:40.92: Received SynchronizeCustomer
+2015-12-07 17:53:40.92: Append SynchronizeCustomer
+2015-12-07 17:53:40.982: Received SynchronizeCustomer
+2015-12-07 17:53:40.982: Append SynchronizeCustomer
+2015-12-07 17:53:41.029: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.029: [Sync] Received Customer #1 of 914
+2015-12-07 17:53:41.029: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.029: [Sync] Received Customer #2 of 914
+2015-12-07 17:53:41.045: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.045: Received SynchronizeCustomer
+2015-12-07 17:53:41.045: [Sync] Received Customer #3 of 914
+2015-12-07 17:53:41.06: Append SynchronizeCustomer
+2015-12-07 17:53:41.107: Received SynchronizeCustomer
+2015-12-07 17:53:41.107: Append SynchronizeCustomer
+2015-12-07 17:53:41.17: Received SynchronizeCustomer
+2015-12-07 17:53:41.17: Append SynchronizeCustomer
+2015-12-07 17:53:41.225: Received SynchronizeCustomer
+2015-12-07 17:53:41.229: Append SynchronizeCustomer
+2015-12-07 17:53:41.261: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.265: [Sync] Received Customer #4 of 914
+2015-12-07 17:53:41.269: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.274: [Sync] Received Customer #5 of 914
+2015-12-07 17:53:41.279: Received SynchronizeCustomer
+2015-12-07 17:53:41.283: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.287: Append SynchronizeCustomer
+2015-12-07 17:53:41.293: [Sync] Received Customer #6 of 914
+2015-12-07 17:53:41.298: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.303: [Sync] Received Customer #7 of 914
+2015-12-07 17:53:41.307: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.311: [Sync] Received Customer #8 of 914
+2015-12-07 17:53:41.332: Received SynchronizeCustomer
+2015-12-07 17:53:41.336: Append SynchronizeCustomer
+2015-12-07 17:53:41.381: Received SynchronizeCustomer
+2015-12-07 17:53:41.381: Append SynchronizeCustomer
+2015-12-07 17:53:41.444: Received SynchronizeCustomer
+2015-12-07 17:53:41.444: Append SynchronizeCustomer
+2015-12-07 17:53:41.506: Received SynchronizeCustomer
+2015-12-07 17:53:41.506: Append SynchronizeCustomer
+2015-12-07 17:53:41.522: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.522: [Sync] Received Customer #9 of 914
+2015-12-07 17:53:41.522: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.522: [Sync] Received Customer #10 of 914
+2015-12-07 17:53:41.538: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.538: [Sync] Received Customer #11 of 914
+2015-12-07 17:53:41.538: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.553: [Sync] Received Customer #12 of 914
+2015-12-07 17:53:41.569: Received SynchronizeCustomer
+2015-12-07 17:53:41.569: Append SynchronizeCustomer
+2015-12-07 17:53:41.623: Received SynchronizeCustomer
+2015-12-07 17:53:41.627: Append SynchronizeCustomer
+2015-12-07 17:53:41.676: Received SynchronizeCustomer
+2015-12-07 17:53:41.681: Append SynchronizeCustomer
+2015-12-07 17:53:41.729: Received SynchronizeCustomer
+2015-12-07 17:53:41.734: Append SynchronizeCustomer
+2015-12-07 17:53:41.753: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.758: [Sync] Received Customer #13 of 914
+2015-12-07 17:53:41.762: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.767: [Sync] Received Customer #14 of 914
+2015-12-07 17:53:41.769: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.769: [Sync] Received Customer #15 of 914
+2015-12-07 17:53:41.769: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.785: [Sync] Received Customer #16 of 914
+2015-12-07 17:53:41.785: Received SynchronizeCustomer
+2015-12-07 17:53:41.785: Append SynchronizeCustomer
+2015-12-07 17:53:41.848: Received SynchronizeCustomer
+2015-12-07 17:53:41.848: Append SynchronizeCustomer
+2015-12-07 17:53:41.91: Received SynchronizeCustomer
+2015-12-07 17:53:41.91: Append SynchronizeCustomer
+2015-12-07 17:53:41.973: Received SynchronizeCustomer
+2015-12-07 17:53:41.973: Append SynchronizeCustomer
+2015-12-07 17:53:41.988: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:41.988: [Sync] Received Customer #17 of 914
+2015-12-07 17:53:41.988: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.004: [Sync] Received Customer #18 of 914
+2015-12-07 17:53:42.004: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.004: [Sync] Received Customer #19 of 914
+2015-12-07 17:53:42.019: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.019: [Sync] Received Customer #20 of 914
+2015-12-07 17:53:42.035: Received SynchronizeCustomer
+2015-12-07 17:53:42.035: Append SynchronizeCustomer
+2015-12-07 17:53:42.098: Received SynchronizeCustomer
+2015-12-07 17:53:42.098: Append SynchronizeCustomer
+2015-12-07 17:53:42.16: Received SynchronizeCustomer
+2015-12-07 17:53:42.16: Append SynchronizeCustomer
+2015-12-07 17:53:42.223: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.223: Received SynchronizeCustomer
+2015-12-07 17:53:42.223: [Sync] Received Customer #21 of 914
+2015-12-07 17:53:42.223: Append SynchronizeCustomer
+2015-12-07 17:53:42.238: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.238: [Sync] Received Customer #22 of 914
+2015-12-07 17:53:42.238: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.254: [Sync] Received Customer #23 of 914
+2015-12-07 17:53:42.254: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.254: [Sync] Received Customer #24 of 914
+2015-12-07 17:53:42.285: Received SynchronizeCustomer
+2015-12-07 17:53:42.285: Append SynchronizeCustomer
+2015-12-07 17:53:42.348: Received SynchronizeCustomer
+2015-12-07 17:53:42.348: Append SynchronizeCustomer
+2015-12-07 17:53:42.41: Received SynchronizeCustomer
+2015-12-07 17:53:42.41: Append SynchronizeCustomer
+2015-12-07 17:53:42.473: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.473: Received SynchronizeCustomer
+2015-12-07 17:53:42.473: [Sync] Received Customer #25 of 914
+2015-12-07 17:53:42.473: Append SynchronizeCustomer
+2015-12-07 17:53:42.488: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.488: [Sync] Received Customer #26 of 914
+2015-12-07 17:53:42.488: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.488: [Sync] Received Customer #27 of 914
+2015-12-07 17:53:42.504: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.504: [Sync] Received Customer #28 of 914
+2015-12-07 17:53:42.535: Received SynchronizeCustomer
+2015-12-07 17:53:42.535: Append SynchronizeCustomer
+2015-12-07 17:53:42.598: Received SynchronizeCustomer
+2015-12-07 17:53:42.598: Append SynchronizeCustomer
+2015-12-07 17:53:42.66: Received SynchronizeCustomer
+2015-12-07 17:53:42.66: Append SynchronizeCustomer
+2015-12-07 17:53:42.707: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.707: [Sync] Received Customer #29 of 914
+2015-12-07 17:53:42.707: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.707: [Sync] Received Customer #30 of 914
+2015-12-07 17:53:42.723: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.723: Received SynchronizeCustomer
+2015-12-07 17:53:42.738: [Sync] Received Customer #31 of 914
+2015-12-07 17:53:42.738: Append SynchronizeCustomer
+2015-12-07 17:53:42.785: Received SynchronizeCustomer
+2015-12-07 17:53:42.801: Append SynchronizeCustomer
+2015-12-07 17:53:42.848: Received SynchronizeCustomer
+2015-12-07 17:53:42.848: Append SynchronizeCustomer
+2015-12-07 17:53:42.91: Received SynchronizeCustomer
+2015-12-07 17:53:42.91: Append SynchronizeCustomer
+2015-12-07 17:53:42.941: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.941: [Sync] Received Customer #32 of 914
+2015-12-07 17:53:42.941: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.941: [Sync] Received Customer #33 of 914
+2015-12-07 17:53:42.957: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.957: [Sync] Received Customer #34 of 914
+2015-12-07 17:53:42.957: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:42.973: Received SynchronizeCustomer
+2015-12-07 17:53:42.973: [Sync] Received Customer #35 of 914
+2015-12-07 17:53:42.988: Append SynchronizeCustomer
+2015-12-07 17:53:43.035: Received SynchronizeCustomer
+2015-12-07 17:53:43.035: Append SynchronizeCustomer
+2015-12-07 17:53:43.098: Received SynchronizeCustomer
+2015-12-07 17:53:43.098: Append SynchronizeCustomer
+2015-12-07 17:53:43.16: Received SynchronizeCustomer
+2015-12-07 17:53:43.16: Append SynchronizeCustomer
+2015-12-07 17:53:43.191: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.191: [Sync] Received Customer #36 of 914
+2015-12-07 17:53:43.191: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.191: [Sync] Received Customer #37 of 914
+2015-12-07 17:53:43.207: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.207: [Sync] Received Customer #38 of 914
+2015-12-07 17:53:43.207: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.207: [Sync] Received Customer #39 of 914
+2015-12-07 17:53:43.223: Received SynchronizeCustomer
+2015-12-07 17:53:43.223: Append SynchronizeCustomer
+2015-12-07 17:53:43.285: Received SynchronizeCustomer
+2015-12-07 17:53:43.285: Append SynchronizeCustomer
+2015-12-07 17:53:43.348: Received SynchronizeCustomer
+2015-12-07 17:53:43.348: Append SynchronizeCustomer
+2015-12-07 17:53:43.41: Received SynchronizeCustomer
+2015-12-07 17:53:43.41: Append SynchronizeCustomer
+2015-12-07 17:53:43.426: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.426: [Sync] Received Customer #40 of 914
+2015-12-07 17:53:43.426: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.426: [Sync] Received Customer #41 of 914
+2015-12-07 17:53:43.441: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.441: [Sync] Received Customer #42 of 914
+2015-12-07 17:53:43.441: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.441: [Sync] Received Customer #43 of 914
+2015-12-07 17:53:43.473: Received SynchronizeCustomer
+2015-12-07 17:53:43.473: Append SynchronizeCustomer
+2015-12-07 17:53:43.535: Received SynchronizeCustomer
+2015-12-07 17:53:43.535: Append SynchronizeCustomer
+2015-12-07 17:53:43.598: Received SynchronizeCustomer
+2015-12-07 17:53:43.598: Append SynchronizeCustomer
+2015-12-07 17:53:43.66: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.66: Received SynchronizeCustomer
+2015-12-07 17:53:43.66: [Sync] Received Customer #44 of 914
+2015-12-07 17:53:43.676: Append SynchronizeCustomer
+2015-12-07 17:53:43.676: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.676: [Sync] Received Customer #45 of 914
+2015-12-07 17:53:43.676: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.691: [Sync] Received Customer #46 of 914
+2015-12-07 17:53:43.691: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.691: [Sync] Received Customer #47 of 914
+2015-12-07 17:53:43.723: Received SynchronizeCustomer
+2015-12-07 17:53:43.723: Append SynchronizeCustomer
+2015-12-07 17:53:43.785: Received SynchronizeCustomer
+2015-12-07 17:53:43.785: Append SynchronizeCustomer
+2015-12-07 17:53:43.848: Received SynchronizeCustomer
+2015-12-07 17:53:43.848: Append SynchronizeCustomer
+2015-12-07 17:53:43.895: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.895: [Sync] Received Customer #48 of 914
+2015-12-07 17:53:43.895: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.895: [Sync] Received Customer #49 of 914
+2015-12-07 17:53:43.91: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:43.91: Received SynchronizeCustomer
+2015-12-07 17:53:43.91: [Sync] Received Customer #50 of 914
+2015-12-07 17:53:43.926: Append SynchronizeCustomer
+2015-12-07 17:53:43.973: Received SynchronizeCustomer
+2015-12-07 17:53:43.973: Append SynchronizeCustomer
+2015-12-07 17:53:44.035: Received SynchronizeCustomer
+2015-12-07 17:53:44.035: Append SynchronizeCustomer
+2015-12-07 17:53:44.098: Received SynchronizeCustomer
+2015-12-07 17:53:44.098: Append SynchronizeCustomer
+2015-12-07 17:53:44.129: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.129: [Sync] Received Customer #51 of 914
+2015-12-07 17:53:44.129: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.129: [Sync] Received Customer #52 of 914
+2015-12-07 17:53:44.145: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.145: [Sync] Received Customer #53 of 914
+2015-12-07 17:53:44.145: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.145: [Sync] Received Customer #54 of 914
+2015-12-07 17:53:44.16: Received SynchronizeCustomer
+2015-12-07 17:53:44.16: Append SynchronizeCustomer
+2015-12-07 17:53:44.223: Received SynchronizeCustomer
+2015-12-07 17:53:44.223: Append SynchronizeCustomer
+2015-12-07 17:53:44.285: Received SynchronizeCustomer
+2015-12-07 17:53:44.285: Append SynchronizeCustomer
+2015-12-07 17:53:44.348: Received SynchronizeCustomer
+2015-12-07 17:53:44.348: Append SynchronizeCustomer
+2015-12-07 17:53:44.363: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.363: [Sync] Received Customer #55 of 914
+2015-12-07 17:53:44.363: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.363: [Sync] Received Customer #56 of 914
+2015-12-07 17:53:44.379: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.379: [Sync] Received Customer #57 of 914
+2015-12-07 17:53:44.379: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.395: [Sync] Received Customer #58 of 914
+2015-12-07 17:53:44.41: Received SynchronizeCustomer
+2015-12-07 17:53:44.41: Append SynchronizeCustomer
+2015-12-07 17:53:44.473: Received SynchronizeCustomer
+2015-12-07 17:53:44.473: Append SynchronizeCustomer
+2015-12-07 17:53:44.535: Received SynchronizeCustomer
+2015-12-07 17:53:44.535: Append SynchronizeCustomer
+2015-12-07 17:53:44.598: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.598: Received SynchronizeCustomer
+2015-12-07 17:53:44.598: [Sync] Received Customer #59 of 914
+2015-12-07 17:53:44.611: Append SynchronizeCustomer
+2015-12-07 17:53:44.615: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.62: [Sync] Received Customer #60 of 914
+2015-12-07 17:53:44.624: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.629: [Sync] Received Customer #61 of 914
+2015-12-07 17:53:44.635: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.639: [Sync] Received Customer #62 of 914
+2015-12-07 17:53:44.651: Received SynchronizeCustomer
+2015-12-07 17:53:44.658: Append SynchronizeCustomer
+2015-12-07 17:53:44.704: Received SynchronizeCustomer
+2015-12-07 17:53:44.709: Append SynchronizeCustomer
+2015-12-07 17:53:44.758: Received SynchronizeCustomer
+2015-12-07 17:53:44.764: Append SynchronizeCustomer
+2015-12-07 17:53:44.812: Received SynchronizeCustomer
+2015-12-07 17:53:44.816: Append SynchronizeCustomer
+2015-12-07 17:53:44.857: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.857: [Sync] Received Customer #63 of 914
+2015-12-07 17:53:44.857: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.857: [Sync] Received Customer #64 of 914
+2015-12-07 17:53:44.872: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.872: Received SynchronizeCustomer
+2015-12-07 17:53:44.888: [Sync] Received Customer #65 of 914
+2015-12-07 17:53:44.888: Append SynchronizeCustomer
+2015-12-07 17:53:44.888: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.904: [Sync] Received Customer #66 of 914
+2015-12-07 17:53:44.904: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:44.904: [Sync] Received Customer #67 of 914
+2015-12-07 17:53:44.935: Received SynchronizeCustomer
+2015-12-07 17:53:44.935: Append SynchronizeCustomer
+2015-12-07 17:53:44.997: Received SynchronizeCustomer
+2015-12-07 17:53:44.997: Append SynchronizeCustomer
+2015-12-07 17:53:45.06: Received SynchronizeCustomer
+2015-12-07 17:53:45.06: Append SynchronizeCustomer
+2015-12-07 17:53:45.107: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.107: [Sync] Received Customer #68 of 914
+2015-12-07 17:53:45.107: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.107: [Sync] Received Customer #69 of 914
+2015-12-07 17:53:45.122: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.122: Received SynchronizeCustomer
+2015-12-07 17:53:45.122: [Sync] Received Customer #70 of 914
+2015-12-07 17:53:45.122: Append SynchronizeCustomer
+2015-12-07 17:53:45.185: Received SynchronizeCustomer
+2015-12-07 17:53:45.185: Append SynchronizeCustomer
+2015-12-07 17:53:45.247: Received SynchronizeCustomer
+2015-12-07 17:53:45.247: Append SynchronizeCustomer
+2015-12-07 17:53:45.31: Received SynchronizeCustomer
+2015-12-07 17:53:45.31: Append SynchronizeCustomer
+2015-12-07 17:53:45.326: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.326: [Sync] Received Customer #71 of 914
+2015-12-07 17:53:45.326: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.326: [Sync] Received Customer #72 of 914
+2015-12-07 17:53:45.341: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.341: [Sync] Received Customer #73 of 914
+2015-12-07 17:53:45.341: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.341: [Sync] Received Customer #74 of 914
+2015-12-07 17:53:45.372: Received SynchronizeCustomer
+2015-12-07 17:53:45.372: Append SynchronizeCustomer
+2015-12-07 17:53:45.435: Received SynchronizeCustomer
+2015-12-07 17:53:45.435: Append SynchronizeCustomer
+2015-12-07 17:53:45.497: Received SynchronizeCustomer
+2015-12-07 17:53:45.497: Append SynchronizeCustomer
+2015-12-07 17:53:45.56: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.56: Received SynchronizeCustomer
+2015-12-07 17:53:45.56: [Sync] Received Customer #75 of 914
+2015-12-07 17:53:45.56: Append SynchronizeCustomer
+2015-12-07 17:53:45.576: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.576: [Sync] Received Customer #76 of 914
+2015-12-07 17:53:45.576: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.591: [Sync] Received Customer #77 of 914
+2015-12-07 17:53:45.591: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.591: [Sync] Received Customer #78 of 914
+2015-12-07 17:53:45.622: Received SynchronizeCustomer
+2015-12-07 17:53:45.622: Append SynchronizeCustomer
+2015-12-07 17:53:45.685: Received SynchronizeCustomer
+2015-12-07 17:53:45.685: Append SynchronizeCustomer
+2015-12-07 17:53:45.747: Received SynchronizeCustomer
+2015-12-07 17:53:45.747: Append SynchronizeCustomer
+2015-12-07 17:53:45.794: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.794: [Sync] Received Customer #79 of 914
+2015-12-07 17:53:45.794: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.794: [Sync] Received Customer #80 of 914
+2015-12-07 17:53:45.81: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:45.81: Received SynchronizeCustomer
+2015-12-07 17:53:45.81: [Sync] Received Customer #81 of 914
+2015-12-07 17:53:45.826: Append SynchronizeCustomer
+2015-12-07 17:53:45.872: Received SynchronizeCustomer
+2015-12-07 17:53:45.872: Append SynchronizeCustomer
+2015-12-07 17:53:45.935: Received SynchronizeCustomer
+2015-12-07 17:53:45.935: Append SynchronizeCustomer
+2015-12-07 17:53:45.997: Received SynchronizeCustomer
+2015-12-07 17:53:45.997: Append SynchronizeCustomer
+2015-12-07 17:53:46.029: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.029: [Sync] Received Customer #82 of 914
+2015-12-07 17:53:46.029: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.029: [Sync] Received Customer #83 of 914
+2015-12-07 17:53:46.044: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.044: [Sync] Received Customer #84 of 914
+2015-12-07 17:53:46.044: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.06: [Sync] Received Customer #85 of 914
+2015-12-07 17:53:46.06: Received SynchronizeCustomer
+2015-12-07 17:53:46.06: Append SynchronizeCustomer
+2015-12-07 17:53:46.122: Received SynchronizeCustomer
+2015-12-07 17:53:46.122: Append SynchronizeCustomer
+2015-12-07 17:53:46.185: Received SynchronizeCustomer
+2015-12-07 17:53:46.185: Append SynchronizeCustomer
+2015-12-07 17:53:46.247: Received SynchronizeCustomer
+2015-12-07 17:53:46.247: Append SynchronizeCustomer
+2015-12-07 17:53:46.263: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.263: [Sync] Received Customer #86 of 914
+2015-12-07 17:53:46.263: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.263: [Sync] Received Customer #87 of 914
+2015-12-07 17:53:46.279: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.279: [Sync] Received Customer #88 of 914
+2015-12-07 17:53:46.279: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.279: [Sync] Received Customer #89 of 914
+2015-12-07 17:53:46.31: Received SynchronizeCustomer
+2015-12-07 17:53:46.31: Append SynchronizeCustomer
+2015-12-07 17:53:46.372: Received SynchronizeCustomer
+2015-12-07 17:53:46.372: Append SynchronizeCustomer
+2015-12-07 17:53:46.435: Received SynchronizeCustomer
+2015-12-07 17:53:46.435: Append SynchronizeCustomer
+2015-12-07 17:53:46.497: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.497: Received SynchronizeCustomer
+2015-12-07 17:53:46.497: [Sync] Received Customer #90 of 914
+2015-12-07 17:53:46.497: Append SynchronizeCustomer
+2015-12-07 17:53:46.513: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.513: [Sync] Received Customer #91 of 914
+2015-12-07 17:53:46.513: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.513: [Sync] Received Customer #92 of 914
+2015-12-07 17:53:46.529: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.529: [Sync] Received Customer #93 of 914
+2015-12-07 17:53:46.56: Received SynchronizeCustomer
+2015-12-07 17:53:46.56: Append SynchronizeCustomer
+2015-12-07 17:53:46.622: Received SynchronizeCustomer
+2015-12-07 17:53:46.622: Append SynchronizeCustomer
+2015-12-07 17:53:46.685: Received SynchronizeCustomer
+2015-12-07 17:53:46.685: Append SynchronizeCustomer
+2015-12-07 17:53:46.732: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.732: [Sync] Received Customer #94 of 914
+2015-12-07 17:53:46.732: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.732: [Sync] Received Customer #95 of 914
+2015-12-07 17:53:46.747: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.747: Received SynchronizeCustomer
+2015-12-07 17:53:46.747: [Sync] Received Customer #96 of 914
+2015-12-07 17:53:46.763: Append SynchronizeCustomer
+2015-12-07 17:53:46.81: Received SynchronizeCustomer
+2015-12-07 17:53:46.81: Append SynchronizeCustomer
+2015-12-07 17:53:46.872: Received SynchronizeCustomer
+2015-12-07 17:53:46.872: Append SynchronizeCustomer
+2015-12-07 17:53:46.935: Received SynchronizeCustomer
+2015-12-07 17:53:46.935: Append SynchronizeCustomer
+2015-12-07 17:53:46.966: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.966: [Sync] Received Customer #97 of 914
+2015-12-07 17:53:46.966: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.966: [Sync] Received Customer #98 of 914
+2015-12-07 17:53:46.982: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.982: [Sync] Received Customer #99 of 914
+2015-12-07 17:53:46.982: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:46.982: [Sync] Received Customer #100 of 914
+2015-12-07 17:53:46.997: Received SynchronizeCustomer
+2015-12-07 17:53:46.997: Append SynchronizeCustomer
+2015-12-07 17:53:47.06: Received SynchronizeCustomer
+2015-12-07 17:53:47.06: Append SynchronizeCustomer
+2015-12-07 17:53:47.122: Received SynchronizeCustomer
+2015-12-07 17:53:47.122: Append SynchronizeCustomer
+2015-12-07 17:53:47.185: Received SynchronizeCustomer
+2015-12-07 17:53:47.185: Append SynchronizeCustomer
+2015-12-07 17:53:47.201: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.201: [Sync] Received Customer #101 of 914
+2015-12-07 17:53:47.201: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.201: [Sync] Received Customer #102 of 914
+2015-12-07 17:53:47.216: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.216: [Sync] Received Customer #103 of 914
+2015-12-07 17:53:47.216: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.216: [Sync] Received Customer #104 of 914
+2015-12-07 17:53:47.247: Received SynchronizeCustomer
+2015-12-07 17:53:47.247: Append SynchronizeCustomer
+2015-12-07 17:53:47.31: Received SynchronizeCustomer
+2015-12-07 17:53:47.31: Append SynchronizeCustomer
+2015-12-07 17:53:47.372: Received SynchronizeCustomer
+2015-12-07 17:53:47.372: Append SynchronizeCustomer
+2015-12-07 17:53:47.435: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.435: Received SynchronizeCustomer
+2015-12-07 17:53:47.435: [Sync] Received Customer #105 of 914
+2015-12-07 17:53:47.435: Append SynchronizeCustomer
+2015-12-07 17:53:47.451: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.451: [Sync] Received Customer #106 of 914
+2015-12-07 17:53:47.451: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.451: [Sync] Received Customer #107 of 914
+2015-12-07 17:53:47.466: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.466: [Sync] Received Customer #108 of 914
+2015-12-07 17:53:47.497: Received SynchronizeCustomer
+2015-12-07 17:53:47.497: Append SynchronizeCustomer
+2015-12-07 17:53:47.56: Received SynchronizeCustomer
+2015-12-07 17:53:47.56: Append SynchronizeCustomer
+2015-12-07 17:53:47.622: Received SynchronizeCustomer
+2015-12-07 17:53:47.622: Append SynchronizeCustomer
+2015-12-07 17:53:47.669: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.669: [Sync] Received Customer #109 of 914
+2015-12-07 17:53:47.669: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.669: [Sync] Received Customer #110 of 914
+2015-12-07 17:53:47.685: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.685: Received SynchronizeCustomer
+2015-12-07 17:53:47.685: [Sync] Received Customer #111 of 914
+2015-12-07 17:53:47.701: Append SynchronizeCustomer
+2015-12-07 17:53:47.747: Received SynchronizeCustomer
+2015-12-07 17:53:47.747: Append SynchronizeCustomer
+2015-12-07 17:53:47.81: Received SynchronizeCustomer
+2015-12-07 17:53:47.81: Append SynchronizeCustomer
+2015-12-07 17:53:47.872: Received SynchronizeCustomer
+2015-12-07 17:53:47.872: Append SynchronizeCustomer
+2015-12-07 17:53:47.904: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.904: [Sync] Received Customer #112 of 914
+2015-12-07 17:53:47.904: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.904: [Sync] Received Customer #113 of 914
+2015-12-07 17:53:47.919: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.919: [Sync] Received Customer #114 of 914
+2015-12-07 17:53:47.935: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:47.935: Received SynchronizeCustomer
+2015-12-07 17:53:47.935: [Sync] Received Customer #115 of 914
+2015-12-07 17:53:47.935: Append SynchronizeCustomer
+2015-12-07 17:53:47.997: Received SynchronizeCustomer
+2015-12-07 17:53:47.997: Append SynchronizeCustomer
+2015-12-07 17:53:48.063: Received SynchronizeCustomer
+2015-12-07 17:53:48.067: Append SynchronizeCustomer
+2015-12-07 17:53:48.125: Received SynchronizeCustomer
+2015-12-07 17:53:48.125: Append SynchronizeCustomer
+2015-12-07 17:53:48.14: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.14: [Sync] Received Customer #116 of 914
+2015-12-07 17:53:48.14: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.14: [Sync] Received Customer #117 of 914
+2015-12-07 17:53:48.156: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.156: [Sync] Received Customer #118 of 914
+2015-12-07 17:53:48.156: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.156: [Sync] Received Customer #119 of 914
+2015-12-07 17:53:48.187: Received SynchronizeCustomer
+2015-12-07 17:53:48.187: Append SynchronizeCustomer
+2015-12-07 17:53:48.25: Received SynchronizeCustomer
+2015-12-07 17:53:48.25: Append SynchronizeCustomer
+2015-12-07 17:53:48.312: Received SynchronizeCustomer
+2015-12-07 17:53:48.312: Append SynchronizeCustomer
+2015-12-07 17:53:48.375: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.375: Received SynchronizeCustomer
+2015-12-07 17:53:48.375: [Sync] Received Customer #120 of 914
+2015-12-07 17:53:48.375: Append SynchronizeCustomer
+2015-12-07 17:53:48.39: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.39: [Sync] Received Customer #121 of 914
+2015-12-07 17:53:48.39: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.39: [Sync] Received Customer #122 of 914
+2015-12-07 17:53:48.409: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.413: [Sync] Received Customer #123 of 914
+2015-12-07 17:53:48.425: Received SynchronizeCustomer
+2015-12-07 17:53:48.425: Append SynchronizeCustomer
+2015-12-07 17:53:48.488: Received SynchronizeCustomer
+2015-12-07 17:53:48.488: Append SynchronizeCustomer
+2015-12-07 17:53:48.55: Received SynchronizeCustomer
+2015-12-07 17:53:48.55: Append SynchronizeCustomer
+2015-12-07 17:53:48.613: Received SynchronizeCustomer
+2015-12-07 17:53:48.613: Append SynchronizeCustomer
+2015-12-07 17:53:48.629: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.629: [Sync] Received Customer #124 of 914
+2015-12-07 17:53:48.629: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.629: [Sync] Received Customer #125 of 914
+2015-12-07 17:53:48.644: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.644: [Sync] Received Customer #126 of 914
+2015-12-07 17:53:48.644: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.644: [Sync] Received Customer #127 of 914
+2015-12-07 17:53:48.675: Received SynchronizeCustomer
+2015-12-07 17:53:48.675: Append SynchronizeCustomer
+2015-12-07 17:53:48.738: Received SynchronizeCustomer
+2015-12-07 17:53:48.738: Append SynchronizeCustomer
+2015-12-07 17:53:48.8: Received SynchronizeCustomer
+2015-12-07 17:53:48.8: Append SynchronizeCustomer
+2015-12-07 17:53:48.863: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.863: Received SynchronizeCustomer
+2015-12-07 17:53:48.863: [Sync] Received Customer #128 of 914
+2015-12-07 17:53:48.879: Append SynchronizeCustomer
+2015-12-07 17:53:48.879: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.894: [Sync] Received Customer #129 of 914
+2015-12-07 17:53:48.894: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.894: [Sync] Received Customer #130 of 914
+2015-12-07 17:53:48.894: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:48.91: [Sync] Received Customer #131 of 914
+2015-12-07 17:53:48.925: Received SynchronizeCustomer
+2015-12-07 17:53:48.925: Append SynchronizeCustomer
+2015-12-07 17:53:48.988: Received SynchronizeCustomer
+2015-12-07 17:53:48.988: Append SynchronizeCustomer
+2015-12-07 17:53:49.05: Received SynchronizeCustomer
+2015-12-07 17:53:49.05: Append SynchronizeCustomer
+2015-12-07 17:53:49.113: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.113: Received SynchronizeCustomer
+2015-12-07 17:53:49.113: [Sync] Received Customer #132 of 914
+2015-12-07 17:53:49.113: Append SynchronizeCustomer
+2015-12-07 17:53:49.129: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.129: [Sync] Received Customer #133 of 914
+2015-12-07 17:53:49.129: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.129: [Sync] Received Customer #134 of 914
+2015-12-07 17:53:49.144: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.144: [Sync] Received Customer #135 of 914
+2015-12-07 17:53:49.175: Received SynchronizeCustomer
+2015-12-07 17:53:49.175: Append SynchronizeCustomer
+2015-12-07 17:53:49.238: Received SynchronizeCustomer
+2015-12-07 17:53:49.238: Append SynchronizeCustomer
+2015-12-07 17:53:49.3: Received SynchronizeCustomer
+2015-12-07 17:53:49.3: Append SynchronizeCustomer
+2015-12-07 17:53:49.347: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.347: [Sync] Received Customer #136 of 914
+2015-12-07 17:53:49.347: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.347: [Sync] Received Customer #137 of 914
+2015-12-07 17:53:49.363: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.363: Received SynchronizeCustomer
+2015-12-07 17:53:49.363: [Sync] Received Customer #138 of 914
+2015-12-07 17:53:49.363: Append SynchronizeCustomer
+2015-12-07 17:53:49.425: Received SynchronizeCustomer
+2015-12-07 17:53:49.425: Append SynchronizeCustomer
+2015-12-07 17:53:49.488: Received SynchronizeCustomer
+2015-12-07 17:53:49.488: Append SynchronizeCustomer
+2015-12-07 17:53:49.55: Received SynchronizeCustomer
+2015-12-07 17:53:49.55: Append SynchronizeCustomer
+2015-12-07 17:53:49.566: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.566: [Sync] Received Customer #139 of 914
+2015-12-07 17:53:49.566: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.566: [Sync] Received Customer #140 of 914
+2015-12-07 17:53:49.582: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.582: [Sync] Received Customer #141 of 914
+2015-12-07 17:53:49.582: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.582: [Sync] Received Customer #142 of 914
+2015-12-07 17:53:49.613: Received SynchronizeCustomer
+2015-12-07 17:53:49.613: Append SynchronizeCustomer
+2015-12-07 17:53:49.675: Received SynchronizeCustomer
+2015-12-07 17:53:49.675: Append SynchronizeCustomer
+2015-12-07 17:53:49.743: Received SynchronizeCustomer
+2015-12-07 17:53:49.748: Append SynchronizeCustomer
+2015-12-07 17:53:49.797: Received SynchronizeCustomer
+2015-12-07 17:53:49.801: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.805: Append SynchronizeCustomer
+2015-12-07 17:53:49.811: [Sync] Received Customer #143 of 914
+2015-12-07 17:53:49.816: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.821: [Sync] Received Customer #144 of 914
+2015-12-07 17:53:49.826: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.831: [Sync] Received Customer #145 of 914
+2015-12-07 17:53:49.835: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:49.84: [Sync] Received Customer #146 of 914
+2015-12-07 17:53:49.85: Received SynchronizeCustomer
+2015-12-07 17:53:49.854: Append SynchronizeCustomer
+2015-12-07 17:53:49.902: Received SynchronizeCustomer
+2015-12-07 17:53:49.906: Append SynchronizeCustomer
+2015-12-07 17:53:49.959: Received SynchronizeCustomer
+2015-12-07 17:53:49.959: Append SynchronizeCustomer
+2015-12-07 17:53:50.021: Received SynchronizeCustomer
+2015-12-07 17:53:50.021: Append SynchronizeCustomer
+2015-12-07 17:53:50.052: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.052: [Sync] Received Customer #147 of 914
+2015-12-07 17:53:50.052: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.052: [Sync] Received Customer #148 of 914
+2015-12-07 17:53:50.068: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.068: [Sync] Received Customer #149 of 914
+2015-12-07 17:53:50.068: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.068: [Sync] Received Customer #150 of 914
+2015-12-07 17:53:50.084: Received SynchronizeCustomer
+2015-12-07 17:53:50.084: Append SynchronizeCustomer
+2015-12-07 17:53:50.146: Received SynchronizeCustomer
+2015-12-07 17:53:50.146: Append SynchronizeCustomer
+2015-12-07 17:53:50.209: Received SynchronizeCustomer
+2015-12-07 17:53:50.209: Append SynchronizeCustomer
+2015-12-07 17:53:50.271: Received SynchronizeCustomer
+2015-12-07 17:53:50.271: Append SynchronizeCustomer
+2015-12-07 17:53:50.287: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.287: [Sync] Received Customer #151 of 914
+2015-12-07 17:53:50.287: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.287: [Sync] Received Customer #152 of 914
+2015-12-07 17:53:50.302: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.302: [Sync] Received Customer #153 of 914
+2015-12-07 17:53:50.302: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.318: [Sync] Received Customer #154 of 914
+2015-12-07 17:53:50.334: Received SynchronizeCustomer
+2015-12-07 17:53:50.334: Append SynchronizeCustomer
+2015-12-07 17:53:50.396: Received SynchronizeCustomer
+2015-12-07 17:53:50.396: Append SynchronizeCustomer
+2015-12-07 17:53:50.459: Received SynchronizeCustomer
+2015-12-07 17:53:50.459: Append SynchronizeCustomer
+2015-12-07 17:53:50.521: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.521: Received SynchronizeCustomer
+2015-12-07 17:53:50.521: [Sync] Received Customer #155 of 914
+2015-12-07 17:53:50.521: Append SynchronizeCustomer
+2015-12-07 17:53:50.537: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.537: [Sync] Received Customer #156 of 914
+2015-12-07 17:53:50.537: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.537: [Sync] Received Customer #157 of 914
+2015-12-07 17:53:50.552: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.552: [Sync] Received Customer #158 of 914
+2015-12-07 17:53:50.584: Received SynchronizeCustomer
+2015-12-07 17:53:50.584: Append SynchronizeCustomer
+2015-12-07 17:53:50.646: Received SynchronizeCustomer
+2015-12-07 17:53:50.646: Append SynchronizeCustomer
+2015-12-07 17:53:50.709: Received SynchronizeCustomer
+2015-12-07 17:53:50.709: Append SynchronizeCustomer
+2015-12-07 17:53:50.756: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.756: [Sync] Received Customer #159 of 914
+2015-12-07 17:53:50.756: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.756: [Sync] Received Customer #160 of 914
+2015-12-07 17:53:50.771: Received SynchronizeCustomer
+2015-12-07 17:53:50.771: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.771: Append SynchronizeCustomer
+2015-12-07 17:53:50.787: [Sync] Received Customer #161 of 914
+2015-12-07 17:53:50.787: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.787: [Sync] Received Customer #162 of 914
+2015-12-07 17:53:50.834: Received SynchronizeCustomer
+2015-12-07 17:53:50.834: Append SynchronizeCustomer
+2015-12-07 17:53:50.896: Received SynchronizeCustomer
+2015-12-07 17:53:50.896: Append SynchronizeCustomer
+2015-12-07 17:53:50.959: Received SynchronizeCustomer
+2015-12-07 17:53:50.959: Append SynchronizeCustomer
+2015-12-07 17:53:50.99: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.99: [Sync] Received Customer #163 of 914
+2015-12-07 17:53:50.99: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:50.99: [Sync] Received Customer #164 of 914
+2015-12-07 17:53:51.006: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.006: [Sync] Received Customer #165 of 914
+2015-12-07 17:53:51.021: Received SynchronizeCustomer
+2015-12-07 17:53:51.021: Append SynchronizeCustomer
+2015-12-07 17:53:51.084: Received SynchronizeCustomer
+2015-12-07 17:53:51.084: Append SynchronizeCustomer
+2015-12-07 17:53:51.146: Received SynchronizeCustomer
+2015-12-07 17:53:51.146: Append SynchronizeCustomer
+2015-12-07 17:53:51.209: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.209: Received SynchronizeCustomer
+2015-12-07 17:53:51.209: [Sync] Received Customer #166 of 914
+2015-12-07 17:53:51.209: Append SynchronizeCustomer
+2015-12-07 17:53:51.224: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.224: [Sync] Received Customer #167 of 914
+2015-12-07 17:53:51.224: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.224: [Sync] Received Customer #168 of 914
+2015-12-07 17:53:51.24: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.24: [Sync] Received Customer #169 of 914
+2015-12-07 17:53:51.271: Received SynchronizeCustomer
+2015-12-07 17:53:51.271: Append SynchronizeCustomer
+2015-12-07 17:53:51.334: Received SynchronizeCustomer
+2015-12-07 17:53:51.334: Append SynchronizeCustomer
+2015-12-07 17:53:51.396: Received SynchronizeCustomer
+2015-12-07 17:53:51.396: Append SynchronizeCustomer
+2015-12-07 17:53:51.443: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.443: [Sync] Received Customer #170 of 914
+2015-12-07 17:53:51.443: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.443: [Sync] Received Customer #171 of 914
+2015-12-07 17:53:51.459: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.459: Received SynchronizeCustomer
+2015-12-07 17:53:51.459: [Sync] Received Customer #172 of 914
+2015-12-07 17:53:51.474: Append SynchronizeCustomer
+2015-12-07 17:53:51.521: Received SynchronizeCustomer
+2015-12-07 17:53:51.521: Append SynchronizeCustomer
+2015-12-07 17:53:51.584: Received SynchronizeCustomer
+2015-12-07 17:53:51.584: Append SynchronizeCustomer
+2015-12-07 17:53:51.646: Received SynchronizeCustomer
+2015-12-07 17:53:51.646: Append SynchronizeCustomer
+2015-12-07 17:53:51.677: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.677: [Sync] Received Customer #173 of 914
+2015-12-07 17:53:51.677: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.677: [Sync] Received Customer #174 of 914
+2015-12-07 17:53:51.693: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.693: [Sync] Received Customer #175 of 914
+2015-12-07 17:53:51.693: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.693: [Sync] Received Customer #176 of 914
+2015-12-07 17:53:51.709: Received SynchronizeCustomer
+2015-12-07 17:53:51.709: Append SynchronizeCustomer
+2015-12-07 17:53:51.771: Received SynchronizeCustomer
+2015-12-07 17:53:51.771: Append SynchronizeCustomer
+2015-12-07 17:53:51.834: Received SynchronizeCustomer
+2015-12-07 17:53:51.834: Append SynchronizeCustomer
+2015-12-07 17:53:51.896: Received SynchronizeCustomer
+2015-12-07 17:53:51.896: Append SynchronizeCustomer
+2015-12-07 17:53:51.912: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.912: [Sync] Received Customer #177 of 914
+2015-12-07 17:53:51.912: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.912: [Sync] Received Customer #178 of 914
+2015-12-07 17:53:51.927: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.927: [Sync] Received Customer #179 of 914
+2015-12-07 17:53:51.927: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:51.943: [Sync] Received Customer #180 of 914
+2015-12-07 17:53:51.959: Received SynchronizeCustomer
+2015-12-07 17:53:51.959: Append SynchronizeCustomer
+2015-12-07 17:53:52.021: Received SynchronizeCustomer
+2015-12-07 17:53:52.021: Append SynchronizeCustomer
+2015-12-07 17:53:52.084: Received SynchronizeCustomer
+2015-12-07 17:53:52.084: Append SynchronizeCustomer
+2015-12-07 17:53:52.146: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.146: Received SynchronizeCustomer
+2015-12-07 17:53:52.146: [Sync] Received Customer #181 of 914
+2015-12-07 17:53:52.146: Append SynchronizeCustomer
+2015-12-07 17:53:52.162: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.162: [Sync] Received Customer #182 of 914
+2015-12-07 17:53:52.162: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.162: [Sync] Received Customer #183 of 914
+2015-12-07 17:53:52.177: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.177: [Sync] Received Customer #184 of 914
+2015-12-07 17:53:52.209: Received SynchronizeCustomer
+2015-12-07 17:53:52.209: Append SynchronizeCustomer
+2015-12-07 17:53:52.271: Received SynchronizeCustomer
+2015-12-07 17:53:52.271: Append SynchronizeCustomer
+2015-12-07 17:53:52.334: Received SynchronizeCustomer
+2015-12-07 17:53:52.334: Append SynchronizeCustomer
+2015-12-07 17:53:52.381: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.381: [Sync] Received Customer #185 of 914
+2015-12-07 17:53:52.381: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.381: [Sync] Received Customer #186 of 914
+2015-12-07 17:53:52.396: Received SynchronizeCustomer
+2015-12-07 17:53:52.396: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.396: Append SynchronizeCustomer
+2015-12-07 17:53:52.412: [Sync] Received Customer #187 of 914
+2015-12-07 17:53:52.412: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.412: [Sync] Received Customer #188 of 914
+2015-12-07 17:53:52.459: Received SynchronizeCustomer
+2015-12-07 17:53:52.459: Append SynchronizeCustomer
+2015-12-07 17:53:52.521: Received SynchronizeCustomer
+2015-12-07 17:53:52.521: Append SynchronizeCustomer
+2015-12-07 17:53:52.584: Received SynchronizeCustomer
+2015-12-07 17:53:52.584: Append SynchronizeCustomer
+2015-12-07 17:53:52.615: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.615: [Sync] Received Customer #189 of 914
+2015-12-07 17:53:52.615: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.615: [Sync] Received Customer #190 of 914
+2015-12-07 17:53:52.631: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.631: [Sync] Received Customer #191 of 914
+2015-12-07 17:53:52.646: Received SynchronizeCustomer
+2015-12-07 17:53:52.646: Append SynchronizeCustomer
+2015-12-07 17:53:52.709: Received SynchronizeCustomer
+2015-12-07 17:53:52.709: Append SynchronizeCustomer
+2015-12-07 17:53:52.771: Received SynchronizeCustomer
+2015-12-07 17:53:52.771: Append SynchronizeCustomer
+2015-12-07 17:53:52.834: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.834: Received SynchronizeCustomer
+2015-12-07 17:53:52.834: [Sync] Received Customer #192 of 914
+2015-12-07 17:53:52.849: Append SynchronizeCustomer
+2015-12-07 17:53:52.849: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.849: [Sync] Received Customer #193 of 914
+2015-12-07 17:53:52.849: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.865: [Sync] Received Customer #194 of 914
+2015-12-07 17:53:52.865: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:52.865: [Sync] Received Customer #195 of 914
+2015-12-07 17:53:52.896: Received SynchronizeCustomer
+2015-12-07 17:53:52.896: Append SynchronizeCustomer
+2015-12-07 17:53:52.959: Received SynchronizeCustomer
+2015-12-07 17:53:52.959: Append SynchronizeCustomer
+2015-12-07 17:53:53.021: Received SynchronizeCustomer
+2015-12-07 17:53:53.021: Append SynchronizeCustomer
+2015-12-07 17:53:53.084: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.089: Received SynchronizeCustomer
+2015-12-07 17:53:53.093: [Sync] Received Customer #196 of 914
+2015-12-07 17:53:53.097: Append SynchronizeCustomer
+2015-12-07 17:53:53.101: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.107: [Sync] Received Customer #197 of 914
+2015-12-07 17:53:53.111: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.115: [Sync] Received Customer #198 of 914
+2015-12-07 17:53:53.119: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.124: [Sync] Received Customer #199 of 914
+2015-12-07 17:53:53.137: Received SynchronizeCustomer
+2015-12-07 17:53:53.142: Append SynchronizeCustomer
+2015-12-07 17:53:53.19: Received SynchronizeCustomer
+2015-12-07 17:53:53.194: Append SynchronizeCustomer
+2015-12-07 17:53:53.243: Received SynchronizeCustomer
+2015-12-07 17:53:53.25: Append SynchronizeCustomer
+2015-12-07 17:53:53.307: Received SynchronizeCustomer
+2015-12-07 17:53:53.307: Append SynchronizeCustomer
+2015-12-07 17:53:53.338: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.338: [Sync] Received Customer #200 of 914
+2015-12-07 17:53:53.338: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.338: [Sync] Received Customer #201 of 914
+2015-12-07 17:53:53.354: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.354: [Sync] Received Customer #202 of 914
+2015-12-07 17:53:53.354: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.354: [Sync] Received Customer #203 of 914
+2015-12-07 17:53:53.369: Received SynchronizeCustomer
+2015-12-07 17:53:53.369: Append SynchronizeCustomer
+2015-12-07 17:53:53.432: Received SynchronizeCustomer
+2015-12-07 17:53:53.432: Append SynchronizeCustomer
+2015-12-07 17:53:53.494: Received SynchronizeCustomer
+2015-12-07 17:53:53.494: Append SynchronizeCustomer
+2015-12-07 17:53:53.557: Received SynchronizeCustomer
+2015-12-07 17:53:53.557: Append SynchronizeCustomer
+2015-12-07 17:53:53.573: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.573: [Sync] Received Customer #204 of 914
+2015-12-07 17:53:53.573: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.573: [Sync] Received Customer #205 of 914
+2015-12-07 17:53:53.588: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.588: [Sync] Received Customer #206 of 914
+2015-12-07 17:53:53.588: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.588: [Sync] Received Customer #207 of 914
+2015-12-07 17:53:53.619: Received SynchronizeCustomer
+2015-12-07 17:53:53.619: Append SynchronizeCustomer
+2015-12-07 17:53:53.682: Received SynchronizeCustomer
+2015-12-07 17:53:53.682: Append SynchronizeCustomer
+2015-12-07 17:53:53.744: Received SynchronizeCustomer
+2015-12-07 17:53:53.744: Append SynchronizeCustomer
+2015-12-07 17:53:53.807: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.807: Received SynchronizeCustomer
+2015-12-07 17:53:53.807: [Sync] Received Customer #208 of 914
+2015-12-07 17:53:53.807: Append SynchronizeCustomer
+2015-12-07 17:53:53.823: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.823: [Sync] Received Customer #209 of 914
+2015-12-07 17:53:53.823: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.838: [Sync] Received Customer #210 of 914
+2015-12-07 17:53:53.838: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:53.838: [Sync] Received Customer #211 of 914
+2015-12-07 17:53:53.869: Received SynchronizeCustomer
+2015-12-07 17:53:53.869: Append SynchronizeCustomer
+2015-12-07 17:53:53.924: Received SynchronizeCustomer
+2015-12-07 17:53:53.929: Append SynchronizeCustomer
+2015-12-07 17:53:53.978: Received SynchronizeCustomer
+2015-12-07 17:53:53.983: Append SynchronizeCustomer
+2015-12-07 17:53:54.031: Received SynchronizeCustomer
+2015-12-07 17:53:54.035: Append SynchronizeCustomer
+2015-12-07 17:53:54.054: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.06: [Sync] Received Customer #212 of 914
+2015-12-07 17:53:54.06: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.06: [Sync] Received Customer #213 of 914
+2015-12-07 17:53:54.06: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.075: [Sync] Received Customer #214 of 914
+2015-12-07 17:53:54.075: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.075: [Sync] Received Customer #215 of 914
+2015-12-07 17:53:54.091: Received SynchronizeCustomer
+2015-12-07 17:53:54.091: Append SynchronizeCustomer
+2015-12-07 17:53:54.153: Received SynchronizeCustomer
+2015-12-07 17:53:54.153: Append SynchronizeCustomer
+2015-12-07 17:53:54.216: Received SynchronizeCustomer
+2015-12-07 17:53:54.216: Append SynchronizeCustomer
+2015-12-07 17:53:54.278: Received SynchronizeCustomer
+2015-12-07 17:53:54.278: Append SynchronizeCustomer
+2015-12-07 17:53:54.294: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.294: [Sync] Received Customer #216 of 914
+2015-12-07 17:53:54.294: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.294: [Sync] Received Customer #217 of 914
+2015-12-07 17:53:54.341: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.341: Received SynchronizeCustomer
+2015-12-07 17:53:54.341: [Sync] Received Customer #218 of 914
+2015-12-07 17:53:54.341: Append SynchronizeCustomer
+2015-12-07 17:53:54.356: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.356: [Sync] Received Customer #219 of 914
+2015-12-07 17:53:54.356: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.372: [Sync] Received Customer #220 of 914
+2015-12-07 17:53:54.403: Received SynchronizeCustomer
+2015-12-07 17:53:54.403: Append SynchronizeCustomer
+2015-12-07 17:53:54.466: Received SynchronizeCustomer
+2015-12-07 17:53:54.466: Append SynchronizeCustomer
+2015-12-07 17:53:54.528: Received SynchronizeCustomer
+2015-12-07 17:53:54.528: Append SynchronizeCustomer
+2015-12-07 17:53:54.575: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.575: [Sync] Received Customer #221 of 914
+2015-12-07 17:53:54.575: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.575: [Sync] Received Customer #222 of 914
+2015-12-07 17:53:54.591: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.591: Received SynchronizeCustomer
+2015-12-07 17:53:54.591: [Sync] Received Customer #223 of 914
+2015-12-07 17:53:54.591: Append SynchronizeCustomer
+2015-12-07 17:53:54.653: Received SynchronizeCustomer
+2015-12-07 17:53:54.653: Append SynchronizeCustomer
+2015-12-07 17:53:54.716: Received SynchronizeCustomer
+2015-12-07 17:53:54.716: Append SynchronizeCustomer
+2015-12-07 17:53:54.778: Received SynchronizeCustomer
+2015-12-07 17:53:54.778: Append SynchronizeCustomer
+2015-12-07 17:53:54.794: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.794: [Sync] Received Customer #224 of 914
+2015-12-07 17:53:54.808: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.817: [Sync] Received Customer #225 of 914
+2015-12-07 17:53:54.826: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.833: Received SynchronizeCustomer
+2015-12-07 17:53:54.84: [Sync] Received Customer #226 of 914
+2015-12-07 17:53:54.846: Append SynchronizeCustomer
+2015-12-07 17:53:54.851: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.856: [Sync] Received Customer #227 of 914
+2015-12-07 17:53:54.861: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:54.865: [Sync] Received Customer #228 of 914
+2015-12-07 17:53:54.885: Received SynchronizeCustomer
+2015-12-07 17:53:54.891: Append SynchronizeCustomer
+2015-12-07 17:53:54.939: Received SynchronizeCustomer
+2015-12-07 17:53:54.945: Append SynchronizeCustomer
+2015-12-07 17:53:54.992: Received SynchronizeCustomer
+2015-12-07 17:53:54.998: Append SynchronizeCustomer
+2015-12-07 17:53:55.05: Received SynchronizeCustomer
+2015-12-07 17:53:55.05: Append SynchronizeCustomer
+2015-12-07 17:53:55.081: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.081: [Sync] Received Customer #229 of 914
+2015-12-07 17:53:55.081: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.081: [Sync] Received Customer #230 of 914
+2015-12-07 17:53:55.097: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.097: [Sync] Received Customer #231 of 914
+2015-12-07 17:53:55.097: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.113: Received SynchronizeCustomer
+2015-12-07 17:53:55.113: [Sync] Received Customer #232 of 914
+2015-12-07 17:53:55.113: Append SynchronizeCustomer
+2015-12-07 17:53:55.175: Received SynchronizeCustomer
+2015-12-07 17:53:55.175: Append SynchronizeCustomer
+2015-12-07 17:53:55.238: Received SynchronizeCustomer
+2015-12-07 17:53:55.238: Append SynchronizeCustomer
+2015-12-07 17:53:55.3: Received SynchronizeCustomer
+2015-12-07 17:53:55.3: Append SynchronizeCustomer
+2015-12-07 17:53:55.316: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.316: [Sync] Received Customer #233 of 914
+2015-12-07 17:53:55.316: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.316: [Sync] Received Customer #234 of 914
+2015-12-07 17:53:55.331: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.331: [Sync] Received Customer #235 of 914
+2015-12-07 17:53:55.331: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 17:53:55.331: [Sync] Received Customer #236 of 914
+2015-12-07 17:53:55.363: Received SynchronizeCustomer
+2015-12-07 17:53:55.363: Append SynchronizeCustomer
+2015-12-07 17:53:55.416: Received SynchronizeCustomer
+2015-12-07 17:53:55.42: Append SynchronizeCustomer
+2015-12-07 18:01:56.563: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:04:38.512: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:06:22.914: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:07:34.744: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:08:48.838: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:09:30.717: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:10:03.269: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:11:55.867: UDPReplicaToReplicaManagerThread - Binding to port 4509 for 127.0.0.1
+2015-12-07 18:12:00.039: Received SynchronizeCustomer
+2015-12-07 18:12:00.195: Received SynchronizeCustomer
+2015-12-07 18:12:00.21: Append SynchronizeCustomer
+2015-12-07 18:12:00.226: Received SynchronizeCustomer
+2015-12-07 18:12:00.226: Append SynchronizeCustomer
+2015-12-07 18:12:00.242: [Sync] Received SynchronizeCustomer from 127.0.0.1:4529
+2015-12-07 18:12:00.242: Received SynchronizeCustomer
+2015-12-07 18:12:00.257: Thread Ended: Invalid Object processOpenAccount
+2015-12-07 18:12:00.257: Append SynchronizeCustomer
+2015-12-07 18:12:00.273: Thread Ended.
+2015-12-07 18:12:00.273: Received SynchronizeCustomer
+2015-12-07 18:12:00.289: Append SynchronizeCustomer
+2015-12-07 18:12:00.304: Received SynchronizeCustomer
+2015-12-07 18:12:00.304: Append SynchronizeCustomer
+2015-12-07 18:12:00.32: Received SynchronizeCustomer
+2015-12-07 18:12:00.335: Append SynchronizeCustomer
+2015-12-07 18:12:00.335: Received SynchronizeCustomer
+2015-12-07 18:12:00.351: Append SynchronizeCustomer
+2015-12-07 18:12:00.351: Received SynchronizeCustomer
+2015-12-07 18:12:00.367: Append SynchronizeCustomer
+2015-12-07 18:12:00.367: Received SynchronizeCustomer
+2015-12-07 18:12:00.382: Append SynchronizeCustomer
+2015-12-07 18:12:00.382: Received SynchronizeCustomer
+2015-12-07 18:12:00.398: Append SynchronizeCustomer
+2015-12-07 18:12:00.414: Received SynchronizeCustomer
+2015-12-07 18:12:00.414: Append SynchronizeCustomer
+2015-12-07 18:12:00.429: Received SynchronizeCustomer
+2015-12-07 18:12:00.429: Append SynchronizeCustomer
+2015-12-07 18:12:00.445: Received SynchronizeCustomer
+2015-12-07 18:12:00.445: Append SynchronizeCustomer
+2015-12-07 18:12:00.46: Received SynchronizeCustomer
+2015-12-07 18:12:00.476: Append SynchronizeCustomer
+2015-12-07 18:12:00.476: Received SynchronizeCustomer
+2015-12-07 18:12:00.492: Append SynchronizeCustomer
+2015-12-07 18:12:00.492: Received SynchronizeCustomer
+2015-12-07 18:12:00.507: Append SynchronizeCustomer
+2015-12-07 18:12:00.507: Received SynchronizeCustomer
+2015-12-07 18:12:00.523: Append SynchronizeCustomer
+2015-12-07 18:12:00.523: Received SynchronizeCustomer
+2015-12-07 18:12:00.539: Append SynchronizeCustomer
+2015-12-07 18:12:00.554: Received SynchronizeCustomer
+2015-12-07 18:12:00.554: Append SynchronizeCustomer
+2015-12-07 18:12:00.554: Received SynchronizeCustomer
+2015-12-07 18:12:00.57: Append SynchronizeCustomer
+2015-12-07 18:12:00.585: Received SynchronizeCustomer
+2015-12-07 18:12:00.585: Append SynchronizeCustomer
+2015-12-07 18:12:00.585: Received SynchronizeCustomer
+2015-12-07 18:12:00.601: Append SynchronizeCustomer
+2015-12-07 18:12:00.617: Received SynchronizeCustomer
+2015-12-07 18:12:00.617: Append SynchronizeCustomer
+2015-12-07 18:12:00.632: Received SynchronizeCustomer
+2015-12-07 18:12:00.632: Append SynchronizeCustomer
+2015-12-07 18:12:00.648: Received SynchronizeCustomer
+2015-12-07 18:12:00.648: Append SynchronizeCustomer
+2015-12-07 18:12:00.648: Received SynchronizeCustomer
+2015-12-07 18:12:00.664: Append SynchronizeCustomer
+2015-12-07 18:12:00.664: Received SynchronizeCustomer
+2015-12-07 18:12:00.679: Append SynchronizeCustomer
+2015-12-07 18:12:00.679: Received SynchronizeCustomer
+2015-12-07 18:12:00.695: Append SynchronizeCustomer
+2015-12-07 18:12:00.695: Received SynchronizeCustomer
+2015-12-07 18:12:00.695: Append SynchronizeCustomer
+2015-12-07 18:12:00.71: Received SynchronizeCustomer
+2015-12-07 18:12:00.71: Append SynchronizeCustomer
+2015-12-07 18:12:00.726: Received SynchronizeCustomer
+2015-12-07 18:12:00.726: Append SynchronizeCustomer
+2015-12-07 18:12:00.742: Received SynchronizeCustomer
+2015-12-07 18:12:00.742: Append SynchronizeCustomer
+2015-12-07 18:12:00.742: Received SynchronizeCustomer
+2015-12-07 18:12:00.757: Append SynchronizeCustomer
+2015-12-07 18:12:00.757: Received SynchronizeCustomer
+2015-12-07 18:12:00.773: Append SynchronizeCustomer
+2015-12-07 18:12:00.773: Received SynchronizeCustomer
+2015-12-07 18:12:00.789: Append SynchronizeCustomer
+2015-12-07 18:12:00.804: Received SynchronizeCustomer
+2015-12-07 18:12:00.804: Append SynchronizeCustomer
+2015-12-07 18:12:00.82: Received SynchronizeCustomer
+2015-12-07 18:12:00.82: Append SynchronizeCustomer
+2015-12-07 18:12:00.82: Received SynchronizeCustomer
+2015-12-07 18:12:00.835: Append SynchronizeCustomer
+2015-12-07 18:12:00.835: Received SynchronizeCustomer
+2015-12-07 18:12:00.835: Append SynchronizeCustomer
+2015-12-07 18:12:00.851: Received SynchronizeCustomer
+2015-12-07 18:12:00.851: Append SynchronizeCustomer
+2015-12-07 18:12:00.851: Received SynchronizeCustomer
+2015-12-07 18:12:00.867: Append SynchronizeCustomer
+2015-12-07 18:12:00.867: Received SynchronizeCustomer
+2015-12-07 18:12:00.867: Append SynchronizeCustomer
+2015-12-07 18:12:00.882: Received SynchronizeCustomer
+2015-12-07 18:12:00.882: Append SynchronizeCustomer
+2015-12-07 18:12:00.882: Received SynchronizeCustomer
+2015-12-07 18:12:00.898: Append SynchronizeCustomer
+2015-12-07 18:12:00.898: Received SynchronizeCustomer
+2015-12-07 18:12:00.898: Append SynchronizeCustomer
+2015-12-07 18:12:00.898: Received SynchronizeCustomer
+2015-12-07 18:12:00.914: Append SynchronizeCustomer
+2015-12-07 18:12:00.914: Received SynchronizeCustomer
+2015-12-07 18:12:00.914: Append SynchronizeCustomer
+2015-12-07 18:12:00.929: Received SynchronizeCustomer
+2015-12-07 18:12:00.929: Append SynchronizeCustomer
+2015-12-07 18:12:00.929: Received SynchronizeCustomer
+2015-12-07 18:12:00.945: Append SynchronizeCustomer
+2015-12-07 18:12:00.945: Received SynchronizeCustomer
+2015-12-07 18:12:00.945: Append SynchronizeCustomer
+2015-12-07 18:12:00.96: Received SynchronizeCustomer
+2015-12-07 18:12:00.96: Append SynchronizeCustomer
+2015-12-07 18:12:00.96: Received SynchronizeCustomer
+2015-12-07 18:12:00.96: Append SynchronizeCustomer
+2015-12-07 18:12:00.976: Received SynchronizeCustomer
+2015-12-07 18:12:00.976: Append SynchronizeCustomer
+2015-12-07 18:12:00.976: Received SynchronizeCustomer
+2015-12-07 18:12:00.992: Append SynchronizeCustomer
+2015-12-07 18:12:00.992: Received SynchronizeCustomer
+2015-12-07 18:12:00.992: Append SynchronizeCustomer
+2015-12-07 18:12:01.007: Received SynchronizeCustomer
+2015-12-07 18:12:01.007: Append SynchronizeCustomer
+2015-12-07 18:12:01.007: Received SynchronizeCustomer
+2015-12-07 18:12:01.007: Append SynchronizeCustomer
+2015-12-07 18:12:01.023: Received SynchronizeCustomer
+2015-12-07 18:12:01.023: Append SynchronizeCustomer
+2015-12-07 18:12:01.023: Received SynchronizeCustomer
+2015-12-07 18:12:01.039: Append SynchronizeCustomer
+2015-12-07 18:12:01.039: Received SynchronizeCustomer
+2015-12-07 18:12:01.039: Append SynchronizeCustomer
+2015-12-07 18:12:01.054: Received SynchronizeCustomer
+2015-12-07 18:12:01.054: Append SynchronizeCustomer
+2015-12-07 18:12:01.054: Received SynchronizeCustomer
+2015-12-07 18:12:01.07: Append SynchronizeCustomer
+2015-12-07 18:12:01.07: Received SynchronizeCustomer
+2015-12-07 18:12:01.07: Append SynchronizeCustomer
+2015-12-07 18:12:01.07: Received SynchronizeCustomer
+2015-12-07 18:12:01.085: Append SynchronizeCustomer
+2015-12-07 18:12:01.085: Received SynchronizeCustomer
+2015-12-07 18:12:01.101: Append SynchronizeCustomer
+2015-12-07 18:12:01.101: Received SynchronizeCustomer
+2015-12-07 18:12:01.101: Append SynchronizeCustomer
+2015-12-07 18:12:01.117: Received SynchronizeCustomer
+2015-12-07 18:12:01.117: Append SynchronizeCustomer
+2015-12-07 18:12:01.117: Received SynchronizeCustomer
+2015-12-07 18:12:01.117: Append SynchronizeCustomer
+2015-12-07 18:12:01.132: Received SynchronizeCustomer
+2015-12-07 18:12:01.132: Append SynchronizeCustomer
+2015-12-07 18:12:01.132: Received SynchronizeCustomer
+2015-12-07 18:12:01.148: Append SynchronizeCustomer
+2015-12-07 18:12:01.148: Received SynchronizeCustomer
+2015-12-07 18:12:01.148: Append SynchronizeCustomer
+2015-12-07 18:12:01.148: Received SynchronizeCustomer
+2015-12-07 18:12:01.164: Append SynchronizeCustomer
+2015-12-07 18:12:01.164: Received SynchronizeCustomer
+2015-12-07 18:12:01.164: Append SynchronizeCustomer
+2015-12-07 18:12:01.179: Received SynchronizeCustomer
+2015-12-07 18:12:01.179: Append SynchronizeCustomer
+2015-12-07 18:12:01.195: Received SynchronizeCustomer
+2015-12-07 18:12:01.195: Append SynchronizeCustomer
+2015-12-07 18:12:01.195: Received SynchronizeCustomer
+2015-12-07 18:12:01.21: Append SynchronizeCustomer
+2015-12-07 18:12:01.21: Received SynchronizeCustomer
+2015-12-07 18:12:01.226: Append SynchronizeCustomer
+2015-12-07 18:12:01.226: Received SynchronizeCustomer
+2015-12-07 18:12:01.226: Append SynchronizeCustomer
+2015-12-07 18:12:01.242: Received SynchronizeCustomer
+2015-12-07 18:12:01.242: Append SynchronizeCustomer
+2015-12-07 18:12:01.242: Received SynchronizeCustomer
+2015-12-07 18:12:01.257: Append SynchronizeCustomer
+2015-12-07 18:12:01.257: Received SynchronizeCustomer
+2015-12-07 18:12:01.257: Append SynchronizeCustomer
+2015-12-07 18:12:01.257: Received SynchronizeCustomer
+2015-12-07 18:12:01.273: Append SynchronizeCustomer
+2015-12-07 18:12:01.273: Received SynchronizeCustomer
+2015-12-07 18:12:01.273: Append SynchronizeCustomer
+2015-12-07 18:12:01.289: Received SynchronizeCustomer
+2015-12-07 18:12:01.289: Append SynchronizeCustomer
+2015-12-07 18:12:01.289: Received SynchronizeCustomer
+2015-12-07 18:12:01.304: Append SynchronizeCustomer
+2015-12-07 18:12:01.304: Received SynchronizeCustomer
+2015-12-07 18:12:01.304: Append SynchronizeCustomer
+2015-12-07 18:12:01.32: Received SynchronizeCustomer
+2015-12-07 18:12:01.32: Append SynchronizeCustomer
+2015-12-07 18:12:01.32: Received SynchronizeCustomer
+2015-12-07 18:12:01.335: Append SynchronizeCustomer
+2015-12-07 18:12:01.335: Received SynchronizeCustomer
+2015-12-07 18:12:01.335: Append SynchronizeCustomer
+2015-12-07 18:12:01.351: Received SynchronizeCustomer
+2015-12-07 18:12:01.351: Append SynchronizeCustomer
+2015-12-07 18:12:01.351: Received SynchronizeCustomer
+2015-12-07 18:12:01.372: Append SynchronizeCustomer
+2015-12-07 18:12:01.379: Received SynchronizeCustomer
+2015-12-07 18:12:01.385: Append SynchronizeCustomer
+2015-12-07 18:12:01.39: Received SynchronizeCustomer
+2015-12-07 18:12:01.396: Append SynchronizeCustomer

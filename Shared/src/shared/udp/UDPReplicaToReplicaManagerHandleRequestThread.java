@@ -60,10 +60,10 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		this.receivedDatagram = request;
 		this.receivedUdpMessage = udpMessage;
 		this.key = key;
-		this.timer = new Timer();
+		//this.timer = new Timer();
 
 		UDPReplicaToReplicaManagerHandleRequestThread current = this;
-		timer.schedule(new TimerTask() {
+		/*timer.schedule(new TimerTask() {
 
             @Override
             public void run() {
@@ -74,7 +74,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
                 	delaySeconds = 0;
             	}
             }
-        }, 0, 1000);
+        }, 0, 1000);*/
 		
 		t = new Thread(this);
 		t.start();
@@ -110,8 +110,8 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	}
 
 	private void terminateThread() {
-		timer.cancel();
-		timer = null;
+		//timer.cancel();
+		//timer = null;
 		// ending
 		if(receivedLoansList == null)
 		{
@@ -133,20 +133,20 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	}
 
 	private boolean lastPacketReceived() {
-		if(receivedLoansList[receivedLoansList.length-1] == null)
+		if(receivedLoansList == null || receivedLoansList[receivedLoansList.length-1] == null)
 			return false;
 		
-		if(receivedCustomersList[receivedCustomersList.length - 1] == null)
+		if(receivedCustomersList == null || receivedCustomersList[receivedCustomersList.length - 1] == null)
 			return false;
 		
 		return true;
 	}
 	
 	private boolean canProcessEndOfSynchronise() {
-		if(receivedLoansList[receivedLoansList.length-1] == null)
+		if(receivedLoansList == null || receivedLoansList[receivedLoansList.length-1] == null)
 			return false;
 		
-		if(receivedCustomersList[receivedCustomersList.length - 1] == null)
+		if(receivedCustomersList == null || receivedCustomersList[receivedCustomersList.length - 1] == null)
 			return false;
 		
 		for(Loan l : receivedLoansList)
@@ -236,6 +236,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		}
 		catch (Exception e)
 		{
+			Env.log("Error send " + e.getMessage());
 			// handled by the parent function
 			throw e;
 		}
@@ -255,6 +256,11 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 				// process request that are in queue
 				this.receivedUdpMessage = null;
 				this.receivedDatagram = null;
+
+				if(this.receivedUdpMessageList.size() == 0)
+				{
+					Thread.sleep(200);
+				}
 				synchronized(this.receivedUdpMessageList)
 				{
 					if(this.receivedUdpMessageList.size() > 0)
@@ -267,8 +273,10 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		}
 		catch (Exception e)
 		{
+			Env.log("Thread Ended: " + e.getMessage());
 			lastError = e;
 		}
+		Env.log("Thread Ended.");
     }
 	
 	/**
@@ -333,7 +341,23 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 							state.getNextSequenceNumber());
 
 					sentLoansList[nCount] = new UDPMessage(udpMsgLoan);
+					Env.log("Send Loan #" + nCount);
 					send(sentLoansList[nCount++], requestAddr, requestPort);
+				}
+				if(loanList.size() == 0)
+				{
+					SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
+							Env.getMachineName(),
+							this.bank.getServerName(),
+							null, 
+							nCount, 
+							loanList.size(), 
+							false, 
+							state.getNextLoanID(), 
+							state.getNextSequenceNumber());
+
+					Env.log("Send Loan none");
+					send(new UDPMessage(udpMsgLoan), requestAddr, requestPort);
 				}
 
 				nCount = 0;
@@ -344,13 +368,29 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 							this.bank.getServerName(),
 							customer, 
 							nCount, 
-							loanList.size(), 
+							customerList.size(), 
 							false, 
 							state.getNextCustomerID(), 
 							state.getNextSequenceNumber());
 
 					sentCustomersList[nCount] = new UDPMessage(udpMsgCustomer);
+					//Env.log("Send Customer #" + nCount);
 					send(sentCustomersList[nCount++], requestAddr, requestPort);
+				}
+				if(customerList.size() == 0)
+				{
+					SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
+							Env.getMachineName(),
+							this.bank.getServerName(),
+							null, 
+							nCount, 
+							customerList.size(), 
+							false, 
+							state.getNextCustomerID(), 
+							state.getNextSequenceNumber());
+
+					Env.log("Send Customer none");
+					send(new UDPMessage(udpMsgCustomer), requestAddr, requestPort);
 				}
 			}
 		}
@@ -387,7 +427,10 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 					{
 						this.receivedLoansList = new Loan[msg.getAmountLoans()];
 					}
-					this.receivedLoansList[msg.getPosLoan()] = msg.getLoan();
+					if(msg.getLoan() != null)
+					{
+						this.receivedLoansList[msg.getPosLoan()] = msg.getLoan();
+					}
 					nextLoanID = msg.getNextLoanID();
 					nextSequenceID = msg.getNextSequenceID();
 					
@@ -397,7 +440,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		}
 		else
 		{
-			throw new Exception("Invalid Object processOpenAccount");
+			throw new Exception("Invalid Object processRequestLoan");
 		}
 	}
 	
@@ -427,7 +470,10 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 					{
 						this.receivedCustomersList = new Customer[msg.getAmountCustomer()];
 					}
-					this.receivedCustomersList[msg.getPosCustomer()] = msg.getCustomer();
+					if(msg.getCustomer() != null)
+					{
+						this.receivedCustomersList[msg.getPosCustomer()] = msg.getCustomer();
+					}
 					verifyDataReceived();
 					nextCustomerID = msg.getNextCustomerID();
 					nextSequenceID = msg.getNextSequenceID();
@@ -436,7 +482,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		}
 		else
 		{
-			throw new Exception("Invalid Object processOpenAccount");
+			throw new Exception("Invalid Object processRequestCustomer");
 		}
 	}
 
