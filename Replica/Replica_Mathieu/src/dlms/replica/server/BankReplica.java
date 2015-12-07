@@ -28,7 +28,11 @@ import dlms.replica.model.ThreadSafeHashMap;
 import dlms.replica.udpmessage.MessageResponseLoanSum;
 import dlms.replica.udpmessage.MessageResponseTransferLoan;
 import shared.data.AbstractServerBank;
+//import shared.data.Bank;
 import shared.data.BankState;
+import shared.data.ServerInfo;
+import shared.util.Constant;
+import shared.util.Env;
 
 
 /**
@@ -39,6 +43,8 @@ import shared.data.BankState;
  *
  */
 public class BankReplica extends AbstractServerBank {
+	
+	private static final boolean ENABLE_FILE_LOGGING = false;
 	
 	private BankReplicaStubGroup group = null;
 	private Logger logger = null;
@@ -53,7 +59,7 @@ public class BankReplica extends AbstractServerBank {
 	 * @param id
 	 * @param addr
 	 */
-	public BankReplica(String bankId, BankReplicaStubGroup replicaStubs) {
+	public BankReplica(String bankId, BankReplicaStubGroup replicaStubs, int sequencerListenerPort) {
 
 		this.group = replicaStubs;
 		this.bank = new Bank(bankId, replicaStubs.get(bankId).addr);
@@ -63,34 +69,34 @@ public class BankReplica extends AbstractServerBank {
 		// Set up the logger
 		this.logger = Logger.getLogger(this.bank.getId());
 
-//	    FileHandler fh;  
-//	    try {
-//	        fh = new FileHandler(this.bank.getTextId() + "-log.txt");  
-//	        logger.addHandler(fh);
-//	        SimpleFormatter formatter = new SimpleFormatter();  
-//	        fh.setFormatter(formatter);  
-//	        logger.info(this.bank.getTextId() + " logger started");  
-//	    } catch (SecurityException e) {  
-//	        e.printStackTrace();
-//	        System.exit(1);
-//	    } catch (IOException e) {  
-//	        e.printStackTrace(); 
-//	        System.exit(1);
-//	    }
+		if (ENABLE_FILE_LOGGING) {
+		    FileHandler fh;  
+		    try {
+		        fh = new FileHandler(this.bank.getTextId() + "-log.txt");  
+		        logger.addHandler(fh);
+		        SimpleFormatter formatter = new SimpleFormatter();  
+		        fh.setFormatter(formatter);  
+		        logger.info(this.bank.getTextId() + " logger started");  
+		    } catch (SecurityException e) {  
+		        e.printStackTrace();
+		        System.exit(1);
+		    } catch (IOException e) {  
+		        e.printStackTrace(); 
+		        System.exit(1);
+		    }
+		}
 
-		
 		// Start the bank's sequencer's UDP listener
 		try {
-			udpServer = new UDPServerThread("Mat Replica Implementation", 9001);
+			udpServer = new UDPServerThread("Mat Replica Implementation", sequencerListenerPort);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		udpServer.start();
 
-		
 	    // Start the bank's UDP listener
-		logger.info(this.bank.getId() + ": Starting UDP Listener");
+		logger.info(this.bank.getId() + ": Starting UDP Listener for bank " + bankId);
 		udpListener = new UdpListener(this.bank, this.logger);
 		udpListenerThread = new Thread(udpListener);
 		udpListenerThread.start();

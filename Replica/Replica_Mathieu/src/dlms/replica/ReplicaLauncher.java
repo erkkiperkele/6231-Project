@@ -33,7 +33,7 @@ public class ReplicaLauncher {
 		// Establish the bank details and add them all to a group
 		// this will be passed to each replica so that they know of each others'
 		// existence
-		
+
 		ServerInfo bank1Info = Env.getReplicaIntranetServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.Royal);
 		ServerInfo bank2Info = Env.getReplicaIntranetServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.National);
 		ServerInfo bank3Info = Env.getReplicaIntranetServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.Dominion);
@@ -51,6 +51,8 @@ public class ReplicaLauncher {
 			bankName = args[0];
 		}
 
-		new BankReplica(bankName, replicaStubs);
+		ServerInfo thisBankInfo = Env.getReplicaServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.fromString(bankName));
+		
+		new BankReplica(bankName, replicaStubs, thisBankInfo.getPort());
 	}
 }

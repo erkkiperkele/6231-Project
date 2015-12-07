@@ -11,9 +11,10 @@ import java.util.logging.Logger;
 import shared.data.ServerInfo;
 import shared.udp.Serializer;
 import shared.udp.UDPMessage;
+import shared.util.Constant;
 import shared.util.Env;
 
-public class ReplicaManagerListener {
+public class ReplicaManagerListener extends Thread {
 
 //	private static final String FE_HOST = "localhost";
 //	private static final int FE_PORT = 15000;
@@ -38,8 +39,7 @@ public class ReplicaManagerListener {
 	public void run() {
 
 		DatagramSocket serverSocket = null;
-		ServerInfo feInfo = Env.getFrontEndServerInfo();
-		InetSocketAddress localAddr = new InetSocketAddress(feInfo.getIpAddress(), feInfo.getPort());
+		InetSocketAddress localAddr = new InetSocketAddress(Constant.FE_TO_RM_LISTENER_HOST, Constant.FE_TO_RM_LISTENER_PORT);
 
 		try {
 
@@ -52,7 +52,7 @@ public class ReplicaManagerListener {
 				// LISTENER
 				//
 				
-				logger.info("FrontEnd: Waiting for replica messages on " + feInfo.getIpAddress() + ":" + feInfo.getPort());
+				logger.info("FrontEnd: Waiting for replica manager messages on " + Constant.FE_TO_RM_LISTENER_HOST + ":" + Constant.FE_TO_RM_LISTENER_PORT);
 				
 				receiveData = new byte[UDP_PACKET_SIZE];
 				final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
@@ -60,37 +60,37 @@ public class ReplicaManagerListener {
 				// Wait for the packet
 				serverSocket.receive(receivePacket);
 				
-				logger.info("FrontEnd: Received a UDP message from a replica");
+				//logger.info("FrontEnd: Received a UDP message from a replica manager");
 				
 				// Received a request. Place it in the receiving data variable and parse it
 				byte[] data = new byte[receivePacket.getLength()];
 		        System.arraycopy(receivePacket.getData(), receivePacket.getOffset(), data, 0, receivePacket.getLength());
 
-		        UDPMessage message = null;
-				try {
-					message = (UDPMessage) Serializer.deserialize(data);
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-		        // Get the sequence number for this message and add it to the appropriate queue
-		        long sequenceNbr = message.getSequenceNumber();
-		        BlockingQueue<UDPMessage> queue = opThreadPool.get(sequenceNbr);
-		        // If the queue doesn't exist, then this packet is probably a duplicate and late. Just discard it.
-				if (queue == null) {
-					logger.info("FrontEnd: Received a UDP message from a replica with sequence number " + sequenceNbr
-							+ " but no queue exists");
-					continue;
-				}
-
-				// Add the message to the queue and move on
-				try {
-					queue.put(message);
-				} catch (InterruptedException e) {
-					// TODO: Catch this properly
-					e.printStackTrace();
-				}
+//		        UDPMessage message = null;
+//				try {
+//					message = (UDPMessage) Serializer.deserialize(data);
+//				} catch (ClassNotFoundException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				
+//		        // Get the sequence number for this message and add it to the appropriate queue
+//		        long sequenceNbr = message.getSequenceNumber();
+//		        BlockingQueue<UDPMessage> queue = opThreadPool.get(sequenceNbr);
+//		        // If the queue doesn't exist, then this packet is probably a duplicate and late. Just discard it.
+//				if (queue == null) {
+//					logger.info("FrontEnd: Received a UDP message from a replica with sequence number " + sequenceNbr
+//							+ " but no queue exists");
+//					continue;
+//				}
+//
+//				// Add the message to the queue and move on
+//				try {
+//					queue.put(message);
+//				} catch (InterruptedException e) {
+//					// TODO: Catch this properly
+//					e.printStackTrace();
+//				}
 			}
 
 		} catch (final SocketException e) {
@@ -101,40 +101,4 @@ public class ReplicaManagerListener {
 			System.exit(1);
 		} finally {if(serverSocket != null) serverSocket.close();}
 	}
-
-	/**
-	 * Front end UDP responder to the replicas to acknowledge the reception of an operation result
-	 */
-//	private void ReplyAck(DatagramSocket serverSocket, InetAddress remoteAddr, int remotePort) {
-//
-//		//
-//		// RESPONDER
-//		//
-//
-//		// Create the ACK object message
-//		ReplyMessage<Integer> replyMsg = new ReplyMessage<Integer>(true, "", 0);
-//		
-//        // Prepare the response
-//		byte[] sendData = new byte[UDP_PACKET_SIZE];
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        ObjectOutputStream oos;
-//		try {
-//			oos = new ObjectOutputStream(baos);
-//			oos.writeObject(replyMsg);
-//			sendData = baos.toByteArray();
-//			baos.close();
-//	        oos.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//			return;
-//		}
-//
-//		final DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, remoteAddr, remotePort);
-//		
-//		try {
-//			serverSocket.send(sendPacket);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
 }
