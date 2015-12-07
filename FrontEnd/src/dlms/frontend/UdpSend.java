@@ -16,7 +16,8 @@ import java.util.concurrent.Callable;
 public class UdpSend implements Callable<Boolean> {
 
 	private static final int MAX_BUFFER_SIZE = 4096;
-	private byte[] payload = new byte[4096];
+	
+	private byte[] payload = new byte[MAX_BUFFER_SIZE];
 	private InetSocketAddress remoteAddr;
 
 	/**
