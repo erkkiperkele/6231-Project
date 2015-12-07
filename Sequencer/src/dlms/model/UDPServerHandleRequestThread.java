@@ -1,6 +1,5 @@
 package dlms.model;
 
-import shared.data.ServerPorts;
 import shared.udp.UDPMessage;
 import shared.util.Env;
 
