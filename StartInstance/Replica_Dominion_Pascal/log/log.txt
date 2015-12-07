@@ -22,3 +22,1136 @@
 2015-12-06 18:53:45.056: FINE Starting server service for pascal
 2015-12-06 18:53:45.056: FINE Loading Loans and Customers files
 2015-12-06 18:53:45.056: FINE Starting UDP port 4524
+2015-12-06 21:27:41.366: Server Started <pascal> Dominion
+2015-12-06 21:27:41.403: FINE Starting server service for pascal
+2015-12-06 21:27:41.407: FINE Loading Loans and Customers files
+2015-12-06 21:27:41.407: FINE Starting UDP port 4524
+2015-12-06 21:28:09.909: [Sync] Received RequestSynchronize from 127.0.0.1:52936
+2015-12-06 21:35:51.553: Server Started <pascal> Dominion
+2015-12-06 21:35:51.596: FINE Starting server service for pascal
+2015-12-06 21:35:51.598: FINE Loading Loans and Customers files
+2015-12-06 21:35:51.599: FINE Starting UDP port 4524
+2015-12-06 21:36:15.29: [Sync] Received RequestSynchronize from 127.0.0.1:52981
+2015-12-06 21:41:49.1: Server Started <pascal> Dominion
+2015-12-06 21:41:49.125: FINE Starting server service for pascal
+2015-12-06 21:41:49.127: FINE Loading Loans and Customers files
+2015-12-06 21:41:49.128: FINE Starting UDP port 4524
+2015-12-06 21:42:12.521: [Sync] Received RequestSynchronize from 127.0.0.1:57509
+2015-12-06 21:43:46.924: [Sync] Received RequestSynchronize from 127.0.0.1:57517
+2015-12-06 22:04:14.139: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1
+2015-12-06 22:04:14.145: FINE openAccount(Pascal,Tozzi)
+2015-12-06 22:04:14.147: FINE Pascal,Tozzi: Adding the account.
+2015-12-06 22:04:14.165: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2
+2015-12-06 22:04:14.166: FINE openAccount(Pascal0,Tozzi0)
+2015-12-06 22:04:14.18: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:3
+2015-12-06 22:04:14.181: FINE openAccount(Pascal1,Tozzi1)
+2015-12-06 22:04:14.195: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:4
+2015-12-06 22:04:14.196: FINE openAccount(Pascal2,Tozzi2)
+2015-12-06 22:04:14.22: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:5
+2015-12-06 22:04:14.221: FINE openAccount(Pascal3,Tozzi3)
+2015-12-06 22:04:14.226: FINE Pascal,Tozzi: Commit() to XML
+2015-12-06 22:04:14.248: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:6
+2015-12-06 22:04:14.249: FINE openAccount(Pascal4,Tozzi4)
+2015-12-06 22:04:14.25: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:7
+2015-12-06 22:04:14.252: FINE openAccount(Pascal5,Tozzi5)
+2015-12-06 22:04:14.275: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:8
+2015-12-06 22:04:14.276: FINE openAccount(Pascal6,Tozzi6)
+2015-12-06 22:04:14.277: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:9
+2015-12-06 22:04:14.279: FINE openAccount(Pascal7,Tozzi7)
+2015-12-06 22:04:14.28: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:10
+2015-12-06 22:04:14.28: FINE openAccount(Pascal8,Tozzi8)
+2015-12-06 22:04:14.29: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:11
+2015-12-06 22:04:14.291: FINE openAccount(Pascal9,Tozzi9)
+2015-12-06 22:04:14.295: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:12
+2015-12-06 22:04:14.296: FINE openAccount(Pascal10,Tozzi10)
+2015-12-06 22:04:14.301: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:13
+2015-12-06 22:04:14.303: FINE openAccount(Pascal11,Tozzi11)
+2015-12-06 22:04:14.306: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:14
+2015-12-06 22:04:14.307: FINE openAccount(Pascal12,Tozzi12)
+2015-12-06 22:04:14.311: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:15
+2015-12-06 22:04:14.312: FINE openAccount(Pascal13,Tozzi13)
+2015-12-06 22:04:14.313: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:16
+2015-12-06 22:04:14.314: FINE openAccount(Pascal14,Tozzi14)
+2015-12-06 22:04:14.318: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:17
+2015-12-06 22:04:14.32: FINE openAccount(Pascal15,Tozzi15)
+2015-12-06 22:04:14.322: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:18
+2015-12-06 22:04:14.322: FINE openAccount(Pascal16,Tozzi16)
+2015-12-06 22:04:14.325: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:19
+2015-12-06 22:04:14.326: FINE openAccount(Pascal17,Tozzi17)
+2015-12-06 22:04:14.332: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:20
+2015-12-06 22:04:14.333: FINE openAccount(Pascal18,Tozzi18)
+2015-12-06 22:04:14.346: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:21
+2015-12-06 22:04:14.346: FINE openAccount(Pascal19,Tozzi19)
+2015-12-06 22:04:14.349: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:22
+2015-12-06 22:04:14.35: FINE openAccount(Pascal20,Tozzi20)
+2015-12-06 22:04:14.356: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:23
+2015-12-06 22:04:14.357: FINE openAccount(Pascal21,Tozzi21)
+2015-12-06 22:04:14.36: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:24
+2015-12-06 22:04:14.361: FINE openAccount(Pascal22,Tozzi22)
+2015-12-06 22:04:14.362: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:25
+2015-12-06 22:04:14.363: FINE openAccount(Pascal23,Tozzi23)
+2015-12-06 22:04:14.365: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:26
+2015-12-06 22:04:14.366: FINE openAccount(Pascal24,Tozzi24)
+2015-12-06 22:04:14.368: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:27
+2015-12-06 22:04:14.369: FINE openAccount(Pascal25,Tozzi25)
+2015-12-06 22:04:14.371: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:28
+2015-12-06 22:04:14.372: FINE openAccount(Pascal26,Tozzi26)
+2015-12-06 22:04:14.373: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:29
+2015-12-06 22:04:14.374: FINE openAccount(Pascal27,Tozzi27)
+2015-12-06 22:04:14.376: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:30
+2015-12-06 22:04:14.376: FINE openAccount(Pascal28,Tozzi28)
+2015-12-06 22:04:14.381: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:31
+2015-12-06 22:04:14.381: FINE openAccount(Pascal29,Tozzi29)
+2015-12-06 22:04:14.383: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:32
+2015-12-06 22:04:14.384: FINE openAccount(Pascal30,Tozzi30)
+2015-12-06 22:04:14.386: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:33
+2015-12-06 22:04:14.387: FINE openAccount(Pascal31,Tozzi31)
+2015-12-06 22:04:14.389: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:34
+2015-12-06 22:04:14.39: FINE openAccount(Pascal32,Tozzi32)
+2015-12-06 22:04:14.391: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:35
+2015-12-06 22:04:14.392: FINE openAccount(Pascal33,Tozzi33)
+2015-12-06 22:04:14.394: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:36
+2015-12-06 22:04:14.432: FINE openAccount(Pascal34,Tozzi34)
+2015-12-06 22:04:14.491: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:37
+2015-12-06 22:04:14.492: FINE openAccount(Pascal35,Tozzi35)
+2015-12-06 22:04:14.493: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:38
+2015-12-06 22:04:14.493: FINE openAccount(Pascal36,Tozzi36)
+2015-12-06 22:04:14.494: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:39
+2015-12-06 22:04:14.494: FINE openAccount(Pascal37,Tozzi37)
+2015-12-06 22:04:14.495: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:40
+2015-12-06 22:04:14.495: FINE openAccount(Pascal38,Tozzi38)
+2015-12-06 22:04:14.496: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:41
+2015-12-06 22:04:14.497: FINE openAccount(Pascal39,Tozzi39)
+2015-12-06 22:04:14.497: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:42
+2015-12-06 22:04:14.538: FINE openAccount(Pascal40,Tozzi40)
+2015-12-06 22:04:14.539: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:43
+2015-12-06 22:04:14.54: FINE openAccount(Pascal41,Tozzi41)
+2015-12-06 22:04:14.54: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:44
+2015-12-06 22:04:14.541: FINE openAccount(Pascal42,Tozzi42)
+2015-12-06 22:04:14.541: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:45
+2015-12-06 22:04:14.542: FINE openAccount(Pascal43,Tozzi43)
+2015-12-06 22:04:14.543: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:46
+2015-12-06 22:04:14.543: FINE openAccount(Pascal44,Tozzi44)
+2015-12-06 22:04:14.544: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:47
+2015-12-06 22:04:14.546: FINE openAccount(Pascal45,Tozzi45)
+2015-12-06 22:04:14.548: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:48
+2015-12-06 22:04:14.55: FINE openAccount(Pascal46,Tozzi46)
+2015-12-06 22:04:14.55: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:49
+2015-12-06 22:04:14.551: FINE openAccount(Pascal47,Tozzi47)
+2015-12-06 22:04:14.552: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:50
+2015-12-06 22:04:14.552: FINE openAccount(Pascal48,Tozzi48)
+2015-12-06 22:04:14.553: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:51
+2015-12-06 22:04:14.553: FINE openAccount(Pascal49,Tozzi49)
+2015-12-06 22:04:14.553: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:52
+2015-12-06 22:04:14.554: FINE openAccount(Pascal50,Tozzi50)
+2015-12-06 22:04:14.554: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:53
+2015-12-06 22:04:14.554: FINE openAccount(Pascal51,Tozzi51)
+2015-12-06 22:04:14.555: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:54
+2015-12-06 22:04:14.556: FINE openAccount(Pascal52,Tozzi52)
+2015-12-06 22:04:14.557: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:55
+2015-12-06 22:04:14.559: FINE openAccount(Pascal53,Tozzi53)
+2015-12-06 22:04:14.56: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:56
+2015-12-06 22:04:14.56: FINE openAccount(Pascal54,Tozzi54)
+2015-12-06 22:04:14.56: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:57
+2015-12-06 22:04:14.562: FINE openAccount(Pascal55,Tozzi55)
+2015-12-06 22:04:14.562: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:58
+2015-12-06 22:04:14.563: FINE openAccount(Pascal56,Tozzi56)
+2015-12-06 22:04:14.563: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:59
+2015-12-06 22:04:14.563: FINE openAccount(Pascal57,Tozzi57)
+2015-12-06 22:04:14.564: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:60
+2015-12-06 22:04:14.564: FINE openAccount(Pascal58,Tozzi58)
+2015-12-06 22:04:14.566: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:61
+2015-12-06 22:04:14.568: FINE openAccount(Pascal59,Tozzi59)
+2015-12-06 22:04:14.568: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:62
+2015-12-06 22:04:14.569: FINE openAccount(Pascal60,Tozzi60)
+2015-12-06 22:04:14.569: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:63
+2015-12-06 22:04:14.569: FINE openAccount(Pascal61,Tozzi61)
+2015-12-06 22:04:14.57: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:64
+2015-12-06 22:04:14.57: FINE openAccount(Pascal62,Tozzi62)
+2015-12-06 22:04:14.57: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:65
+2015-12-06 22:04:14.571: FINE openAccount(Pascal63,Tozzi63)
+2015-12-06 22:04:14.573: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:66
+2015-12-06 22:04:14.576: FINE openAccount(Pascal64,Tozzi64)
+2015-12-06 22:04:14.576: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:67
+2015-12-06 22:04:14.577: FINE openAccount(Pascal65,Tozzi65)
+2015-12-06 22:04:14.578: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:68
+2015-12-06 22:04:14.582: FINE openAccount(Pascal66,Tozzi66)
+2015-12-06 22:04:14.582: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:69
+2015-12-06 22:04:14.584: FINE openAccount(Pascal67,Tozzi67)
+2015-12-06 22:04:14.584: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:70
+2015-12-06 22:04:14.585: FINE openAccount(Pascal68,Tozzi68)
+2015-12-06 22:04:14.586: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:71
+2015-12-06 22:04:14.587: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:72
+2015-12-06 22:04:14.587: FINE openAccount(Pascal69,Tozzi69)
+2015-12-06 22:04:14.587: FINE openAccount(Pascal70,Tozzi70)
+2015-12-06 22:04:14.588: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:73
+2015-12-06 22:04:14.588: FINE openAccount(Pascal71,Tozzi71)
+2015-12-06 22:04:14.589: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:74
+2015-12-06 22:04:14.592: FINE openAccount(Pascal72,Tozzi72)
+2015-12-06 22:04:14.592: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:75
+2015-12-06 22:04:14.593: FINE openAccount(Pascal73,Tozzi73)
+2015-12-06 22:04:14.594: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:76
+2015-12-06 22:04:14.595: FINE openAccount(Pascal74,Tozzi74)
+2015-12-06 22:04:14.599: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:77
+2015-12-06 22:04:14.6: FINE openAccount(Pascal75,Tozzi75)
+2015-12-06 22:04:14.601: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:78
+2015-12-06 22:04:14.604: FINE openAccount(Pascal76,Tozzi76)
+2015-12-06 22:04:14.606: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:79
+2015-12-06 22:04:14.607: FINE openAccount(Pascal77,Tozzi77)
+2015-12-06 22:04:14.607: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:80
+2015-12-06 22:04:14.61: FINE openAccount(Pascal78,Tozzi78)
+2015-12-06 22:04:14.61: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:81
+2015-12-06 22:04:14.611: FINE openAccount(Pascal79,Tozzi79)
+2015-12-06 22:04:14.611: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:82
+2015-12-06 22:04:14.613: FINE openAccount(Pascal80,Tozzi80)
+2015-12-06 22:04:14.616: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:83
+2015-12-06 22:04:14.617: FINE openAccount(Pascal81,Tozzi81)
+2015-12-06 22:04:14.618: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:84
+2015-12-06 22:04:14.618: FINE openAccount(Pascal82,Tozzi82)
+2015-12-06 22:04:14.618: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:85
+2015-12-06 22:04:14.619: FINE openAccount(Pascal83,Tozzi83)
+2015-12-06 22:04:14.62: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:86
+2015-12-06 22:04:14.624: FINE openAccount(Pascal84,Tozzi84)
+2015-12-06 22:04:14.624: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:87
+2015-12-06 22:04:14.625: FINE openAccount(Pascal85,Tozzi85)
+2015-12-06 22:04:14.626: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:88
+2015-12-06 22:04:14.626: FINE openAccount(Pascal86,Tozzi86)
+2015-12-06 22:04:14.627: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:89
+2015-12-06 22:04:14.627: FINE openAccount(Pascal87,Tozzi87)
+2015-12-06 22:04:14.628: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:90
+2015-12-06 22:04:14.628: FINE openAccount(Pascal88,Tozzi88)
+2015-12-06 22:04:14.646: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:91
+2015-12-06 22:04:14.717: FINE openAccount(Pascal89,Tozzi89)
+2015-12-06 22:04:14.766: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:92
+2015-12-06 22:04:14.901: FINE openAccount(Pascal90,Tozzi90)
+2015-12-06 22:04:14.901: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:93
+2015-12-06 22:04:14.902: FINE openAccount(Pascal91,Tozzi91)
+2015-12-06 22:04:14.903: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:94
+2015-12-06 22:04:14.903: FINE openAccount(Pascal92,Tozzi92)
+2015-12-06 22:04:14.903: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:95
+2015-12-06 22:04:14.904: FINE openAccount(Pascal93,Tozzi93)
+2015-12-06 22:04:14.905: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:96
+2015-12-06 22:04:14.905: FINE openAccount(Pascal94,Tozzi94)
+2015-12-06 22:04:14.905: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:97
+2015-12-06 22:04:14.906: FINE openAccount(Pascal95,Tozzi95)
+2015-12-06 22:04:14.906: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:98
+2015-12-06 22:04:14.906: FINE openAccount(Pascal96,Tozzi96)
+2015-12-06 22:04:14.907: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:99
+2015-12-06 22:04:14.907: FINE openAccount(Pascal97,Tozzi97)
+2015-12-06 22:04:14.907: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:100
+2015-12-06 22:04:14.908: FINE openAccount(Pascal98,Tozzi98)
+2015-12-06 22:04:14.908: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:101
+2015-12-06 22:04:14.909: FINE openAccount(Pascal99,Tozzi99)
+2015-12-06 22:04:14.909: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:102
+2015-12-06 22:04:14.909: FINE openAccount(Pascal100,Tozzi100)
+2015-12-06 22:04:14.909: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:103
+2015-12-06 22:04:14.91: FINE openAccount(Pascal101,Tozzi101)
+2015-12-06 22:04:14.911: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:104
+2015-12-06 22:04:14.912: FINE openAccount(Pascal102,Tozzi102)
+2015-12-06 22:04:14.912: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:105
+2015-12-06 22:04:14.913: FINE openAccount(Pascal103,Tozzi103)
+2015-12-06 22:04:14.913: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:106
+2015-12-06 22:04:14.914: FINE openAccount(Pascal104,Tozzi104)
+2015-12-06 22:04:14.914: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:107
+2015-12-06 22:04:14.914: FINE openAccount(Pascal105,Tozzi105)
+2015-12-06 22:04:14.914: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:108
+2015-12-06 22:04:14.917: FINE openAccount(Pascal106,Tozzi106)
+2015-12-06 22:04:14.918: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:109
+2015-12-06 22:04:14.918: FINE openAccount(Pascal107,Tozzi107)
+2015-12-06 22:04:14.918: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:110
+2015-12-06 22:04:14.919: FINE openAccount(Pascal108,Tozzi108)
+2015-12-06 22:04:14.92: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:111
+2015-12-06 22:04:14.92: FINE openAccount(Pascal109,Tozzi109)
+2015-12-06 22:04:14.923: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:112
+2015-12-06 22:04:14.924: FINE Pascal,Tozzi: Created.
+2015-12-06 22:04:15.026: FINE openAccount(Pascal110,Tozzi110)
+2015-12-06 22:04:15.064: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:113
+2015-12-06 22:04:15.087: FINE openAccount(Pascal111,Tozzi111)
+2015-12-06 22:04:15.12: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:114
+2015-12-06 22:04:15.125: FINE openAccount(Pascal112,Tozzi112)
+2015-12-06 22:04:15.126: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:115
+2015-12-06 22:04:15.126: FINE openAccount(Pascal113,Tozzi113)
+2015-12-06 22:04:15.127: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:116
+2015-12-06 22:04:15.149: FINE openAccount(Pascal114,Tozzi114)
+2015-12-06 22:04:15.15: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:117
+2015-12-06 22:04:15.151: FINE openAccount(Pascal115,Tozzi115)
+2015-12-06 22:04:15.151: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:118
+2015-12-06 22:04:15.152: FINE openAccount(Pascal116,Tozzi116)
+2015-12-06 22:04:15.153: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:119
+2015-12-06 22:04:15.153: FINE openAccount(Pascal117,Tozzi117)
+2015-12-06 22:04:15.154: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:120
+2015-12-06 22:04:15.155: FINE openAccount(Pascal118,Tozzi118)
+2015-12-06 22:04:15.167: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:121
+2015-12-06 22:04:15.168: FINE openAccount(Pascal119,Tozzi119)
+2015-12-06 22:04:15.172: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:122
+2015-12-06 22:04:15.173: FINE openAccount(Pascal120,Tozzi120)
+2015-12-06 22:04:15.174: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:123
+2015-12-06 22:04:15.174: FINE openAccount(Pascal121,Tozzi121)
+2015-12-06 22:04:15.186: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:124
+2015-12-06 22:04:15.187: FINE openAccount(Pascal122,Tozzi122)
+2015-12-06 22:04:15.189: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:125
+2015-12-06 22:04:15.19: FINE openAccount(Pascal123,Tozzi123)
+2015-12-06 22:04:15.193: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:126
+2015-12-06 22:04:15.194: FINE openAccount(Pascal124,Tozzi124)
+2015-12-06 22:04:15.195: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:127
+2015-12-06 22:04:15.196: FINE openAccount(Pascal125,Tozzi125)
+2015-12-06 22:04:15.198: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:128
+2015-12-06 22:04:15.199: FINE openAccount(Pascal126,Tozzi126)
+2015-12-06 22:04:15.2: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:129
+2015-12-06 22:04:15.2: FINE openAccount(Pascal127,Tozzi127)
+2015-12-06 22:04:15.202: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:130
+2015-12-06 22:04:15.202: FINE openAccount(Pascal128,Tozzi128)
+2015-12-06 22:04:15.209: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:131
+2015-12-06 22:04:15.211: FINE openAccount(Pascal129,Tozzi129)
+2015-12-06 22:04:15.211: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:132
+2015-12-06 22:04:15.212: FINE openAccount(Pascal130,Tozzi130)
+2015-12-06 22:04:15.212: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:133
+2015-12-06 22:04:15.212: FINE openAccount(Pascal131,Tozzi131)
+2015-12-06 22:04:15.213: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:134
+2015-12-06 22:04:15.213: FINE openAccount(Pascal132,Tozzi132)
+2015-12-06 22:04:15.214: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:135
+2015-12-06 22:04:15.214: FINE openAccount(Pascal133,Tozzi133)
+2015-12-06 22:04:15.214: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:136
+2015-12-06 22:04:15.215: FINE openAccount(Pascal134,Tozzi134)
+2015-12-06 22:04:15.216: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:137
+2015-12-06 22:04:15.216: FINE openAccount(Pascal135,Tozzi135)
+2015-12-06 22:04:15.217: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:138
+2015-12-06 22:04:15.217: FINE openAccount(Pascal136,Tozzi136)
+2015-12-06 22:04:15.218: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:139
+2015-12-06 22:04:15.218: FINE openAccount(Pascal137,Tozzi137)
+2015-12-06 22:04:15.219: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:140
+2015-12-06 22:04:15.219: FINE openAccount(Pascal138,Tozzi138)
+2015-12-06 22:04:15.22: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:141
+2015-12-06 22:04:15.22: FINE openAccount(Pascal139,Tozzi139)
+2015-12-06 22:04:15.22: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:142
+2015-12-06 22:04:15.221: FINE openAccount(Pascal140,Tozzi140)
+2015-12-06 22:04:15.221: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:143
+2015-12-06 22:04:15.222: FINE openAccount(Pascal141,Tozzi141)
+2015-12-06 22:04:15.222: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:144
+2015-12-06 22:04:15.223: FINE openAccount(Pascal142,Tozzi142)
+2015-12-06 22:04:15.223: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:145
+2015-12-06 22:04:15.223: FINE openAccount(Pascal143,Tozzi143)
+2015-12-06 22:04:15.224: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:146
+2015-12-06 22:04:15.224: FINE openAccount(Pascal144,Tozzi144)
+2015-12-06 22:04:15.225: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:149
+2015-12-06 22:04:15.225: FINE openAccount(Pascal147,Tozzi147)
+2015-12-06 22:04:15.225: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:150
+2015-12-06 22:04:15.226: FINE openAccount(Pascal148,Tozzi148)
+2015-12-06 22:04:15.226: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:152
+2015-12-06 22:04:15.227: FINE openAccount(Pascal150,Tozzi150)
+2015-12-06 22:04:15.227: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:154
+2015-12-06 22:04:15.228: FINE openAccount(Pascal152,Tozzi152)
+2015-12-06 22:04:15.228: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:156
+2015-12-06 22:04:15.228: FINE openAccount(Pascal154,Tozzi154)
+2015-12-06 22:04:15.229: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:199
+2015-12-06 22:04:15.229: FINE openAccount(Pascal197,Tozzi197)
+2015-12-06 22:04:15.23: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:200
+2015-12-06 22:04:15.23: FINE openAccount(Pascal198,Tozzi198)
+2015-12-06 22:04:15.231: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:201
+2015-12-06 22:04:15.231: FINE openAccount(Pascal199,Tozzi199)
+2015-12-06 22:04:15.232: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:202
+2015-12-06 22:04:15.232: FINE openAccount(Pascal200,Tozzi200)
+2015-12-06 22:04:15.233: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:203
+2015-12-06 22:04:15.233: FINE openAccount(Pascal201,Tozzi201)
+2015-12-06 22:04:15.234: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:204
+2015-12-06 22:04:15.234: FINE openAccount(Pascal202,Tozzi202)
+2015-12-06 22:04:15.234: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:205
+2015-12-06 22:04:15.235: FINE openAccount(Pascal203,Tozzi203)
+2015-12-06 22:04:15.235: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:206
+2015-12-06 22:04:15.236: FINE openAccount(Pascal204,Tozzi204)
+2015-12-06 22:04:15.237: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:207
+2015-12-06 22:04:15.237: FINE openAccount(Pascal205,Tozzi205)
+2015-12-06 22:04:15.237: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:208
+2015-12-06 22:04:15.238: FINE openAccount(Pascal206,Tozzi206)
+2015-12-06 22:04:15.239: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:209
+2015-12-06 22:04:15.239: FINE openAccount(Pascal207,Tozzi207)
+2015-12-06 22:04:15.24: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:210
+2015-12-06 22:04:15.241: FINE openAccount(Pascal208,Tozzi208)
+2015-12-06 22:04:15.241: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:211
+2015-12-06 22:04:15.242: FINE openAccount(Pascal209,Tozzi209)
+2015-12-06 22:04:15.242: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:212
+2015-12-06 22:04:15.243: FINE openAccount(Pascal210,Tozzi210)
+2015-12-06 22:04:15.244: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:213
+2015-12-06 22:04:15.244: FINE openAccount(Pascal211,Tozzi211)
+2015-12-06 22:04:15.246: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:214
+2015-12-06 22:04:15.247: FINE openAccount(Pascal212,Tozzi212)
+2015-12-06 22:04:15.248: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:215
+2015-12-06 22:04:15.249: FINE openAccount(Pascal213,Tozzi213)
+2015-12-06 22:04:15.25: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:216
+2015-12-06 22:04:15.25: FINE openAccount(Pascal214,Tozzi214)
+2015-12-06 22:04:15.251: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:217
+2015-12-06 22:04:15.252: FINE openAccount(Pascal215,Tozzi215)
+2015-12-06 22:04:15.252: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:218
+2015-12-06 22:04:15.253: FINE openAccount(Pascal216,Tozzi216)
+2015-12-06 22:04:15.254: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:219
+2015-12-06 22:04:15.254: FINE openAccount(Pascal217,Tozzi217)
+2015-12-06 22:04:15.255: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:220
+2015-12-06 22:04:15.256: FINE openAccount(Pascal218,Tozzi218)
+2015-12-06 22:04:15.259: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:221
+2015-12-06 22:04:15.259: FINE openAccount(Pascal219,Tozzi219)
+2015-12-06 22:04:15.26: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:222
+2015-12-06 22:04:15.26: FINE openAccount(Pascal220,Tozzi220)
+2015-12-06 22:04:15.26: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:223
+2015-12-06 22:04:15.261: FINE openAccount(Pascal221,Tozzi221)
+2015-12-06 22:04:15.261: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:224
+2015-12-06 22:04:15.262: FINE openAccount(Pascal222,Tozzi222)
+2015-12-06 22:04:15.262: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:225
+2015-12-06 22:04:15.262: FINE openAccount(Pascal223,Tozzi223)
+2015-12-06 22:04:15.262: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:226
+2015-12-06 22:04:15.263: FINE openAccount(Pascal224,Tozzi224)
+2015-12-06 22:04:15.263: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:227
+2015-12-06 22:04:15.263: FINE openAccount(Pascal225,Tozzi225)
+2015-12-06 22:04:15.264: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:228
+2015-12-06 22:04:15.264: FINE openAccount(Pascal226,Tozzi226)
+2015-12-06 22:04:15.264: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:229
+2015-12-06 22:04:15.265: FINE openAccount(Pascal227,Tozzi227)
+2015-12-06 22:04:15.265: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:230
+2015-12-06 22:04:15.266: FINE openAccount(Pascal228,Tozzi228)
+2015-12-06 22:04:15.267: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:231
+2015-12-06 22:04:15.267: FINE openAccount(Pascal229,Tozzi229)
+2015-12-06 22:04:15.268: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:232
+2015-12-06 22:04:15.27: FINE openAccount(Pascal230,Tozzi230)
+2015-12-06 22:04:15.271: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:233
+2015-12-06 22:04:15.272: FINE openAccount(Pascal231,Tozzi231)
+2015-12-06 22:04:15.272: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:234
+2015-12-06 22:04:15.273: FINE openAccount(Pascal232,Tozzi232)
+2015-12-06 22:04:15.273: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:235
+2015-12-06 22:04:15.274: FINE openAccount(Pascal233,Tozzi233)
+2015-12-06 22:04:15.274: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:236
+2015-12-06 22:04:15.275: FINE openAccount(Pascal234,Tozzi234)
+2015-12-06 22:04:15.432: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:237
+2015-12-06 22:04:15.458: FINE openAccount(Pascal235,Tozzi235)
+2015-12-06 22:04:15.467: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:238
+2015-12-06 22:04:15.469: FINE openAccount(Pascal236,Tozzi236)
+2015-12-06 22:04:15.526: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:239
+2015-12-06 22:04:15.527: FINE openAccount(Pascal237,Tozzi237)
+2015-12-06 22:04:15.528: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:240
+2015-12-06 22:04:15.533: FINE openAccount(Pascal238,Tozzi238)
+2015-12-06 22:04:15.533: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:241
+2015-12-06 22:04:15.534: FINE openAccount(Pascal239,Tozzi239)
+2015-12-06 22:04:15.534: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:242
+2015-12-06 22:04:15.534: FINE openAccount(Pascal240,Tozzi240)
+2015-12-06 22:04:15.535: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:243
+2015-12-06 22:04:15.535: FINE openAccount(Pascal241,Tozzi241)
+2015-12-06 22:04:15.536: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:244
+2015-12-06 22:04:15.536: FINE openAccount(Pascal242,Tozzi242)
+2015-12-06 22:04:15.537: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:245
+2015-12-06 22:04:15.537: FINE openAccount(Pascal243,Tozzi243)
+2015-12-06 22:04:15.537: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:246
+2015-12-06 22:04:15.538: FINE openAccount(Pascal244,Tozzi244)
+2015-12-06 22:04:15.538: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:247
+2015-12-06 22:04:15.539: FINE openAccount(Pascal245,Tozzi245)
+2015-12-06 22:04:15.539: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:328
+2015-12-06 22:04:15.54: FINE openAccount(Pascal326,Tozzi326)
+2015-12-06 22:04:15.54: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:446
+2015-12-06 22:04:15.54: FINE openAccount(Pascal444,Tozzi444)
+2015-12-06 22:04:15.54: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:462
+2015-12-06 22:04:15.541: FINE openAccount(Pascal460,Tozzi460)
+2015-12-06 22:04:15.541: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:464
+2015-12-06 22:04:15.541: FINE openAccount(Pascal462,Tozzi462)
+2015-12-06 22:04:15.542: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:465
+2015-12-06 22:04:15.542: FINE openAccount(Pascal463,Tozzi463)
+2015-12-06 22:04:15.542: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:467
+2015-12-06 22:04:15.543: FINE openAccount(Pascal465,Tozzi465)
+2015-12-06 22:04:15.543: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:468
+2015-12-06 22:04:15.543: FINE openAccount(Pascal466,Tozzi466)
+2015-12-06 22:04:15.544: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:469
+2015-12-06 22:04:15.544: FINE openAccount(Pascal467,Tozzi467)
+2015-12-06 22:04:15.545: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:470
+2015-12-06 22:04:15.545: FINE openAccount(Pascal468,Tozzi468)
+2015-12-06 22:04:15.546: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:471
+2015-12-06 22:04:15.546: FINE openAccount(Pascal469,Tozzi469)
+2015-12-06 22:04:15.547: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:473
+2015-12-06 22:04:15.548: FINE openAccount(Pascal471,Tozzi471)
+2015-12-06 22:04:15.548: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:474
+2015-12-06 22:04:15.548: FINE openAccount(Pascal472,Tozzi472)
+2015-12-06 22:04:15.549: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:476
+2015-12-06 22:04:15.549: FINE openAccount(Pascal474,Tozzi474)
+2015-12-06 22:04:15.55: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:479
+2015-12-06 22:04:15.559: FINE openAccount(Pascal477,Tozzi477)
+2015-12-06 22:04:15.561: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:481
+2015-12-06 22:04:15.561: FINE openAccount(Pascal479,Tozzi479)
+2015-12-06 22:04:15.562: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:483
+2015-12-06 22:04:15.562: FINE openAccount(Pascal481,Tozzi481)
+2015-12-06 22:04:15.563: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:484
+2015-12-06 22:04:15.563: FINE openAccount(Pascal482,Tozzi482)
+2015-12-06 22:04:15.563: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:485
+2015-12-06 22:04:15.564: FINE openAccount(Pascal483,Tozzi483)
+2015-12-06 22:04:15.564: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:486
+2015-12-06 22:04:15.564: FINE openAccount(Pascal484,Tozzi484)
+2015-12-06 22:04:15.565: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:487
+2015-12-06 22:04:15.586: FINE openAccount(Pascal485,Tozzi485)
+2015-12-06 22:04:15.587: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:488
+2015-12-06 22:04:15.587: FINE openAccount(Pascal486,Tozzi486)
+2015-12-06 22:04:15.588: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:653
+2015-12-06 22:04:15.588: FINE openAccount(Pascal651,Tozzi651)
+2015-12-06 22:04:15.588: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:656
+2015-12-06 22:04:15.589: FINE openAccount(Pascal654,Tozzi654)
+2015-12-06 22:04:15.589: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:657
+2015-12-06 22:04:15.59: FINE openAccount(Pascal655,Tozzi655)
+2015-12-06 22:04:15.59: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:658
+2015-12-06 22:04:15.59: FINE openAccount(Pascal656,Tozzi656)
+2015-12-06 22:04:15.591: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:684
+2015-12-06 22:04:15.591: FINE openAccount(Pascal682,Tozzi682)
+2015-12-06 22:04:15.591: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:685
+2015-12-06 22:04:15.592: FINE openAccount(Pascal683,Tozzi683)
+2015-12-06 22:04:15.592: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:686
+2015-12-06 22:04:15.593: FINE openAccount(Pascal684,Tozzi684)
+2015-12-06 22:04:15.593: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:688
+2015-12-06 22:04:15.593: FINE openAccount(Pascal686,Tozzi686)
+2015-12-06 22:04:15.593: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:692
+2015-12-06 22:04:15.594: FINE openAccount(Pascal690,Tozzi690)
+2015-12-06 22:04:15.594: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:728
+2015-12-06 22:04:15.594: FINE openAccount(Pascal726,Tozzi726)
+2015-12-06 22:04:15.595: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:733
+2015-12-06 22:04:15.595: FINE openAccount(Pascal731,Tozzi731)
+2015-12-06 22:04:15.595: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:734
+2015-12-06 22:04:15.596: FINE openAccount(Pascal732,Tozzi732)
+2015-12-06 22:04:15.596: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:738
+2015-12-06 22:04:15.596: FINE openAccount(Pascal736,Tozzi736)
+2015-12-06 22:04:15.597: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:739
+2015-12-06 22:04:15.597: FINE openAccount(Pascal737,Tozzi737)
+2015-12-06 22:04:15.597: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:741
+2015-12-06 22:04:15.598: FINE openAccount(Pascal739,Tozzi739)
+2015-12-06 22:04:15.598: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:742
+2015-12-06 22:04:15.598: FINE openAccount(Pascal740,Tozzi740)
+2015-12-06 22:04:15.598: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:743
+2015-12-06 22:04:15.599: FINE openAccount(Pascal741,Tozzi741)
+2015-12-06 22:04:15.599: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:744
+2015-12-06 22:04:15.6: FINE openAccount(Pascal742,Tozzi742)
+2015-12-06 22:04:15.6: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:745
+2015-12-06 22:04:15.6: FINE openAccount(Pascal743,Tozzi743)
+2015-12-06 22:04:15.601: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:751
+2015-12-06 22:04:15.601: FINE openAccount(Pascal749,Tozzi749)
+2015-12-06 22:04:15.602: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:754
+2015-12-06 22:04:15.602: FINE openAccount(Pascal752,Tozzi752)
+2015-12-06 22:04:15.602: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:755
+2015-12-06 22:04:15.603: FINE openAccount(Pascal753,Tozzi753)
+2015-12-06 22:04:15.603: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:757
+2015-12-06 22:04:15.603: FINE openAccount(Pascal755,Tozzi755)
+2015-12-06 22:04:15.604: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:759
+2015-12-06 22:04:15.604: FINE openAccount(Pascal757,Tozzi757)
+2015-12-06 22:04:15.605: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:761
+2015-12-06 22:04:15.605: FINE openAccount(Pascal759,Tozzi759)
+2015-12-06 22:04:15.605: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:764
+2015-12-06 22:04:15.606: FINE openAccount(Pascal762,Tozzi762)
+2015-12-06 22:04:15.606: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:766
+2015-12-06 22:04:15.606: FINE openAccount(Pascal764,Tozzi764)
+2015-12-06 22:04:15.606: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:768
+2015-12-06 22:04:15.607: FINE openAccount(Pascal766,Tozzi766)
+2015-12-06 22:04:15.607: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:770
+2015-12-06 22:04:15.608: FINE openAccount(Pascal768,Tozzi768)
+2015-12-06 22:04:15.608: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:771
+2015-12-06 22:04:15.609: FINE openAccount(Pascal769,Tozzi769)
+2015-12-06 22:04:15.609: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:773
+2015-12-06 22:04:15.609: FINE openAccount(Pascal771,Tozzi771)
+2015-12-06 22:04:15.61: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:775
+2015-12-06 22:04:15.61: FINE openAccount(Pascal773,Tozzi773)
+2015-12-06 22:04:15.61: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:777
+2015-12-06 22:04:15.613: FINE openAccount(Pascal775,Tozzi775)
+2015-12-06 22:04:15.613: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:778
+2015-12-06 22:04:15.614: FINE openAccount(Pascal776,Tozzi776)
+2015-12-06 22:04:15.614: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:780
+2015-12-06 22:04:15.615: FINE openAccount(Pascal778,Tozzi778)
+2015-12-06 22:04:15.615: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:782
+2015-12-06 22:04:15.615: FINE openAccount(Pascal780,Tozzi780)
+2015-12-06 22:04:15.616: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:784
+2015-12-06 22:04:15.616: FINE openAccount(Pascal782,Tozzi782)
+2015-12-06 22:04:15.616: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:786
+2015-12-06 22:04:15.617: FINE openAccount(Pascal784,Tozzi784)
+2015-12-06 22:04:15.617: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:788
+2015-12-06 22:04:15.617: FINE openAccount(Pascal786,Tozzi786)
+2015-12-06 22:04:15.618: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:790
+2015-12-06 22:04:15.618: FINE openAccount(Pascal788,Tozzi788)
+2015-12-06 22:04:15.618: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:792
+2015-12-06 22:04:15.619: FINE openAccount(Pascal790,Tozzi790)
+2015-12-06 22:04:15.619: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:795
+2015-12-06 22:04:15.619: FINE openAccount(Pascal793,Tozzi793)
+2015-12-06 22:04:15.619: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:796
+2015-12-06 22:04:15.62: FINE openAccount(Pascal794,Tozzi794)
+2015-12-06 22:04:15.901: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:798
+2015-12-06 22:04:15.901: FINE openAccount(Pascal796,Tozzi796)
+2015-12-06 22:04:15.902: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:801
+2015-12-06 22:04:15.902: FINE openAccount(Pascal799,Tozzi799)
+2015-12-06 22:04:15.903: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:802
+2015-12-06 22:04:15.903: FINE openAccount(Pascal800,Tozzi800)
+2015-12-06 22:04:15.903: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:804
+2015-12-06 22:04:15.904: FINE openAccount(Pascal802,Tozzi802)
+2015-12-06 22:04:15.904: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:807
+2015-12-06 22:04:15.904: FINE openAccount(Pascal805,Tozzi805)
+2015-12-06 22:04:15.904: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:809
+2015-12-06 22:04:15.905: FINE openAccount(Pascal807,Tozzi807)
+2015-12-06 22:04:15.905: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:811
+2015-12-06 22:04:15.905: FINE openAccount(Pascal809,Tozzi809)
+2015-12-06 22:04:15.905: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:813
+2015-12-06 22:04:15.906: FINE openAccount(Pascal811,Tozzi811)
+2015-12-06 22:04:15.906: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:816
+2015-12-06 22:04:15.907: FINE openAccount(Pascal814,Tozzi814)
+2015-12-06 22:04:15.907: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:819
+2015-12-06 22:04:15.907: FINE openAccount(Pascal817,Tozzi817)
+2015-12-06 22:04:15.908: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:820
+2015-12-06 22:04:15.908: FINE openAccount(Pascal818,Tozzi818)
+2015-12-06 22:04:15.908: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:821
+2015-12-06 22:04:15.909: FINE openAccount(Pascal819,Tozzi819)
+2015-12-06 22:04:15.909: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:823
+2015-12-06 22:04:15.909: FINE openAccount(Pascal821,Tozzi821)
+2015-12-06 22:04:15.909: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:824
+2015-12-06 22:04:15.91: FINE openAccount(Pascal822,Tozzi822)
+2015-12-06 22:04:15.91: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:825
+2015-12-06 22:04:15.911: FINE openAccount(Pascal823,Tozzi823)
+2015-12-06 22:04:15.911: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:826
+2015-12-06 22:04:15.912: FINE openAccount(Pascal824,Tozzi824)
+2015-12-06 22:04:15.912: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:829
+2015-12-06 22:04:15.912: FINE openAccount(Pascal827,Tozzi827)
+2015-12-06 22:04:15.912: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:832
+2015-12-06 22:04:15.913: FINE openAccount(Pascal830,Tozzi830)
+2015-12-06 22:04:15.916: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:836
+2015-12-06 22:04:15.917: FINE openAccount(Pascal834,Tozzi834)
+2015-12-06 22:04:15.918: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:837
+2015-12-06 22:04:15.918: FINE openAccount(Pascal835,Tozzi835)
+2015-12-06 22:04:15.918: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:838
+2015-12-06 22:04:15.919: FINE openAccount(Pascal836,Tozzi836)
+2015-12-06 22:04:15.92: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:839
+2015-12-06 22:04:15.921: FINE openAccount(Pascal837,Tozzi837)
+2015-12-06 22:04:15.921: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:840
+2015-12-06 22:04:15.922: FINE openAccount(Pascal838,Tozzi838)
+2015-12-06 22:04:15.922: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:841
+2015-12-06 22:04:15.923: FINE openAccount(Pascal839,Tozzi839)
+2015-12-06 22:04:15.923: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:842
+2015-12-06 22:04:15.924: FINE openAccount(Pascal840,Tozzi840)
+2015-12-06 22:04:15.925: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:843
+2015-12-06 22:04:15.925: FINE openAccount(Pascal841,Tozzi841)
+2015-12-06 22:04:15.926: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:844
+2015-12-06 22:04:15.926: FINE openAccount(Pascal842,Tozzi842)
+2015-12-06 22:04:15.926: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:845
+2015-12-06 22:04:15.927: FINE openAccount(Pascal843,Tozzi843)
+2015-12-06 22:04:15.927: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:846
+2015-12-06 22:04:15.927: FINE openAccount(Pascal844,Tozzi844)
+2015-12-06 22:04:15.928: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:847
+2015-12-06 22:04:15.928: FINE openAccount(Pascal845,Tozzi845)
+2015-12-06 22:04:15.928: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:848
+2015-12-06 22:04:15.929: FINE openAccount(Pascal846,Tozzi846)
+2015-12-06 22:04:15.929: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:849
+2015-12-06 22:04:15.929: FINE openAccount(Pascal847,Tozzi847)
+2015-12-06 22:04:15.93: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:850
+2015-12-06 22:04:15.93: FINE openAccount(Pascal848,Tozzi848)
+2015-12-06 22:04:15.93: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:851
+2015-12-06 22:04:15.931: FINE openAccount(Pascal849,Tozzi849)
+2015-12-06 22:04:15.931: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:852
+2015-12-06 22:04:15.931: FINE openAccount(Pascal850,Tozzi850)
+2015-12-06 22:04:15.931: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:996
+2015-12-06 22:04:15.932: FINE openAccount(Pascal994,Tozzi994)
+2015-12-06 22:04:15.932: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1142
+2015-12-06 22:04:15.932: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1143
+2015-12-06 22:04:15.933: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1144
+2015-12-06 22:04:15.933: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1145
+2015-12-06 22:04:15.933: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1146
+2015-12-06 22:04:15.934: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1147
+2015-12-06 22:04:15.934: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1148
+2015-12-06 22:04:15.935: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1149
+2015-12-06 22:04:15.935: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1150
+2015-12-06 22:04:15.935: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1151
+2015-12-06 22:04:15.936: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1152
+2015-12-06 22:04:15.936: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1153
+2015-12-06 22:04:15.937: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1154
+2015-12-06 22:04:15.937: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1155
+2015-12-06 22:04:15.937: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1156
+2015-12-06 22:04:15.938: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1157
+2015-12-06 22:04:15.938: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1158
+2015-12-06 22:04:15.939: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1159
+2015-12-06 22:04:15.939: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1160
+2015-12-06 22:04:15.939: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1161
+2015-12-06 22:04:15.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1162
+2015-12-06 22:04:15.94: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1163
+2015-12-06 22:04:15.941: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1164
+2015-12-06 22:04:15.941: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1165
+2015-12-06 22:04:15.942: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1166
+2015-12-06 22:04:15.942: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1167
+2015-12-06 22:04:15.942: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1168
+2015-12-06 22:04:15.943: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1169
+2015-12-06 22:04:15.943: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1170
+2015-12-06 22:04:15.944: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1200
+2015-12-06 22:04:15.944: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1201
+2015-12-06 22:04:15.945: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1202
+2015-12-06 22:04:15.945: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1203
+2015-12-06 22:04:15.946: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1204
+2015-12-06 22:04:15.946: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1205
+2015-12-06 22:04:15.946: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1206
+2015-12-06 22:04:15.947: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1207
+2015-12-06 22:04:15.947: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1208
+2015-12-06 22:04:15.948: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1209
+2015-12-06 22:04:15.948: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1210
+2015-12-06 22:04:15.952: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1211
+2015-12-06 22:04:15.953: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1212
+2015-12-06 22:04:15.953: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1213
+2015-12-06 22:04:15.954: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1214
+2015-12-06 22:04:15.954: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1215
+2015-12-06 22:04:15.955: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1216
+2015-12-06 22:04:15.955: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1217
+2015-12-06 22:04:15.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1218
+2015-12-06 22:04:15.956: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1219
+2015-12-06 22:04:15.957: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1220
+2015-12-06 22:04:15.957: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1221
+2015-12-06 22:04:15.958: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1222
+2015-12-06 22:04:15.958: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1223
+2015-12-06 22:04:15.959: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1224
+2015-12-06 22:04:15.959: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1225
+2015-12-06 22:04:15.96: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1226
+2015-12-06 22:04:15.96: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1227
+2015-12-06 22:04:15.961: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1228
+2015-12-06 22:04:15.961: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1229
+2015-12-06 22:04:15.961: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1230
+2015-12-06 22:04:15.962: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1231
+2015-12-06 22:04:15.962: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1232
+2015-12-06 22:04:15.963: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1233
+2015-12-06 22:04:15.963: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1234
+2015-12-06 22:04:15.963: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1235
+2015-12-06 22:04:15.964: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1236
+2015-12-06 22:04:15.964: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1237
+2015-12-06 22:04:15.965: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1238
+2015-12-06 22:04:15.965: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1239
+2015-12-06 22:04:15.965: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1240
+2015-12-06 22:04:15.966: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1241
+2015-12-06 22:04:15.966: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1242
+2015-12-06 22:04:15.967: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1243
+2015-12-06 22:04:15.967: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1244
+2015-12-06 22:04:16.283: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1677
+2015-12-06 22:04:16.284: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1678
+2015-12-06 22:04:16.285: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1679
+2015-12-06 22:04:16.286: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1680
+2015-12-06 22:04:16.288: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1681
+2015-12-06 22:04:16.289: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1682
+2015-12-06 22:04:16.292: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1683
+2015-12-06 22:04:16.293: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1684
+2015-12-06 22:04:16.294: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1685
+2015-12-06 22:04:16.295: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1686
+2015-12-06 22:04:16.295: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1687
+2015-12-06 22:04:16.296: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1688
+2015-12-06 22:04:16.296: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1689
+2015-12-06 22:04:16.296: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1690
+2015-12-06 22:04:16.297: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1691
+2015-12-06 22:04:16.297: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1692
+2015-12-06 22:04:16.297: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1693
+2015-12-06 22:04:16.298: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1694
+2015-12-06 22:04:16.298: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1695
+2015-12-06 22:04:16.298: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1696
+2015-12-06 22:04:16.299: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1697
+2015-12-06 22:04:16.299: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1698
+2015-12-06 22:04:16.3: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1699
+2015-12-06 22:04:16.3: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1700
+2015-12-06 22:04:16.3: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1701
+2015-12-06 22:04:16.301: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1702
+2015-12-06 22:04:16.301: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1703
+2015-12-06 22:04:16.302: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1704
+2015-12-06 22:04:16.303: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1705
+2015-12-06 22:04:16.303: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1706
+2015-12-06 22:04:16.304: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1707
+2015-12-06 22:04:16.306: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1708
+2015-12-06 22:04:16.306: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1709
+2015-12-06 22:04:16.307: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1710
+2015-12-06 22:04:16.307: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1711
+2015-12-06 22:04:16.308: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1712
+2015-12-06 22:04:16.308: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1713
+2015-12-06 22:04:16.309: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1714
+2015-12-06 22:04:16.309: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1715
+2015-12-06 22:04:16.309: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1716
+2015-12-06 22:04:16.31: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1717
+2015-12-06 22:04:16.31: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1718
+2015-12-06 22:04:16.31: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1719
+2015-12-06 22:04:16.311: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1720
+2015-12-06 22:04:16.311: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1721
+2015-12-06 22:04:16.312: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1722
+2015-12-06 22:04:16.313: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1723
+2015-12-06 22:04:16.314: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1724
+2015-12-06 22:04:16.314: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1725
+2015-12-06 22:04:16.315: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1726
+2015-12-06 22:04:16.315: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1727
+2015-12-06 22:04:16.315: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1728
+2015-12-06 22:04:16.316: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1729
+2015-12-06 22:04:16.316: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1730
+2015-12-06 22:04:16.317: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1731
+2015-12-06 22:04:16.317: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1732
+2015-12-06 22:04:16.317: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1733
+2015-12-06 22:04:16.318: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1734
+2015-12-06 22:04:16.318: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1735
+2015-12-06 22:04:16.319: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1736
+2015-12-06 22:04:16.319: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1737
+2015-12-06 22:04:16.319: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1738
+2015-12-06 22:04:16.32: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1739
+2015-12-06 22:04:16.32: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1740
+2015-12-06 22:04:16.321: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1741
+2015-12-06 22:04:16.321: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1742
+2015-12-06 22:04:16.322: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1743
+2015-12-06 22:04:16.323: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1744
+2015-12-06 22:04:16.323: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1745
+2015-12-06 22:04:16.324: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1746
+2015-12-06 22:04:16.324: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1747
+2015-12-06 22:04:16.325: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1748
+2015-12-06 22:04:16.325: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1749
+2015-12-06 22:04:16.325: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1750
+2015-12-06 22:04:16.326: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1751
+2015-12-06 22:04:16.326: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1752
+2015-12-06 22:04:16.327: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1753
+2015-12-06 22:04:16.327: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1754
+2015-12-06 22:04:16.328: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1755
+2015-12-06 22:04:16.329: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1756
+2015-12-06 22:04:16.329: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1757
+2015-12-06 22:04:16.33: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1758
+2015-12-06 22:04:16.331: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1759
+2015-12-06 22:04:16.332: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1760
+2015-12-06 22:04:16.332: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1761
+2015-12-06 22:04:16.333: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1762
+2015-12-06 22:04:16.334: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1763
+2015-12-06 22:04:16.334: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1764
+2015-12-06 22:04:16.335: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1765
+2015-12-06 22:04:16.335: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1766
+2015-12-06 22:04:16.336: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1767
+2015-12-06 22:04:16.336: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1768
+2015-12-06 22:04:16.337: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1769
+2015-12-06 22:04:16.337: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1770
+2015-12-06 22:04:16.338: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1771
+2015-12-06 22:04:16.338: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1772
+2015-12-06 22:04:16.339: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1773
+2015-12-06 22:04:16.339: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1774
+2015-12-06 22:04:16.34: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1775
+2015-12-06 22:04:16.341: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1776
+2015-12-06 22:04:16.342: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1777
+2015-12-06 22:04:16.342: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1778
+2015-12-06 22:04:16.343: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1779
+2015-12-06 22:04:16.343: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1780
+2015-12-06 22:04:16.343: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1781
+2015-12-06 22:04:16.344: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1782
+2015-12-06 22:04:16.344: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1783
+2015-12-06 22:04:16.345: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1784
+2015-12-06 22:04:16.345: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:1785
+2015-12-06 22:04:16.346: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2021
+2015-12-06 22:04:16.346: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2030
+2015-12-06 22:04:16.346: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2033
+2015-12-06 22:04:16.347: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2034
+2015-12-06 22:04:16.347: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2038
+2015-12-06 22:04:16.347: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2044
+2015-12-06 22:04:16.348: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2046
+2015-12-06 22:04:16.348: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2049
+2015-12-06 22:04:16.348: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2050
+2015-12-06 22:04:16.349: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2051
+2015-12-06 22:04:16.349: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2052
+2015-12-06 22:04:16.35: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2053
+2015-12-06 22:04:16.35: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2054
+2015-12-06 22:04:16.351: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2055
+2015-12-06 22:04:16.352: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2056
+2015-12-06 22:04:16.353: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2057
+2015-12-06 22:04:16.354: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2058
+2015-12-06 22:04:16.354: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2059
+2015-12-06 22:04:16.355: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2060
+2015-12-06 22:04:16.356: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2061
+2015-12-06 22:04:16.356: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2062
+2015-12-06 22:04:16.357: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2063
+2015-12-06 22:04:16.357: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2064
+2015-12-06 22:04:16.358: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2065
+2015-12-06 22:04:16.359: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2066
+2015-12-06 22:04:16.36: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2067
+2015-12-06 22:04:16.361: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2068
+2015-12-06 22:04:16.361: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2069
+2015-12-06 22:04:16.362: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2070
+2015-12-06 22:04:16.364: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2071
+2015-12-06 22:04:16.365: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2072
+2015-12-06 22:04:16.365: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2073
+2015-12-06 22:04:16.366: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2074
+2015-12-06 22:04:16.366: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2075
+2015-12-06 22:04:16.367: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2076
+2015-12-06 22:04:16.367: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2077
+2015-12-06 22:04:16.368: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2078
+2015-12-06 22:04:16.368: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2079
+2015-12-06 22:04:16.369: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2080
+2015-12-06 22:04:16.37: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2081
+2015-12-06 22:04:16.37: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2082
+2015-12-06 22:04:16.371: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2083
+2015-12-06 22:04:16.371: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2084
+2015-12-06 22:04:16.371: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2085
+2015-12-06 22:04:16.372: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2086
+2015-12-06 22:04:16.372: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2087
+2015-12-06 22:04:16.372: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2088
+2015-12-06 22:04:16.372: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2089
+2015-12-06 22:04:16.373: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2090
+2015-12-06 22:04:16.373: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2091
+2015-12-06 22:04:16.373: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2092
+2015-12-06 22:04:16.374: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2093
+2015-12-06 22:04:16.374: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2094
+2015-12-06 22:04:16.374: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2095
+2015-12-06 22:04:16.375: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2096
+2015-12-06 22:04:16.375: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2097
+2015-12-06 22:04:16.375: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2098
+2015-12-06 22:04:16.375: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2099
+2015-12-06 22:04:16.376: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2100
+2015-12-06 22:04:16.376: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2101
+2015-12-06 22:04:16.376: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2103
+2015-12-06 22:04:16.376: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2104
+2015-12-06 22:04:16.377: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2105
+2015-12-06 22:04:16.377: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2107
+2015-12-06 22:04:16.377: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2108
+2015-12-06 22:04:16.378: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2110
+2015-12-06 22:04:16.378: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2112
+2015-12-06 22:04:16.378: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2114
+2015-12-06 22:04:16.378: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2116
+2015-12-06 22:04:16.379: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2118
+2015-12-06 22:04:16.379: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2120
+2015-12-06 22:04:16.379: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2122
+2015-12-06 22:04:16.379: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2124
+2015-12-06 22:04:16.38: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2125
+2015-12-06 22:04:16.38: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2126
+2015-12-06 22:04:16.38: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2128
+2015-12-06 22:04:16.381: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2129
+2015-12-06 22:04:16.381: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2130
+2015-12-06 22:04:16.381: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2131
+2015-12-06 22:04:16.381: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2133
+2015-12-06 22:04:16.382: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2135
+2015-12-06 22:04:16.385: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2138
+2015-12-06 22:04:16.385: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2139
+2015-12-06 22:04:16.386: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2143
+2015-12-06 22:04:16.386: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2145
+2015-12-06 22:04:16.386: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2147
+2015-12-06 22:04:16.386: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2150
+2015-12-06 22:04:16.387: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2151
+2015-12-06 22:04:16.387: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2152
+2015-12-06 22:04:16.387: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2153
+2015-12-06 22:04:16.387: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2155
+2015-12-06 22:04:16.388: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2156
+2015-12-06 22:04:16.388: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2157
+2015-12-06 22:04:16.388: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2159
+2015-12-06 22:04:16.389: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2160
+2015-12-06 22:04:16.389: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2162
+2015-12-06 22:04:16.389: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2165
+2015-12-06 22:04:16.389: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2166
+2015-12-06 22:04:16.39: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2167
+2015-12-06 22:04:16.39: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2169
+2015-12-06 22:04:16.39: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2170
+2015-12-06 22:04:16.39: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2172
+2015-12-06 22:04:16.391: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2173
+2015-12-06 22:04:16.391: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2174
+2015-12-06 22:04:16.391: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2175
+2015-12-06 22:04:16.391: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2176
+2015-12-06 22:04:16.392: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2177
+2015-12-06 22:04:16.392: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2178
+2015-12-06 22:04:16.392: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2179
+2015-12-06 22:04:16.398: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2180
+2015-12-06 22:04:16.398: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2182
+2015-12-06 22:04:16.399: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2183
+2015-12-06 22:04:16.399: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2184
+2015-12-06 22:04:16.4: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2186
+2015-12-06 22:04:16.4: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2187
+2015-12-06 22:04:16.401: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2188
+2015-12-06 22:04:16.401: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2189
+2015-12-06 22:04:16.402: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2190
+2015-12-06 22:04:16.847: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2191
+2015-12-06 22:04:16.849: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2192
+2015-12-06 22:04:16.851: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2193
+2015-12-06 22:04:16.852: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2195
+2015-12-06 22:04:16.852: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2196
+2015-12-06 22:04:16.853: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2198
+2015-12-06 22:04:16.854: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2201
+2015-12-06 22:04:16.855: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2204
+2015-12-06 22:04:16.856: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2207
+2015-12-06 22:04:16.857: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2208
+2015-12-06 22:04:16.858: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2210
+2015-12-06 22:04:16.87: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2212
+2015-12-06 22:04:16.871: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2214
+2015-12-06 22:04:16.872: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2215
+2015-12-06 22:04:16.873: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2217
+2015-12-06 22:04:16.876: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2219
+2015-12-06 22:04:16.878: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2221
+2015-12-06 22:04:16.879: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2224
+2015-12-06 22:04:16.881: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2227
+2015-12-06 22:04:16.882: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2229
+2015-12-06 22:04:16.883: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2231
+2015-12-06 22:04:16.884: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2233
+2015-12-06 22:04:16.884: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2237
+2015-12-06 22:04:16.885: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2238
+2015-12-06 22:04:17.025: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2240
+2015-12-06 22:04:17.03: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2242
+2015-12-06 22:04:17.031: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2243
+2015-12-06 22:04:17.031: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2245
+2015-12-06 22:04:17.032: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2247
+2015-12-06 22:04:17.032: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2249
+2015-12-06 22:04:17.032: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2251
+2015-12-06 22:04:17.033: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2252
+2015-12-06 22:04:17.033: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2253
+2015-12-06 22:04:17.033: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2254
+2015-12-06 22:04:17.034: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2255
+2015-12-06 22:04:17.034: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2256
+2015-12-06 22:04:17.034: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2257
+2015-12-06 22:04:17.034: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2258
+2015-12-06 22:04:17.035: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2259
+2015-12-06 22:04:17.035: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2260
+2015-12-06 22:04:17.035: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2261
+2015-12-06 22:04:17.036: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2262
+2015-12-06 22:04:17.036: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2263
+2015-12-06 22:04:17.036: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2264
+2015-12-06 22:04:17.037: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2265
+2015-12-06 22:04:17.037: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2266
+2015-12-06 22:04:17.037: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2267
+2015-12-06 22:04:17.037: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2268
+2015-12-06 22:04:17.038: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2269
+2015-12-06 22:04:17.038: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2270
+2015-12-06 22:04:17.038: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2271
+2015-12-06 22:04:17.039: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2272
+2015-12-06 22:04:17.039: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2273
+2015-12-06 22:04:17.039: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2274
+2015-12-06 22:04:17.04: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2275
+2015-12-06 22:04:17.04: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2276
+2015-12-06 22:04:17.04: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2277
+2015-12-06 22:04:17.041: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2278
+2015-12-06 22:04:17.041: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2279
+2015-12-06 22:04:17.041: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2280
+2015-12-06 22:04:17.042: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2281
+2015-12-06 22:04:17.042: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2282
+2015-12-06 22:04:17.042: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2283
+2015-12-06 22:04:17.042: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2284
+2015-12-06 22:04:17.043: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2285
+2015-12-06 22:04:17.043: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2286
+2015-12-06 22:04:17.043: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2287
+2015-12-06 22:04:17.044: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2288
+2015-12-06 22:04:17.044: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2289
+2015-12-06 22:04:17.044: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2290
+2015-12-06 22:04:17.045: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2291
+2015-12-06 22:04:17.045: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2292
+2015-12-06 22:04:17.045: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2293
+2015-12-06 22:04:17.045: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2294
+2015-12-06 22:04:17.046: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2295
+2015-12-06 22:04:17.046: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2296
+2015-12-06 22:04:17.046: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2297
+2015-12-06 22:04:17.046: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2298
+2015-12-06 22:04:17.047: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2299
+2015-12-06 22:04:17.047: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2300
+2015-12-06 22:04:17.047: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2301
+2015-12-06 22:04:17.047: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2302
+2015-12-06 22:04:17.048: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2303
+2015-12-06 22:04:17.048: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2304
+2015-12-06 22:04:17.048: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2305
+2015-12-06 22:04:17.048: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2306
+2015-12-06 22:04:17.049: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2307
+2015-12-06 22:04:17.049: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2308
+2015-12-06 22:04:17.049: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2309
+2015-12-06 22:04:17.049: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2310
+2015-12-06 22:04:17.05: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2311
+2015-12-06 22:04:17.05: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2312
+2015-12-06 22:04:17.05: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2313
+2015-12-06 22:04:17.051: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2314
+2015-12-06 22:04:17.051: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2315
+2015-12-06 22:04:17.051: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2316
+2015-12-06 22:04:17.051: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2317
+2015-12-06 22:04:17.052: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2318
+2015-12-06 22:04:17.052: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2319
+2015-12-06 22:04:17.052: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2320
+2015-12-06 22:04:17.053: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2321
+2015-12-06 22:04:17.053: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2322
+2015-12-06 22:04:17.053: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2323
+2015-12-06 22:04:17.053: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2324
+2015-12-06 22:04:17.054: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2325
+2015-12-06 22:04:17.054: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2326
+2015-12-06 22:04:17.054: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2327
+2015-12-06 22:04:17.054: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2328
+2015-12-06 22:04:17.055: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2329
+2015-12-06 22:04:17.055: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2655
+2015-12-06 22:04:17.055: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2656
+2015-12-06 22:04:17.055: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2657
+2015-12-06 22:04:17.056: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2658
+2015-12-06 22:04:17.056: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2659
+2015-12-06 22:04:17.056: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2660
+2015-12-06 22:04:17.057: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2661
+2015-12-06 22:04:17.057: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2662
+2015-12-06 22:04:17.057: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2663
+2015-12-06 22:04:17.057: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2664
+2015-12-06 22:04:17.058: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2665
+2015-12-06 22:04:17.058: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2666
+2015-12-06 22:04:17.058: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2667
+2015-12-06 22:04:17.059: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2668
+2015-12-06 22:04:17.059: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2669
+2015-12-06 22:04:17.059: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2670
+2015-12-06 22:04:17.059: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2671
+2015-12-06 22:04:17.06: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2672
+2015-12-06 22:04:17.06: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2673
+2015-12-06 22:04:17.06: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2674
+2015-12-06 22:04:17.06: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2675
+2015-12-06 22:04:17.061: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2676
+2015-12-06 22:04:17.061: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2677
+2015-12-06 22:04:17.061: Received Packet: OpenAccount From 127.0.0.1:4401 Seq:2678
+2015-12-06 22:05:18.026: Received Packet: PrintCustomerInfo From 127.0.0.1:4401 Seq:3002
+2015-12-06 22:05:18.026: Received Packet: PrintCustomerInfo From 127.0.0.1:4401 Seq:3003
+2015-12-06 22:05:18.038: Received Packet: PrintCustomerInfo From 127.0.0.1:4401 Seq:3004
+2015-12-06 22:16:22.766: Server Started <pascal> Dominion
+2015-12-06 22:16:22.798: FINE Starting server service for pascal
+2015-12-06 22:16:22.801: FINE Loading Loans and Customers files
+2015-12-06 22:16:22.802: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:16:23.042: FINE Starting UDP port 4524
+2015-12-06 22:18:16.537: Server Started <pascal> Dominion
+2015-12-06 22:18:16.665: FINE Starting server service for pascal
+2015-12-06 22:18:16.667: FINE Loading Loans and Customers files
+2015-12-06 22:18:16.668: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:18:16.825: FINE Starting UDP port 4524
+2015-12-06 22:18:40.427: Received Packet: RequestSynchronize From 127.0.0.1:54763 Seq:-1
+2015-12-06 22:22:30.343: Server Started <pascal> Dominion
+2015-12-06 22:22:30.391: FINE Starting server service for pascal
+2015-12-06 22:22:30.397: FINE Loading Loans and Customers files
+2015-12-06 22:22:30.397: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:22:30.63: FINE Starting UDP port 4524
+2015-12-06 22:23:22.306: Received Packet: RequestSynchronize From 127.0.0.1:54773 Seq:-1
+2015-12-06 22:24:32.02: Server Started <pascal> Dominion
+2015-12-06 22:24:32.045: FINE Starting server service for pascal
+2015-12-06 22:24:32.047: FINE Loading Loans and Customers files
+2015-12-06 22:24:32.048: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:24:32.25: FINE Starting UDP port 4524
+2015-12-06 22:25:48.274: Server Started <pascal> Dominion
+2015-12-06 22:25:48.313: FINE Starting server service for pascal
+2015-12-06 22:25:48.32: FINE Loading Loans and Customers files
+2015-12-06 22:25:48.32: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:25:48.522: FINE Starting UDP port 4524
+2015-12-06 22:26:12.626: Server Started <pascal> Dominion
+2015-12-06 22:26:12.699: FINE Starting server service for pascal
+2015-12-06 22:26:12.701: FINE Loading Loans and Customers files
+2015-12-06 22:26:12.703: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:26:12.935: FINE Starting UDP port 4524
+2015-12-06 22:32:17.112: Server Started <pascal> Dominion
+2015-12-06 22:32:17.159: FINE Starting server service for pascal
+2015-12-06 22:32:17.162: FINE Loading Loans and Customers files
+2015-12-06 22:32:17.163: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:32:17.32: FINE Starting UDP port 4524
+2015-12-06 22:33:15.533: Received Packet: RequestSynchronize From 127.0.0.1:61172 Seq:-1
+2015-12-06 22:33:51.348: Received Packet: RequestSynchronize From 127.0.0.1:61180 Seq:-1
+2015-12-06 22:34:39.994: Received Packet: RequestSynchronize From 127.0.0.1:61188 Seq:-1
+2015-12-06 22:38:04.365: Server Started <pascal> Dominion
+2015-12-06 22:38:04.409: FINE Starting server service for pascal
+2015-12-06 22:38:04.414: FINE Loading Loans and Customers files
+2015-12-06 22:38:04.414: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:38:04.638: FINE Starting UDP port 4524
+2015-12-06 22:47:25.409: Server Started <pascal> Dominion
+2015-12-06 22:47:25.465: FINE Starting server service for pascal
+2015-12-06 22:47:25.467: FINE Loading Loans and Customers files
+2015-12-06 22:47:25.468: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 22:47:25.71: FINE Starting UDP port 4524
+2015-12-06 22:47:51.702: Received Packet: RequestSynchronize From 127.0.0.1:53013 Seq:-1
+2015-12-06 22:48:12.511: Received Packet: RequestSynchronize From 127.0.0.1:53021 Seq:-1
+2015-12-06 22:49:07.989: Received Packet: RequestSynchronize From 127.0.0.1:53023 Seq:-1
+2015-12-06 23:05:41.081: Received Packet: RequestSynchronize From 127.0.0.1:52332 Seq:-1
+2015-12-06 23:08:01.738: Received Packet: RequestSynchronize From 127.0.0.1:52447 Seq:-1
+2015-12-06 23:08:42.589: Received Packet: RequestSynchronize From 127.0.0.1:52455 Seq:-1
+2015-12-06 23:09:07.792: Received Packet: RequestSynchronize From 127.0.0.1:52463 Seq:-1
+2015-12-06 23:10:19.202: Received Packet: RequestSynchronize From 127.0.0.1:52479 Seq:-1
+2015-12-06 23:18:25.6: Received Packet: RequestSynchronize From 127.0.0.1:54039 Seq:-1
+2015-12-06 23:20:54.356: Server Started <pascal> Dominion
+2015-12-06 23:20:54.416: FINE Starting server service for pascal
+2015-12-06 23:20:54.422: FINE Loading Loans and Customers files
+2015-12-06 23:20:54.423: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 23:20:54.656: FINE Starting UDP port 4524
+2015-12-06 23:21:23.353: Received Packet: RequestSynchronize From 127.0.0.1:54049 Seq:-1
+2015-12-06 23:21:44.048: Received Packet: RequestSynchronize From 127.0.0.1:54057 Seq:-1
+2015-12-06 23:21:51.337: Received Packet: RequestSynchronize From 127.0.0.1:54059 Seq:-1
+2015-12-06 23:28:13.603: Received Packet: RequestSynchronize From 127.0.0.1:51988 Seq:-1
+2015-12-06 23:29:14.955: Received Packet: RequestSynchronize From 127.0.0.1:51996 Seq:-1
+2015-12-06 23:34:10.593: Server Started <pascal> Dominion
+2015-12-06 23:34:10.66: FINE Starting server service for pascal
+2015-12-06 23:34:10.662: FINE Loading Loans and Customers files
+2015-12-06 23:34:10.663: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-06 23:34:10.846: FINE Starting UDP port 4524
+2015-12-06 23:34:34.711: Received Packet: RequestSynchronize From 127.0.0.1:52038 Seq:-1
+2015-12-06 23:34:39.961: Received Packet: RequestSynchronize From 127.0.0.1:52046 Seq:-1
+2015-12-06 23:34:48.459: Received Packet: RequestSynchronize From 127.0.0.1:52048 Seq:-1

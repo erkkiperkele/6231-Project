@@ -35,6 +35,8 @@ public class UdpRMtoRMListener extends Thread {
         Env.setCurrentBank(Bank.Royal); //HACK to get the serverInfos.
         int serverPortRMtoRMListener = Env.getReplicaToReplicaManagerServerInfo().getPort();
 
+        System.err.println(serverPortRMtoRMListener + " UdpRMtoRMListener");
+
         DatagramSocket listenerSocket = null;
 
         try {
@@ -72,7 +74,7 @@ public class UdpRMtoRMListener extends Thread {
         {
             try {
 
-                System.out.println(String.format("[UDP - RM to RM] Server received Message"));
+                System.out.println(String.format("[UDP - RM to RM] Server received Message on port" + Env.getReplicaToReplicaManagerServerInfo().getPort()));
 
                 byte[] messageBytes = request.getData();
                 int answerPort = request.getPort();

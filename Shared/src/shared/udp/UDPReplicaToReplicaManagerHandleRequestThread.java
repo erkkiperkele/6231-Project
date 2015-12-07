@@ -60,8 +60,8 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		this.receivedDatagram = request;
 		this.receivedUdpMessage = udpMessage;
 		this.key = key;
-		this.timer = new Timer();		
-		
+		this.timer = new Timer();
+
 		UDPReplicaToReplicaManagerHandleRequestThread current = this;
 		timer.schedule(new TimerTask() {
 
@@ -288,6 +288,8 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 				processRequestLoan(udpMessage);
 				break;
 			case RequestSynchronize:
+				System.err.println("Received RequestSynchronize message...");
+
 				processRequestSynchronize(udpMessage);
 				break;
 			default:
@@ -305,6 +307,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	 */
 	private void processRequestSynchronize(UDPMessage udpMessage) throws Exception
 	{
+		System.err.println("Starting synchronizing");
 		if(udpMessage.getMessage() instanceof RequestSynchronize)
 		{
 			RequestSynchronize msg = (RequestSynchronize)udpMessage.getMessage();
@@ -356,6 +359,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		{
 			throw new Exception("Invalid Object processOpenAccount");
 		}
+		System.err.println("Ended synchronizing");
 	}
 
 	/**

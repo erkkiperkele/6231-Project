@@ -98,7 +98,7 @@ public class Env
     	setFrontEndServerInfo(Constant.getFrontEndName(), "127.0.0.1", 4400);
     	setSequencerServerInfo(Constant.getSequencerName(), "127.0.0.1", 4401);
     	
-    	int port = 4500;
+    	int port = 24500;
     	String name = Constant.MACHINE_NAME_AYMERIC;
     	replicaManagerSvInfoSet.put(name, new ServerInfo(Constant.getReplicaManagerName(name), "127.0.0.1", port++));
     	replicaSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());

@@ -48,6 +48,7 @@ public class StartBankServer
 				bankServer.waitUntilUDPServiceEnd();
 				replicaManager.join();
 				intranetServer.join();
+				System.err.println(String.format("[UDP] SYNC SERVER STARTED (Pascal Implementation)"));
 			}
 			catch (Exception e)
 			{
