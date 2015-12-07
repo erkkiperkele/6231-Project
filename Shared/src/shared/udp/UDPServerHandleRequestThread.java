@@ -205,7 +205,7 @@ public class UDPServerHandleRequestThread implements Runnable
 		if(udpMessage.getMessage() instanceof OpenAccountMessage)
 		{
 			OpenAccountMessage msg = (OpenAccountMessage)udpMessage.getMessage();
-			if(!this.bank.getServerName().equalsIgnoreCase(msg.getBank()))
+			if(!Env.getCurrentBank().toString().equalsIgnoreCase(msg.getBank()))
 			{
 				msg.setException(new Exception("Wrong Bank Name! Request denied. processOpenAccount"));
 			}

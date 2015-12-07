@@ -175,12 +175,11 @@ public class UDPServer {
         );
 
         String logMessage = String.format(
-                "[UDP]: %1$s's Loan #%2$d (%3$d$) from Bank: %5$s successfully TRANSFERRED as new loan #%4$d",
+                "[UDP]: %1$s's Loan #%2$d (%3$d$) successfully TRANSFERRED as new loan #%4$d",
                 loanMessage.getAccount().getOwner().getFirstName(),
                 loanMessage.getLoan().getLoanNumber(),
                 loan.getAmount(),
-                loan.getLoanNumber(),
-                loanMessage.getAccount().getOwner().getBank().name()
+                loan.getLoanNumber()
         );
 
         SessionService.getInstance().log().info(logMessage);

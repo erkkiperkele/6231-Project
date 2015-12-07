@@ -14,3 +14,11 @@
 2015-12-06 18:14:45.639: FINE Starting server service for pascal
 2015-12-06 18:14:45.639: FINE Loading Loans and Customers files
 2015-12-06 18:14:45.639: FINE Starting UDP port 4526
+2015-12-06 18:33:29.101: Server Started <pascal> Royal
+2015-12-06 18:33:29.117: FINE Starting server service for pascal
+2015-12-06 18:33:29.117: FINE Loading Loans and Customers files
+2015-12-06 18:33:29.117: FINE Starting UDP port 4526
+2015-12-06 18:53:45.041: Server Started <pascal> Royal
+2015-12-06 18:53:45.056: FINE Starting server service for pascal
+2015-12-06 18:53:45.056: FINE Loading Loans and Customers files
+2015-12-06 18:53:45.056: FINE Starting UDP port 4526

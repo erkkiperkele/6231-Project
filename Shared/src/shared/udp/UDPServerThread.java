@@ -6,6 +6,7 @@ import java.net.SocketException;
 import java.util.Arrays;
 import java.util.HashMap;
 import shared.data.AbstractServerBank;
+import shared.util.Env;
 
 /**
  * @author Pascal Tozzi 27664850 UDPServerThread listen asynchronously for request.
@@ -89,14 +90,15 @@ public class UDPServerThread implements Runnable
 				aSocket.receive(request);
 				byte[] message = Arrays.copyOf(request.getData(), request.getLength());
 		        UDPMessage udpMessage = Serializer.deserialize(message);
-
+		        
+		        Env.log("Received Packet: " + udpMessage.getOperation().toString() + " From " + request.getAddress().getHostAddress() + ":" + request.getPort() + " Seq:" + udpMessage.getSequenceNumber());
 		        // If the replied message need to be overwritten, we execute it now
 		        udpMessage.executeAddressOverwrite(request);
 		        
 
 		        // Get the Key used to continue the previous communication
 		        // depending on if the message is from the FrontEnd or between banks		        
-				String key = udpMessage.getKey();
+				String key = request.getAddress().getHostAddress() + ":" + request.getPort() + " seq:" + udpMessage.getSequenceNumber();
 				UDPServerHandleRequestThread client;
 				synchronized (dicHandleRequest)
 				{

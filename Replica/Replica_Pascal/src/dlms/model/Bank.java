@@ -10,7 +10,7 @@ import shared.data.Loan;
  * @author Pascal Tozzi 27664850 Bank class used by the client and server and
  *         even serialized as a return parameter for the printCustomerInfo
  */
-public class Bank implements java.io.Serializable, Cloneable
+public class Bank
 {
 	/**
 	 * Generated serial version

@@ -397,7 +397,6 @@ public class DataRepository {
         if (owner.getId() == 0) {
             owner.setId(++this.customerNumber);
         }
-        owner.setBank(SessionService.getInstance().getBank());
     }
 
     private int generateNewAccountNumber() {
@@ -433,9 +432,9 @@ public class DataRepository {
 
         Date dueDate = calendar.getTime();
 
-        Customer alex = new Customer(0, 0, "Alex", "Emond", "aa", bank, "alex.emond@gmail.com", "514.111.2222");
-        Customer justin = new Customer(0, 0, "Justin", "Paquette", "aa", bank, "justin.paquette@gmail.com", "514.111.2222");
-        Customer maria = new Customer(0, 0, "Maria", "Etinger", "aa", bank, "maria.etinger@gmail.com", "514.111.2222");
+        Customer alex = new Customer(0, 0, "Alex", "Emond", "aa", "alex.emond@gmail.com", "514.111.2222");
+        Customer justin = new Customer(0, 0, "Justin", "Paquette", "aa", "justin.paquette@gmail.com", "514.111.2222");
+        Customer maria = new Customer(0, 0, "Maria", "Etinger", "aa", "maria.etinger@gmail.com", "514.111.2222");
 
         //Those 3 have an account on each bank
         createAccount(alex, defaultCreditLimit);
@@ -443,21 +442,21 @@ public class DataRepository {
         createAccount(maria, defaultCreditLimit);
 
         if (bank == Bank.Royal) {
-            Customer sylvain = new Customer(0, 0, "Sylvain", "Poudrier", "aa", bank, "sylvain.poudrier@gmail.com", "514.111.2222");
+            Customer sylvain = new Customer(0, 0, "Sylvain", "Poudrier", "aa", "sylvain.poudrier@gmail.com", "514.111.2222");
             createAccount(sylvain, defaultCreditLimit);
 
             createLoan(alex.getUserName(), 200, dueDate);
         }
 
         if (bank == Bank.National) {
-            Customer pascal = new Customer(0, 0, "Pascal", "Groulx", "aa", bank, "pascal.groulx@gmail.com", "514.111.2222");
+            Customer pascal = new Customer(0, 0, "Pascal", "Groulx", "aa", "pascal.groulx@gmail.com", "514.111.2222");
             createAccount(pascal, defaultCreditLimit);
 
             createLoan(alex.getUserName(), 300, dueDate);
         }
 
         if (bank == Bank.Dominion) {
-            Customer max = new Customer(0, 0, "Max", "Tanquerel", "aa", bank, "max.tanquerel@gmail.com", "514.111.2222");
+            Customer max = new Customer(0, 0, "Max", "Tanquerel", "aa", "max.tanquerel@gmail.com", "514.111.2222");
             createAccount(max, defaultCreditLimit);
 
             createLoan(justin.getUserName(), 1000, dueDate);
