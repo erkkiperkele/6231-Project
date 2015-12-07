@@ -249,6 +249,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 			while(this.receivedUdpMessage != null)
 			{
 				UDPMessage udpMessage = this.receivedUdpMessage;
+				Env.log("[Sync] Received " + udpMessage.getOperation().toString() + " from " + receivedDatagram.getAddress().getHostAddress() + ":" + receivedDatagram.getPort());
 				processRequest(udpMessage);
 				
 				// process request that are in queue
@@ -371,10 +372,12 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 			{
 				if(msg.isRequested())
 				{
+					Env.log("[Sync] Re-Requestion missing Loan -> #" + msg.getPosLoan() + " of " + msg.getAmountLoans());
 					send(sentLoansList[msg.getPosLoan()], requestAddr, requestPort);
 				}
 				else
 				{
+					Env.log("[Sync] Received Loan -> #" + msg.getPosLoan() + " of " + msg.getAmountLoans());
 					requestAddr = receivedDatagram.getAddress();
 					requestPort = receivedDatagram.getPort();
 					if(this.receivedLoansList == null)
@@ -409,10 +412,12 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 			{
 				if(msg.isRequested())
 				{
+					Env.log("[Sync] Re-Requestion missing Customer -> #" + msg.getPosCustomer() + " of " + msg.getAmountCustomer());
 					send(sentCustomersList[msg.getPosCustomer()], requestAddr, requestPort);
 				}
 				else
 				{
+					Env.log("[Sync] Received Customer #" + msg.getPosCustomer() + " of " + msg.getAmountCustomer());
 					requestAddr = receivedDatagram.getAddress();
 					requestPort = receivedDatagram.getPort();
 					if(this.receivedCustomersList == null)
