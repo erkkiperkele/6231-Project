@@ -325,7 +325,7 @@ public class DataRepository {
     }
 
     private Customer getCustomer(int accountNumber) {
-        return this.accounts.values()
+        return (Customer) this.accounts.values()
                 .stream()
                 .flatMap(accounts -> accounts
                         .stream()
