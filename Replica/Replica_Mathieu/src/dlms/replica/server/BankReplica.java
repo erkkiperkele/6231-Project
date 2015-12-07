@@ -1,7 +1,6 @@
 package dlms.replica.server;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,11 +27,7 @@ import dlms.replica.model.ThreadSafeHashMap;
 import dlms.replica.udpmessage.MessageResponseLoanSum;
 import dlms.replica.udpmessage.MessageResponseTransferLoan;
 import shared.data.AbstractServerBank;
-//import shared.data.Bank;
 import shared.data.BankState;
-import shared.data.ServerInfo;
-import shared.util.Constant;
-import shared.util.Env;
 
 
 /**
