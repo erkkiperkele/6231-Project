@@ -18,9 +18,9 @@ public class ReplicaManagerListenerTester {
 
 	public static void main(String[] args) {
 		
-		Logger logger = Logger.getLogger("FrontEnd");
-		ReplicaManagerListener rml = new ReplicaManagerListener(logger);
-		rml.start();
+//		Logger logger = Logger.getLogger("FrontEnd");
+//		ReplicaManagerListener rml = new ReplicaManagerListener(logger);
+//		rml.start();
 		
 		byte[] msg = new byte[4096];
 		try {

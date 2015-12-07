@@ -40,6 +40,8 @@ public class ReplicaManagerListener extends Thread {
 		DatagramSocket serverSocket = null;
 		InetSocketAddress localAddr = new InetSocketAddress(Constant.FE_TO_RM_LISTENER_HOST, Constant.FE_TO_RM_LISTENER_PORT);
 
+		logger.info("FrontEnd: Waiting for replica manager messages on " + Constant.FE_TO_RM_LISTENER_HOST + ":" + Constant.FE_TO_RM_LISTENER_PORT);
+		
 		try {
 
 			serverSocket = new DatagramSocket(localAddr);
@@ -50,8 +52,6 @@ public class ReplicaManagerListener extends Thread {
 				//
 				// LISTENER
 				//
-				
-				logger.info("FrontEnd: Waiting for replica manager messages on " + Constant.FE_TO_RM_LISTENER_HOST + ":" + Constant.FE_TO_RM_LISTENER_PORT);
 				
 				receiveData = new byte[MAX_DATAGRAM_SIZE];
 				final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);

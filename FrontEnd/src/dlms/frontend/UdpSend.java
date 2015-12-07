@@ -42,7 +42,6 @@ public class UdpSend implements Callable<Boolean> {
 		try {
 			clientSocket = new DatagramSocket();
 			outgoingPacket = new DatagramPacket(payload, payload.length, remoteAddr);
-			System.out.println("Sending packet to " + remoteAddr);
 			clientSocket.send(outgoingPacket);
 		} finally {
 			if (clientSocket != null) {
