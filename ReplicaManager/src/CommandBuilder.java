@@ -9,14 +9,25 @@ public class CommandBuilder {
     private String mainArgument;
     private String implementationName;
     private String modulePathSequencer = "../../out/production/Sequencer";
+    private String rudplibs = "";
+    private String separator;
+    private String cmdCommand;
 
 
     public CommandBuilder setImplementation(String studentName){
 
-        //Patch, waiting for Richard's to work
-        this.implementationName = studentName.equals("richard")
-                ? "aymeric"
-                : studentName;
+        this.separator = ";";
+        String os = System.getProperty("os.name");
+        this.cmdCommand = "cmd /c start";
+
+        if (os.contains("Mac OS")){
+            this.separator = ":";
+            this.cmdCommand = "";
+        }
+
+        System.err.println(os);
+
+        this.implementationName = studentName;
 
         this.modulePathReplica =  String.format("../../out/production/Replica_%1$s", implementationName);
 
@@ -29,7 +40,8 @@ public class CommandBuilder {
                 this.classPath = "dlms.StartBankServer";
                 break;
             case "richard":
-                this.classPath = "Server.StartBankServer";
+                this.classPath = "impl.InitServers";
+                this.rudplibs = this.separator + "../../libs/rudp/classes";
                 break;
             case "mathieu":
                 this.classPath = "dlms.replica.ReplicaLauncher";
@@ -46,27 +58,16 @@ public class CommandBuilder {
 
     public String getCommand(){
 
-
-        String os = System.getProperty("os.name");
-        String separator = ";";
-        String cmdCommand = "cmd /c start";
-
-        if (os.contains("Mac OS")){
-            separator = ":";
-            cmdCommand = "";
-        }
-
-        System.err.println(os);
-
         return String.format(
-                "%7$s java -cp %1$s%2$s%3$s%2$s%4$s %5$s %6$s",
+                "%7$s java -cp %1$s%2$s%3$s%2$s%4$s%8$s %5$s %6$s",
                 modulePathReplica,
                 separator,
                 modulePathShared,
                 modulePathSequencer,
                 classPath,
                 mainArgument,
-                cmdCommand
+                cmdCommand,
+                rudplibs
         );
     }
 
