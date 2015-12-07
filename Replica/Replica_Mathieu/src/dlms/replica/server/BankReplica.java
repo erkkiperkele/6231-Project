@@ -2,8 +2,6 @@ package dlms.replica.server;
 
 import java.io.IOException;
 import java.net.SocketException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +17,6 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import dlms.model.UDPServerThread;
-import dlms.replica.exception.AppException;
 import dlms.replica.exception.ValidationException;
 import dlms.replica.model.Account;
 import dlms.replica.model.Loan;
@@ -47,6 +44,7 @@ public class BankReplica extends AbstractServerBank {
 	private UdpListener udpListener;
 	private volatile Bank bank;
 	private UDPServerThread udpServer;
+	private BankState state;
 	
 	/**
 	 * Constructor
@@ -71,11 +69,11 @@ public class BankReplica extends AbstractServerBank {
 		if (ENABLE_FILE_LOGGING) {
 		    FileHandler fh;  
 		    try {
-		        fh = new FileHandler(this.bank.getTextId() + "-log.txt");  
+		        fh = new FileHandler(this.bank.id + "-log.txt");  
 		        logger.addHandler(fh);
 		        SimpleFormatter formatter = new SimpleFormatter();  
 		        fh.setFormatter(formatter);  
-		        logger.info(this.bank.getTextId() + " logger started");  
+		        logger.info(this.bank.id + " logger started");  
 		    } catch (SecurityException e) {  
 		        e.printStackTrace();
 		        System.exit(1);
@@ -99,16 +97,6 @@ public class BankReplica extends AbstractServerBank {
 		udpListenerThread = new Thread(udpListener);
 		udpListenerThread.start();
 	}
-
-	/**
-	 * Constructor
-	 * 
-	 * @param stub
-	 */
-//	public BankReplica(BankReplicaStub stub) {
-//		
-//		this(stub.id, stub.addr);
-//	}
 	
 	/**
 	 * Gets the bank object of this replica
@@ -150,7 +138,7 @@ public class BankReplica extends AbstractServerBank {
 	 * @return
 	 */
 	public int openAccount(String firstName, String lastName, String emailAddress, String phoneNumber,
-			String password) {
+			String password) throws Exception {
 
 		int newAccountNbr = -1;
 
@@ -161,11 +149,17 @@ public class BankReplica extends AbstractServerBank {
 		try {
 			newAccountNbr = this.bank.createAccount(firstName, lastName, emailAddress, phoneNumber, password);
 		} catch (ValidationException e) {
-			return -1; // Something went wrong when trying to create the account
+			logger.info(this.bank.id + ": " + e.getMessage());
+			throw new Exception(this.bank.id + ": " + e.getMessage());
 		}
+		
 		if (newAccountNbr > 0) {
-			logger.info("Replica: Bank " + this.bank.id + " successfully opened an account for user " + emailAddress
+			logger.info(this.bank.id + ": successfully opened an account for user " + emailAddress
 					+ " with account number " + newAccountNbr);
+		}
+		else {
+			logger.info(this.bank.id + ": Invalid new account number created");
+			throw new Exception(this.bank.id + ": Unable to create new account.");
 		}
 
 		return newAccountNbr;
@@ -211,86 +205,77 @@ public class BankReplica extends AbstractServerBank {
 	 * @param newDueDate
 	 * @return
 	 */
-	public boolean delayPayment(int loanId, String currentDueDate, String newDueDate) {
+	public boolean delayPayment(int loanID, Date currentDueDate, Date newDueDate) throws Exception {
 
 		logger.info(
-				"-------------------------------\n" + this.bank.getTextId() + ": Client invoked delayPayment(loanId:"
-						+ loanId + " currentDate: " + currentDueDate + " newDueDate: " + newDueDate + ")");
+				"-------------------------------\n" + this.bank.id + ": Client invoked delayPayment(loanId:"
+						+ loanID + " currentDate: " + currentDueDate.toString() + " newDueDate: " + newDueDate.toString() + ")");
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-M-yyyy");
-		// Date dateCurrent = null;
-		Date dateNew = null;
 		Loan loan;
 		Object lock;
 
-		try {
-			// dateCurrent = dateFormat.parse(currentDueDate);
-			dateNew = dateFormat.parse(newDueDate);
-			
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		loan = this.bank.getLoan(loanId);
+		loan = this.bank.getLoan(loanID);
 		if (loan == null) {
-			logger.info(this.bank.getTextId() + ": Loan id " + loanId + " does not exist");
-			return false;
+			logger.info(this.bank.id + ": Loan id " + loanID + " does not exist");
+			throw new Exception(this.bank.id + ": Loan id " + loanID + " does not exist");
 		}
 		
 		lock = this.bank.getLockObject(loan.getEmailAddress());
 
 		synchronized (lock) {
 			
-			loan = this.bank.getLoan(loanId);
+			loan = this.bank.getLoan(loanID);
 			if (loan == null) {
-				logger.info(this.bank.getTextId() + ": Loan id " + loanId + " does not exist");
-				return false;
+				logger.info(this.bank.id + ": Loan id " + loanID + " does not exist");
+				throw new Exception(this.bank.id + ": Loan id " + loanID + " does not exist");
 			}
 			// Uncomment when using date validation
 			/*if (!loan.getDueDate().equals(dateCurrent)) {
-				logger.info(this.bank.getTextId() + ": Loan id " + loanId + " - currentDate argument mismatch");
+				logger.info(this.bank.id + ": Loan id " + loanId + " - currentDate argument mismatch");
 				return new ServerResponse(false, "", "Loan id " + loanId + " - currentDate argument mismatch");
 			}*/
-			if (!loan.getDueDate().before(dateNew)) {
-				logger.info(this.bank.getTextId() + ": Loan id " + loanId
+			if (!loan.getDueDate().before(newDueDate)) {
+				logger.info(this.bank.id + ": Loan id " + loanID
 						+ " - currentDueDate argument must be later than the actual current due date of the loan");
-				return false;
+				throw new Exception(this.bank.id + ": Loan id " + loanID
+						+ " - currentDueDate argument must be later than the actual current due date of the loan");
 			}
 			
-			loan.setDueDate(dateNew);
+			loan.setDueDate(newDueDate);
 		}
 
-		logger.info(this.bank.getTextId() + " loan " + loanId + " successfully delayed");
+		logger.info(this.bank.id + " loan " + loanID + " successfully delayed");
 		return true;
 	}
-	
+
 	/**
 	 * 
 	 * @param accountNbr
 	 * @param password
 	 * @param requestedLoanAmount
 	 * @return
-	 * @throws AppException 
+	 * @throws Exception 
 	 */
-	public int getLoan(int accountNbr, String password, int requestedLoanAmount) throws AppException {
+
+	public int getLoan(int accountNumber, String password, long loanAmount) throws Exception {
 
 		int newLoanId = -1; 
-		int externalLoanSum = 0; // The total sum of loans at other banks for accountNbr
+		int externalLoanSum = 0; // The total sum of loans at other banks for accountNumber
 		Object lock = null;
 		Account account; // The account corresponding to the account number
 		ExecutorService pool;
 		Set<Future<MessageResponseLoanSum>> set;
 		
-		logger.info("-------------------------------\n" + this.bank.getTextId() + ": Client invoked getLoan(accountNbr:"
-				+ accountNbr + ", password:" + password + ", requestedLoanAmount:" + requestedLoanAmount + ")");
+		logger.info("-------------------------------\n" + this.bank.id + ": Client invoked getLoan(accountNumber:"
+				+ accountNumber + ", password:" + password + ", requestedLoanAmount:" + loanAmount + ")");
 
 		// We need to get the lock object from the account number, so essentially, 
 		// we're testing for account existence
-		account = this.bank.getAccount(accountNbr);
+		account = this.bank.getAccount(accountNumber);
 		if (account == null) {
-			String msg = "Loan refused at bank " + this.bank.getId() + ". Account " + accountNbr + " does not exist.";
-			logger.info(this.bank.getTextId() + ": " + msg);
-			throw new AppException(msg);
+			String msg = "Loan refused at bank " + this.bank.getId() + ". Account " + accountNumber + " does not exist.";
+			logger.info(this.bank.id + ": " + msg);
+			throw new Exception(msg);
 		}
 
 		lock = this.bank.getLockObject(account.getEmailAddress());
@@ -301,28 +286,28 @@ public class BankReplica extends AbstractServerBank {
 			// the critical section)
 			// The account could have gotten deleted just before the
 			// synchronized block
-			account = this.bank.getAccount(accountNbr);
+			account = this.bank.getAccount(accountNumber);
 			if (account == null) {
-				String message = "Loan refused at bank " + this.bank.getId() + ". Account " + accountNbr
+				String message = "Loan refused at bank " + this.bank.getId() + ". Account " + accountNumber
 						+ " does not exist.";
-				logger.info(this.bank.getTextId() + ": " + message);
-				throw new AppException(message);
+				logger.info(this.bank.id + ": " + message);
+				throw new Exception(message);
 			}
 
 			// Validate that passwords match
 			if (!account.getPassword().equals(password)) {
 				String message = "Loan refused at bank " + this.bank.getId() + ". Invalid credentials.";
-				logger.info(this.bank.getTextId() + ": " + message);
-				throw new AppException(message);
+				logger.info(this.bank.id + ": " + message);
+				throw new Exception(message);
 			}
 
 			// Avoid making UDP requests if the loan amount is already
 			// bigger than the credit limit of the local account
 			int currentLoanAmount = this.bank.getLoanSum(account.getEmailAddress());
-			if (currentLoanAmount + requestedLoanAmount > account.getCreditLimit()) {
+			if (currentLoanAmount + loanAmount > account.getCreditLimit()) {
 				String message = "Loan refused at bank " + this.bank.getId() + ". Local credit limit exceeded";
-				logger.info(this.bank.getTextId() + ": " + message);
-				throw new AppException(message);
+				logger.info(this.bank.id + ": " + message);
+				throw new Exception(message);
 			}
 
 			// Prepare the threads to call other banks to get the loan sum for this account
@@ -348,29 +333,29 @@ public class BankReplica extends AbstractServerBank {
 						if (loanSumResponse == null) {
 							String message = "Loan refused at bank " + this.bank.getId()
 									+ ". Unable to obtain a status for the original loan request.";
-							logger.info(this.bank.getTextId() + ": " + message);
-							throw new AppException(message);
+							logger.info(this.bank.id + ": " + message);
+							throw new Exception(message);
 						} else if (loanSumResponse.status) {
 							externalLoanSum += loanSumResponse.loanSum;
 						} else {
 							String message = "Loan refused at bank " + this.bank.getId() + ". "
 									+ loanSumResponse.message;
-							logger.info(this.bank.getTextId() + ": " + message);
-							throw new AppException(message);
+							logger.info(this.bank.id + ": " + message);
+							throw new Exception(message);
 						}
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 						String message = "Loan request failed for user " + account.getEmailAddress()
 								+ ". InterruptedException";
-						logger.info(this.bank.getTextId() + ": " + message);
-						throw new AppException(message);
+						logger.info(this.bank.id + ": " + message);
+						throw new Exception(message);
 
 					} catch (ExecutionException e) {
 						e.printStackTrace();
 						String message = "Loan request failed for user " + account.getEmailAddress()
 								+ ". ExecutionException";
-						logger.info(this.bank.getTextId() + ": " + message);
-						throw new AppException(message);
+						logger.info(this.bank.id + ": " + message);
+						throw new Exception(message);
 					}
 				}
 
@@ -379,17 +364,17 @@ public class BankReplica extends AbstractServerBank {
 			}
 			
 			// Refuse the loan request if the sum of all loans is greater than the credit limit
-			if ((requestedLoanAmount + externalLoanSum) > account.getCreditLimit()) {
+			if ((loanAmount + externalLoanSum) > account.getCreditLimit()) {
 				String message = "Loan refused at bank " + this.bank.getId() + ". Total credit limit exceeded.";
-				logger.info(this.bank.getTextId() + ": " + message);
-				throw new AppException(message);
+				logger.info(this.bank.id + ": " + message);
+				throw new Exception(message);
 			}
 			
 			// Loan is approved at this point
-			newLoanId = this.bank.createLoan(account.getEmailAddress(), accountNbr, requestedLoanAmount);
+			newLoanId = this.bank.createLoan(account.getEmailAddress(), accountNumber, loanAmount);
 
-			String message = "Loan approved for user " + account.getEmailAddress() + ", amount " + requestedLoanAmount + " at bank " + this.bank.getId() + ".";
-			logger.info(this.bank.getTextId() + ": " + message);
+			String message = "Loan approved for user " + account.getEmailAddress() + ", amount " + loanAmount + " at bank " + this.bank.getId() + ".";
+			logger.info(this.bank.id + ": " + message);
 
 			return newLoanId;
 		}
@@ -401,10 +386,18 @@ public class BankReplica extends AbstractServerBank {
 	 * @param loan
 	 * @param otherBankId
 	 * @return
-	 * @throws AppException 
+	 * @throws Exception 
 	 */
-	public int transferLoan(Loan loan, BankReplicaStub otherBankStub) throws AppException {
+	public boolean transferLoan(int loanID, String otherBank) throws Exception {
+	//public int transferLoan(Loan loan, BankReplicaStub otherBankStub) throws Exception {
 		
+		Loan loan = this.bank.getLoan(loanID);
+		if (loan == null) {
+			logger.info(this.bank.id + ": Loan transfer failed. LoanId " + loanID + " does not exist");
+			throw new Exception(this.bank.id + ": Loan transfer failed. LoanId " + loanID + " does not exist");
+		}
+		
+		BankReplicaStub otherBankStub = group.get(otherBank);
 		Object lock = this.bank.getLockObject(loan.getEmailAddress());
 		
 		synchronized (lock) {
@@ -414,7 +407,7 @@ public class BankReplica extends AbstractServerBank {
 			loan = this.bank.getLoan(loan.getId());
 			if (loan == null) {
 				logger.info(this.bank.id + ": Loan transfer " + loanId + " failed. LoanId " + loanId + " does not exist");
-				throw new AppException("Loan transfer " + loanId + " failed. LoanId " + loanId + " does not exist");
+				throw new Exception("Loan transfer " + loanId + " failed. LoanId " + loanId + " does not exist");
 			}
 			
 			ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -432,19 +425,20 @@ public class BankReplica extends AbstractServerBank {
 						rollbackLoanTransfer(otherBankStub, resp.loanId);
 					}
 					
-					logger.info(this.bank.getTextId() + ": Loan transfer " + loanId + " to " + otherBankStub.id + " successful");
-					return resp.loanId;
+					logger.info(this.bank.id + ": Loan transfer " + loanId + " to " + otherBankStub.id + " successful");
+					//return resp.loanId;
+					return true;
 				}
 				else {
-					logger.info(this.bank.getTextId() + ": Loan transfer failed. " + resp.message);
-					throw new AppException("Loan transfer failed. " + resp.message);
+					logger.info(this.bank.id + ": Loan transfer failed. " + resp.message);
+					throw new Exception("Loan transfer failed. " + resp.message);
 				}
 			} catch (ExecutionException ee) {
-				throw new AppException("Callable threw an execution exception: " + ee.getMessage());
+				throw new Exception("Callable threw an execution exception: " + ee.getMessage());
 			} catch (InterruptedException e) {
-				throw new AppException("Callable was interrupted: " + e.getMessage());
+				throw new Exception("Callable was interrupted: " + e.getMessage());
 			} catch (TimeoutException e) {
-				throw new AppException("Callable transfer loan timed out: " + e.getMessage());
+				throw new Exception("Callable transfer loan timed out: " + e.getMessage());
 			} finally {
 				executor.shutdown();
 			}
@@ -458,43 +452,21 @@ public class BankReplica extends AbstractServerBank {
 	 * @return
 	 */
 	private boolean rollbackLoanTransfer(BankReplicaStub otherBankStub, int loanId) {
-		
 		return true;
 	}
 
 	@Override
 	public String getServerName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getLoan(int accountNumber, String password, long loanAmount) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean delayPayment(int loanID, Date currentDueDate, Date newDueDate) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean transferLoan(int loanID, String otherBank) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+		return this.bank.id;
 	}
 
 	@Override
 	public BankState getCurrentState() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.state;
 	}
 
 	@Override
 	public void setCurrentState(BankState state) {
-		// TODO Auto-generated method stub
-
+		this.state = state;
 	}
 }

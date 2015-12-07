@@ -107,7 +107,7 @@ public class Bank {
 	 * @param loanAmount
 	 * @return
 	 */
-	protected int createLoan(String emailAddress, int accountNbr, int loanAmount) {
+	protected int createLoan(String emailAddress, int accountNbr, long loanAmount) {
 
 		Date now = new Date();
 		Calendar cal = Calendar.getInstance();
@@ -124,7 +124,7 @@ public class Bank {
 	 * @param loanAmount
 	 * @return
 	 */
-	protected int createLoan(int accountNbr, String emailAddress, int loanAmount, Date dueDate) {
+	protected int createLoan(int accountNbr, String emailAddress, long loanAmount, Date dueDate) {
 		
 		String firstLetter = emailAddress.substring(0, 1).toUpperCase();
 		ThreadSafeHashMap<Integer, Loan> loans = this.loans.get(firstLetter);

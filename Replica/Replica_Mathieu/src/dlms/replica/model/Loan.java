@@ -18,7 +18,7 @@ public class Loan implements Serializable {
 	
 	private int accountNbr;
 	private String emailAddress;
-	private int amount;
+	private long amount;
 	private Date dueDate;
 	private int id;
 	
@@ -30,7 +30,7 @@ public class Loan implements Serializable {
 	 * @param dueDate The due date of the loan
 	 * @param id the id of this loan
 	 */
-	public Loan(int accountNbr, String emailAddress, int amount, Date dueDate, int id) {
+	public Loan(int accountNbr, String emailAddress, long amount, Date dueDate, int id) {
 		super();
 		this.accountNbr = accountNbr;
 		this.emailAddress = emailAddress;
@@ -43,7 +43,7 @@ public class Loan implements Serializable {
 		return accountNbr;
 	}
 
-	public int getAmount() {
+	public long getAmount() {
 		return amount;
 	}
 
