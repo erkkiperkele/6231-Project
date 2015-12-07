@@ -62,22 +62,20 @@ class TestThread extends Thread {
 		// 2. Create a new account, with invalid information
 		// 3. Print information for a valid bank
 		// 4. Print information for an invalid bank
-		int choice = r.nextInt() % 4;
-		switch(choice) { // TODO: Make this skew in favor of deeper tree walks
-		case 0:
+		double choice = r.nextDouble();
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {}
+		// Skew tree descent in favor of creating valid accounts
+		// This ensures that future tests are run
+		if (choice < 13.0/16.0) {
 			CreateValidAccount();
-			break;
-		case 1:
+		} else if (choice < 14.0/16.0) {
 			CreateInvalidAccount();
-			break;
-		case 2:
+		} else if (choice < 15.0/16.0) {
 			PrintValidInfo();
-			break;
-		case 3:
+		} else {
 			PrintInvalidInfo();
-			break;
-		default: // Should never reach here
-			break;
 		}
 	}
 
@@ -98,23 +96,22 @@ class TestThread extends Thread {
 			// Success, decide next method to call
 			success("Created account " + accountID);
 			// Choose next test to run
-			switch(r.nextInt(6)) {
-			case 0:
+			double choice = r.nextDouble();
+			try {
+				sleep(1000);
+			} catch (InterruptedException e) {}
+			if (choice < 8.0/13.0) {
 				CreateValidLoan();
-				break;
-			case 1:
+			} else if (choice < 9.0/13.0) {
 				CreateInvalidLoan();
-				break;
-			case 2:
+			} else if (choice < 10.0/13.0) {
 				CreateLoanAtInvalidBank();
-				break;
-			case 3:
+			} else if (choice < 11.0/13.0) {
 				CreateLoanWithInvalidAccount();
-				break;
-			case 4:
+			} else if (choice < 12.0/13.0){
 				CreateLoanWithInsufficientCredit();
-				break;
-			case 5: // Create duplicate account
+			} else {
+				// Create duplicate account
 				try {
 					accountID = fe.openAccount(bank, firstName, lastName, email, phone, password);
 				} catch (AppException e) {
@@ -122,8 +119,6 @@ class TestThread extends Thread {
 					return;
 				}
 				fail("CreateAccountDuplicate(): Exception not caught");
-			default: // Should not reach here
-				break;
 			}
 		}
 		else {
@@ -159,6 +154,9 @@ class TestThread extends Thread {
 			Calendar c = Calendar.getInstance();
 			c.add(Calendar.MONTH, 6);
 			curDueDate = dateFmt.format(c.getTime());
+			try {
+				sleep(1000);
+			} catch (InterruptedException e) {}
 			// Choose next test to run
 			switch(r.nextInt(8)) {
 			case 0:
