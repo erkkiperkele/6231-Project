@@ -83,7 +83,7 @@ public class BankReplica extends AbstractServerBank {
 
 		// Start the bank's sequencer's UDP listener
 		try {
-			udpServer = new UDPServerThread("Mat Replica Implementation", sequencerListenerPort);
+			udpServer = new UDPServerThread("Mat's Replica Implementation of " + bankId + " bank", sequencerListenerPort);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +91,6 @@ public class BankReplica extends AbstractServerBank {
 		udpServer.start();
 
 	    // Start the bank's UDP listener
-		logger.info(this.bank.getId() + ": Starting UDP Listener for bank " + bankId);
 		udpListener = new UdpListener(this.bank, this.logger);
 		udpListenerThread = new Thread(udpListener);
 		udpListenerThread.start();
@@ -148,7 +147,7 @@ public class BankReplica extends AbstractServerBank {
 	 */
 	public int openAccount(String firstName, String lastName, String emailAddress, String phoneNumber,
 			String password) {
-		
+
 		int newAccountNbr = -1;
 
 		logger.info("-------------------------------\n" + this.bank.id

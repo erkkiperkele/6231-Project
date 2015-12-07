@@ -48,6 +48,8 @@ public class UdpListener implements Runnable {
 	@Override
 	public void run() {
 
+		logger.info(this.bank.getId() + ": Starting intranet UDP listener for bank " + bank.getId() + " on " + this.bank.udpAddress);
+		
 		DatagramSocket serverSocket = null;
 
 		try {
@@ -66,7 +68,6 @@ public class UdpListener implements Runnable {
 				final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 
 				// Wait for the packet
-				logger.info(this.bank.getTextId() + ": Waiting for bank UDP request on " + this.bank.udpAddress.toString());
 				serverSocket.receive(receivePacket);
 				
 				// Received a request. Parse it.
