@@ -14,15 +14,20 @@ import shared.udp.UDPMessage;
 import shared.util.Constant;
 import shared.util.Env;
 
+/**
+ * Listens for messages from the replica managers
+ * 
+ * @author mat
+ *
+ */
 public class ReplicaManagerListener extends Thread {
 
-//	private static final String FE_HOST = "localhost";
-//	private static final int FE_PORT = 15000;
 	private static final int UDP_PACKET_SIZE = 4096;
 
 	protected Logger logger;
-	private volatile QueuePool opThreadPool = null;
-
+	
+	private volatile FrontEndState feState = FrontEndState.RUNNING;
+	
 	/**
 	 * Constructor
 	 * 
@@ -33,7 +38,6 @@ public class ReplicaManagerListener extends Thread {
 		
 		super();
 		this.logger = logger;
-		this.opThreadPool = opThreadPool;
 	}
 
 	public void run() {
@@ -100,5 +104,13 @@ public class ReplicaManagerListener extends Thread {
 			// TODO: Catch this properly
 			System.exit(1);
 		} finally {if(serverSocket != null) serverSocket.close();}
+	}
+	
+	public synchronized FrontEndState getFeState() {
+		return feState;
+	}
+
+	public synchronized void setFeState(FrontEndState feState) {
+		this.feState = feState;
 	}
 }
