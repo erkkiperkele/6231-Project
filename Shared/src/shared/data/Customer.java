@@ -101,5 +101,4 @@ public class Customer implements Serializable {
 	public void setCreditLimit(long creditLimit) {
 		this.creditLimit = creditLimit;
 	}
-
 }

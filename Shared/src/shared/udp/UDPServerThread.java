@@ -104,8 +104,8 @@ public class UDPServerThread implements Runnable
 				{
 					if(udpMessage.getSequenceNumber() < 0 && !udpMessage.isClientMessage())
 					{
-						getUDPServerHandleRequestThread()
-							.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
+						client = getUDPServerHandleRequestThread();
+						client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
 					}
 					else if (!dicHandleRequest.containsKey(key))
 					{
@@ -119,6 +119,7 @@ public class UDPServerThread implements Runnable
 						client.resumeNextUdpMessageReceived(request, udpMessage);
 					}
 				}
+				client.join();
 			}
 		}
 		catch (Exception e)

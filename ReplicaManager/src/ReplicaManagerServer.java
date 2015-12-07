@@ -8,12 +8,10 @@ import java.io.IOException;
 public class ReplicaManagerServer {
     private static Bank[] banks = new Bank[]{Bank.Royal, Bank.Dominion, Bank.National};
     private static IReplicaManagerService replicaManagerService;
-    private IReplicaStateService replicaStateService;
 
     public ReplicaManagerServer() {
 
         this.replicaManagerService = new ReplicaManagerService();
-        this.replicaStateService = new ReplicaStateService();
     }
 
     public void startBankServers(String implementationName) throws IOException {
@@ -23,16 +21,8 @@ public class ReplicaManagerServer {
     }
 
     public void startFrontEndMessageUdpServer() {
-        //TODO!!! use RUDP.
-
         UdpRMtoFEListener udpServerFrontEnd = new UdpRMtoFEListener(replicaManagerService);
         udpServerFrontEnd.start();
-    }
-
-    public void startStateTransferUDPServer() {
-
-        UdpRMtoRMListener udpServerReplicaManager = new UdpRMtoRMListener(replicaStateService);
-        udpServerReplicaManager.start();
     }
 
     public void initializeBankServers() {

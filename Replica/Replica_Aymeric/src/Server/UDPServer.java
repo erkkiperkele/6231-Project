@@ -3,7 +3,9 @@ package Server;
 import Contracts.ICustomerService;
 import Services.BankService;
 import Services.SessionService;
+import shared.data.ServerInfo;
 import shared.udp.*;
+import shared.util.Env;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.security.auth.login.FailedLoginException;
@@ -23,13 +25,15 @@ public class UDPServer {
 
     public void startServer() {
 
-            int serverPort = shared.data.ServerPorts.getUDPPort(SessionService.getInstance().getBank());
-            DatagramSocket aSocket = null;
+        ServerInfo serverInfo = Env.getReplicaServerInfo();
+        DatagramSocket aSocket = null;
 
         try {
             //Setup the socket
-            aSocket = new DatagramSocket(serverPort);
-            byte[] buffer = new byte[1000];
+            aSocket = new DatagramSocket(serverInfo.getAddress());
+            byte[] buffer = new byte[4096];
+
+            System.out.println("Replica listening on UDP port: " + aSocket.getPort());
 
             //Setup the loop to process request
             while (true) {

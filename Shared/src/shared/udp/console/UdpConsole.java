@@ -40,6 +40,7 @@ public class UdpConsole {
                         + "%1$s 1: send error message from FE to RM"
                         + "%1$s 2: send failure message from FE to RM"
                         + "%1$s 3: send getState message from RM to RM"
+                        + "%1$s 4: send getState message from RM to RM (new one)"
                         + "%1$s Press any other key to exit."
                 , "\n");
 
@@ -73,7 +74,7 @@ public class UdpConsole {
 
         byte[] data = Constant.GET_STATE.getBytes();
         InetAddress inetAddress = getInetAddress("localhost");
-        int port = Constant.RM_TO_RM_LISTENER_PORT;
+        int port = 4509;
 
 
         sendMessage(inetAddress, port, data);
@@ -100,7 +101,7 @@ public class UdpConsole {
             byte[] data = Serializer.serialize(message);
 
             InetAddress inetAddress = null;
-            int port = Constant.RM_TO_FE_LISTENER_PORT;
+            int port = 24500;
 
             inetAddress = InetAddress.getByName(url);
 

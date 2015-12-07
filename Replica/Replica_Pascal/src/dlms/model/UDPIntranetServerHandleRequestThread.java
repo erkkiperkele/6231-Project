@@ -83,8 +83,9 @@ public class UDPIntranetServerHandleRequestThread implements Runnable
 		Env.log(Level.FINE, key + "[UDP] starting.");
 		if (messageRequested != null)
 		{
+			int accountID = messageRequested.getCustomer().getAccountNumber();
 			String username = messageRequested.getUsername();
-			Loan loan = this.bank.getLoans().get(username);
+			Loan loan = this.bank.getLoans().get(username, accountID);
 			boolean isCustomerExist = loan != null;
 
 			if (messageRequested.getTypeOfRequest() == TypeOfRequest.requestLoanCheck)
@@ -162,7 +163,7 @@ public class UDPIntranetServerHandleRequestThread implements Runnable
 			{
 				// Make sure no loan was created since creating
 				// loan also lock on customer
-				loan = this.bank.getLoans().get(username);
+				loan = this.bank.getLoans().get(username, customer.getAccountNumber());
 				boolean isResourceLocked = customer != null && loan == null;
 				Env.log(Level.FINE, key + "[UDP] transferLoan Sending locked resource " + (isResourceLocked));
 				byte[] response = new byte[1];
@@ -246,7 +247,7 @@ public class UDPIntranetServerHandleRequestThread implements Runnable
 			this.bank.getAccounts().remove(customer.getUserName());
 			try
 			{
-				this.bank.getAccounts().commit(EnvP.getServerCustomersFile(this.bank.getServerName(), customer.getUserName()), customer.getUserName(), true);
+				this.bank.getAccounts().commit(EnvP.getServerCustomersFile(this.bank.getServerName(), customer.getUserName()), customer.getUserName());
 			}
 			catch (Exception e)
 			{

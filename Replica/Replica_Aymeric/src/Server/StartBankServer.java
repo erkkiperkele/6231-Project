@@ -4,7 +4,7 @@ import Contracts.IBankService;
 import Services.BankService;
 import Services.SessionService;
 import shared.data.Bank;
-import shared.udp.UDPReplicaToReplicaManagerHandleRequestThread;
+import shared.data.ServerInfo;
 import shared.udp.UDPReplicaToReplicaManagerThread;
 import shared.util.Env;
 
@@ -19,7 +19,6 @@ public class StartBankServer {
     private static UDPServer udpInternal;
     private static BankServerUdp bankServerUdp;
     private static UDPReplicaToReplicaManagerThread udpRtoRM;
-    private static UDPReplicaToReplicaManagerHandleRequestThread udpRtoRMRequest;
 
 
     /**
@@ -49,25 +48,12 @@ public class StartBankServer {
         startUdpThreads();
     }
 
-    private static void startUdpThreads() {
-
-        try {
-            Env.setCurrentBank(Bank.Royal);     //HACK To get the Thread initialization working.
-            udpRtoRM = new UDPReplicaToReplicaManagerThread(bankServerUdp);
-            udpRtoRMRequest = new UDPReplicaToReplicaManagerHandleRequestThread();
-            udpRtoRM.start();
-            udpRtoRMRequest.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     private static void initialize(String arg) {
-        shared.data.Bank serverName = shared.data.Bank.fromInt(Integer.parseInt(arg));
-        SessionService.getInstance().setBank(serverName);
+        Bank bank = Bank.fromInt(Integer.parseInt(arg));
+        SessionService.getInstance().setBank(bank);
+        Env.setCurrentBank(bank);
         bankService = new BankService();
         udpInternal = new UDPServer(bankService);
-
     }
 
     private static void startUDPServerForInternalOperations() {
@@ -87,5 +73,22 @@ public class StartBankServer {
         bankServerUdp = new BankServerUdp(bankService);
         bankServerUdp.start();
         SessionService.getInstance().log().info(String.format("[UDP] BANK SERVER STARTED"));
+    }
+
+    private static void startUdpThreads() {
+
+        try {
+            Env.setCurrentBank(SessionService.getInstance().getBank());
+
+            ServerInfo sv = Env.getReplicaToReplicaManagerServerInfo();
+            System.err.println(sv.getPort() + " <-- CE PORT LA!");
+
+            udpRtoRM = new UDPReplicaToReplicaManagerThread(bankServerUdp);
+            udpRtoRM.start();
+            SessionService.getInstance().log().info(String.format("[UDP] SYNC SERVER STARTED"));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

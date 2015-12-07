@@ -23,8 +23,8 @@ import shared.util.Env;
 public class ServerBank extends AbstractServerBank
 {
 	private String name;
-	private ConcurrentHashMapLists<Customer> accounts = new ConcurrentHashMapLists<Customer>();
-	private ConcurrentHashMapLists<Loan> loans = new ConcurrentHashMapLists<Loan>();
+	private CustomerConcurrentHashMapLists accounts = new CustomerConcurrentHashMapLists();
+	private LoanConcurrentHashMapLists loans = new LoanConcurrentHashMapLists();
 	private static final long LOAN_LIMIT = 1000;
 	private int loanCounter = 0;
 	private int customerCounter = 0;
@@ -47,7 +47,7 @@ public class ServerBank extends AbstractServerBank
 	/**
 	 * @return the accounts
 	 */
-	public ConcurrentHashMapLists<Customer> getAccounts()
+	public CustomerConcurrentHashMapLists getAccounts()
 	{
 		return accounts;
 	}
@@ -55,7 +55,7 @@ public class ServerBank extends AbstractServerBank
 	/**
 	 * @return the loans
 	 */
-	public ConcurrentHashMapLists<Loan> getLoans()
+	public LoanConcurrentHashMapLists getLoans()
 	{
 		return loans;
 	}
@@ -101,7 +101,7 @@ public class ServerBank extends AbstractServerBank
 					ArrayList<Customer> lstCustomers = XMLHelper.readCustomers(listOfFiles[i].getName());
 					for (Customer customer : lstCustomers)
 					{
-						this.accounts.put(getStringUsername(customer), customer);
+						this.accounts.put(customer);
 					}
 				}
 				
@@ -167,11 +167,15 @@ public class ServerBank extends AbstractServerBank
 
 		String accountName = getStringUsername(customer);
 		Env.log(Level.FINE, firstName + "," + lastName + ": Adding the account.");
-		this.accounts.put(getStringUsername(customer), customer);
+		this.accounts.put(customer);
 		// Release
 		Env.log(Level.FINE, firstName + "," + lastName + ": Commit() to XML");
-		this.accounts.commit(EnvP.getServerCustomersFile(this.getServerName(), accountName), accountName, true);
+		this.accounts.commit(EnvP.getServerCustomersFile(this.getServerName(), accountName), accountName);
 
+		synchronized(this)
+		{
+			customer.setAccountNumber(++customerCounter);
+		}
 		Env.log(Level.FINE, firstName + "," + lastName + ": Created.");
 		return customer.getAccountNumber();
 	}
@@ -275,7 +279,7 @@ public class ServerBank extends AbstractServerBank
 				}
 				loan = new Loan(loanID, accountNumber, loanAmount, EnvP.getNewLoanDueDate());
 				this.loans.put(customer.getUserName(), loan);
-				this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
+				this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName());
 
 				loanApprovedID = loan.getLoanNumber();
 				Env.log(Level.FINE, accountNumber + " Credit Check Accepted.");
@@ -333,7 +337,7 @@ public class ServerBank extends AbstractServerBank
 
 		Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit()");
 		String username = getStringUsername(loan);
-		this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), username), username, false);
+		this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), username), username);
 
 		Env.log(Level.FINE, loan.getCustomerAccountNumber() + " delayPayment(" + loanID + ") commit() Successful");
 		return isPaymentDelayed;
@@ -405,7 +409,7 @@ public class ServerBank extends AbstractServerBank
 		synchronized (customer)
 		{
 			// Get the loan now that the customer is locked
-			loan = (Loan) this.loans.get(accountNumber);
+			loan = (Loan) this.loans.get(accountNumber, loanID);
 			if (loan == null)
 			{
 				Env.log(Level.SEVERE, loanID + " InvalidLoanID");
@@ -416,7 +420,7 @@ public class ServerBank extends AbstractServerBank
 
 			// Customer resource locked, removing the loan temporarily in memory
 			// only
-			if (this.loans.remove(accountNumber))
+			if (this.loans.remove(accountNumber, loanID))
 			{
 				Env.log(Level.FINE, loanID + " Starting Loan transfer.");
 
@@ -432,7 +436,7 @@ public class ServerBank extends AbstractServerBank
 					Env.log(Level.FINE, loanID + " Transfer successfull, committing the data to the database.");
 					try
 					{
-						this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
+						this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName());
 						isTransfered = true;
 					}
 					catch (Exception e)
@@ -485,19 +489,20 @@ public class ServerBank extends AbstractServerBank
 		synchronized (this)
 		{
 			loanNumber = ++loanCounter;
-		}
-		Loan newLoan = new Loan(loanNumber, loan.getCustomerAccountNumber(), loan.getAmount(), loan.getDueDate());
-		
-		this.loans.put(customer.getUserName(), newLoan);
-		try
-		{
-			this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName(), false);
-		}
-		catch (Exception e)
-		{
-			// remove the loan from the memory and return the error
-			this.loans.remove(customer.getUserName());
-			throw e;
+			Loan newLoan = new Loan(loanNumber, loan.getCustomerAccountNumber(), loan.getAmount(), loan.getDueDate());
+			
+			this.loans.put(customer.getUserName(), newLoan);
+			try
+			{
+				this.loans.commit(EnvP.getServerLoansFile(this.getServerName(), customer.getUserName()), customer.getUserName());
+			}
+			catch (Exception e)
+			{
+				// remove the loan from the memory and return the error
+				this.loans.remove(customer.getUserName(), loanNumber);
+				loanCounter--;
+				throw e;
+			}
 		}
 
 		return loan.getLoanNumber();
