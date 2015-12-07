@@ -1,6 +1,9 @@
 package dlms.client;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 import dlms.corba.AppException;
@@ -33,10 +36,12 @@ class TestThread extends Thread {
 	// For building random strings
 	static final String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private static Random r = new Random();
+	private static SimpleDateFormat dateFmt = new SimpleDateFormat("dd/MM/yyyy");
 	
 	private FrontEnd fe;
 	private int accountID = -1;
 	private int loanID = -1;
+	private String curDueDate;
 	private String password;
 	private String bank;
 	
@@ -53,7 +58,7 @@ class TestThread extends Thread {
 		// 3. Print information for a valid bank
 		// 4. Print information for an invalid bank
 		int choice = r.nextInt() % 4;
-		switch(choice) {
+		switch(choice) { // TODO: Make this skew in favor of deeper tree walks
 		case 0:
 			CreateValidAccount();
 			break;
@@ -146,6 +151,9 @@ class TestThread extends Thread {
 		}
 		if (loanID > -1) {
 			success("CreateValidLoan(): Acquired loan " + loanID);
+			Calendar c = Calendar.getInstance();
+			c.add(Calendar.MONTH, 6);
+			curDueDate = dateFmt.format(c.getTime());
 			// Choose next test to run
 			switch(r.nextInt(8)) {
 			case 0:
@@ -185,6 +193,48 @@ class TestThread extends Thread {
 		else {
 			fail("GetValidLoan(): Could not acquire loan");
 		}
+	}
+
+	private void CreateInvalidLoan() {
+		try {
+			loanID = fe.getLoan(bank, accountID, password.substring(1), 100);
+		} catch (AppException e) {
+			success("CreateInvalidLoan(): Exception caught");
+			return;
+		}
+		fail("CreateInvalidLoan(): Exception not caught");
+	}
+
+	private void CreateLoanWithInsufficientCredit() {
+		int amount = 1000000;
+		try {
+			loanID = fe.getLoan(bank, accountID, password, amount);
+		} catch (AppException e) {
+			success("CreateLoanWithInsufficientCredit(): Exception caught");
+			return;
+		}
+		fail("CreateLoanWithInsufficientCredit(): Exception not caught");
+	}
+
+	private void CreateLoanWithInvalidAccount() {
+		try {
+			loanID = fe.getLoan(bank, -1, password, 100);
+		} catch (AppException e) {
+			success("CreateLoanWithInvalidAccount(): Exception caught");
+			return;
+		}
+		fail("CreateLoanWithInvalidAccount(): Exception not caught");
+	}
+
+	private void CreateLoanAtInvalidBank() {
+		String bank = generateRandomString(5);
+		try {
+			loanID = fe.getLoan(bank, accountID, password, 100);
+		} catch (AppException e) {
+			success("CreateLoanAtInvalidBank(): Exception caught");
+			return;
+		}
+		fail("CreateLoanAtInvalidBank(): Exception not caught");
 	}
 
 	private void TransferLoanInvalidLoan() {
@@ -241,61 +291,39 @@ class TestThread extends Thread {
 		}
 	}
 
-	private void DelayPaymentNoSuchLoan() {
-		// TODO Auto-generated method stub
-		
+	private void DelayPaymentValid() {
+		Boolean result = null;
+		try {
+			result = fe.delayPayment(bank, loanID, curDueDate, "31/12/2017");
+		}
+		catch (AppException e) {
+			fail("DelayPaymentValid(): Exception caught");
+		}
+		if (result == null || !result) {
+			fail("DelayPaymentValid(): Delay payment failed");
+		} else {
+			success("Loan payment delayed successfully");
+		}
 	}
 
 	private void DelayPaymentInvalid() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void DelayPaymentValid() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void CreateLoanWithInsufficientCredit() {
-		int amount = 1000000;
 		try {
-			loanID = fe.getLoan(bank, accountID, password, amount);
+			fe.delayPayment(bank, loanID, curDueDate, "01/01/1900");
 		} catch (AppException e) {
-			success("CreateLoanWithInsufficientCredit(): Exception caught");
+			success("DelayPaymentInvalid(): Exception caught");
 			return;
 		}
-		fail("CreateLoanWithInsufficientCredit(): Exception not caught");
+		fail("DelayPaymentInvalid(): Exception not caught");
 	}
 
-	private void CreateLoanWithInvalidAccount() {
+	private void DelayPaymentNoSuchLoan() {
 		try {
-			loanID = fe.getLoan(bank, -1, password, 100);
+			fe.delayPayment(bank, -1, curDueDate, "31/12/2017");
 		} catch (AppException e) {
-			success("CreateLoanWithInvalidAccount(): Exception caught");
+			success("DelayPaymentNoSuchLoan(): Exception caught");
 			return;
 		}
-		fail("CreateLoanWithInvalidAccount(): Exception not caught");
-	}
-
-	private void CreateLoanAtInvalidBank() {
-		String bank = generateRandomString(5);
-		try {
-			loanID = fe.getLoan(bank, accountID, password, 100);
-		} catch (AppException e) {
-			success("CreateLoanAtInvalidBank(): Exception caught");
-			return;
-		}
-		fail("CreateLoanAtInvalidBank(): Exception not caught");
-	}
-
-	private void CreateInvalidLoan() {
-		try {
-			loanID = fe.getLoan(bank, accountID, password.substring(1), 100);
-		} catch (AppException e) {
-			success("CreateInvalidLoan(): Exception caught");
-			return;
-		}
-		fail("CreateInvalidLoan(): Exception not caught");
+		fail("DelayPaymentNoSuchLoan(): Exception not caught");
 	}
 
 	private void PrintValidInfo() {
