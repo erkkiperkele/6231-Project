@@ -104,7 +104,8 @@ public class ResultSetListener<T> extends Thread {
 					break;
 				}
 				
-				messages.put(msg.getKey(), msg);
+				String msgKey = this.getUdpMessageKey(msg);
+				messages.put(msgKey, msg);
 				
 				if (messages.size() < 2) {
 					continue;
@@ -200,6 +201,7 @@ public class ResultSetListener<T> extends Thread {
 		for (int i = 0; i < messages.size(); i++) {
 
 			UDPMessage msg1 = list.get(i);
+			String msgKey1 = this.getUdpMessageKey(msg1);
 			IOperationResult<T> firstMessage = (IOperationResult<T>) msg1.getMessage();
 			
 			for (int j = 0; j < messages.size(); j++) {
@@ -207,14 +209,16 @@ public class ResultSetListener<T> extends Thread {
 				if (i == j) { continue; }
 				
 				UDPMessage msg2 = list.get(j);
+				String msgKey2 = this.getUdpMessageKey(msg2);
 				IOperationResult<T> secondMessage = (IOperationResult<T>) msg2.getMessage();
 				
 				if (firstMessage.isResultEqual(secondMessage)) {
 
-					validMessages.put(msg2.getKey(), true);
+					validMessages.put(msgKey2, true);
 					
 					if (!foundValidResult) {
-						validMessages.put(msg1.getKey(), true);
+						
+						validMessages.put(msgKey1, true);
 						foundValidResult = true;
 					}
 				}
@@ -363,4 +367,14 @@ public class ResultSetListener<T> extends Thread {
 			pool.shutdown();
 		}
 	}
+	
+	/**
+	 * 
+	 * @param msg
+	 * @return
+	 */
+	protected String getUdpMessageKey(UDPMessage msg) {
+		return msg.getMessage().getMachineName() + msg.getMessage().getBank();
+	}
+	
 }
