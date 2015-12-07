@@ -28,8 +28,8 @@ public class ReplicaLauncher {
 		String bankName = "";
 
 		Env.loadSettings();
-		Env.setCurrentBank(Bank.Royal);
-		
+		//Env.setCurrentBank(Bank.Royal);
+
 		// Establish the bank details and add them all to a group
 		// this will be passed to each replica so that they know of each others'
 		// existence
@@ -49,6 +49,7 @@ public class ReplicaLauncher {
 		}
 		else {
 			bankName = args[0];
+			Env.setCurrentBank(Bank.fromString(bankName));
 		}
 
 		ServerInfo thisBankInfo = Env.getReplicaServerInfo(Constant.MACHINE_NAME_MATHIEU, Bank.fromString(bankName));
