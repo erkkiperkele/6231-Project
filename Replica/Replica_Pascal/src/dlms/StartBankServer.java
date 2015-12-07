@@ -42,18 +42,18 @@ public class StartBankServer
 				// Start instance listening on UDP
 				ServerBank bankServer = new ServerBank(server, true);
 				UDPReplicaToReplicaManagerThread replicaManager = new UDPReplicaToReplicaManagerThread(bankServer);
+				Env.log(String.format("[UDP] SYNC SERVER STARTED (Pascal Implementation)"));
 				UDPIntranetServerThread intranetServer = new UDPIntranetServerThread(bankServer);
 				intranetServer.start();
 				replicaManager.start();
 				bankServer.waitUntilUDPServiceEnd();
 				replicaManager.join();
 				intranetServer.join();
-				System.err.println(String.format("[UDP] SYNC SERVER STARTED (Pascal Implementation)"));
 			}
 			catch (Exception e)
 			{
 				// Most likely an InterruptedException has been raised
-				Env.log(Level.SEVERE, "Exception in StartBankServer: " + e);
+				Env.log(Level.SEVERE, "(port #" + server.getPort() + ") Exception in StartBankServer: " + e);
 			}
 		}
 	}

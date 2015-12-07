@@ -18,7 +18,6 @@ public class StartReplicaManagerServer {
         try {
             server.startBankServers(implementationName);
             server.startFrontEndMessageUdpServer();
-            server.startStateTransferUDPServer();
             server.initializeBankServers();
         } catch (IOException e) {
             e.printStackTrace();
