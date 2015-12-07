@@ -36,6 +36,7 @@ public class FrontEndServer {
 	private Logger logger = null;
 	private volatile QueuePool opQueuePool = null;
 	private volatile HashMap<String, HashMap<String, Integer>> faultyReplicas = null;
+	private ReplicaManagerListener replicaManagerListener = null;
 	
 	/**
 	 * Constructor
@@ -73,6 +74,10 @@ public class FrontEndServer {
 		faultyReplicas.put(Constant.MACHINE_NAME_AYMERIC, new HashMap<String, Integer>());
 		faultyReplicas.put(Constant.MACHINE_NAME_PASCAL, new HashMap<String, Integer>());
 		faultyReplicas.put(Constant.MACHINE_NAME_MATHIEU, new HashMap<String, Integer>());
+
+		// Listen for replica manager status control messages
+		replicaManagerListener = new ReplicaManagerListener(logger);
+		replicaManagerListener.start();
 		
 		// Start the servers
 		this.initiOrb();
@@ -95,7 +100,7 @@ public class FrontEndServer {
 	 * Initialize the ORB
 	 */
 	private void initiOrb() {
-
+		
 		try {
 			
 			Properties orbProps = new Properties();
@@ -110,7 +115,7 @@ public class FrontEndServer {
 			rootpoa.the_POAManager().activate();
 
 			// Create a servant and register it with the ORB
-			FrontEnd frontEnd = new FrontEnd(logger, this.opQueuePool, faultyReplicas);
+			FrontEnd frontEnd = new FrontEnd(logger, this.opQueuePool, faultyReplicas, replicaManagerListener);
 
 			// Get object reference from the servant
 			org.omg.CORBA.Object ref1 = rootpoa.servant_to_reference(frontEnd);
@@ -148,7 +153,7 @@ public class FrontEndServer {
 		ReplicaUdpListener replicaListener = new ReplicaUdpListener(logger, this.opQueuePool);
 		replicaListener.setUncaughtExceptionHandler(exHandler);
 		replicaListener.start();
-
+		
 		// Wait for invocations from clients
 		orb.run();
 	}

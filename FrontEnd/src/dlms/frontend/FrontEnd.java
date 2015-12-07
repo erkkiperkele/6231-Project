@@ -43,18 +43,40 @@ public class FrontEnd extends FrontEndPOA {
 	private ServerInfo sqInfo = null;
 	private volatile QueuePool opQueuePool = null;
 	private volatile HashMap<String, HashMap<String, Integer>> faultyReplicas = null;
+	private volatile ReplicaManagerListener replicaManagerListener = null;
 	
+
 	/**
 	 * Constructor
 	 */
-	public FrontEnd(Logger logger, QueuePool opQueuePool , HashMap<String, HashMap<String, Integer>> faultyReplicas) {
+	public FrontEnd(Logger logger, QueuePool opQueuePool , HashMap<String, HashMap<String, Integer>> faultyReplicas, ReplicaManagerListener replicaManagerListener) {
 		
 		super();
 
 		this.logger = logger;
 		this.opQueuePool = opQueuePool;
 		this.faultyReplicas = faultyReplicas;
+		this.replicaManagerListener = replicaManagerListener;
 		this.sqInfo = Env.getSequencerServerInfo();
+	}
+
+	/**
+	 * Polls the state of the FE to see if a operation can go ahead.
+	 * If it times out, an AppException is thrown
+	 * 
+	 * @return
+	 */
+	public boolean goAhead() throws AppException {
+
+		long waitIteration = 500;
+		for (long totalTimeToWait = 5000; totalTimeToWait > 0; totalTimeToWait -= waitIteration) {
+			if (replicaManagerListener.getFeState() == FrontEndState.RUNNING) {
+				return true;
+			}
+		}
+		
+		logger.info("FrontEnd: Client timed out while Front End was not in running state)");
+		throw new AppException("Timed out while waiting on the FE to get in the running state)");
 	}
 
 	@Override
@@ -63,6 +85,8 @@ public class FrontEnd extends FrontEndPOA {
 		
 		//
 		logger.info("FrontEnd: Client invoked delayPayment(" + bankId + ", " + loanId + ", " + currentDueDate + ", " + newDueDate + ")");
+		
+		this.goAhead();
 		
 		// Convert Dates
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-M-yyyy");
@@ -118,6 +142,8 @@ public class FrontEnd extends FrontEndPOA {
 		//
 		logger.info("FrontEnd: Client invoked printCustomerInfo(" + bankId + ")");
 		
+		this.goAhead();
+		
 		BlockingQueue<String> resultQueue = new ArrayBlockingQueue<String>(1);
 		PrintCustomerInfoMessage opMessage = new PrintCustomerInfoMessage(bankId);
 		ResultSetListener<String> resultsListener = null;
@@ -155,8 +181,11 @@ public class FrontEnd extends FrontEndPOA {
 	
 	@Override
 	public int transferLoan(String bankId, int loanId, String currentBankId, String otherBankId) throws AppException {
+		
 		//
 		logger.info("FrontEnd: Client invoked transferLoan(" + bankId + ", " + loanId + ", " + currentBankId + ", " + otherBankId + ")");
+		
+		this.goAhead();
 		
 		BlockingQueue<Integer> resultQueue = new ArrayBlockingQueue<Integer>(1);
 		TransferLoanMessage opMessage = new TransferLoanMessage(loanId, currentBankId, otherBankId);
@@ -178,6 +207,8 @@ public class FrontEnd extends FrontEndPOA {
 		
 		//
 		logger.info("FrontEnd: Sequencer replied to transferLoan operation with sequence number " + opSequenceNbr);
+		
+		this.goAhead();
 
 		try {
 			result = resultQueue.poll(5000, TimeUnit.MILLISECONDS);
@@ -199,6 +230,8 @@ public class FrontEnd extends FrontEndPOA {
 		
 		//
 		logger.info("FrontEnd: Client invoked openAccount(" + bankId + ", " + firstName + ", " + emailAddress + ", " + phoneNumber + ", " + password + ")");
+		
+		this.goAhead();
 		
 		BlockingQueue<Integer> resultQueue = new ArrayBlockingQueue<Integer>(1);
 		OpenAccountMessage opMessage = new OpenAccountMessage(bankId, firstName, lastName, emailAddress, phoneNumber,
@@ -241,6 +274,8 @@ public class FrontEnd extends FrontEndPOA {
 		
 		//
 		logger.info("FrontEnd: Client invoked getLoan(" + bankId + ", " + accountNbr + ", " + password + ", " + loanAmount + ")");
+		
+		this.goAhead();
 		
 		BlockingQueue<Integer> resultQueue = new ArrayBlockingQueue<Integer>(1);
 		GetLoanMessage opMessage = new GetLoanMessage(bankId, accountNbr, password, loanAmount);

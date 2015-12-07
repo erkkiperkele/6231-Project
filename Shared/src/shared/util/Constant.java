@@ -22,6 +22,7 @@ public class Constant
 	public static final String START_FE = "start";
 	public static final String FE_STARTED = "started";
 
+	public static final String FE_TO_RM_LISTENER_HOST = "127.0.0.1";
 	public static final int FE_TO_RM_LISTENER_PORT = 7777;
 
 	public static final int MAX_ERROR_COUNT = 3;
