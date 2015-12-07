@@ -34,11 +34,13 @@ public class ReplicaTest {
 		Env.setCurrentBank(Bank.Royal);
 		
 		startReplicas();
+
+		testOpenAccount();
+		testGetLoan();
 		
-		//testOpenAccount();
-		//testGetLoan();
+		
 		//testTransferLoan();
-		testDelayPayment();
+		//testDelayPayment();
 	}
 
 	public static void main(String[] args) throws InterruptedException {
