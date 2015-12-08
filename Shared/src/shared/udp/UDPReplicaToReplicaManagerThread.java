@@ -45,7 +45,7 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 		        UDPMessage udpMessage = Serializer.deserialize(message);
 
 
-				Env.log("Received " + udpMessage.getOperation().toString());
+				//Env.log("Received " + udpMessage.getOperation().toString());
 		        // Get the Key used to continue the previous communication
 		        // depending on if the message is from the FrontEnd or between banks		        
 				String key;
@@ -67,7 +67,7 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 					}
 					else
 					{
-						Env.log("Append " + udpMessage.getOperation().toString());
+						//Env.log("Append " + udpMessage.getOperation().toString());
 						client = dicHandleRequest.get(key);
 						client.appendNextUdpMessageReceived(request, udpMessage);
 					}

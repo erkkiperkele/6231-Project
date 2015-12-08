@@ -133,20 +133,20 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	}
 
 	private boolean lastPacketReceived() {
-		if(receivedLoansList == null || receivedLoansList[receivedLoansList.length-1] == null)
+		if(receivedLoansList == null || (receivedLoansList.length > 0 && receivedLoansList[receivedLoansList.length-1] == null))
 			return false;
 		
-		if(receivedCustomersList == null || receivedCustomersList[receivedCustomersList.length - 1] == null)
+		if(receivedCustomersList == null || (receivedCustomersList.length > 0 && receivedCustomersList[receivedCustomersList.length - 1] == null))
 			return false;
 		
 		return true;
 	}
 	
 	private boolean canProcessEndOfSynchronise() {
-		if(receivedLoansList == null || receivedLoansList[receivedLoansList.length-1] == null)
+		if(receivedLoansList == null || (receivedLoansList.length > 0 && receivedLoansList[receivedLoansList.length-1] == null))
 			return false;
 		
-		if(receivedCustomersList == null || receivedCustomersList[receivedCustomersList.length - 1] == null)
+		if(receivedCustomersList == null || (receivedCustomersList.length > 0 && receivedCustomersList[receivedCustomersList.length - 1] == null))
 			return false;
 		
 		for(Loan l : receivedLoansList)
@@ -160,47 +160,57 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		return true;
 	}
 	
-	private void requestMissingPacket() {		
-		int nCount = 0;
-		for(Loan l : receivedLoansList)
+	private void requestMissingPacket() {
+
+		if(receivedLoansList != null)
 		{
-			if(l == null)
+			for(int i = 0; i < receivedLoansList.length; i++)
 			{
-				SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
-						Env.getMachineName(),
-						this.bank.getServerName(),
-						null, 
-						nCount++, 
-						receivedLoansList.length, 
-						true, 
-						0, 
-						0);
-				try {
-					send(new UDPMessage(udpMsgLoan), requestAddr, requestPort);
-				} catch (Exception e) {
-					e.printStackTrace();
+				Loan l = receivedLoansList[i];
+				if(l == null)
+				{
+					SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
+							Env.getMachineName(),
+							this.bank.getServerName(),
+							null, 
+							i, 
+							receivedLoansList.length, 
+							true, 
+							0, 
+							0);
+					try {
+						send(new UDPMessage(udpMsgLoan), requestAddr, requestPort);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
 		
-		nCount = 0;
-		for(Customer c : receivedCustomersList)
+		if(receivedCustomersList != null)
 		{
-			if(c == null)
+			synchronized (receivedCustomersList)
 			{
-				SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
-						Env.getMachineName(),
-						this.bank.getServerName(),
-						null, 
-						nCount++, 
-						receivedCustomersList.length, 
-						true, 
-						0, 
-						0);
-				try {
-					send(new UDPMessage(udpMsgCustomer), requestAddr, requestPort);
-				} catch (Exception e) {
-					e.printStackTrace();
+				for(int i = 0; i < receivedCustomersList.length; i++)
+				{
+					Customer c = receivedCustomersList[i];
+					if(c == null)
+					{
+						SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
+								Env.getMachineName(),
+								this.bank.getServerName(),
+								null, 
+								i, 
+								receivedCustomersList.length, 
+								true, 
+								0, 
+								0);
+						try {
+							send(new UDPMessage(udpMsgCustomer), requestAddr, requestPort);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 		}
@@ -247,10 +257,11 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	{
 		try
 		{
-			while(this.receivedUdpMessage != null)
+			int nCountEndApp = 0;
+			while(true)
 			{
 				UDPMessage udpMessage = this.receivedUdpMessage;
-				Env.log("[Sync] Received " + udpMessage.getOperation().toString() + " from " + receivedDatagram.getAddress().getHostAddress() + ":" + receivedDatagram.getPort());
+				//Env.log("[Sync] Received " + udpMessage.getOperation().toString() + " from " + receivedDatagram.getAddress().getHostAddress() + ":" + receivedDatagram.getPort());
 				processRequest(udpMessage);
 				
 				// process request that are in queue
@@ -259,7 +270,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 
 				if(this.receivedUdpMessageList.size() == 0)
 				{
-					Thread.sleep(200);
+					Thread.sleep(5);
 				}
 				synchronized(this.receivedUdpMessageList)
 				{
@@ -269,11 +280,29 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 						this.receivedDatagram = this.receivedDatagramList.remove(0);
 					}
 				}
+				
+				if(this.receivedUdpMessage == null)
+				{
+					nCountEndApp++;
+					if(canProcessEndOfSynchronise())
+					{
+						break;
+					}
+					if(nCountEndApp > 100)
+					{
+						requestMissingPacket();
+						nCountEndApp = 0;
+					}
+				}
+				else
+				{
+					nCountEndApp = 0;
+				}
 			}
 		}
 		catch (Exception e)
 		{
-			Env.log("Thread Ended: " + e.getMessage());
+			e.printStackTrace();
 			lastError = e;
 		}
 		Env.log("Thread Ended.");
@@ -286,6 +315,9 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	 */
 	protected void processRequest(UDPMessage udpMessage) throws Exception
 	{
+		if(udpMessage == null)
+			return;
+		
 		delaySeconds = 0;
 		switch (udpMessage.getOperation())
 		{
@@ -325,24 +357,26 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 				BankState state = bank.getCurrentState();
 				List<Loan> loanList = state.getLoanList();
 				List<Customer> customerList = state.getCustomerList();
+				while(loanList.remove(null));
+				while(customerList.remove(null));
 				sentLoansList = new UDPMessage[loanList.size()];
 				sentCustomersList = new UDPMessage[customerList.size()];
-				int nCount = 0;
-				for(Loan loan : loanList)
+				for(int i = 0; i < loanList.size(); i++)
 				{
+					Loan loan = loanList.get(i);
 					SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
 							Env.getMachineName(),
 							this.bank.getServerName(),
 							loan, 
-							nCount, 
+							i, 
 							loanList.size(), 
 							false, 
 							state.getNextLoanID(), 
 							state.getNextSequenceNumber());
 
-					sentLoansList[nCount] = new UDPMessage(udpMsgLoan);
-					Env.log("Send Loan #" + nCount);
-					send(sentLoansList[nCount++], requestAddr, requestPort);
+					sentLoansList[i] = new UDPMessage(udpMsgLoan);
+					Env.log("Send Loan #" + i);
+					send(sentLoansList[i], requestAddr, requestPort);
 				}
 				if(loanList.size() == 0)
 				{
@@ -350,7 +384,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 							Env.getMachineName(),
 							this.bank.getServerName(),
 							null, 
-							nCount, 
+							0, 
 							loanList.size(), 
 							false, 
 							state.getNextLoanID(), 
@@ -360,22 +394,22 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 					send(new UDPMessage(udpMsgLoan), requestAddr, requestPort);
 				}
 
-				nCount = 0;
-				for(Customer customer : customerList)
+				for(int i = 0; i < customerList.size(); i++)
 				{
+					Customer customer = customerList.get(i);
 					SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
 							Env.getMachineName(),
 							this.bank.getServerName(),
 							customer, 
-							nCount, 
+							i, 
 							customerList.size(), 
 							false, 
 							state.getNextCustomerID(), 
 							state.getNextSequenceNumber());
 
-					sentCustomersList[nCount] = new UDPMessage(udpMsgCustomer);
+					sentCustomersList[i] = new UDPMessage(udpMsgCustomer);
 					//Env.log("Send Customer #" + nCount);
-					send(sentCustomersList[nCount++], requestAddr, requestPort);
+					send(sentCustomersList[i], requestAddr, requestPort);
 				}
 				if(customerList.size() == 0)
 				{
@@ -383,7 +417,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 							Env.getMachineName(),
 							this.bank.getServerName(),
 							null, 
-							nCount, 
+							0, 
 							customerList.size(), 
 							false, 
 							state.getNextCustomerID(), 
@@ -427,9 +461,12 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 					{
 						this.receivedLoansList = new Loan[msg.getAmountLoans()];
 					}
-					if(msg.getLoan() != null)
+					if(msg.getAmountLoans() > 0)
 					{
-						this.receivedLoansList[msg.getPosLoan()] = msg.getLoan();
+						if(this.receivedLoansList[msg.getPosLoan()] == null)
+						{
+							this.receivedLoansList[msg.getPosLoan()] = msg.getLoan();
+						}
 					}
 					nextLoanID = msg.getNextLoanID();
 					nextSequenceID = msg.getNextSequenceID();
@@ -458,21 +495,27 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 			{
 				if(msg.isRequested())
 				{
-					Env.log("[Sync] Re-Requestion missing Customer -> #" + msg.getPosCustomer() + " of " + msg.getAmountCustomer());
+					Env.log("[Sync] Re-Requestion missing Customer -> #" + msg.getPosCustomer() + " of " + msg.getAmountCustomer() + " " + ((SynchronizeCustomer)sentCustomersList[msg.getPosCustomer()].getMessage()).getCustomer().getEmail());
 					send(sentCustomersList[msg.getPosCustomer()], requestAddr, requestPort);
 				}
 				else
 				{
-					Env.log("[Sync] Received Customer #" + msg.getPosCustomer() + " of " + msg.getAmountCustomer());
 					requestAddr = receivedDatagram.getAddress();
 					requestPort = receivedDatagram.getPort();
 					if(this.receivedCustomersList == null)
 					{
 						this.receivedCustomersList = new Customer[msg.getAmountCustomer()];
 					}
-					if(msg.getCustomer() != null)
+					if(msg.getAmountCustomer()>0)
 					{
-						this.receivedCustomersList[msg.getPosCustomer()] = msg.getCustomer();
+						synchronized (receivedCustomersList)
+						{
+							if(this.receivedCustomersList[msg.getPosCustomer()] == null)
+							{
+								Env.log("[Sync] Received Customer #" + msg.getPosCustomer() + " of " + msg.getAmountCustomer() + " " + msg.getCustomer().getEmail());
+								this.receivedCustomersList[msg.getPosCustomer()] = msg.getCustomer();
+							}
+						}
 					}
 					verifyDataReceived();
 					nextCustomerID = msg.getNextCustomerID();
@@ -494,11 +537,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	{
 		if(lastPacketReceived())
 		{
-			if(canProcessEndOfSynchronise() == false)
-			{
-				requestMissingPacket();
-			}
-			else
+			if(canProcessEndOfSynchronise())
 			{
 				terminateThread();
 			}

@@ -6203,3 +6203,10 @@
 2015-12-07 18:16:18.757: FINE Starting UDP port 4524
 2015-12-07 18:16:18.773: UDPReplicaToReplicaManagerThread - Binding to port 4527 for 127.0.0.1
 2015-12-07 18:16:18.773: [UDP] SYNC SERVER STARTED (Pascal Implementation)
+2015-12-07 18:22:50.524: Server Started <pascal> Dominion
+2015-12-07 18:22:50.539: FINE Starting server service for pascal
+2015-12-07 18:22:50.539: FINE Loading Loans and Customers files
+2015-12-07 18:22:50.555: FINE Loading Customers: Dominion_p_Customers.xml
+2015-12-07 18:22:50.617: FINE Starting UDP port 4524
+2015-12-07 18:22:50.617: UDPReplicaToReplicaManagerThread - Binding to port 4527 for 127.0.0.1
+2015-12-07 18:22:50.633: [UDP] SYNC SERVER STARTED (Pascal Implementation)
