@@ -41,6 +41,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	private Timer timer;
 	private int countCanTerminate = 0;
 	private int delaySeconds = 0;
+	private boolean syncOver = false;
 	
 	private int nextCustomerID = 0;
 	private int nextLoanID = 0;
@@ -113,14 +114,34 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		//timer.cancel();
 		//timer = null;
 		// ending
-		if(receivedLoansList == null)
+		if(receivedLoansList != null && receivedCustomersList != null)
 		{
 			// return the values
 			List<Loan> loanList = new ArrayList<Loan>(Arrays.asList(receivedLoansList));
 			List<Customer> customerList = new ArrayList<Customer>(Arrays.asList(receivedCustomersList));
 			BankState state = new BankState(loanList, customerList, nextCustomerID, nextLoanID);
 			state.setNextSequenceNumber(nextSequenceID);
-			bank.setCurrentState(state);
+			try
+			{
+				bank.setCurrentState(state);
+			} catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+
+
+			Env.log("terminateThread");
+			RequestSynchronize request = new RequestSynchronize(
+					Env.getMachineName(),
+					this.bank.getServerName(),
+					null, 
+					0);
+			request.setSyncDone(true);
+			try {
+				send(new UDPMessage(request), requestAddr, requestPort);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(dicHandleRequest != null)
@@ -258,10 +279,9 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		try
 		{
 			int nCountEndApp = 0;
-			while(true)
+			while(!syncOver)
 			{
 				UDPMessage udpMessage = this.receivedUdpMessage;
-				//Env.log("[Sync] Received " + udpMessage.getOperation().toString() + " from " + receivedDatagram.getAddress().getHostAddress() + ":" + receivedDatagram.getPort());
 				processRequest(udpMessage);
 				
 				// process request that are in queue
@@ -286,6 +306,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 					nCountEndApp++;
 					if(canProcessEndOfSynchronise())
 					{
+						terminateThread();
 						break;
 					}
 					if(nCountEndApp > 100)
@@ -346,85 +367,94 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	 */
 	private void processRequestSynchronize(UDPMessage udpMessage) throws Exception
 	{
+		Env.log("processRequestSynchronize");
 		System.err.println("Starting synchronizing");
 		if(udpMessage.getMessage() instanceof RequestSynchronize)
 		{
 			RequestSynchronize msg = (RequestSynchronize)udpMessage.getMessage();
 			if(this.bank.getServerName().equalsIgnoreCase(msg.getBank()))
 			{
-				requestAddr = InetAddress.getByName(msg.getIpAddress());
-				requestPort = msg.getPort();
-				BankState state = bank.getCurrentState();
-				List<Loan> loanList = state.getLoanList();
-				List<Customer> customerList = state.getCustomerList();
-				while(loanList.remove(null));
-				while(customerList.remove(null));
-				sentLoansList = new UDPMessage[loanList.size()];
-				sentCustomersList = new UDPMessage[customerList.size()];
-				for(int i = 0; i < loanList.size(); i++)
+				if(msg.isSyncDone())
 				{
-					Loan loan = loanList.get(i);
-					SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
-							Env.getMachineName(),
-							this.bank.getServerName(),
-							loan, 
-							i, 
-							loanList.size(), 
-							false, 
-							state.getNextLoanID(), 
-							state.getNextSequenceNumber());
-
-					sentLoansList[i] = new UDPMessage(udpMsgLoan);
-					Env.log("Send Loan #" + i);
-					send(sentLoansList[i], requestAddr, requestPort);
+					Env.log("syncOver");
+					this.syncOver = true;
 				}
-				if(loanList.size() == 0)
+				else
 				{
-					SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
-							Env.getMachineName(),
-							this.bank.getServerName(),
-							null, 
-							0, 
-							loanList.size(), 
-							false, 
-							state.getNextLoanID(), 
-							state.getNextSequenceNumber());
-
-					Env.log("Send Loan none");
-					send(new UDPMessage(udpMsgLoan), requestAddr, requestPort);
-				}
-
-				for(int i = 0; i < customerList.size(); i++)
-				{
-					Customer customer = customerList.get(i);
-					SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
-							Env.getMachineName(),
-							this.bank.getServerName(),
-							customer, 
-							i, 
-							customerList.size(), 
-							false, 
-							state.getNextCustomerID(), 
-							state.getNextSequenceNumber());
-
-					sentCustomersList[i] = new UDPMessage(udpMsgCustomer);
-					//Env.log("Send Customer #" + nCount);
-					send(sentCustomersList[i], requestAddr, requestPort);
-				}
-				if(customerList.size() == 0)
-				{
-					SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
-							Env.getMachineName(),
-							this.bank.getServerName(),
-							null, 
-							0, 
-							customerList.size(), 
-							false, 
-							state.getNextCustomerID(), 
-							state.getNextSequenceNumber());
-
-					Env.log("Send Customer none");
-					send(new UDPMessage(udpMsgCustomer), requestAddr, requestPort);
+					requestAddr = InetAddress.getByName(msg.getIpAddress());
+					requestPort = msg.getPort();
+					BankState state = bank.getCurrentState();
+					List<Loan> loanList = state.getLoanList();
+					List<Customer> customerList = state.getCustomerList();
+					while(loanList.remove(null));
+					while(customerList.remove(null));
+					sentLoansList = new UDPMessage[loanList.size()];
+					sentCustomersList = new UDPMessage[customerList.size()];
+					for(int i = 0; i < loanList.size(); i++)
+					{
+						Loan loan = loanList.get(i);
+						SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
+								Env.getMachineName(),
+								this.bank.getServerName(),
+								loan, 
+								i, 
+								loanList.size(), 
+								false, 
+								state.getNextLoanID(), 
+								state.getNextSequenceNumber());
+	
+						sentLoansList[i] = new UDPMessage(udpMsgLoan);
+						Env.log("Send Loan #" + i);
+						send(sentLoansList[i], requestAddr, requestPort);
+					}
+					if(loanList.size() == 0)
+					{
+						SynchronizeLoan udpMsgLoan = new SynchronizeLoan(
+								Env.getMachineName(),
+								this.bank.getServerName(),
+								null, 
+								0, 
+								loanList.size(), 
+								false, 
+								state.getNextLoanID(), 
+								state.getNextSequenceNumber());
+	
+						Env.log("Send Loan none");
+						send(new UDPMessage(udpMsgLoan), requestAddr, requestPort);
+					}
+	
+					for(int i = 0; i < customerList.size(); i++)
+					{
+						Customer customer = customerList.get(i);
+						SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
+								Env.getMachineName(),
+								this.bank.getServerName(),
+								customer, 
+								i, 
+								customerList.size(), 
+								false, 
+								state.getNextCustomerID(), 
+								state.getNextSequenceNumber());
+	
+						sentCustomersList[i] = new UDPMessage(udpMsgCustomer);
+						//Env.log("Send Customer #" + nCount);
+						send(sentCustomersList[i], requestAddr, requestPort);
+					}
+					if(customerList.size() == 0)
+					{
+						SynchronizeCustomer udpMsgCustomer = new SynchronizeCustomer(
+								Env.getMachineName(),
+								this.bank.getServerName(),
+								null, 
+								0, 
+								customerList.size(), 
+								false, 
+								state.getNextCustomerID(), 
+								state.getNextSequenceNumber());
+	
+						Env.log("Send Customer none");
+						send(new UDPMessage(udpMsgCustomer), requestAddr, requestPort);
+					}
 				}
 			}
 		}

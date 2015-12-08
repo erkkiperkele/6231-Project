@@ -17,5 +17,6 @@ public enum OperationType {
 
     SynchronizeCustomer,
     SynchronizeLoan,
-    RequestSynchronize
+    RequestSynchronize,
+    EndSynchronize
 }

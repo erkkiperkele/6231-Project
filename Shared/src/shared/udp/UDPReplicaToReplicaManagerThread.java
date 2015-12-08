@@ -52,9 +52,12 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 				key = request.getAddress().getHostAddress() + ":" + request.getPort();
 				if(udpMessage.getOperation() == OperationType.RequestSynchronize)
 				{
-					// we take the destination IP in case it a request instead to the one who talked to us
-					RequestSynchronize r = (RequestSynchronize)udpMessage.getMessage();
-					key = r.getIpAddress() + ":" + r.getPort();
+					if(((RequestSynchronize)udpMessage.getMessage()).isSyncDone() == false)
+					{
+						// we take the destination IP in case it a request instead to the one who talked to us
+						RequestSynchronize r = (RequestSynchronize)udpMessage.getMessage();
+						key = r.getIpAddress() + ":" + r.getPort();
+					}
 				}
 				UDPReplicaToReplicaManagerHandleRequestThread client;
 				synchronized (dicHandleRequest)
