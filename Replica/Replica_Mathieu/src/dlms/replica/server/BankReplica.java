@@ -19,7 +19,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import dlms.model.UDPServerThread;
+import shared.udp.UDPServerThread;
 import dlms.replica.exception.ValidationException;
 import dlms.replica.model.Account;
 import dlms.replica.model.Loan;
