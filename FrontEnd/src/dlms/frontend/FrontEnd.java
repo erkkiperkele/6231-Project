@@ -5,6 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,7 +38,7 @@ public class FrontEnd extends FrontEndPOA {
 
 	// These should be coming from a config
 	public static final int MAX_DATAGRAM_SIZE = 4096;
-	private static long assumedSequenceNbr = 1;
+	//private static long assumedSequenceNbr = 1;
 	private Logger logger = null;
 	private ServerInfo sqInfo = null;
 	private volatile QueuePool opQueuePool = null;
@@ -325,9 +326,9 @@ public class FrontEnd extends FrontEndPOA {
 		DatagramSocket clientSocket = null;
 		InetSocketAddress remoteAddr = new InetSocketAddress(sqInfo.getIpAddress(), sqInfo.getPort()); // The Sequencer IP address
 		long opSequenceNbr = 0;
-		//int retryCntr = 3;
-		//final byte[] incomingDataBuffer = new byte[MAX_DATAGRAM_SIZE];	
-		//DatagramPacket incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
+		int retryCntr = 3;
+		final byte[] incomingDataBuffer = new byte[MAX_DATAGRAM_SIZE];	
+		DatagramPacket incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
 		DatagramPacket outgoingPacket = null;
 		final byte[] outgoingData;
 		
@@ -349,7 +350,7 @@ public class FrontEnd extends FrontEndPOA {
 			throw new AppException(e.getMessage());
 		}
 
-//		while (true) {
+		while (true) {
 			try {
 				clientSocket.send(outgoingPacket);
 			} catch (IOException e) {
@@ -359,72 +360,63 @@ public class FrontEnd extends FrontEndPOA {
 				throw new AppException(e.getMessage());
 			} 
 			
-			
-			
-			
-			finally {
-				if (clientSocket != null)
-					clientSocket.close();
-			}
-			opSequenceNbr = assumedSequenceNbr++;
-			
-			
-	// Leave handling replies commented out!		
 
-//		
-//			// Get back the operation sequence number		
-//			incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
-//
-//			// Receive the packet
-//			try {
-//				clientSocket.receive(incomingPacket);
-//				
-//			} catch (SocketTimeoutException e) {
-//				
-//				if (retryCntr > 0) {
-//					retryCntr--;
-//					continue;
-//				}
-//				
-//				if (clientSocket != null) {
-//					clientSocket.close();
-//				}
-//				throw new AppException("FrontEnd: Sequencer ack timed out");
-//				
-//			} catch (SocketException e) {
-//				if (clientSocket != null) {
-//					clientSocket.close();
-//				}
-//				throw new AppException(e.getMessage());
-//				
-//			} catch (IOException e) {
-//				if (clientSocket != null) {
-//					clientSocket.close();
-//				}
-//				throw new AppException(e.getMessage());
-//			}
-//			
-//			break;
-//		}
+			//opSequenceNbr = assumedSequenceNbr++;
+
+		
+			// Get back the operation sequence number		
+			incomingPacket = new DatagramPacket(incomingDataBuffer, incomingDataBuffer.length);
+
+			// Receive the packet
+			try {
+				clientSocket.receive(incomingPacket);
+				
+			} catch (SocketTimeoutException e) {
+				
+				if (retryCntr > 0) {
+					retryCntr--;
+					continue;
+				}
+				
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
+				throw new AppException("FrontEnd: Sequencer ack timed out");
+				
+			} catch (SocketException e) {
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
+				throw new AppException(e.getMessage());
+				
+			} catch (IOException e) {
+				if (clientSocket != null) {
+					clientSocket.close();
+				}
+				throw new AppException(e.getMessage());
+			}
+			
+			break;
+		}
 		
 		// Parse the response data
-//		try {
-//
-//			byte[] incomingData = new byte[incomingPacket.getLength()];
-//			System.arraycopy(incomingPacket.getData(), incomingPacket.getOffset(), incomingData, 0,
-//					incomingPacket.getLength());
-//			opSequenceNbr = (long) Serializer.deserialize(incomingData);
-//	
-//		} catch (ClassNotFoundException | IOException e) {
-//			if (clientSocket != null) {
-//				clientSocket.close();
-//			}
-//			throw new AppException(e.getMessage());
-//			
-//		} finally {
-//			if (clientSocket != null)
-//				clientSocket.close();
-//		}
+		try {
+
+			byte[] incomingData = new byte[incomingPacket.getLength()];
+			System.arraycopy(incomingPacket.getData(), incomingPacket.getOffset(), incomingData, 0,
+					incomingPacket.getLength());
+			opSequenceNbr = (long) Serializer.deserialize(incomingData);
+	
+		} catch (ClassNotFoundException | IOException e) {
+			if (clientSocket != null) {
+				clientSocket.close();
+			}
+			throw new AppException(e.getMessage());
+			
+		} finally {
+			if (clientSocket != null)
+				clientSocket.close();
+		}
 		
 		return opSequenceNbr;
 	}
