@@ -137,6 +137,8 @@ public class UdpReplicaServiceThread implements Runnable
 							}
 							// Incrementing the sequence number
 							increaseSequenceNumber();
+							// Synchronizing
+							client.join();
 						}
 					}
 				}
