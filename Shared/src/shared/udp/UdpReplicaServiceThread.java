@@ -5,7 +5,7 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.Arrays;
 import java.util.HashMap;
-import shared.data.AbstractServerBank;
+import shared.data.*;
 import shared.util.Env;
 
 /**
@@ -17,6 +17,7 @@ public class UdpReplicaServiceThread implements Runnable
 	
 	private boolean continueUDP = true;
 	private Thread t = null;
+	private long currentSequenceNumber = 0;
 	
 	protected AbstractServerBank bank;
 	protected DatagramSocket aSocket = null;
@@ -81,6 +82,8 @@ public class UdpReplicaServiceThread implements Runnable
 		{
 			byte[] buffer = new byte[SIZE_BUFFER_REQUEST];
 
+			HashMap<Long, Tuple<DatagramPacket, UDPMessage>> dicBufferPacket = new HashMap<Long, Tuple<DatagramPacket, UDPMessage>>();
+			
 			// HashMap isn't thread safe, but HashTable is thread safe... it's
 			// fine, we will synchronize it ;)
 			HashMap<String, UdpReplicaServiceHandleRequestThread> dicHandleRequest = new HashMap<String, UdpReplicaServiceHandleRequestThread>();
@@ -107,19 +110,36 @@ public class UdpReplicaServiceThread implements Runnable
 						client = getUDPServerHandleRequestThread();
 						client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
 					}
-					else if (!dicHandleRequest.containsKey(key))
+					else 
 					{
-						client = getUDPServerHandleRequestThread();
-						client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
-						dicHandleRequest.put(key, client);
-					}
-					else
-					{
-						client = dicHandleRequest.get(key);
-						client.resumeNextUdpMessageReceived(request, udpMessage);
+						// If they have a sequence number, we will execute them with the GLOBAL ORDERING.
+						// Adding the data to the buffer using the sequence number as a key
+						dicBufferPacket.put(udpMessage.getSequenceNumber(), new Tuple<DatagramPacket, UDPMessage>(request, udpMessage));
+						
+						// We execute everything in the buffer in GLOBAL ORDER
+						while(dicBufferPacket.containsKey(getNextSequenceNumber()))
+						{
+							// Re-initializing the data and removing the item from the list
+							Tuple<DatagramPacket, UDPMessage> t = dicBufferPacket.remove(getNextSequenceNumber());
+							request = t.x;
+							udpMessage = t.y;
+							key = request.getAddress().getHostAddress() + ":" + request.getPort() + " seq:" + udpMessage.getSequenceNumber();
+							if (!dicHandleRequest.containsKey(key))
+							{
+								client = getUDPServerHandleRequestThread();
+								client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
+								dicHandleRequest.put(key, client);
+							}
+							else
+							{
+								client = dicHandleRequest.get(key);
+								client.resumeNextUdpMessageReceived(request, udpMessage);
+							}
+							// Incrementing the sequence number
+							increaseSequenceNumber();
+						}
 					}
 				}
-				client.join();
 			}
 		}
 		catch (Exception e)
@@ -146,5 +166,13 @@ public class UdpReplicaServiceThread implements Runnable
 			return;
 		
 		t.join();
+	}
+	
+	public long getNextSequenceNumber() {
+		return this.currentSequenceNumber + 1;
+	}
+
+	public void increaseSequenceNumber() {
+		this.currentSequenceNumber++;
 	}
 }
