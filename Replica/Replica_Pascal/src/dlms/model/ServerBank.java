@@ -13,7 +13,7 @@ import shared.data.BankState;
 import shared.data.Customer;
 import shared.data.Loan;
 import shared.data.ServerInfo;
-import shared.udp.UDPServerThread;
+import shared.udp.UdpReplicaServiceThread;
 import shared.util.Env;
 
 /**
@@ -29,7 +29,7 @@ public class ServerBank extends AbstractServerBank
 	private int loanCounter = 0;
 	private int customerCounter = 0;
 
-	private UDPServerThread udpServer = null;
+	private UdpReplicaServiceThread udpServer = null;
 
 	public ServerBank(ServerInfo server)
 	{
@@ -126,7 +126,7 @@ public class ServerBank extends AbstractServerBank
 			
 			int port = server.getPort();
 			Env.log(Level.FINE, "Starting UDP port " + port);
-			udpServer = new UDPServerThread("Pascal Replica Implementation", port, this);
+			udpServer = new UdpReplicaServiceThread("Pascal Replica Implementation", port, this);
 			udpServer.start();
 		}
 	}

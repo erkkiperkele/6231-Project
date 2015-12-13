@@ -8,7 +8,7 @@ import shared.util.Env;
  * UDPServerHandleRequestThread
  * Process all message for the sequencer
  */
-public class UDPServerHandleRequestThread extends shared.udp.UDPServerHandleRequestThread
+public class UDPServerHandleRequestThread extends shared.udp.UdpReplicaServiceHandleRequestThread
 {
 	private static long sequencerNumber = 0;
 	

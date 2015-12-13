@@ -5,7 +5,7 @@ import java.util.logging.Level;
 
 import dlms.model.*;
 import shared.data.ServerInfo;
-import shared.udp.UDPReplicaToReplicaManagerThread;
+import shared.udp.UdpDbSynchronizationServiceThread;
 import shared.util.Constant;
 import shared.util.Env;
 
@@ -41,7 +41,7 @@ public class StartBankServer
 			{
 				// Start instance listening on UDP
 				ServerBank bankServer = new ServerBank(server, true);
-				UDPReplicaToReplicaManagerThread replicaManager = new UDPReplicaToReplicaManagerThread(bankServer);
+				UdpDbSynchronizationServiceThread replicaManager = new UdpDbSynchronizationServiceThread(bankServer);
 				Env.log(String.format("[UDP] SYNC SERVER STARTED (Pascal Implementation)"));
 				UDPIntranetServerThread intranetServer = new UDPIntranetServerThread(bankServer);
 				intranetServer.start();

@@ -22,7 +22,7 @@ import shared.util.Env;
 /**
  * @author Pascal Tozzi 27664850 UDPServerHandleRequestThread handle packet.
  */
-public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
+public class UdpDbSynchronizationServiceHandleRequestThread implements Runnable
 {
 	private Thread t = null;
 	private String key;
@@ -31,7 +31,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	private DatagramPacket receivedDatagram;
 	private UDPMessage receivedUdpMessage;
 	private DatagramSocket aSocket;
-	private HashMap<String, UDPReplicaToReplicaManagerHandleRequestThread> dicHandleRequest;
+	private HashMap<String, UdpDbSynchronizationServiceHandleRequestThread> dicHandleRequest;
 	private Exception lastError = null;
 	protected AbstractServerBank bank;
 	private Loan[] receivedLoansList = null;
@@ -52,7 +52,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 	
 	public void initialize(String key, AbstractServerBank bank, DatagramSocket aSocket,
 			DatagramPacket request, UDPMessage udpMessage, HashMap<String, 
-			UDPReplicaToReplicaManagerHandleRequestThread> dicHandleRequest) {
+			UdpDbSynchronizationServiceHandleRequestThread> dicHandleRequest) {
 		this.dicHandleRequest = dicHandleRequest;
 		this.aSocket = aSocket;
 		this.bank = bank;
@@ -63,7 +63,7 @@ public class UDPReplicaToReplicaManagerHandleRequestThread implements Runnable
 		this.key = key;
 		//this.timer = new Timer();
 
-		UDPReplicaToReplicaManagerHandleRequestThread current = this;
+		UdpDbSynchronizationServiceHandleRequestThread current = this;
 		/*timer.schedule(new TimerTask() {
 
             @Override

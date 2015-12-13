@@ -16,7 +16,7 @@ import shared.util.Env;
 /**
  * @author Pascal Tozzi 27664850 UDPServerHandleRequestThread handle packet.
  */
-public class UDPServerHandleRequestThread implements Runnable
+public class UdpReplicaServiceHandleRequestThread implements Runnable
 {
 	private Thread t = null;
 	private String key;
@@ -24,13 +24,13 @@ public class UDPServerHandleRequestThread implements Runnable
 	private DatagramPacket receivedDatagram;
 	private UDPMessage receivedUdpMessage;
 	private DatagramSocket aSocket;
-	private HashMap<String, UDPServerHandleRequestThread> dicHandleRequest;
+	private HashMap<String, UdpReplicaServiceHandleRequestThread> dicHandleRequest;
 	private Exception lastError = null;
 	protected AbstractServerBank bank;
 	
 	public void initialize(String key, AbstractServerBank bank, DatagramSocket aSocket,
 			DatagramPacket request, UDPMessage udpMessage, HashMap<String, 
-			UDPServerHandleRequestThread> dicHandleRequest) {
+			UdpReplicaServiceHandleRequestThread> dicHandleRequest) {
 		this.dicHandleRequest = dicHandleRequest;
 		this.aSocket = aSocket;
 		this.bank = bank;

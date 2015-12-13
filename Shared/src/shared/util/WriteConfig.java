@@ -54,24 +54,24 @@ public class WriteConfig
 				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaServerInfo(machineName, Bank.Dominion).getPort()));
 				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-ip", Env.getReplicaIntranetServerInfo(machineName, Bank.Dominion).getIpAddress());
 				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaIntranetServerInfo(machineName, Bank.Dominion).getPort()));
-				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Dominion).getIpAddress());
-				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Dominion).getPort()));
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaSyncDbServerInfo(machineName, Bank.Dominion).getIpAddress());
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaSyncDbServerInfo(machineName, Bank.Dominion).getPort()));
 				
 				bankName = Bank.National.toString();
 				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-ip", Env.getReplicaServerInfo(machineName, Bank.National).getIpAddress());
 				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaServerInfo(machineName, Bank.National).getPort()));
 				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-ip", Env.getReplicaIntranetServerInfo(machineName, Bank.National).getIpAddress());
 				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaIntranetServerInfo(machineName, Bank.National).getPort()));
-				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.National).getIpAddress());
-				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.National).getPort()));
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaSyncDbServerInfo(machineName, Bank.National).getIpAddress());
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaSyncDbServerInfo(machineName, Bank.National).getPort()));
 				
 				bankName = Bank.Royal.toString();
 				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-ip", Env.getReplicaServerInfo(machineName, Bank.Royal).getIpAddress());
 				prop.setProperty("bank-server-replica"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaServerInfo(machineName, Bank.Royal).getPort()));
 				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-ip", Env.getReplicaIntranetServerInfo(machineName, Bank.Royal).getIpAddress());
 				prop.setProperty("bank-server-intranet"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaIntranetServerInfo(machineName, Bank.Royal).getPort()));
-				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Royal).getIpAddress());
-				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaToReplicaManagerServerInfo(machineName, Bank.Royal).getPort()));
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-ip", Env.getReplicaSyncDbServerInfo(machineName, Bank.Royal).getIpAddress());
+				prop.setProperty("bank-server-replica-rm"+machineCount+"-"+bankName+"-port", String.valueOf(Env.getReplicaSyncDbServerInfo(machineName, Bank.Royal).getPort()));
 			}
 			
 			// save properties to project root folder

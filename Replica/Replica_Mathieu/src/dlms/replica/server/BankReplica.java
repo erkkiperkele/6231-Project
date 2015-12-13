@@ -19,7 +19,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import shared.udp.UDPServerThread;
+import shared.udp.UdpReplicaServiceThread;
 import dlms.replica.exception.ValidationException;
 import dlms.replica.model.Account;
 import dlms.replica.model.Loan;
@@ -47,9 +47,7 @@ public class BankReplica extends AbstractServerBank {
 	private Thread udpListenerThread;
 	private UdpListener udpListener;
 	private volatile Bank bank;
-	private UDPServerThread udpServer;
-	private BankState state;
-	
+	private UdpReplicaServiceThread udpServer;
 	/**
 	 * Constructor
 	 * 
@@ -89,7 +87,7 @@ public class BankReplica extends AbstractServerBank {
 
 		// Start the bank's sequencer's UDP listener
 		try {
-			udpServer = new UDPServerThread("Mat's Replica Implementation of " + bankId + " bank", sequencerListenerPort);
+			udpServer = new UdpReplicaServiceThread("Mat's Replica Implementation of " + bankId + " bank", sequencerListenerPort);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -219,15 +217,13 @@ public class BankReplica extends AbstractServerBank {
 						+ loanID + " currentDate: " + currentDueDate.toString() + " newDueDate: " + newDueDate.toString() + ")");
 
 		Loan loan;
-		Object lock;
-
 		loan = this.bank.getLoan(loanID);
 		if (loan == null) {
 			logger.info(this.bank.id + ": Loan id " + loanID + " does not exist");
 			throw new Exception(this.bank.id + ": Loan id " + loanID + " does not exist");
 		}
 		
-		lock = this.bank.getLockObject(loan.getEmailAddress());
+		this.bank.getLockObject(loan.getEmailAddress());
 
 		synchronized (this) {
 			

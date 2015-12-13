@@ -11,7 +11,7 @@ import java.net.SocketException;
 
 import shared.data.*;
 import shared.util.Env;
-import shared.udp.UDPServerThread;
+import shared.udp.UdpReplicaServiceThread;
 import shared.exception.*;
 
 public class BankServer extends AbstractServerBank {
@@ -21,7 +21,7 @@ public class BankServer extends AbstractServerBank {
 	private BankStore bankStore;
 	private int port;
 	private String name;
-	private UDPServerThread udpServer = null;
+	private UdpReplicaServiceThread udpServer = null;
 	private UDPIntranetListenerThread listener = null;
 	private static int LoanNumber = 0;
 	private static int CustomerNumber = 0;
@@ -42,7 +42,7 @@ public class BankServer extends AbstractServerBank {
 		
 		// Start UDPServerThread
 		try {
-			udpServer = new UDPServerThread("Richard replica implementation", port, this);
+			udpServer = new UdpReplicaServiceThread("Richard replica implementation", port, this);
 			listener = new UDPIntranetListenerThread(bankStore);
 		} catch (SocketException e) {
 			e.printStackTrace();

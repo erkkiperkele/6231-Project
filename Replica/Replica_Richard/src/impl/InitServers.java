@@ -4,7 +4,7 @@ import java.util.logging.Level;
 
 import shared.data.Bank;
 import shared.data.ServerInfo;
-import shared.udp.UDPReplicaToReplicaManagerThread;
+import shared.udp.UdpDbSynchronizationServiceThread;
 import shared.util.Env;
 
 /**
@@ -26,7 +26,7 @@ public class InitServers {
 		if (serverIsValid(server)) {
 			try {
 				BankServer bankServer = new BankServer(new BankStore(Env.getCurrentBank()), server);
-				UDPReplicaToReplicaManagerThread replicaManager = new UDPReplicaToReplicaManagerThread(bankServer);
+				UdpDbSynchronizationServiceThread replicaManager = new UdpDbSynchronizationServiceThread(bankServer);
 				replicaManager.start();
 				bankServer.waitUntilFinished();
 				replicaManager.join();

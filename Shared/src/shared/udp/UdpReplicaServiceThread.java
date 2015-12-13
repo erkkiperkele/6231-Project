@@ -11,7 +11,7 @@ import shared.util.Env;
 /**
  * @author Pascal Tozzi 27664850 UDPServerThread listen asynchronously for request.
  */
-public class UDPServerThread implements Runnable
+public class UdpReplicaServiceThread implements Runnable
 {
 	public static final int SIZE_BUFFER_REQUEST = 4000;
 	
@@ -27,7 +27,7 @@ public class UDPServerThread implements Runnable
 	 * @param port
 	 * @throws SocketException
 	 */
-	public UDPServerThread(String nameOfServer, int port) throws SocketException
+	public UdpReplicaServiceThread(String nameOfServer, int port) throws SocketException
 	{
 		System.out.println("Binding to port " + port + " for " + nameOfServer);
 		aSocket = new DatagramSocket(port);
@@ -40,7 +40,7 @@ public class UDPServerThread implements Runnable
 	 * @param serverBank
 	 * @throws SocketException
 	 */
-	public UDPServerThread(String nameOfServer, int port, AbstractServerBank serverBank) throws SocketException
+	public UdpReplicaServiceThread(String nameOfServer, int port, AbstractServerBank serverBank) throws SocketException
 	{
 		this(nameOfServer, port);
 		this.bank = serverBank;
@@ -50,9 +50,9 @@ public class UDPServerThread implements Runnable
 	 * Enable to overload the handleRequestThread object
 	 * @return
 	 */
-	public UDPServerHandleRequestThread getUDPServerHandleRequestThread()
+	public UdpReplicaServiceHandleRequestThread getUDPServerHandleRequestThread()
 	{
-		return new UDPServerHandleRequestThread();
+		return new UdpReplicaServiceHandleRequestThread();
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class UDPServerThread implements Runnable
 
 			// HashMap isn't thread safe, but HashTable is thread safe... it's
 			// fine, we will synchronize it ;)
-			HashMap<String, UDPServerHandleRequestThread> dicHandleRequest = new HashMap<String, UDPServerHandleRequestThread>();
+			HashMap<String, UdpReplicaServiceHandleRequestThread> dicHandleRequest = new HashMap<String, UdpReplicaServiceHandleRequestThread>();
 			while (continueUDP)
 			{
 				DatagramPacket request = new DatagramPacket(buffer, buffer.length);
@@ -99,7 +99,7 @@ public class UDPServerThread implements Runnable
 		        // Get the Key used to continue the previous communication
 		        // depending on if the message is from the FrontEnd or between banks		        
 				String key = request.getAddress().getHostAddress() + ":" + request.getPort() + " seq:" + udpMessage.getSequenceNumber();
-				UDPServerHandleRequestThread client;
+				UdpReplicaServiceHandleRequestThread client;
 				synchronized (dicHandleRequest)
 				{
 					if(udpMessage.getSequenceNumber() < 0 && !udpMessage.isClientMessage())

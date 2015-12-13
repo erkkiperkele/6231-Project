@@ -3,7 +3,7 @@ package Server;
 import Contracts.IBankService;
 import Services.SessionService;
 import shared.data.*;
-import shared.udp.UDPServerThread;
+import shared.udp.UdpReplicaServiceThread;
 import shared.util.Env;
 
 import javax.security.auth.login.FailedLoginException;
@@ -16,7 +16,7 @@ import java.util.Date;
 public class BankServerUdp extends AbstractServerBank {
 
     private Bank bank;
-    private UDPServerThread udpServer = null;
+    private UdpReplicaServiceThread udpServer = null;
     private IBankService bankService;
 
     public BankServerUdp(IBankService bankService) {
@@ -30,7 +30,7 @@ public class BankServerUdp extends AbstractServerBank {
 
         try {
             System.out.println(serverInfo.getPort() + " UDPServerThread");
-            udpServer = new UDPServerThread("Replica Aymeric", serverInfo.getPort(), this);
+            udpServer = new UdpReplicaServiceThread("Replica Aymeric", serverInfo.getPort(), this);
         } catch (SocketException e) {
             e.printStackTrace();
         }

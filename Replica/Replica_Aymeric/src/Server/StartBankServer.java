@@ -5,7 +5,7 @@ import Services.BankService;
 import Services.SessionService;
 import shared.data.Bank;
 import shared.data.ServerInfo;
-import shared.udp.UDPReplicaToReplicaManagerThread;
+import shared.udp.UdpDbSynchronizationServiceThread;
 import shared.util.Env;
 
 /**
@@ -18,7 +18,7 @@ public class StartBankServer {
 
     private static UDPServer udpInternal;
     private static BankServerUdp bankServerUdp;
-    private static UDPReplicaToReplicaManagerThread udpRtoRM;
+    private static UdpDbSynchronizationServiceThread udpRtoRM;
 
 
     /**
@@ -80,10 +80,10 @@ public class StartBankServer {
         try {
             Env.setCurrentBank(SessionService.getInstance().getBank());
 
-            ServerInfo sv = Env.getReplicaToReplicaManagerServerInfo();
+            ServerInfo sv = Env.getReplicaSyncDbServerInfo();
             System.err.println(sv.getPort() + " <-- CE PORT LA!");
 
-            udpRtoRM = new UDPReplicaToReplicaManagerThread(bankServerUdp);
+            udpRtoRM = new UdpDbSynchronizationServiceThread(bankServerUdp);
             udpRtoRM.start();
             SessionService.getInstance().log().info(String.format("[UDP] SYNC SERVER STARTED"));
 

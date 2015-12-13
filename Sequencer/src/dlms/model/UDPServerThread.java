@@ -12,7 +12,7 @@ import shared.udp.message.client.OpenAccountMessage;
  * UDPServerThread
  * Process all message for the sequencer
  */
-public class UDPServerThread extends shared.udp.UDPServerThread
+public class UDPServerThread extends shared.udp.UdpReplicaServiceThread
 {
 	/**
 	 * Constructor

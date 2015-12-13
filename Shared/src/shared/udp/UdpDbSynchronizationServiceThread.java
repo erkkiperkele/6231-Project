@@ -10,7 +10,7 @@ import shared.data.ServerInfo;
 import shared.udp.message.client.RequestSynchronize;
 import shared.util.Env;
 
-public class UDPReplicaToReplicaManagerThread implements Runnable
+public class UdpDbSynchronizationServiceThread implements Runnable
 {
 	public static final int SIZE_BUFFER_REQUEST = 4000;
 	
@@ -19,11 +19,11 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 	private AbstractServerBank bank;
 	private DatagramSocket aSocket;
 	
-	public UDPReplicaToReplicaManagerThread(AbstractServerBank bank) throws Exception
+	public UdpDbSynchronizationServiceThread(AbstractServerBank bank) throws Exception
 	{
 		t = new Thread(this);
 		this.bank = bank;
-		ServerInfo sv = Env.getReplicaToReplicaManagerServerInfo();
+		ServerInfo sv = Env.getReplicaSyncDbServerInfo();
 		Env.log("UDPReplicaToReplicaManagerThread - Binding to port " + sv.getPort() + " for " + sv.getIpAddress());
 		aSocket = new DatagramSocket(sv.getPort());
 	}
@@ -36,7 +36,7 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 
 			// HashMap isn't thread safe, but HashTable is thread safe... it's
 			// fine, we will synchronize it ;)
-			HashMap<String, UDPReplicaToReplicaManagerHandleRequestThread> dicHandleRequest = new HashMap<String, UDPReplicaToReplicaManagerHandleRequestThread>();
+			HashMap<String, UdpDbSynchronizationServiceHandleRequestThread> dicHandleRequest = new HashMap<String, UdpDbSynchronizationServiceHandleRequestThread>();
 			while (continueUDP)
 			{
 				DatagramPacket request = new DatagramPacket(buffer, buffer.length);
@@ -59,12 +59,12 @@ public class UDPReplicaToReplicaManagerThread implements Runnable
 						key = r.getIpAddress() + ":" + r.getPort();
 					}
 				}
-				UDPReplicaToReplicaManagerHandleRequestThread client;
+				UdpDbSynchronizationServiceHandleRequestThread client;
 				synchronized (dicHandleRequest)
 				{
 					if (!dicHandleRequest.containsKey(key))
 					{
-						client = new UDPReplicaToReplicaManagerHandleRequestThread();
+						client = new UdpDbSynchronizationServiceHandleRequestThread();
 						client.initialize(key, bank, aSocket, request, udpMessage, dicHandleRequest);
 						dicHandleRequest.put(key, client);
 					}

@@ -1,4 +1,3 @@
-import jdk.nashorn.internal.ir.RuntimeNode;
 import shared.contracts.IReplicaManagerService;
 import shared.data.Bank;
 import shared.data.ServerInfo;
@@ -228,8 +227,8 @@ public class ReplicaManagerService implements IReplicaManagerService {
 
         String machineName = Env.getMachineName();
 
-        ServerInfo replicaFaulty = Env.getReplicaToReplicaManagerServerInfo(implementationName, bank);
-        ServerInfo replicaNonFaulty = Env.getReplicaToReplicaManagerServerInfo(machineToGetStateFrom, bank);
+        ServerInfo replicaFaulty = Env.getReplicaSyncDbServerInfo(implementationName, bank);
+        ServerInfo replicaNonFaulty = Env.getReplicaSyncDbServerInfo(machineToGetStateFrom, bank);
 
         RequestSynchronize operationMessage = new RequestSynchronize(
                 machineName,

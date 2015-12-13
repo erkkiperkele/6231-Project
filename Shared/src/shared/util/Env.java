@@ -29,7 +29,7 @@ public class Env
 	// Name of host machine followed by name of bank give the server info object
 	private static Map<String, Map<Bank, ServerInfo>> replicaSvInfoSet;
 	private static Map<String, Map<Bank, ServerInfo>> replicaIntranetSvInfoSet;
-	private static Map<String, Map<Bank, ServerInfo>> replicaToReplicaManagerSvInfoSet;
+	private static Map<String, Map<Bank, ServerInfo>> replicaSyncDbSvInfoSet;
 		
 	/**
 	 * Static constructor
@@ -58,7 +58,7 @@ public class Env
      * @param replicaManagerSvInfoSet
      * @param replicaSvInfoSet
      * @param replicaIntranetSvInfoSet
-     * @param replicaRMSvInfoSet
+     * @param replicaSyncDbSvInfoSet
      */
     public static void loadSettings(Bank currentBank,
     		String machineName, 
@@ -67,7 +67,7 @@ public class Env
     		Map<String, ServerInfo> replicaManagerSvInfoSet, 
     		Map<String, Map<Bank, ServerInfo>> replicaSvInfoSet, 
     		Map<String, Map<Bank, ServerInfo>> replicaIntranetSvInfoSet,
-    		Map<String, Map<Bank, ServerInfo>> replicaRMSvInfoSet) 
+    		Map<String, Map<Bank, ServerInfo>> replicaSyncDbSvInfoSet) 
     {
     	Env.setCurrentBank(currentBank);
     	Env.machineName = machineName;
@@ -76,7 +76,7 @@ public class Env
     	Env.replicaManagerSvInfoSet = replicaManagerSvInfoSet; 
     	Env.replicaSvInfoSet = replicaSvInfoSet;
     	Env.replicaIntranetSvInfoSet = replicaIntranetSvInfoSet;
-    	Env.replicaToReplicaManagerSvInfoSet = replicaRMSvInfoSet;
+    	Env.replicaSyncDbSvInfoSet = replicaSyncDbSvInfoSet;
     }
     
     /**
@@ -86,7 +86,7 @@ public class Env
     	replicaManagerSvInfoSet = new HashMap<String, ServerInfo>();
     	replicaSvInfoSet = new HashMap<String, Map<Bank, ServerInfo>>();
     	replicaIntranetSvInfoSet = new HashMap<String, Map<Bank, ServerInfo>>();
-    	replicaToReplicaManagerSvInfoSet = new HashMap<String, Map<Bank, ServerInfo>>();
+    	replicaSyncDbSvInfoSet = new HashMap<String, Map<Bank, ServerInfo>>();
     	
     	setLogFileEnabled(true);
     	setLogConsoleEnabled(true);
@@ -111,10 +111,10 @@ public class Env
     	replicaIntranetSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
     	replicaIntranetSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
 
-    	replicaToReplicaManagerSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
 
     	name = Constant.MACHINE_NAME_MATHIEU;
     	replicaManagerSvInfoSet.put(name, new ServerInfo(Constant.getReplicaManagerName(name), "127.0.0.1", port++));
@@ -128,10 +128,10 @@ public class Env
     	replicaIntranetSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
     	replicaIntranetSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
 
-    	replicaToReplicaManagerSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
     	
     	name = Constant.MACHINE_NAME_PASCAL;
     	replicaManagerSvInfoSet.put(name, new ServerInfo(Constant.getReplicaManagerName(name), "127.0.0.1", port++));
@@ -145,10 +145,10 @@ public class Env
     	replicaIntranetSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
     	replicaIntranetSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
 
-    	replicaToReplicaManagerSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
     	
     	name = Constant.MACHINE_NAME_RICHARD;
     	replicaManagerSvInfoSet.put(name, new ServerInfo(Constant.getReplicaManagerName(name), "127.0.0.1", port++));
@@ -162,10 +162,10 @@ public class Env
     	replicaIntranetSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
     	replicaIntranetSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
 
-    	replicaToReplicaManagerSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
-    	replicaToReplicaManagerSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.put(name, new HashMap<Bank, ServerInfo>());
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Dominion, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Dominion), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.National, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.National), "127.0.0.1", port++));
+    	replicaSyncDbSvInfoSet.get(name).put(Bank.Royal, new ServerInfo(Constant.getReplicaNameFromBank(name, Bank.Royal), "127.0.0.1", port++));
     }
 
 	private static synchronized void writeToLogFile(String message)
@@ -410,8 +410,8 @@ public class Env
 	 * getReplicaToReplicaManagerServerInfo
 	 * @return
 	 */
-	public static ServerInfo getReplicaToReplicaManagerServerInfo(String machineName, Bank bank) {
-		Map<Bank, ServerInfo> map = replicaToReplicaManagerSvInfoSet.get(machineName);
+	public static ServerInfo getReplicaSyncDbServerInfo(String machineName, Bank bank) {
+		Map<Bank, ServerInfo> map = replicaSyncDbSvInfoSet.get(machineName);
 		if(map != null)
 		{
 			return map.get(bank);
@@ -423,8 +423,8 @@ public class Env
 	 * getReplicaToReplicaManagerServerInfo
 	 * @return
 	 */
-	public static ServerInfo getReplicaToReplicaManagerServerInfo() {
-		Map<Bank, ServerInfo> map = replicaToReplicaManagerSvInfoSet.get(Env.getMachineName());
+	public static ServerInfo getReplicaSyncDbServerInfo() {
+		Map<Bank, ServerInfo> map = replicaSyncDbSvInfoSet.get(Env.getMachineName());
 		if(map != null)
 		{
 			return map.get(Env.getCurrentBank());
@@ -437,8 +437,8 @@ public class Env
 	 * @param bank
 	 * @return
 	 */
-	public static ServerInfo getReplicaToReplicaManagerServerInfo(Bank bank) {
-		Map<Bank, ServerInfo> map = replicaToReplicaManagerSvInfoSet.get(Env.getMachineName());
+	public static ServerInfo getReplicaSyncDbServerInfo(Bank bank) {
+		Map<Bank, ServerInfo> map = replicaSyncDbSvInfoSet.get(Env.getMachineName());
 		if(map != null)
 		{
 			return map.get(bank);

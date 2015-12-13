@@ -405,7 +405,9 @@ public class FrontEnd extends FrontEndPOA {
 			byte[] incomingData = new byte[incomingPacket.getLength()];
 			System.arraycopy(incomingPacket.getData(), incomingPacket.getOffset(), incomingData, 0,
 					incomingPacket.getLength());
-			opSequenceNbr = (long) Serializer.deserialize(incomingData);
+			
+			UDPMessage msg = Serializer.deserialize(incomingData);
+			opSequenceNbr = msg.getSequenceNumber();
 	
 		} catch (ClassNotFoundException | IOException e) {
 			if (clientSocket != null) {
