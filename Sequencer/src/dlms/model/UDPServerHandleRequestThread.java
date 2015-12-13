@@ -20,14 +20,24 @@ public class UDPServerHandleRequestThread extends shared.udp.UDPServerHandleRequ
 	{
 		udpMessage.setSequenceNumber(incrementCount());
 
-		// Forward message to all replica with override to send back to FrontEnd
-		// Otherwise the message will be sent back to the sequencer
-		udpMessage.overwriteDestination(Env.getFrontEndServerInfo().getIpAddress(), Env.getFrontEndServerInfo().getPort());
-		
-		int nCount = this.sendToAll(udpMessage);
-		System.out.println("Message was forward to " 
-				+ nCount + " hosts with sequence number " 
-				+ udpMessage.getSequenceNumber());
+		try {
+			
+			// Reply to FE as an ACK packet
+			this.send(udpMessage);
+
+			// Forward message to all replica with override to send back to FrontEnd
+			// Otherwise the message will be sent back to the sequencer
+			udpMessage.overwriteDestination(Env.getFrontEndServerInfo().getIpAddress(), Env.getFrontEndServerInfo().getPort());
+			
+			int nCount = this.sendToAll(udpMessage);
+			System.out.println("Message was forward to " 
+					+ nCount + " hosts with sequence number " 
+					+ udpMessage.getSequenceNumber());
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
