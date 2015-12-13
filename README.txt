@@ -1,5 +1,7 @@
 
-STARTING THE APPLICATION
+Project repo: https://github.com/erkkiperkele/6231-Project.git
+
+STARTING THE APPLICATION (ORBD and Front End Only)
 --------------------------------------------
 
 ** Step 1 - Start the ORB daemon
